@@ -13,7 +13,19 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerGuia"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></androidx.recyclerview.widget.RecyclerView>
+        android:layout_height="match_parent"
+        ></androidx.recyclerview.widget.RecyclerView>
+
+
+
+
+
+    <FrameLayout
+
+        android:id="@+id/fragmentContainer"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center" />
 
 
 
