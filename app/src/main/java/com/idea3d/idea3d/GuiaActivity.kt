@@ -3,6 +3,7 @@ package com.idea3d.idea3d
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -11,6 +12,7 @@ import com.idea3d.idea3d.databinding.ActivityGuiaBinding
 class GuiaActivity : AppCompatActivity(), OnFragmentActionsListener {
 
     private lateinit var binding: ActivityGuiaBinding
+
 
     val guiaErrores: List<Problemas> = listOf(
         Problemas("hilos","sale con hilos", "retracción", "picos", "temperatura", "@drawable/logo"),
@@ -33,8 +35,6 @@ class GuiaActivity : AppCompatActivity(), OnFragmentActionsListener {
 
         initAdapter()
 
-
-
     }
 
     fun initAdapter(){
@@ -45,22 +45,18 @@ class GuiaActivity : AppCompatActivity(), OnFragmentActionsListener {
 
     }
 
-    override fun onClickFragmentButton() {
-        Toast.makeText(this, "El botón ha sido pulsado", Toast.LENGTH_SHORT).show()
-        loadFragment(SolucionFragment())
-    }
+    override fun onClickFragmentButton(valor:Int, boton:Int) {
 
-    /*override fun OnResolucionClick() {
-
-
-    }*/
-
-
-    /*private fun loadFragment(fragment: Fragment) {
+        val fragment= SolucionFragment()
+        val bundle = Bundle()
+        bundle.putInt("valor", valor)
+        bundle.putInt("boton", boton)
+        fragment.arguments=bundle
         val fragmentTransaction = supportFragmentManager.beginTransaction()
-        fragmentTransaction.add(R.id.fragmentContainer, fragment)
+        fragmentTransaction.replace(R.id.fragmentContainer, fragment)
+        fragmentTransaction.addToBackStack(null)
         fragmentTransaction.commit()
-    }*/
+    }
 
 
 }

@@ -11,16 +11,18 @@ import com.idea3d.idea3d.databinding.FragmentSolucionBinding
 
 class SolucionFragment : Fragment() {
 
-    private var _binding:FragmentSolucionBinding?=null
-    private val binding get()=_binding!!
+    private var _binding: FragmentSolucionBinding? = null
+    private val binding get() = _binding!!
 
     private var listener: OnFragmentActionsListener? = null
+
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
         if (context is OnFragmentActionsListener) {
             listener = context
         }
+
     }
 
 
@@ -28,15 +30,25 @@ class SolucionFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+
         _binding= FragmentSolucionBinding.inflate(inflater, container, false)
         return binding.root
     }
 
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.btnPlus.setOnClickListener { listener?.onClickFragmentButton() }
+
+        if(arguments != null) {
+            val boton = requireArguments().getInt("boton")
+            val valor = requireArguments().getInt("valor")
+            binding.textView.text = "el valor es$valor y el boton es $boton"
+        }
     }
+
+    //binding.btnPlus.setOnClickListener { listener?.onClickFragmentButton() }
+
 
 
     override fun onDetach() {

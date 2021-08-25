@@ -6,13 +6,12 @@
     android:background="@color/teal_200"
     tools:context=".SolucionFragment">
 
-    <Button
-    android:id="@+id/btnPlus"
-    android:text="+1"
-    android:layout_gravity="center"
-    android:background="@color/purple_200"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"/>
 
-
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="Hola soy la información que contiene este fragmento"
+        android:textSize="34sp" />
 </FrameLayout>

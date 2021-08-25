@@ -10,9 +10,7 @@ import com.idea3d.idea3d.databinding.ListProblemasBinding
 class problemasAdapter (private val itemClickListener:OnFragmentActionsListener,
                         val guiaErrores:List<Problemas>): RecyclerView.Adapter<problemasAdapter.ProblemasHolder>() {
 
-    /*interface OnResolucionActionListener{
-        fun OnResolucionClick()
-    }*/
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProblemasHolder {
         val itemBinding =
@@ -23,6 +21,7 @@ class problemasAdapter (private val itemClickListener:OnFragmentActionsListener,
 
     override fun onBindViewHolder(holder: ProblemasHolder, position: Int) {
         holder.render(guiaErrores[position])
+
 
     }
 
@@ -35,7 +34,8 @@ class problemasAdapter (private val itemClickListener:OnFragmentActionsListener,
 
 
         fun render(guiaErrores: Problemas) {
-            itemBinding.resolucionUno.setOnClickListener { itemClickListener.onClickFragmentButton() }
+
+            itemBinding.resolucionUno.setOnClickListener { itemClickListener.onClickFragmentButton(bindingAdapterPosition, 1) }
 
             itemBinding.problemaString.text = guiaErrores.NombreProblema
             itemBinding.descripcionString.text = guiaErrores.Desripcion
