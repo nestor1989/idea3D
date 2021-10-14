@@ -1,4 +1,4 @@
-package com.idea3d.idea3d
+package com.idea3d.idea3d.ui.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -16,24 +16,31 @@ class MainActivity : AppCompatActivity() {
         binding.guiaBoton.setOnClickListener { goGuia() }
         binding.infoBoton.setOnClickListener { goInfo() }
         binding.calcuBoton.setOnClickListener { goCalcu() }
+        binding.newsBoton.setOnClickListener { goNews() }
 
 
     }
 
 
-    fun goGuia(){
+    private fun goGuia(){
         val intent = Intent(this, GuiaActivity::class.java)
         startActivity(intent)
     }
 
-    fun goInfo(){
+    private fun goInfo(){
+        val intent = Intent(this, InfoActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun goCalcu(){
         val intent = Intent(this, CalcuActivity::class.java)
         startActivity(intent)
     }
 
-    fun goCalcu(){
-        val intent = Intent(this, CalcuActivity::class.java)
+    private fun goNews(){
+        val intent = Intent(this, NewsActivity::class.java)
         startActivity(intent)
     }
+
 
 }

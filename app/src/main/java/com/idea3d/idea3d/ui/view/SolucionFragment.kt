@@ -1,4 +1,4 @@
-package com.idea3d.idea3d
+package com.idea3d.idea3d.ui.view
 
 
 import android.content.Context
@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.idea3d.idea3d.databinding.FragmentSolucionBinding
+import com.idea3d.idea3d.ui.view.OnFragmentActionsListener
 
 class SolucionFragment : Fragment() {
 

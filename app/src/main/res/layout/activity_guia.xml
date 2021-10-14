@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".GuiaActivity"
+    tools:context=".ui.view.GuiaActivity"
     tools:layout_editor_absoluteX="1dp"
     tools:layout_editor_absoluteY="1dp">
 
@@ -23,8 +23,8 @@
     <FrameLayout
 
         android:id="@+id/fragmentContainer"
-        android:layout_width="300dp"
-        android:layout_height="200dp"
+        android:layout_width="335dp"
+        android:layout_height="500dp"
         android:layout_gravity="center" />
 
 

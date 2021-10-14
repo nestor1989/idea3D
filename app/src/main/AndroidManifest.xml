@@ -2,34 +2,51 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.idea3d.idea3d">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
+        android:name=".MyApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:icon="@drawable/logoidea"
+        android:label="Idea 3D"
+        android:roundIcon="@drawable/logoidea"
         android:supportsRtl="true"
         android:theme="@style/Theme.Idea3D">
-        <activity android:name=".InfoActivity"></activity>
-        <activity android:name=".GuiaActivity" />
+
         <activity
-            android:name=".CalcuActivity"
+            android:name=".ui.view.NewsActivity"
+            android:exported="true"
+            android:label="@string/title_activity_news"
+            android:theme="@style/Theme.Idea3D.NoActionBar"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.view.InfoActivity"
+            android:exported="true"
+            android:label="@string/title_activity_info"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Idea3D.NoActionBar" />
+        <activity
+            android:name=".ui.view.GuiaActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.view.CalcuActivity"
             android:label="@string/title_activity_calcu"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.Idea3D.NoActionBar" />
         <activity
-            android:name=".MainActivity2"
-            android:label="@string/title_activity_main2"
-            android:theme="@style/Theme.Idea3D.NoActionBar" />
-        <activity
-            android:name=".calcuActivity"
-            android:label="@string/title_activity_calcu"
-            android:theme="@style/Theme.Idea3D.NoActionBar" />
-        <activity android:name=".MainActivity">
-            <intent-filter>
+            android:name=".ui.view.MainActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <intent-filter >
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

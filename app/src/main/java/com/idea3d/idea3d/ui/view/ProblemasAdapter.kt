@@ -1,13 +1,15 @@
-package com.idea3d.idea3d
+package com.idea3d.idea3d.ui.view
 
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 
 import androidx.recyclerview.widget.RecyclerView
+import com.idea3d.idea3d.R
 import com.idea3d.idea3d.databinding.ListProblemasBinding
+import com.idea3d.idea3d.data.model.Problemas
 
-class problemasAdapter (private val itemClickListener:OnFragmentActionsListener,
+class problemasAdapter (private val itemClickListener: OnFragmentActionsListener,
                         val guiaErrores:List<Problemas>): RecyclerView.Adapter<problemasAdapter.ProblemasHolder>() {
 
 
@@ -33,13 +35,21 @@ class problemasAdapter (private val itemClickListener:OnFragmentActionsListener,
         RecyclerView.ViewHolder(itemBinding.root) {
 
 
+
         fun render(guiaErrores: Problemas) {
 
             itemBinding.resolucionUno.setOnClickListener { itemClickListener.onClickFragmentButton(bindingAdapterPosition, 1) }
+            itemBinding.resolucionDos.setOnClickListener { itemClickListener.onClickFragmentButton(bindingAdapterPosition, 2) }
+            itemBinding.resolucionTres.setOnClickListener { itemClickListener.onClickFragmentButton(bindingAdapterPosition, 3) }
+
+            itemBinding.imagen.setImageResource(guiaErrores.imagen)
 
             itemBinding.problemaString.text = guiaErrores.NombreProblema
-            itemBinding.descripcionString.text = guiaErrores.Desripcion
+            itemBinding.descripcionString.text = guiaErrores.Descripcion
             itemBinding.resolucionUno.text = guiaErrores.Resolucion1
+            itemBinding.resolucionDos.text = guiaErrores.Resolucion2
+            itemBinding.resolucionTres.text= guiaErrores.Resolucion3
+
 
         }
 

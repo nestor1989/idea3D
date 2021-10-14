@@ -1,4 +1,4 @@
-package com.idea3d.idea3d
+package com.idea3d.idea3d.ui.view
 
 
 interface OnFragmentActionsListener {

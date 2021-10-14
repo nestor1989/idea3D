@@ -17,11 +17,33 @@
         <item>TPU</item>
         <item>Resina</item>
         <item>Nylon</item>
-
-
     </string-array>
 
+    <string name="abs_descripcion">¿Alguna vez armaste algo con piezas de Lego? Entonces tuviste ABS (acrilonitrilo butadieno estireno) en tus manos. Es el plástico más común en impresión 3D y eso es por su característica de ser un termoplástico flexible y altamente resistente a golpes. Hoy en día se utiliza, por ejemplo, en la carrocería de automotores, engranajes de electrodomésticos o las carcasas de los celulares.</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_info">InfoActivity</string>
+
+
+    <string name="Problema1">No extruye en el inicio de la impresión</string>
+    <string name="Descripcion1">No sale nada de plástico durante el inicio de la impresión.</string>
+    <string name="Problema2">La primer capa no se adhiere a la base</string>
+    <string name="Descripcion2">En el comienzo de la impresión, la primera capa no se pega a la cama caliente</string>
+    <string name="Problema3">Sale poco pláctico del nozzle</string>
+    <string name="Descripcion3">Falta plástico para unir correctamente los perimetros y el relleno </string>
+    <string name="Problema4">Sale mucho plástico del nozzle</string>
+    <string name="Descripcion4">Exceso de plástico en las capas superiores</string>
+    <string name="Problema5">Agujeros en las capas superiores</string>
+    <string name="Descripcion5">Huecos en la cara superior de las piezas</string>
+    <string name="Problema6">Hilos en el exterior de la pieza</string>
+    <string name="Descripcion6">Restos de hilos que desprende el cabezal y se pegan a la pieza</string>
+    <string name="Problema7">Deformación por exceso de temperatura</string>
+    <string name="Descripcion7">Imperfecciones en los detalles por sobrecalentamiento</string>
+    <string name="Problema8">Desplazamiento de capas</string>
+    <string name="Descripcion8">Se nota una mala calibración de los ejes desalineados</string>
+    <string name="Problema9">Filamento Atascado </string>
+    <string name="Descripcion9">Durante la impresión el plástico no avanza y el filamento se nota mordido</string>
+    <string name="title_activity_news">NewsActivity</string>
+    <string name="title_activity_list_screen">ListScreenActivity</string>
 
 
 </resources>

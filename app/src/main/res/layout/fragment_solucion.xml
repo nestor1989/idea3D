@@ -3,15 +3,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/teal_200"
-    tools:context=".SolucionFragment">
+    android:background="@drawable/gradiente"
+    android:textAlignment="textEnd"
+    tools:context=".ui.view.SolucionFragment">
 
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+
+        android:layout_marginHorizontal="20dp"
+        android:fontFamily="@font/roboto_thin"
         android:gravity="center"
         android:text="Hola soy la información que contiene este fragmento"
+        android:textAlignment="center"
+        android:textColor="@color/white"
         android:textSize="34sp" />
 </FrameLayout>

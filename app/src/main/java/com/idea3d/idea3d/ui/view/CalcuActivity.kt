@@ -1,12 +1,12 @@
-package com.idea3d.idea3d
+package com.idea3d.idea3d.ui.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Editable
 
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import com.idea3d.idea3d.R
 import com.idea3d.idea3d.databinding.ActivityCalcuBinding
 
 
