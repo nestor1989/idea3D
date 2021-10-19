@@ -42,6 +42,8 @@ class problemasAdapter (private val itemClickListener: OnFragmentActionsListener
             itemBinding.resolucionDos.setOnClickListener { itemClickListener.onClickFragmentButton(bindingAdapterPosition, 2) }
             itemBinding.resolucionTres.setOnClickListener { itemClickListener.onClickFragmentButton(bindingAdapterPosition, 3) }
 
+            itemBinding.imagen.setOnClickListener { itemClickListener.onImageClick(bindingAdapterPosition, guiaErrores.imagen) }
+
             itemBinding.imagen.setImageResource(guiaErrores.imagen)
 
             itemBinding.problemaString.text = guiaErrores.NombreProblema

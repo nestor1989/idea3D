@@ -83,17 +83,11 @@ fun RecycleCard(info: Info) {
 @Composable
 fun RecycleV (recInfo: List<Info>){
 
-    Column(modifier=Modifier.padding(16.dp)) {
+   Column(modifier=Modifier.padding(16.dp)) {
 
-        Image(
-            painterResource(R.drawable.torre),
-            contentDescription = "imagen",
-            modifier=Modifier.size(150.dp).fillMaxWidth()
+        Spacer(modifier = Modifier.padding(83.dp))
 
-            )
-        Spacer(modifier = Modifier.padding(16.dp))
-
-        LazyRow(
+        LazyRow(verticalAlignment = Alignment.CenterVertically ,
             contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)
         )
         {

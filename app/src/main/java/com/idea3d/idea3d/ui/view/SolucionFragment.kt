@@ -7,15 +7,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.idea3d.idea3d.data.model.Problemas
+import com.idea3d.idea3d.data.model.problemasModel.Companion.guiaErrores
 import com.idea3d.idea3d.databinding.FragmentSolucionBinding
 import com.idea3d.idea3d.ui.view.OnFragmentActionsListener
 
-class SolucionFragment : Fragment() {
+class SolucionFragment  : Fragment() {
 
     private var _binding: FragmentSolucionBinding? = null
     private val binding get() = _binding!!
 
     private var listener: OnFragmentActionsListener? = null
+
 
 
     override fun onAttach(context: Context) {
@@ -44,11 +47,21 @@ class SolucionFragment : Fragment() {
         if(arguments != null) {
             val boton = requireArguments().getInt("boton")
             val valor = requireArguments().getInt("valor")
-            binding.textView.text = "el valor es$valor y el boton es $boton"
+            val imagen= requireArguments().getInt("imagen")
+
+            when (boton){
+                0->{ binding.imageView.visibility = View.VISIBLE
+                    binding.imageView.setImageResource(imagen)
+                }
+                1, 2, 3 -> {binding.textView.text = "el valor es$valor y el boton es $boton"}
+            }
+
+
+
         }
     }
 
-    //binding.btnPlus.setOnClickListener { listener?.onClickFragmentButton() }
+
 
 
 

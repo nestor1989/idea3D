@@ -8,7 +8,7 @@ class problemasModel {
 
         val guiaErrores: List<Problemas> = listOf(
             Problemas("No extruye en el inicio de la impresión", "No sale nada de plástico durante el inicio de la impresión.", "No sale plástico del nozzle", "El extrusor está tapado", "la vida", R.drawable.mujer),
-            Problemas("La primer capa no se adhiere a la base", "En el comienzo de la impresión, la primera capa no se pega a la cama caliente", "No sale plástico del nozzle", "El extrusor está tapado", "la vida", R.drawable.mujer),
+            Problemas("La primer capa no se adhiere a la base", "En el comienzo de la impresión, la primera capa no se pega a la cama caliente", "No sale plástico del nozzle", "El extrusor está tapado", "la vida", R.drawable.bati),
             Problemas("Sale poco plástico del nozzle", "Falta plástico para unir correctamente los perimetros y el relleno", "No sale plástico del nozzle", "El extrusor está tapado", "la vida", R.drawable.mujer),
             Problemas("Sale mucho plástico del nozzle", "Exceso de plástico en las capas superiores", "No sale plástico del nozzle", "El extrusor está tapado", "la vida", R.drawable.mujer),
             Problemas("Agujeros en las capas superiores", "Huecos en la cara superior de las piezas", "No sale plástico del nozzle", "El extrusor está tapado", "la vida", R.drawable.mujer),

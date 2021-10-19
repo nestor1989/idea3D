@@ -45,5 +45,17 @@ class GuiaActivity : AppCompatActivity(), OnFragmentActionsListener {
         fragmentTransaction.commit()
     }
 
+    override fun onImageClick(valor: Int, imagen:Int) {
+        val fragment= SolucionFragment()
+        val bundle = Bundle()
+        bundle.putInt("valor", valor)
+        bundle.putInt("imagen", imagen)
+        fragment.arguments=bundle
+        val fragmentTransaction = supportFragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.fragmentContainer, fragment)
+        fragmentTransaction.addToBackStack(null)
+        fragmentTransaction.commit()
+    }
+
 
 }
