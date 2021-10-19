@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.idea3d.idea3d.Constantes.Companion.API_KEY
 import com.idea3d.idea3d.data.model.News
 import com.idea3d.idea3d.data.repo.NewsRepository
 import dagger.hilt.android.lifecycle.HiltViewModel

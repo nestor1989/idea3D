@@ -1,22 +1,26 @@
 package com.idea3d.idea3d.ui.view
 
 
+
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.aspectRatio
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
+
+import androidx.compose.material.icons.Icons
+
+import androidx.compose.material.icons.filled.Star
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+
 import androidx.compose.ui.layout.ContentScale
 
 
@@ -58,11 +62,20 @@ fun ListScreenTo(
     Scaffold(
         topBar = {
             TopAppBar(
-                modifier=Modifier
-                    .background(Color.Red)
-                ,
-                title = { Text("3D News!") }
+
+                title = {
+                    Row{
+                        Text("3D News!")
+                        Spacer (modifier=Modifier.width(16.dp))
+                        Icon(Icons.Default.Star, contentDescription = null)
+                    }
+
+                },
+                backgroundColor = MaterialTheme.colors.primary
+
+
             )
+
         }
     )
     {
@@ -81,8 +94,8 @@ fun ListScreenTo(
 
                         Image(
                         modifier = Modifier
-                                .fillMaxWidth()
-                                .aspectRatio(16f / 9f),
+                            .fillMaxWidth()
+                            .aspectRatio(16f / 9f),
 
                             painter = rememberImagePainter(
                                 data = new.urlToImage,
@@ -110,7 +123,9 @@ fun ListScreenTo(
 @Preview(showBackground = true)
 @Composable
 fun ListPreview() {
-    Idea3DTheme {
+    Idea3DTheme (
+        darkTheme = false
+            ) {
         ListScreenTo(
             navController = rememberNavController(),
             news = arrayListOf(

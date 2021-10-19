@@ -1,8 +1,7 @@
 package com.idea3d.idea3d.data.repo
 
-import com.idea3d.idea3d.Constantes.Companion.API_KEY
 import com.idea3d.idea3d.data.model.News
-import com.idea3d.idea3d.data.model.provider.NewsProvider
+import com.idea3d.idea3d.data.network.NewsProvider
 import javax.inject.Inject
 
 interface NewsRepository {

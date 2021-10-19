@@ -5,17 +5,21 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
+import com.idea3d.idea3d.ui.theme.Blue800
+import com.idea3d.idea3d.ui.theme.CyanA400
+import com.idea3d.idea3d.ui.theme.CyanA700
+import com.idea3d.idea3d.ui.theme.Purple500
 
 private val DarkColorPalette = darkColors(
-    primary = Purple200,
-    primaryVariant = Purple700,
-    secondary = Teal200
+    primary = Blue800,
+    primaryVariant = CyanA700,
+    secondary = CyanA700
 )
 
 private val LightColorPalette = lightColors(
-    primary = Purple500,
-    primaryVariant = Purple700,
-    secondary = Teal200
+    primary = Blue800,
+    primaryVariant = CyanA700,
+    secondary = CyanA400
 
     /* Other default colors to override
     background = Color.White,

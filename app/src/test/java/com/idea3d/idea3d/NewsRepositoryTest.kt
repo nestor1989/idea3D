@@ -2,7 +2,7 @@ package com.idea3d.idea3d
 
 
 
-import com.idea3d.idea3d.data.model.provider.NewsProvider
+import com.idea3d.idea3d.data.network.NewsProvider
 import com.idea3d.idea3d.data.repo.ApiKeyInvalidException
 import com.idea3d.idea3d.data.repo.MissingApiKeyException
 import com.idea3d.idea3d.data.repo.NewsRepositoryImp

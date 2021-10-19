@@ -1,6 +1,6 @@
-package com.idea3d.idea3d.di
+package com.idea3d.idea3d.core.di
 
-import com.idea3d.idea3d.data.model.provider.NewsProvider
+import com.idea3d.idea3d.data.network.NewsProvider
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

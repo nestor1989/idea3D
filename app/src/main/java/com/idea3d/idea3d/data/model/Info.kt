@@ -7,5 +7,5 @@ data class Info(
 
     @DrawableRes val imagenRes: Int,
     val titulo:String,
-    val descripcion: Int
+    val descripcion: String
 )
