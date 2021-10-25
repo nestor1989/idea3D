@@ -30,6 +30,7 @@ class GuiaActivity : AppCompatActivity(), OnFragmentActionsListener {
         val adapter = problemasAdapter(this, guiaErrores)
         binding.recyclerGuia.adapter = adapter
 
+
     }
 
     override fun onClickFragmentButton(valor:Int, boton:Int) {

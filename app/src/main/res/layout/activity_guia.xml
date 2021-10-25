@@ -17,14 +17,11 @@
         ></androidx.recyclerview.widget.RecyclerView>
 
 
-
-
-
     <FrameLayout
 
         android:id="@+id/fragmentContainer"
-        android:layout_width="335dp"
-        android:layout_height="500dp"
+        android:layout_width="393dp"
+        android:layout_height="622dp"
         android:layout_gravity="center" />
 
 

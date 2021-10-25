@@ -2,6 +2,7 @@ package com.idea3d.idea3d.ui.view
 
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 
 import androidx.recyclerview.widget.RecyclerView
@@ -36,7 +37,7 @@ class problemasAdapter (private val itemClickListener: OnFragmentActionsListener
 
 
 
-        fun render(guiaErrores: Problemas) {
+          fun render(guiaErrores: Problemas) {
 
             itemBinding.resolucionUno.setOnClickListener { itemClickListener.onClickFragmentButton(bindingAdapterPosition, 1) }
             itemBinding.resolucionDos.setOnClickListener { itemClickListener.onClickFragmentButton(bindingAdapterPosition, 2) }
@@ -48,13 +49,30 @@ class problemasAdapter (private val itemClickListener: OnFragmentActionsListener
 
             itemBinding.problemaString.text = guiaErrores.NombreProblema
             itemBinding.descripcionString.text = guiaErrores.Descripcion
-            itemBinding.resolucionUno.text = guiaErrores.Resolucion1
-            itemBinding.resolucionDos.text = guiaErrores.Resolucion2
-            itemBinding.resolucionTres.text= guiaErrores.Resolucion3
+              itemBinding.resolucionUno.text= guiaErrores.Resolucion1
+            if (guiaErrores.Resolucion2!=null) {
+                itemBinding.resolucionDos.text = guiaErrores.Resolucion2
+                itemBinding.resolucionDos.visibility=View.VISIBLE
+            }else {itemBinding.resolucionDos.visibility=View.INVISIBLE
+            }
+              if (guiaErrores.Resolucion3!=null) {
+                  itemBinding.resolucionTres.text = guiaErrores.Resolucion3
+                  itemBinding.resolucionTres.visibility=View.VISIBLE
+              }else {itemBinding.resolucionTres.visibility=View.INVISIBLE
+              }
+
+            }
+
+
+
+
+
+
+
+
 
 
         }
 
     }
 
-}

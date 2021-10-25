@@ -25,28 +25,166 @@
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_info">InfoActivity</string>
-
-
-    <string name="Problema1">No extruye en el inicio de la impresión</string>
-    <string name="Descripcion1">No sale nada de plástico durante el inicio de la impresión.</string>
-    <string name="Problema2">La primer capa no se adhiere a la base</string>
-    <string name="Descripcion2">En el comienzo de la impresión, la primera capa no se pega a la cama caliente</string>
-    <string name="Problema3">Sale poco pláctico del nozzle</string>
-    <string name="Descripcion3">Falta plástico para unir correctamente los perimetros y el relleno </string>
-    <string name="Problema4">Sale mucho plástico del nozzle</string>
-    <string name="Descripcion4">Exceso de plástico en las capas superiores</string>
-    <string name="Problema5">Agujeros en las capas superiores</string>
-    <string name="Descripcion5">Huecos en la cara superior de las piezas</string>
-    <string name="Problema6">Hilos en el exterior de la pieza</string>
-    <string name="Descripcion6">Restos de hilos que desprende el cabezal y se pegan a la pieza</string>
-    <string name="Problema7">Deformación por exceso de temperatura</string>
-    <string name="Descripcion7">Imperfecciones en los detalles por sobrecalentamiento</string>
-    <string name="Problema8">Desplazamiento de capas</string>
-    <string name="Descripcion8">Se nota una mala calibración de los ejes desalineados</string>
-    <string name="Problema9">Filamento Atascado </string>
-    <string name="Descripcion9">Durante la impresión el plástico no avanza y el filamento se nota mordido</string>
     <string name="title_activity_news">NewsActivity</string>
     <string name="title_activity_list_screen">ListScreenActivity</string>
 
+
+    <string name="b1v0">Algunas impresoras, cuando están en reposo a la espera de comenzar la impresión, rezuman plástico por la boquilla debido a una temperatura excesiva del hotend. Esto provoca que en los primeros segundos de impresión no salga plástico.
+
+SOLUCIONES:
+
+Habilitar la opción “Skirt” o “Falda”, con esto conseguimos imprimir un perímetro exterior previo a la pieza y que el cabezal se purgue. Slic3r: Print settings > Skirt and brim. Ejemplo Loops=2. CURA y Simplify también lo permiten.
+Ajustar la configuración de temperatura para el material utilizado (Slic3r: Filament settings > extruder). Si sale material por la boquilla durante mas de 20 segundos cuando el fusor está parado hay que reducir la temperatura. IMPORTANTE: el extrusor debe retraer al menos 10mm siempre que entra en posición de reposo para que el enfriemiento lo haga en la zona del tefón y el arranque sea correcto. Comprobar que en las últimas líneas de los gcodes se produce esta retracción, sino añadir dos líneas: 1.- G92 E0 y 2.- G1 E-15 F6000</string>
+    <string name="b1v1">Una vez que la cama está correctamente nivelada, hay que determinar la altura adecuada del Nozzle con respecto a la misma, de alguna de las siguientes maneras:
+
+Si nuestro modelo de impresora es una prusa i3, lo que podemos hacer es bajar el final de carrera del eje Z, de esta manera, lo que hacemos es disminuir la distancia de nozzle con respecto a la cama.
+Ajuste de la altura del nozzle mediante hardware. Para ello deberemos de tener en cuenta el parámetro de Z offset. En este parámetro, lo que hacemos es indicar a la impresora que acerque “-x mm” la boquilla de la cama caliente. Ejemplo: si determinados un valor de -0.05mm, cuando vaya a comenzar la impresión, el eje z bajara 0.05mm y de esta manera facilitamos que el plástico salga sin ningún problema. El valor dependerá de cada situación e impresora, lo conveniente establecer un valor e ir variando el valor hasta el punto que el nozzle ya esté cerca con la base caliente.</string>
+    <string name="b1v2">Lo primero que hay que comprobar es que se le ha indicado al software el diámetro correcto del filamento que se está imprimiendo. Se puede comprobar con un calibre que diámetro tiene el filamento exactamente. Existen los siguientes valores de mercado: 1.75mm, 2.85mm ó 3mm.</string>
+    <string name="b1v3">Cuando se imprimen piezas puede darse el caso de que se extruya más plástico de lo debido, algunas impresoras no disponen de mecanismos para controlar el flujo de plástico.
+
+Para subsanar el problema y establecer los parámetros óptimos de extrusión de plástico, puedes seguir los mismos pasos  del problema anterior, “Extrusión de poco plástico”, pero realizando la operación inversa, ajusta los parametros del filamento en tu programa laminador (Slic3r, cura, skeinforge, etc.). Deberás aumentra el dimetro para reducir la cantidad de plástico que extruye la máquina o reducir el factor multiplicador.
+
+Ejemplo: Diametro: 1,75 (cambiar por 1,80)</string>
+    <string name="b1v4">Comprobar el número de capas superiores solidas que se han configurado y qué relleno hemos establecido durante la impresión de la pieza.
+
+Ejemplo: Si se ha establecido un relleno del 10% y dos capas superiores solidas, seguramente aparezcan huecos como en la imagen.
+
+SOLUCIÓN: aumentar el número de capas superiores solidas, de esta manera nos aseguramos que sea solida al 100%.
+
+Parametro Slic3r: Print settings > Layers and perimeters > Solid layers > Top</string>
+    <string name="b1v5">Este parámetro determina cuanto plástico es retraído en los desplazamientos del cabezal cuando no imprime. Cuanto más filamento se retraiga, menos filamento rebosará por el nozzle. Si dispones de un extrusor direct-drive, el valor adecuado está entre 1 y 1.5mm.
+
+Parametro en Slic3r: Printer settings > Extruder > Length
+    Este parámetro determina con qué velocidad se retrae el filamento. Si la retracción es demasiado rápida, el filamento puede crear burbujas dentro de la boquilla o un movimiento rápido de la polea puede morder el filamento. Los valores normales de trabajo están comprendidos entre 30-60mm/seg. Este parámetro puede variar un poco en función del tipo de filamento que estamos imprimiendo, será el propio fabricante el que proporcione esos valores.
+
+Los materiales flexibles funcionan correctamente entre 0-60mm/s dependiendo de su dureza. Parametro en Slic3r: Printer settings > Extruder 1 > Speed</string>
+    <string name="b1v6">Si no disponemos de ventilación de capa, esta es la razón principal.
+
+Pack Ventilación de capa Legio
+
+En caso de disponer de ventilación, puede ser que no esté bien configurado el flujo de aire. Para modificar esa opción, hay que acceder a los parámetros de configuración del filamento y establecer los parámetros correctos de “Cooling”.
+
+Parametros en Slic3r: Filament settings > Cooling.</string>
+    <string name="b1v7">Demasiada velocidad puede provocar que algún motor pierda pasos. Si los desplazamientos son demasiados rápidos, reduce en un 50% la velocidad de desplazamiento sin extrusión.
+
+Parametro Slic3r: Print settings > Speed > Travel.</string>
+    <string name="b1v8">La presión ejercida en el filamento sobre el motor no es correcta.
+
+EXTRUSOR GREG’S WADE: los dos tornillos que aprietan el filamento están demasiado flojos. Tambien puede ser que el rodamiento que empuja el filamento contra el hobbed bolt no gire con demasiada fluidez.
+
+EXTRUSOR DIRECT DRIVE: puede ser que la polea que está en el motor no esté en perfectas condiciones. Limpiar los dientes y comprobar que no están gastados. Tambien puede ser que la leva no ejerza la suficiente presión.</string>
+    <string name="b1v9">Comprobar que el termistor del hotend está en su sitio y no está fuera de lugar, esto puede provocar que la boquilla del hotend no esté a la temperatura configurada.
+
+Comprobar que la temperatura de fusión es la correcta, revisar los parámetros de laminación asegurándonos de que hemos elegido bien tanto el material como el color.</string>
+    <string name="b1v10">El tubo del interior de la varilla del hotend esta dañado y hay que cambiarlo.</string>
+    <string name="b1v11">Si la velocidad de impresión del relleno (infill) es demasiada alta, las capas podrían no fusionarse correctamente.
+
+SOLUCIÓN: disminuir un 50% la velocidad de impresión del relleno.
+
+Parametro en Slic3r: Print settings > Speed > Infill.</string>
+    <string name="b1v12">Cuando el cabezal se desplaza o cambia de capa, el extrusor debe hacer una retracción para evitar que goteé plástico. Si no es así, podemos encontrar restos de filamento provocando que la pieza no tenga un acabado perfecto.
+
+SOLUCIÓN:
+
+ – Ver apartado “HILOS”, retracción.
+
+ – En el caso de que se produzca al finalizar la capa, hay que modificar el parámetro denominado “Extra length on restart”, este nos indica cuánnto plástico se debe de tirar cuando cambia de capa o pieza. Por defecto debe de estar a 0 mm.</string>
+    <string name="b1v13">Podemos modificar el parámetro que controla el % entre el perímetro y el relleno, denominándose “Infill/Perimeter Overlap”. Este parámetro indica que porcentaje de relleno se superpone en los perímetros. Si tenemos el problema como en la figura debemos de aumentar el valor de este parámetro y probar que se ha solucionado.
+
+SOLUCIÓN:
+
+Aumentar un 30% el parámetro “Infill/Perimeter Overlap”. Si no es suficiente, aumentar más dicho parámetro.
+
+Parámetro Slic3r: Print settings > Advanced > Infill/Perimeter Overlap.</string>
+    <string name="b1v14">Si observa que durante la impresión de las primeras capas, se están despegando desde el inicio, ver el apartado “La primera capa no se pega a la base caliente”.</string>
+    <string name="b1v15">Este efecto aparece si la primera de capa se imprime demasiado cerca del cristal. SOLUCIÓN: Revise el apartado “Nozzle demasiado cerca de la cama caliente”.</string>
+    <string name="b1v16">Este error se produce cuando el eje Z tiene holgura y el movimiento lineal en dicho eje no es recto. Dicha holgura puede producirse por varias razones: – Varillas lisas: alguna de las varillas lisas se mueve o vibra. Fijar correctamente. – Varillas roscadas: comprobar que están rectas y concéntricas con los motores. – Tuercas Eje Z: asegurarse de que las tuercas que permiten el movimiento en el eje Z están fijas</string>
+    <string name="b1v17">Ajustar la velocidad de impresión, para ello debe revisar los parámetros de velocidad de movimientos de impresión de su impresora. Ir reduciendo los valores hasta conseguir una buena impresión de la pieza. Parámetros Slic3r: Print settings > Speed.</string>
+    <string name="b1v18">Revisar el apartado HUECOS ENTRE EL RELLENO Y LA SUPERFICIE EXTERIOR. Deberemos de aumentar el valor de relleno para conseguir el mejor acabo.</string>
+    <string name="b1v19">Cambiar la boquilla del nozzle por una mas pequeña.
+
+Hay que tener en cuenta que la resolución de capa más alta será el 80% del diametro de la boquilla.
+
+Ejemplo: con una boquilla de 0.2mm podremos imprimir capas con una altura máxima de 0.16mm (0.2mm*80%=0.16mm).</string>
+    <string name="b1v20">La altura de capa nunca debe sobrepasar el 80% del diámetro de la boquilla. Ejemplo: si tenemos una boquilla de 0,4 mm, la altura de capa máxima será de 0,32 mm.</string>
+    <string name="b1v21">Este error se produce cuando la boquilla y la varilla roscada no están bien apretadas entre sí. SOLUCIÓN: Apretar bien la varilla roscada y la boquilla. EN CALIENTE (a 240º), sujetar bien el cuadradillo con un alicate y enroscar la boquilla hasta que haga tope. IMPORTANTE: Estamos trabajando con materiales de baja dureza (aluminio y latón), no apretar en exceso para no deformar las piezas.</string>
+    <string name="b1v22">SOLUCIÓN: Disminuir la altura de la primera capa. Recomendamos una altura de capa de 0.3mm. Parametro en Slic3r: Print Settings > Layer and perimeters > First layer height</string>
+
+    <string name="b2v0">probablemente el extrusor esté obstruido. Esto es provocado porque se ha quedado algo de plástico en el interior del Nozzle impidiendo que fluya el plástico. Hay que desmontar el extrusor, para ello deberá de ponerse en contacto con el fabricante del mismo para que le indique los pasos a seguir. </string>
+    <string name="b2v1">Normalmente la velocidad de impresión de la primera capa se debe de realizar a la mitad de velocidad. De esta manera lo que hacemos es asegurarnos de que el filamento se adhiere a la base. Se soluciona modificando el parámetro que se denomina “First Layer Speed”. Si indicamos un 50%, le estamos indicando a la impresora que imprima la primera capa a la mitad de velocidad que el resto de capas. Si le parece que todavía va demasiado rápida, disminuya el valor.</string>
+    <string name="b2v2">Si sigues con problemas en la impresión de piezas, hay que ajustar el valor del “extrusión multiplier”. Modificando este parámetro lo que conseguimos es variar cuanto plástico se extruye en cada impresión. Por ejemplo: por defecto está establecido el valor de 1, pero si lo aumentamos hasta 1.05, significa que se extruira un 5% más plástico que anteriormente. El valor típico para filamento PLA es de 0.9, mientras que para filamento ABS se tiende a un valor de cerca 1.0. Si realizas alguna modificación, es conveniente realizar una impresión de un cubo de calibración para comprobar que se ha subsanado el problema.</string>
+    <string name="b2v4">Si él % de relleno es demasiado pequeño, aparecerán huecos en las caras superiores, la superficie de apoyo es demasiado pequeña y el filamento se puede hundir.
+
+SOLUCIÓN: aumentar el % de relleno (infill). A partir de 14% no debe haber problemas </string>
+    <string name="b2v5">Una temperatura de extrusión incorrecta es uno de los problemas más comunes. Si la temperatura es demasiada alta, el filamento dentro de la boquilla, se vuelve demasiado viscoso y sale sin que el extrusor esté funcionando. Prueba a disminuir 5-10 grados la temperatura del extrusión, si en posición de reposo el plástico sigue saliendo continúa bajando la temperatura. </string>
+    <string name="b2v6">Si dispones de ventilador y todavía existe el problema, debería disminuir la temperatura de extrusión. De esta manera conseguiremos que el filamento se solidifique más rápido.
+
+Procure no disminuir demasiado la temperatura, puede provocar un atasco del hotend. </string>
+    <string name="b2v7">CORREAS: Un exceso o defecto de tensión provoca irregularidades en la transmisión de movimiento.
+
+ELECTRÓNICA: Las electrónicas disponen de drivers de control para los motores paso a paso, si no están ajustados a los mA debidos, el motor perderá pasos y las capas se desplazarán. Si disponemos de un polímetro, lo que haremos es ajustar la corriente de cada eje de motor acorde a la impresora que tengamos (puede probar con X=400 mA , Y=400 mA, Z=E=600 mA, cuando sean DRV8825, en caso contrario consultar los valores óptimos para el tipo de driver que dispone). Consulte al fabricante. </string>
+    <string name="b2v8">Si tenemos configurada una velocidad de extrusión demasiada rápida, estamos provocando que extruya más plástico de lo que el hotend es capaz de sacar por la boquilla. Podemos ajustar el flujo de plástico que va a echar durante la impresión, probaremos a reducir en un 50% e ir probando, hasta que consigamos eliminar el problema. </string>
+    <string name="b2v9">Extraer el filamento y cortar unos 20-30 cm para quitar cualquier tipo de impureza que pueda existir en ese segmento. Volver a cargar y con el hotend caliente empujar de forma manual para comprobar que sale por la boquilla sin ejercer excesiva presión.</string>
+    <string name="b2v10">Visitar el apartado de filamento mordido. </string>
+    <string name="b2v11">Puede que el patrón de relleno utilizado no sea adecuado. Prueba con otro patrón: rectangulares, lineales, panel de abeja,…
+
+SOLUCIÓN: Probar con el patrón honeycomb (panal de abeja), es el más utilizado por la robustez que aporta a la pieza.
+
+Parametro Slic3r: Print settings > Infill > Fill pattern.</string>
+    <string name="b2v12">Una temperatura de extrusión incorrecta es uno de los problemas más comunes. Si la temperatura es demasiada alta, el filamento dentro de la boquilla, se vuelve demasiado viscoso y sale por laboquilla aunque el extrusor esté parado. Prueba a disminuir 5-10 grados la temperatura de extrusión, si en posición de reposo el plástico sigue saliendo continúa bajando la temperatura.</string>
+    <string name="b2v13">Si imprimimos a una velocidad demasiado alta puede que las capas no se fusionen correctamente. SOLUCIÓN: Disminuir la velocidad de impresión del relleno de la capa superior un 50%. Parámetro en Slic3r: Print settings > Speed > Top solid infill. </string>
+    <string name="b2v14">Cualquier corriente de aire puede provocar que el material se retraiga demasiado y se despegue de la base.</string>
+    <string name="b2v15">Este efecto aparece si la primera de capa se imprime demasiado cerca del cristal. SOLUCIÓN: Revise el apartado “Nozzle demasiado cerca de la cama caliente”. </string>
+    <string name="b2v17">Si ha modificado alguno de los parámetros de aceleración del “firmware” de su impresora, puede haber provocado que los parámetros que ha introducidos no sean los óptimos para un buen funcionamiento.
+
+SOLUCIÓN:
+
+Debe ponerse en contacto con el soporte técnico para que le guíe sobre como proceder de forma adecuada.</string>
+    <string name="b2v18">La anchura de los perimetros es demasiado pequeña. SOLUCIÓN: aumentar anchura de perimetros. Parametro Slic3r: Print settings >Advanced > Perimeters. Puedes empezar por configurar el parametro con la misma medida que la boquilla. Es una medida acertada para la mayoría de los laminadores. Ejemplo: Si tenemos una boquilla de 0.4mm debemos configurar este parametro con un valor de 0.4.</string>
+    <string name="b2v19">También se puede indicar al software que disponemos de una boquilla de menor resolución de la que tenemos, y así conseguir que imprima con más detalle.
+
+Por ejemplo, si tenemos instalada una boquilla de 0.4mm en nuestro hotend, podemos configurar la impresora con  boquilla de 0.3mm. De esta manera conseguimos imprimir piezas con mas detalle y con la misma boquilla.
+
+IMPORTANTE: De alguna manera estamos “engañando” a la impresora por lo que otras zonas de la pieza podrían no imprimirse bien.</string>
+    <string name="b2v20">Si nota que sus capas no se unen y está seguro de que su altura de capa es la apropiada, es posible que el filamento extruido esté a una temperatura más baja de la necesaria para el tipo de plástico que utiliza. Debe de revisar la temperatura de extrusión hasta conseguir la temperatura adecuada para el filamento que se esta utilizando.
+
+SOLUCIÓN:
+
+Consultar las tablas de temperatura del filamento utilizado.</string>
+    <string name="b2v22">SOLUCIÓN: Aumentar la temperatura de la primera capa.
+
+Parametro Slic3r: Filament Settings > Temperature – Extruder – First layer.</string>
+
+    <string name="b3v0"> Esta es la causa mas común, el eje Z no está correctamente calibrado y la boquilla toca el cristal impidiendo que el plástico salga con facilidad. Este problema se observa durante la impresión de la primera capa.
+
+SOLUCIONES:
+
+Bajar la cama caliente de la impresora; siempre y cuando la impresora permita hacerlo. (LION PRO y LEGIO o similar manualmente, LION 2 y LION 2X aumentar el valor Z offset).
+Si nuestro modelo de impresora es una prusa o similar, lo que podemos hacer es subir el final de carrera del eje Z, de esta manera, lo que hacemos es aumentar la distancia de nozzle con respecto a la cama. </string>
+    <string name="b3v1">Cuando se deposita el filamento en una base fría, es normal que el plástico se enfríe más rápido provocando que no se pegue. Para evitar esto, si la impresora dispone de base caliente, aumentar la temperatura hasta conseguir que se adhiere mejor. La temperatura de la base caliente depende del tipo de filamento que se esté usando, es el propio fabricante el que indica la temperatura que hay que establecer para imprimir. Utilizar 3DLac o un adhesivo fuerte especifico para impresión 3D.
+
+Si disponemos de ventilación de capa, también provoca que se enfríe el filamento más rápido. Esto se soluciona deshabilitando que este activo el ventilador durante la impresión de la primera capa. </string>
+    <string name="b3v4">Si están bien ajustados los dos parametros anteriores (% de relleno y nº de capas superiores), tenemos un problema de extrusión insuficiente (ver Extrusión de poco plástico). </string>
+    <string name="b3v5">Si ajustando todos los parametros continuan los problemas, existe otra alternativa, habilitar la opción que evita cruzar espacios abiertos “Avoid crossing perimeters”.
+
+Parametro Slic3r: Print settings > Layers and perimeters > Avoid crossing perimeters.</string>
+    <string name="b3v6">Si se imprime a una velocidad muy elevada, las capas no se enfrían antes de depositar la siguiente.
+
+Parametro Slic3r:
+
+Filament settings > Cooling > Slow down if layer print time is below.
+
+Aumentar el tiempo del parametro “slow down if layer print time is below”. </string>
+    <string name="b3v8">Cada plástico y cada color por su tintada, tienen distintas propiedades, puede darse el caso de que durante la impresión la temperatura no sea la óptima imposibilitando que el filamento extruya adecuadamente y provocando que el filamento se “muerda”. Deberá de variar la temperatura de hotend hasta conseguir la temperatura adecuada. Consulte al fabricante. </string>
+    <string name="b3v9">Si no conseguimos desatascar el extrusor con el resto de métodos, aplicaremos la solución universal, desmontarlo y comprobar qué ha pasado.  </string>
+    <string name="b3v10">Si durante una impresión larga, puede darse el caso que el motor del extrusor se sobrecaliente provocando que el driver de control del mismo, desactive el motor, dejando de extruir filamento. Esto es provocado porque no están bien ajustado los mA del driver (ver apartado MECÁNICA Y ELECTRÓNICA del problema “desplazamiento de capas” como ajustar los drivers del motor).</string>
+    <string name="b3v11">Revisar el problema: EXTRUSIÓN DE POCO PLÁSTICO </string>
+    <string name="b3v13">Capas superiores insuficientes. Aumentar parámetro "Top" </string>
+    <string name="b3v14">Si estás imprimiendo con filamento ABS, deberás utilizar un fijador como 3DLac para que se pegue la primera capa correctamente. – Cuando se imprime con este tipo de plástico es conveniente crear  “brim” alrededor de la pieza. “Brim” consiste en crear una especie de alas que mejoran la adherencia de la pieza y evitan que la pieza se despegue de la base caliente. Parámetro Slic3r: Print settings > Skirt and brim > Brim (valor standard 3mm).</string>
+    <string name="b3v17">Suele ser causa de las correas, puede que estén flojas o demasiado tensas. Ver el apartado “DESPLAZAMIENTO DE CAPAS”.</string>
+    <string name="b3v19">Modificar el diseño 3D para conseguir que las paredes que son más finas puedan imprimirse mejor.</string>
+    <string name="b3v22">SOLUCIÓN: Aumentar ancho de linea de la primera capa.
+
+Parametro Slic3r: Print Settings > Advanced > First layer. (para boquilla de 0.4mm aumentar máximo a 0.8mm)</string>
 
 </resources>
