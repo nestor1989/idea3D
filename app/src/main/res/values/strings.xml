@@ -29,59 +29,50 @@
     <string name="title_activity_list_screen">ListScreenActivity</string>
 
 
-    <string name="b1v0">Algunas impresoras, cuando están en reposo a la espera de comenzar la impresión, rezuman plástico por la boquilla debido a una temperatura excesiva del hotend. Esto provoca que en los primeros segundos de impresión no salga plástico.
+    <string name="b1v0">Hay impresoras que cuando están en reposo a la espera de comenzar la impresión, rezuman plástico por la boquilla debido a una temperatura excesiva del hotend. Esto provoca que en los primeros segundos de impresión no salga plástico.
 
-SOLUCIONES:
+Una posible solución es habilitar la opción “Skirt” o “Falda”, con esto podemos imprimir un perímetro exterior previo a la pieza y que el cabezal se purgue.
+Ajustar la configuración de temperatura para el material utilizado. Si sale material por la boquilla durante mas de 20 segundos cuando el fusor está parado hay que reducir la temperatura. IMPORTANTE: el extrusor debe retraer al menos 10mm siempre que entra en posición de reposo para que el enfriemiento lo haga en la zona del tefón y el arranque sea correcto. Comprobar que en las últimas líneas de los gcodes se produce esta retracción, sino añadir dos líneas: 1.- G92 E0 y 2.- G1 E-15 F6000</string>
+    <string name="b1v1">Si ya la cama está correctamente nivelada, hay que determinar la altura adecuada del Nozzle con respecto a la misma, de alguna de las siguientes maneras:
 
-Habilitar la opción “Skirt” o “Falda”, con esto conseguimos imprimir un perímetro exterior previo a la pieza y que el cabezal se purgue. Slic3r: Print settings > Skirt and brim. Ejemplo Loops=2. CURA y Simplify también lo permiten.
-Ajustar la configuración de temperatura para el material utilizado (Slic3r: Filament settings > extruder). Si sale material por la boquilla durante mas de 20 segundos cuando el fusor está parado hay que reducir la temperatura. IMPORTANTE: el extrusor debe retraer al menos 10mm siempre que entra en posición de reposo para que el enfriemiento lo haga en la zona del tefón y el arranque sea correcto. Comprobar que en las últimas líneas de los gcodes se produce esta retracción, sino añadir dos líneas: 1.- G92 E0 y 2.- G1 E-15 F6000</string>
-    <string name="b1v1">Una vez que la cama está correctamente nivelada, hay que determinar la altura adecuada del Nozzle con respecto a la misma, de alguna de las siguientes maneras:
-
-Si nuestro modelo de impresora es una prusa i3, lo que podemos hacer es bajar el final de carrera del eje Z, de esta manera, lo que hacemos es disminuir la distancia de nozzle con respecto a la cama.
+En algunos modelos, lo que podemos hacer es bajar el final de carrera del eje Z, de esta manera, lo que hacemos es disminuir la distancia de nozzle con respecto a la cama.
 Ajuste de la altura del nozzle mediante hardware. Para ello deberemos de tener en cuenta el parámetro de Z offset. En este parámetro, lo que hacemos es indicar a la impresora que acerque “-x mm” la boquilla de la cama caliente. Ejemplo: si determinados un valor de -0.05mm, cuando vaya a comenzar la impresión, el eje z bajara 0.05mm y de esta manera facilitamos que el plástico salga sin ningún problema. El valor dependerá de cada situación e impresora, lo conveniente establecer un valor e ir variando el valor hasta el punto que el nozzle ya esté cerca con la base caliente.</string>
-    <string name="b1v2">Lo primero que hay que comprobar es que se le ha indicado al software el diámetro correcto del filamento que se está imprimiendo. Se puede comprobar con un calibre que diámetro tiene el filamento exactamente. Existen los siguientes valores de mercado: 1.75mm, 2.85mm ó 3mm.</string>
-    <string name="b1v3">Cuando se imprimen piezas puede darse el caso de que se extruya más plástico de lo debido, algunas impresoras no disponen de mecanismos para controlar el flujo de plástico.
+    <string name="b1v2">Lo primero que hay que corroborar es que se ha configurado el diámetro correcto del filamento que se está imprimiendo. Se puede comprobar con un calibre que diámetro tiene el filamento exactamente. Existen los siguientes valores de mercado: 1.75mm ó 3mm.</string>
+    <string name="b1v3">Cuando no tenemos la suficiente experiencia puede darse el caso de que se extruya más plástico de lo debido, algunas impresoras no disponen de mecanismos para controlar el flujo de plástico.
 
-Para subsanar el problema y establecer los parámetros óptimos de extrusión de plástico, puedes seguir los mismos pasos  del problema anterior, “Extrusión de poco plástico”, pero realizando la operación inversa, ajusta los parametros del filamento en tu programa laminador (Slic3r, cura, skeinforge, etc.). Deberás aumentra el dimetro para reducir la cantidad de plástico que extruye la máquina o reducir el factor multiplicador.
+Ajusta los parametros del filamento en tu programa laminador. Deberás aumentar el dimetro para reducir la cantidad de plástico que extruye la máquina o reducir el factor multiplicador.
 
-Ejemplo: Diametro: 1,75 (cambiar por 1,80)</string>
-    <string name="b1v4">Comprobar el número de capas superiores solidas que se han configurado y qué relleno hemos establecido durante la impresión de la pieza.
+Ejemplo: Diametro: 1,75mm (cambiar por 1,80mm)</string>
+    <string name="b1v4">Corroborar el número de capas superiores sólidas que se han configurado y qué relleno hemos establecido durante la impresión de la pieza.
 
-Ejemplo: Si se ha establecido un relleno del 10% y dos capas superiores solidas, seguramente aparezcan huecos como en la imagen.
+Por ejemplo, si se ha establecido un relleno del 10% y dos capas superiores sólidas, seguramente aparezcan huecos como en la imagen. Debes aumentar el número de capas superiores sólidas con el fin de asegurarnos que sea solida al 100%.
+</string>
+    <string name="b1v5">El parámetro de Retracción determina cuánto plástico es retraído en los desplazamientos del cabezal cuando no imprime. Cuanto más filamento se retraiga, menos rebosará por el nozzle. Si tu extrusor es direct-drive, el valor adecuado está entre 1 y 1.5mm.
 
-SOLUCIÓN: aumentar el número de capas superiores solidas, de esta manera nos aseguramos que sea solida al 100%.
+     Si la retracción es demasiado rápida, el filamento puede crear burbujas dentro de la boquilla o un movimiento rápido de la polea puede morder el filamento. Los valores normales de trabajo están comprendidos entre 30-60mm/seg. Este parámetro puede variar un poco en función del tipo de filamento que estamos imprimiendo, será el propio fabricante el que proporcione esos valores.
 
-Parametro Slic3r: Print settings > Layers and perimeters > Solid layers > Top</string>
-    <string name="b1v5">Este parámetro determina cuanto plástico es retraído en los desplazamientos del cabezal cuando no imprime. Cuanto más filamento se retraiga, menos filamento rebosará por el nozzle. Si dispones de un extrusor direct-drive, el valor adecuado está entre 1 y 1.5mm.
-
-Parametro en Slic3r: Printer settings > Extruder > Length
-    Este parámetro determina con qué velocidad se retrae el filamento. Si la retracción es demasiado rápida, el filamento puede crear burbujas dentro de la boquilla o un movimiento rápido de la polea puede morder el filamento. Los valores normales de trabajo están comprendidos entre 30-60mm/seg. Este parámetro puede variar un poco en función del tipo de filamento que estamos imprimiendo, será el propio fabricante el que proporcione esos valores.
-
-Los materiales flexibles funcionan correctamente entre 0-60mm/s dependiendo de su dureza. Parametro en Slic3r: Printer settings > Extruder 1 > Speed</string>
-    <string name="b1v6">Si no disponemos de ventilación de capa, esta es la razón principal.
-
-Pack Ventilación de capa Legio
+Si el material es flexible funciona correctamente entre 0-60mm/s dependiendo de su dureza. </string>
+    
+    <string name="b1v6">Si no contamos con ventilación de capa, esta puede ser la razón principal.
 
 En caso de disponer de ventilación, puede ser que no esté bien configurado el flujo de aire. Para modificar esa opción, hay que acceder a los parámetros de configuración del filamento y establecer los parámetros correctos de “Cooling”.
+</string>
+    <string name="b1v7">Un exceso de velocidad puede provocar que algún motor pierda pasos. Si los desplazamientos son muy rápidos, reduce en un 50% la velocidad de desplazamiento sin extrusión.
+</string>
 
-Parametros en Slic3r: Filament settings > Cooling.</string>
-    <string name="b1v7">Demasiada velocidad puede provocar que algún motor pierda pasos. Si los desplazamientos son demasiados rápidos, reduce en un 50% la velocidad de desplazamiento sin extrusión.
-
-Parametro Slic3r: Print settings > Speed > Travel.</string>
     <string name="b1v8">La presión ejercida en el filamento sobre el motor no es correcta.
 
-EXTRUSOR GREG’S WADE: los dos tornillos que aprietan el filamento están demasiado flojos. Tambien puede ser que el rodamiento que empuja el filamento contra el hobbed bolt no gire con demasiada fluidez.
+EXTRUSOR GREG’S WADE: los dos tornillos que aprietan el filamento están demasiado flojos. Tambien puede ser que el rodamiento que empuja el filamento contra el hobbed bolt no gire con fluidez.
 
 EXTRUSOR DIRECT DRIVE: puede ser que la polea que está en el motor no esté en perfectas condiciones. Limpiar los dientes y comprobar que no están gastados. Tambien puede ser que la leva no ejerza la suficiente presión.</string>
-    <string name="b1v9">Comprobar que el termistor del hotend está en su sitio y no está fuera de lugar, esto puede provocar que la boquilla del hotend no esté a la temperatura configurada.
 
-Comprobar que la temperatura de fusión es la correcta, revisar los parámetros de laminación asegurándonos de que hemos elegido bien tanto el material como el color.</string>
-    <string name="b1v10">El tubo del interior de la varilla del hotend esta dañado y hay que cambiarlo.</string>
-    <string name="b1v11">Si la velocidad de impresión del relleno (infill) es demasiada alta, las capas podrían no fusionarse correctamente.
+    <string name="b1v9">Comprobar que el termistor del hotend está en su sitio, esto puede provocar que la boquilla no esté a la temperatura configurada.
 
-SOLUCIÓN: disminuir un 50% la velocidad de impresión del relleno.
+Comprobar que la temperatura de fusión es correcta, revisar los parámetros de laminación asegurándonos de que hemos elegido bien tanto el material como el color.</string>
+    <string name="b1v10">El tubo del interior de la varilla del hotend podría estar dañado y habría que cambiarlo.</string>
+    <string name="b1v11">Si la velocidad de impresión del relleno (infill) es muy alta, las capas podrían no fusionarse correctamente. La solución sería disminuir la velocidad de impresión del relleno.
 
-Parametro en Slic3r: Print settings > Speed > Infill.</string>
+</string>
     <string name="b1v12">Cuando el cabezal se desplaza o cambia de capa, el extrusor debe hacer una retracción para evitar que goteé plástico. Si no es así, podemos encontrar restos de filamento provocando que la pieza no tenga un acabado perfecto.
 
 SOLUCIÓN:
