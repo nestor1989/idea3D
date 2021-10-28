@@ -15,7 +15,7 @@ class problemasModel {
             Problemas("Agujeros en las capas superiores", "Huecos en la cara superior de las piezas", "Capas superiores", "Relleno bajo", "Poca extrusión", R.drawable.bati),
             Problemas("Hilos en el exterior de la pieza", "Restos de hilos que desprende el cabezal y se pegan a la pieza",  "Retracción", "Temperatura alta", "Grandes desplazamientos", R.drawable.bati),
             Problemas("Deformación por exceso de temperatura", "Imperfecciones en los detalles por sobrecalentamiento",  "Refrigeración de capa", "Temperatura alta", "Alta velocidad", R.drawable.bati),
-            Problemas("Desplazamiento de capas", "Se nota una mala calibración de los ejes desalineados",  "Hotend", "Mecánica", null, R.drawable.bati),
+            Problemas("Desplazamiento de capas", "Se nota una mala calibración de los ejes desalineados",  "Hotend", "Correas", "Electrónica", R.drawable.bati),
             Problemas("Filamento Atascado", "Durante la impresión el plástico no avanza y el filamento se nota mordido", "Hotend", "Velocidad", "Temperatura", R.drawable.bati),
             Problemas("Extrusor atascado", "No sale pláctico de la boquilla", "Temperatura incorrecta ", "Filamento defectuoso ", "Desarmar hotend", R.drawable.mujer),
             Problemas("Deja de extruir plástico ", "Se interrumpe la extrusión en medio de la impresión", "Tubo de teflón dañado", "Filamento mordido","Motor sobrecalentado", R.drawable.mujer),

@@ -170,6 +170,8 @@ class SolucionFragment  : Fragment() {
                         }
                         6 -> {binding.textView.text = getString(R.string.b3v6)
                         }
+                        7 -> {binding.textView.text = getString(R.string.b3v7)
+                        }
                         8 -> {binding.textView.text = getString(R.string.b3v8)
                         }
                         9 -> {binding.textView.text = getString(R.string.b3v9)

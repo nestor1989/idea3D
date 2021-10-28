@@ -39,7 +39,7 @@ class NewsRepositoryTest {
 
     @Test
     fun `Top headlines response is correct`() {
-        mockWebServer.enqueueResponse("top_headlines.json")
+        mockWebServer.enqueueResponse("top_headline.json")
 
         runBlocking {
             val articles = newsRepository.getNews("es")

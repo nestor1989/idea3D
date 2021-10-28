@@ -6,7 +6,7 @@ package com.idea3d.idea3d.ui.view
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.annotation.DrawableRes
+
 import androidx.compose.foundation.Image
 
 
@@ -36,8 +36,8 @@ import androidx.compose.ui.unit.sp
 
 import com.idea3d.idea3d.data.model.Info
 import com.idea3d.idea3d.data.model.infoModel.Companion.recInfo
-import org.intellij.lang.annotations.JdkConstants
 
+val rnds = (0..10).random()
 
 class InfoActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -79,7 +79,6 @@ fun RecycleCard(info: Info) {
 
 }
 
-
 @Composable
 fun RecycleV (recInfo: List<Info>){
 
@@ -104,7 +103,7 @@ fun RecycleV (recInfo: List<Info>){
 @Preview
 @Composable
 fun RecyclePreview(){
-    RecycleCard(info = recInfo[0])
+    RecycleCard(info = recInfo[rnds])
 }
 
 
