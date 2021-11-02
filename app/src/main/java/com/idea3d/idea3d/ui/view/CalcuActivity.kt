@@ -14,12 +14,12 @@ class CalcuActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
 
     private lateinit var binding: ActivityCalcuBinding
     var coeficiente=1.0
-    var costoEnergy=0.0
+    var costoEnergy:Double=0.0
     var costoHoras=0.0
     var costoKwh=0.0
     var costoFilamento=0.0
     var costoPeso=0.0
-    var costoFila=0.0
+    var costoFila:Double=0.0
     var costoTotal=0.0
 
 
@@ -54,27 +54,28 @@ class CalcuActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
             costoKwh = binding.kwhHint.text.toString().toDouble()
             costoHoras= binding.horasHint.text.toString().toDouble()
             costoEnergy=costoHoras*costoKwh*coeficiente
-            binding.enegyCost.text = costoEnergy.toString()
+
+            binding.enegyCost.text= ("%.2f".format(costoEnergy))
         }
 
         if(binding.pesoHint.text!!.isNotEmpty()&& binding.filamentoHint.text!!.isNotEmpty()) {
             costoPeso = binding.pesoHint.text.toString().toDouble()
             costoFilamento= binding.filamentoHint.text.toString().toDouble()
-            costoFila=costoPeso*costoFilamento
-            binding.materialCost.text = costoFila.toString()
+            costoFila=costoPeso*costoFilamento*0.001
+            binding.materialCost.text = ("%.2f".format(costoFila))
         }
         costoTotal=costoFila + costoEnergy
-        binding.totalCost.text=costoTotal.toString()
+        binding.totalCost.text=("%.2f".format(costoTotal))
     }
 
     override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-        //val item= parent?.getItemAtPosition(position)
+
         when(position){
-            0->coeficiente=1.14
-            1->coeficiente=1.0
-            2->coeficiente=2.0
-            3->coeficiente=3.0
-            4->coeficiente=4.0
+            0->coeficiente=0.08166
+            1->coeficiente=0.12
+            2->coeficiente=0.11
+            3->coeficiente=0.14
+            4->coeficiente=0.095
 
         }
         calculos()

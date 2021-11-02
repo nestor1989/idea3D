@@ -23,12 +23,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.focus.focusModifier
-import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Shadow
+import androidx.compose.ui.res.fontResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.tooling.preview.PreviewParameter
 
 
 import androidx.compose.ui.unit.dp
@@ -51,7 +55,7 @@ class InfoActivity : ComponentActivity() {
 
 @Composable
 fun RecycleCard(info: Info) {
-    //@DrawableRes val image= R.drawable.bati
+
 
     Surface(shape= RoundedCornerShape (8.dp), elevation = 8.dp, modifier = Modifier.padding(8.dp)){
        Column(modifier=Modifier.padding(16.dp),
@@ -67,11 +71,13 @@ fun RecycleCard(info: Info) {
                     contentDescription = "imagen",
                     modifier=imageModifier,
                 )
-                Spacer(modifier = Modifier.padding(16.dp))
+                
                 Text(text= info.titulo,
                     fontSize = 18.sp, fontWeight = FontWeight.Bold,
                     textAlign = TextAlign.Start )
-                Text(text= info.descripcion, modifier=Modifier.size(220.dp), textAlign = TextAlign.Start)
+                Text(text= info.descripcion,
+                    fontSize = 12.sp
+                    ,modifier=Modifier.size(220.dp), textAlign = TextAlign.Start)
 
 
        }
@@ -79,13 +85,26 @@ fun RecycleCard(info: Info) {
 
 }
 
+
 @Composable
 fun RecycleV (recInfo: List<Info>){
 
-   Column(modifier=Modifier.padding(16.dp)) {
+   Column(modifier=Modifier.padding(16.dp), horizontalAlignment = Alignment.CenterHorizontally ) {
 
-        Spacer(modifier = Modifier.padding(83.dp))
+        Text(text= "Tipo de Materiales", fontWeight = FontWeight.Black,
+            color= Color.Gray,
+            fontSize = 30.sp,
+            /*style = MaterialTheme.typography.h4.copy(
+            shadow= Shadow(
+                offset = Offset(5f, 5f),
+                blurRadius = 5f,
+                color=Color.Gray.copy(alpha=0.2f)
+            )),*/
+            modifier = Modifier
+                .padding(horizontal = 16.dp, vertical = 72.dp),
 
+        )
+        //Spacer(modifier  = Modifier.padding(36.dp))
         LazyRow(verticalAlignment = Alignment.CenterVertically ,
             contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)
         )
@@ -96,6 +115,8 @@ fun RecycleV (recInfo: List<Info>){
 
 
         }
+        Image(painterResource(id = R.drawable.idealogoancho),
+                    contentDescription = null)
     }
 }
 
@@ -103,7 +124,7 @@ fun RecycleV (recInfo: List<Info>){
 @Preview
 @Composable
 fun RecyclePreview(){
-    RecycleCard(info = recInfo[rnds])
+    RecycleCard(info = recInfo[0])
 }
 
 

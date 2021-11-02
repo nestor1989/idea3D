@@ -1,9 +1,19 @@
 package com.idea3d.idea3d.ui.view
 
+
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.idea3d.idea3d.databinding.ActivityMainBinding
 import android.content.Intent
+import android.net.ConnectivityManager
+import android.net.NetworkInfo
+import android.view.View
+
+
+
+
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -13,6 +23,14 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val cm = this.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val activeNetwork: NetworkInfo? = cm.activeNetworkInfo
+        val isConnected: Boolean = activeNetwork?.isConnectedOrConnecting == true
+
+        if (isConnected==false){
+            binding.newsBoton.visibility= View.INVISIBLE
+        }
+
         binding.guiaBoton.setOnClickListener { goGuia() }
         binding.infoBoton.setOnClickListener { goInfo() }
         binding.calcuBoton.setOnClickListener { goCalcu() }
@@ -20,6 +38,7 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+
 
 
     private fun goGuia(){
@@ -41,6 +60,7 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, NewsActivity::class.java)
         startActivity(intent)
     }
+
 
 
 }

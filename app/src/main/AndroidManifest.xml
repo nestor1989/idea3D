@@ -2,7 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.idea3d.idea3d">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
         android:name=".core.MyApplication"
@@ -27,7 +28,8 @@
             android:theme="@style/Theme.Idea3D.NoActionBar" />
         <activity
             android:name=".ui.view.GuiaActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            />
         <activity
             android:name=".ui.view.CalcuActivity"
             android:label="@string/title_activity_calcu"

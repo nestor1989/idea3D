@@ -14,9 +14,9 @@
     <string-array name="filamentos">
         <item>PLA</item>
         <item>ABS</item>
-        <item>TPU</item>
-        <item>Resina</item>
+        <item>HIPS</item>
         <item>Nylon</item>
+        <item>Flexible</item>
     </string-array>
 
     <string name="abs_descripcion">¿Alguna vez armaste algo con piezas de Lego? Entonces tuviste ABS (acrilonitrilo butadieno estireno) en tus manos. Es el plástico más común en impresión 3D y eso es por su característica de ser un termoplástico flexible y altamente resistente a golpes. Hoy en día se utiliza, por ejemplo, en la carrocería de automotores, engranajes de electrodomésticos o las carcasas de los celulares.</string>
