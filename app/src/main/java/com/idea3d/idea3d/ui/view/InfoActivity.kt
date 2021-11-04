@@ -74,10 +74,13 @@ fun RecycleCard(info: Info) {
                 
                 Text(text= info.titulo,
                     fontSize = 18.sp, fontWeight = FontWeight.Bold,
-                    textAlign = TextAlign.Start )
+                    textAlign = TextAlign.Start,
+                    modifier=Modifier.padding(vertical= 5.dp))
                 Text(text= info.descripcion,
                     fontSize = 12.sp
-                    ,modifier=Modifier.size(220.dp), textAlign = TextAlign.Start)
+                    ,modifier=Modifier
+                        .size(220.dp)
+                    , textAlign = TextAlign.Start)
 
 
        }

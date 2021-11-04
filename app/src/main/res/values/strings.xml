@@ -29,14 +29,14 @@
     <string name="title_activity_list_screen">ListScreenActivity</string>
 
 
-    <string name="b1v0">Hay impresoras que cuando están en reposo a la espera de comenzar la impresión, rezuman plástico por la boquilla debido a una temperatura excesiva del hotend. Esto provoca que en los primeros segundos de impresión no salga plástico.
+    <string name="b1v0">Cuando hay una temperatura excesiva en el hotend puede darse que en los primeros segundos no salga plástico.
 
-Una posible solución es habilitar la opción “Skirt” o “Falda”, con esto podemos imprimir un perímetro exterior previo a la pieza y que el cabezal se purgue.
-Ajustar la configuración de temperatura para el material utilizado. Si sale material por la boquilla durante mas de 20 segundos cuando el fusor está parado hay que reducir la temperatura. IMPORTANTE: el extrusor debe retraer al menos 10mm siempre que entra en posición de reposo para que el enfriemiento lo haga en la zona del tefón y el arranque sea correcto. Comprobar que en las últimas líneas de los gcodes se produce esta retracción, sino añadir dos líneas: 1.- G92 E0 y 2.- G1 E-15 F6000</string>
+Habilitar la opción “Skirt”, para que el cabezal se purgue.
+Hay que probar ajustando la temperatura y si sale material por la boquilla durante mas de 20 segundos cuando el fusor está parado hay que reducirla. IMPORTANTE: el extrusor debe retraer al menos 10mm siempre que entra en posición de reposo para que el enfriemiento lo haga en la zona del tefón y el arranque sea correcto. Comprobar que en las últimas líneas de los gcodes se produce esta retracción, sino añadir dos líneas: 1.- G92 E0 y 2.- G1 E-15 F6000</string>
     <string name="b1v1">Si ya la cama está correctamente nivelada, hay que determinar la altura adecuada del Nozzle con respecto a la misma, de alguna de las siguientes maneras:
 
 En algunos modelos, lo que podemos hacer es bajar el final de carrera del eje Z, de esta manera, lo que hacemos es disminuir la distancia de nozzle con respecto a la cama.
-Ajuste de la altura del nozzle mediante hardware. Para ello deberemos de tener en cuenta el parámetro de Z offset. En este parámetro, lo que hacemos es indicar a la impresora que acerque “-x mm” la boquilla de la cama caliente. Por ejemplo, si determinados un valor de -0.05mm, cuando vaya a comenzar la impresión, el eje z bajara 0.05mm y de esta manera facilitamos que el plástico salga sin ningún problema. El valor dependerá de cada situación e impresora, lo conveniente establecer un valor e ir variando el valor hasta el punto que el nozzle ya esté cerca con la base caliente.</string>
+Ajuste de la altura del nozzle mediante hardware. Para ello deberemos de tener en cuenta el parámetro de Z offset. En este parámetro, lo que hacemos es indicar a la impresora que acerque “-x mm” la boquilla de la cama caliente. </string>
     <string name="b1v2">Lo primero que hay que corroborar es que se ha configurado el diámetro correcto del filamento que se está imprimiendo. Se puede comprobar con un calibre que diámetro tiene el filamento exactamente. Existen los siguientes valores de mercado: 1.75mm ó 3mm.</string>
     <string name="b1v3">Cuando no tenemos la suficiente experiencia puede darse el caso de que se extruya más plástico de lo debido, algunas impresoras no disponen de mecanismos para controlar el flujo de plástico.
 
@@ -50,8 +50,7 @@ Por ejemplo, si se ha establecido un relleno del 10% y dos capas superiores sól
     <string name="b1v5">El parámetro de Retracción determina cuánto plástico es retraído en los desplazamientos del cabezal cuando no imprime. Cuanto más filamento se retraiga, menos rebosará por el nozzle. Si tu extrusor es direct-drive, el valor adecuado está entre 1 y 1.5mm.
 
      Si la retracción es demasiado rápida, el filamento puede crear burbujas dentro de la boquilla o un movimiento rápido de la polea puede morder el filamento. Los valores normales de trabajo están comprendidos entre 30-60mm/seg. Este parámetro puede variar un poco en función del tipo de filamento que estamos imprimiendo, será el propio fabricante el que proporcione esos valores.
-
-Si el material es flexible funciona correctamente entre 0-60mm/s dependiendo de su dureza. </string>
+    </string>
     
     <string name="b1v6">Si no contamos con ventilación de capa, esta puede ser la razón principal.
 
@@ -75,9 +74,9 @@ Comprobar que la temperatura de fusión es correcta, revisar los parámetros de 
 </string>
     <string name="b1v12">Durante los desplazamientos del cabezal, el extrusor debe hacer una retracción para evitar que goteé plástico. Si no es así, podemos encontrar restos de filamento provocando que la pieza no tenga un buen acabado.
 
-    Si la retracción es demasiado rápida, el filamento puede crear burbujas dentro de la boquilla o un movimiento rápido de la polea puede morder el filamento. Los valores normales de trabajo están comprendidos entre 30-60mm/seg. Este parámetro puede variar un poco en función del tipo de filamento que estamos imprimiendo, será el propio fabricante el que proporcione esos valores.
+    Si la retracción es demasiado rápida, el filamento puede crear burbujas dentro de la boquilla o un movimiento rápido de la polea puede morder el filamento. Los valores normales de trabajo están comprendidos entre 30-60mm/seg. Este parámetro puede variar un poco en función del tipo de filamento que estamos imprimiendo.
     
-    En el caso de que se produzca al finalizar la capa, hay que modificar el parámetro denominado “Extra length on restart”, este nos indica cuánnto plástico se debe de tirar cuando cambia de capa o pieza. Por defecto debe de estar a 0 mm.</string>
+    Si se produce al finalizar la capa modificamos el parámetro “Extra length on restart”.</string>
     
     <string name="b1v13">Podemos intentar modificando el parámetro que controla el relación porcentual entre el perímetro y el relleno, denominándose “Infill/Perimeter Overlap”. Este parámetro indica que porcentaje de relleno se superpone en los perímetros. Si tenemos el problema como en la figura debemos de aumentar el valor de este parámetro y probar que se ha solucionado.
 
@@ -152,7 +151,7 @@ Por ejemplo, con una boquilla de 0.3mm podremos imprimir capas con una altura m�
     <string name="b2v15">Si ya la cama está correctamente nivelada, hay que determinar la altura adecuada del Nozzle con respecto a la misma, de alguna de las siguientes maneras:
 
 En algunos modelos, lo que podemos hacer es bajar el final de carrera del eje Z, de esta manera, lo que hacemos es disminuir la distancia de nozzle con respecto a la cama.
-Ajuste de la altura del nozzle mediante hardware. Para ello deberemos de tener en cuenta el parámetro de Z offset. En este parámetro, lo que hacemos es indicar a la impresora que acerque “-x mm” la boquilla de la cama caliente. Ejemplo: si determinados un valor de -0.05mm, cuando vaya a comenzar la impresión, el eje z bajara 0.05mm y de esta manera facilitamos que el plástico salga sin ningún problema. El valor dependerá de cada situación e impresora, lo conveniente establecer un valor e ir variando el valor hasta el punto que el nozzle ya esté cerca con la base caliente. </string>
+Ajuste de la altura del nozzle mediante hardware. Para ello deberemos de tener en cuenta el parámetro de Z offset. En este parámetro, lo que hacemos es indicar a la impresora que acerque “-x mm” la boquilla de la cama caliente. </string>
 
     <string name="b2v17">Si se han modificado alguno de los parámetros de aceleración del “firmware” de su impresora, puede ser que estos no sean los óptimos para un buen funcionamiento.
 
@@ -173,15 +172,15 @@ Aunque de alguna manera estamos “engañando” a la impresora, por lo que piez
     <string name="b3v0"> Si ya la cama está correctamente nivelada, hay que determinar la altura adecuada del Nozzle con respecto a la misma, de alguna de las siguientes maneras:
 
 En algunos modelos, lo que podemos hacer es bajar el final de carrera del eje Z, de esta manera, lo que hacemos es disminuir la distancia de nozzle con respecto a la cama.
-Ajuste de la altura del nozzle mediante hardware. Para ello deberemos de tener en cuenta el parámetro de Z offset. En este parámetro, lo que hacemos es indicar a la impresora que acerque “-x mm” la boquilla de la cama caliente. Ejemplo: si determinados un valor de -0.05mm, cuando vaya a comenzar la impresión, el eje z bajara 0.05mm y de esta manera facilitamos que el plástico salga sin ningún problema. El valor dependerá de cada situación e impresora, lo conveniente establecer un valor e ir variando el valor hasta el punto que el nozzle ya esté cerca con la base caliente. </string>
+Ajuste de la altura del nozzle mediante hardware. Para ello deberemos de tener en cuenta el parámetro de Z offset. En este parámetro, lo que hacemos es indicar a la impresora que acerque “-x mm” la boquilla de la cama caliente.  </string>
 
     <string name="b3v1">Si se imprime filamento en una base fría, es normal que el plástico se enfríe más rápido provocando que no se pegue. Para solucionar esto, si la impresora dispone de base caliente, debes aumentar la temperatura hasta conseguir que se adhiere mejor. La temperatura de la base caliente depende del tipo de filamento que estemos utilizando, el propio fabricante el que indica la temperatura que hay que establecer para imprimir. Es importante además utilizar adhesivo o fijador para mejorar la adherencia.
 
-Por otro lado, si disponemos de ventilador de capa, este provocará que se enfríe el filamento más rápido. Esto se soluciona deshabilitando que este activo el ventilador durante la impresión de la primera capa. </string>
+Por otro lado, si disponemos de ventilador de capa, deshabilitarlo para la primera. </string>
 
     <string name="b3v4">Lo primero que hay que corroborar es que se ha configurado el diámetro correcto del filamento que se está imprimiendo. Se puede comprobar con un calibre que diámetro tiene el filamento exactamente. Existen los siguientes valores de mercado: 1.75mm ó 3mm.
 
-    Ajustar el valor del “extrusión multiplier”. Modificando este parámetro lo que logramos es variar cuanto plástico se extruye en cada impresión. Por ejemplo, por defecto está establecido el valor de 1, pero si lo aumentamos hasta 1.15, significa que se extruira un 15% más plástico que anteriormente. El valor típico para filamento PLA es de 0.9, mientras que para filamento ABS se tiende a un valor de cerca 1.0. Si realizas alguna modificación, es conveniente realizar una impresión de prueba de calibración para comprobar que se ha solucionado el problema.
+    Ajustar el valor del “extrusión multiplier”. Modificando este parámetro lo que logramos es variar cuanto plástico se extruye en cada impresión. Por ejemplo, por defecto está establecido el valor de 1, pero si lo aumentamos hasta 1.15, significa que se extruira un 15% más plástico que anteriormente. El valor típico para PLA es de 0.9 y para ABS de 1.0.
 
      </string>
     <string name="b3v5">Si ajustando los anteriores parametros continuan los problemas, podemos probar habilitando la opción que evita cruzar espacios abiertos o “Avoid crossing perimeters”.
@@ -196,7 +195,7 @@ Por otro lado, si disponemos de ventilador de capa, este provocará que se enfr�
     <string name="b3v9">Si con las anteriores soluciones no se ha podido resolver el problema, debes desarmar el hotend y corroborar lo que está sucediendo dentro.  </string>
     
     <string name="b3v10">Durante una impresión larga, puede darse el caso que el motor del extrusor se sobrecaliente provocando que el driver de control del mismo, desactive el motor, dejando de extruir filamento. Esto es provocado porque no están bien ajustado los mA del driver.
-    La electrónica dispone de drivers de control para los motores paso a paso, si no están ajustados a los mA adecuados, el motor perderá pasos y las capas se desplazarán. Si disponemos de un polímetro, lo que haremos es ajustar la corriente de cada eje de motor acorde a la impresora que tengamos (puede probar con X=400 mA , Y=400 mA, Z=E=600 mA, cuando sean DRV8825, en caso contrario consultar los valores óptimos para el tipo de driver que dispone). Ante la duda, consultar al fabricante.
+    La electrónica dispone de drivers de control para los motores paso a paso, si no están ajustados a los mA adecuados, el motor perderá pasos y las capas se desplazarán. Si disponemos de un polímetro, lo que haremos es ajustar la corriente de cada eje de motor acorde a la impresora que tengamos. Ante la duda, consultar al fabricante.
     </string>
    
     <string name="b3v11">Ajustar el valor del “extrusión multiplier”. Modificando este parámetro lo que logramos es variar cuanto plástico se extruye en cada impresión. Por ejemplo, por defecto está establecido el valor de 1, pero si lo aumentamos hasta 1.15, significa que se extruira un 15% más plástico que anteriormente. El valor típico para filamento PLA es de 0.9, mientras que para filamento ABS se tiende a un valor de cerca 1.0. Si realizas alguna modificación, es conveniente realizar una impresión de prueba de calibración para comprobar que se ha solucionado el problema.</string>

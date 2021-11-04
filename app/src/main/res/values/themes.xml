@@ -18,7 +18,9 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
-
+    <style name="SplashTheme" parent="Theme.Idea3D">
+        <item name="android:windowBackground">@drawable/splash_background</item>
+    </style>
     <style name="Theme.Idea3D.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.Idea3D.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
