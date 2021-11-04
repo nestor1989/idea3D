@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "695033357087",
+    "project_id": "idea-3d",
+    "storage_bucket": "idea-3d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:695033357087:android:2a7472f282fe37fd48062a",
+        "android_client_info": {
+          "package_name": "com.idea3d.idea3d"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "695033357087-00etf3pb0gqoj3bg7bl3fse1nmbr0roi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-xIzofudg0Qv416Sdb1MIFOc_xjqHhXw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "695033357087-00etf3pb0gqoj3bg7bl3fse1nmbr0roi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
