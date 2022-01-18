@@ -2,7 +2,7 @@
 <layer-list android:opacity="opaque"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-        <item android:drawable="@drawable/iphone_12_pro_max__1">
+        <item android:drawable="@drawable/splash_ulti">
 
         </item>
 

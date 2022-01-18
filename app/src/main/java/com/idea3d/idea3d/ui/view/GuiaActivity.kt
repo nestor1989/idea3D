@@ -25,7 +25,7 @@ class GuiaActivity : AppCompatActivity(), OnFragmentActionsListener {
     }
 
     fun initAdapter(){
-        binding.recyclerGuia.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
+        //binding.recyclerGuia.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
         binding.recyclerGuia.layoutManager=LinearLayoutManager(this)
         val adapter = problemasAdapter(this, guiaErrores)
         binding.recyclerGuia.adapter = adapter

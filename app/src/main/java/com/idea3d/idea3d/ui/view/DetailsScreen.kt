@@ -2,6 +2,7 @@ package com.idea3d.idea3d.ui.view
 
 import android.content.Intent
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -17,6 +18,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 
 import androidx.compose.ui.tooling.preview.Preview
@@ -46,21 +48,19 @@ fun DetailsScreen(
     navController: NavController,
     new: News?,
 ) {
-    Scaffold(
-        topBar = {
-            TopAppBar(
-                title = { Text(newTitle, maxLines = 1) },
-                navigationIcon = {
-                    IconButton(onClick = { navController.popBackStack() }) {
-                        Icon(
-                            imageVector = Icons.Filled.ArrowBack,
-                            contentDescription = "Back",
-                        )
-                    }
-                }
+    Scaffold() {
+
+        Column(modifier=Modifier.padding(16.dp), horizontalAlignment = Alignment.CenterHorizontally ) {
+
+
+            Image(
+                painterResource(id = R.drawable.logo_largo_dos),
+                contentDescription = null,
+                modifier = Modifier
+                    .padding(horizontal = 22.dp, vertical = 6.dp)
+                    .size(165.dp, 31.dp)
             )
-        }
-    ) {
+            Spacer(modifier  = Modifier.padding(5.dp))
         new?.let {
             Card(
                 shape = RoundedCornerShape(8.dp),
@@ -88,18 +88,23 @@ fun DetailsScreen(
                         val context = LocalContext.current
 
                         Text(new.title, fontSize = 18.sp, fontWeight = FontWeight.Bold)
-                        Text(new.content ?: "")
+                        Text(new.content ?: "",
+                        modifier=Modifier.padding(0.dp, 8.dp))
                         Box(Modifier.size(8.dp))
                         Button(
                             modifier = Modifier.align(alignment = Alignment.CenterHorizontally),
+
                             onClick = {
-                                val intent = Intent(Intent.ACTION_VIEW, android.net.Uri.parse(new.url))
+                                val intent =
+                                    Intent(Intent.ACTION_VIEW, android.net.Uri.parse(new.url))
                                 context.startActivity(intent)
                             }) {
-                            Text("Ver mas...")
+                            Text("Ver más...")
                         }
                     }
                 }
+            }
+
             }
         } ?: run {
             Box(

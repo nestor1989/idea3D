@@ -18,10 +18,12 @@ import androidx.compose.material.icons.filled.Star
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 
 
 import androidx.compose.ui.text.font.FontWeight
@@ -59,66 +61,64 @@ fun ListScreenTo(
     navController: NavController,
     news: List<News>
 ) {
-    Scaffold(
-        topBar = {
-            TopAppBar(
+    Scaffold()
+    {
 
-                title = {
-                    Row{
-                        Text("3D News!")
-                        Spacer (modifier=Modifier.width(16.dp))
-                        Icon(Icons.Default.Star, contentDescription = null)
-                    }
+        Column(modifier=Modifier.padding(16.dp), horizontalAlignment = Alignment.CenterHorizontally ) {
 
-                },
-                backgroundColor = MaterialTheme.colors.primary
 
+            Image(
+                painterResource(id = R.drawable.logo_largo_dos),
+                contentDescription = null,
+                alignment=Alignment.Center,
+                modifier = Modifier
+                    .padding(horizontal = 22.dp, vertical = 6.dp)
+                    .size(165.dp, 31.dp)
 
             )
-
-        }
-    )
-    {
-        LazyColumn {
-            items(news) { new ->
-                Card(
-                    shape = RoundedCornerShape(8.dp),
-                    modifier = Modifier
-                        .padding(8.dp)
-                        .fillMaxWidth()
-                        .clickable {
-                            navController.navigate("${Destinations.DETAILS_SCREEN}/${new.title}")
-                        }
-                ) {
-                    Column {
-
-                        Image(
+            Spacer(modifier  = Modifier.padding(5.dp))
+            LazyColumn {
+                items(news) { new ->
+                    Card(
+                        shape = RoundedCornerShape(8.dp),
                         modifier = Modifier
+                            .padding(8.dp)
                             .fillMaxWidth()
-                            .aspectRatio(16f / 9f),
+                            .clickable {
+                                navController.navigate("${Destinations.DETAILS_SCREEN}/${new.title}")
+                            }
+                    ) {
+                        Column {
 
-                            painter = rememberImagePainter(
-                                data = new.urlToImage,
-                                builder = {
-                                    placeholder(R.drawable.logoidea)
-                                    error(R.drawable.bati)
-                                }
-                            ),
-                            contentDescription = null,
-                            contentScale = ContentScale.FillWidth
-                        )
-                        Column(Modifier.padding(8.dp)) {
-                            Text(new.title, fontSize = 18.sp, fontWeight = FontWeight.Bold)
-                            Text(new.content ?: "", maxLines = 3)
+                            Image(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .aspectRatio(16f / 9f),
+
+                                painter = rememberImagePainter(
+                                    data = new.urlToImage,
+                                    builder = {
+                                        placeholder(R.drawable.logoidea)
+                                        error(R.drawable.bati)
+                                    }
+                                ),
+                                contentDescription = null,
+                                contentScale = ContentScale.FillWidth
+                            )
+                            Column(Modifier.padding(8.dp)) {
+                                Text(new.title, fontSize = 18.sp, fontWeight = FontWeight.Bold)
+                                Text(new.content ?: "", maxLines = 3)
+                            }
                         }
-                    }
 
+                    }
                 }
             }
         }
 
     }
 }
+
 
 @Preview(showBackground = true)
 @Composable

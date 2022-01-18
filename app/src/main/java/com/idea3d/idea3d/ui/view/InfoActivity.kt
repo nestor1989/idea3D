@@ -39,6 +39,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 import com.idea3d.idea3d.data.model.Info
+import com.idea3d.idea3d.data.model.infoModel
 import com.idea3d.idea3d.data.model.infoModel.Companion.recInfo
 
 val rnds = (0..10).random()
@@ -94,21 +95,29 @@ fun RecycleV (recInfo: List<Info>){
 
    Column(modifier=Modifier.padding(16.dp), horizontalAlignment = Alignment.CenterHorizontally ) {
 
-        Text(text= "Tipo de Materiales", fontWeight = FontWeight.Black,
+       Image(painterResource(id = R.drawable.logo_largo_dos),
+           contentDescription = null,
+           modifier = Modifier
+               .padding(horizontal = 22.dp, vertical = 6.dp)
+               .size(165.dp, 31.dp))
+
+       Text(text= "Materiales", fontWeight = FontWeight.Black,
             color= Color.Gray,
-            fontSize = 30.sp,
+            fontSize = 26.sp,
+           modifier = Modifier
+               .padding(8.dp)
             /*style = MaterialTheme.typography.h4.copy(
             shadow= Shadow(
                 offset = Offset(5f, 5f),
                 blurRadius = 5f,
                 color=Color.Gray.copy(alpha=0.2f)
             )),*/
-            modifier = Modifier
-                .padding(horizontal = 16.dp, vertical = 72.dp),
+
 
         )
-        //Spacer(modifier  = Modifier.padding(36.dp))
+        Spacer(modifier  = Modifier.padding(48.dp))
         LazyRow(verticalAlignment = Alignment.CenterVertically ,
+
             contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)
         )
         {
@@ -118,8 +127,7 @@ fun RecycleV (recInfo: List<Info>){
 
 
         }
-        Image(painterResource(id = R.drawable.idealogoancho),
-                    contentDescription = null)
+
     }
 }
 
