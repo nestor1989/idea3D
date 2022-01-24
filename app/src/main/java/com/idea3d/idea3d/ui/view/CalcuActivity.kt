@@ -62,7 +62,7 @@ class CalcuActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
             costoPeso = binding.pesoHint.text.toString().toDouble()
             costoFilamento= binding.filamentoHint.text.toString().toDouble()
             costoFila=costoPeso*costoFilamento*0.001
-            binding.materialCost.text = ("%.2f".format(costoFila))
+            binding.materialCost.text = "$"+("%.2f".format(costoFila))
         }
         costoTotal=costoFila + costoEnergy
         binding.totalCost.text=("%.2f".format(costoTotal))

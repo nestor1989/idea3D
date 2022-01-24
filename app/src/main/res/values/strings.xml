@@ -11,6 +11,16 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="title_activity_main2">MainActivity</string>
 
+    <string name="Horas">Horas</string>
+    <string name="kWh">$ kWh</string>
+    <string name="kg">x 1Kg</string>
+    <string name="Peso">Peso</string>
+    <string name="Material">Material</string>
+    <string name="CE">Costo Energético</string>
+    <string name="CM">Costo Materiales</string>
+    <string name="CT">Costo Total</string>
+
+
     <string-array name="filamentos">
         <item>PLA</item>
         <item>ABS</item>

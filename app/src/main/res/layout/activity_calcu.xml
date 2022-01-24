@@ -4,15 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/pantallacalcu"
+    android:background="@drawable/pantallacalcu_nueva"
     tools:context=".ui.view.MainActivity">
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.4" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"
@@ -22,51 +15,18 @@
         app:layout_constraintGuide_percent="0.07" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.78" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="241dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="81dp" />
-
-    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.27" />
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline7"
-        app:layout_constraintEnd_toStartOf="@+id/guideline5"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline6"
-        app:layout_constraintTop_toTopOf="@+id/guideline3"
-        app:layout_constraintVertical_bias="0.46"
-        app:srcCompat="@drawable/logosimp" />
-
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.1" />
+        app:layout_constraintGuide_percent="0.08" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline11"
@@ -90,18 +50,24 @@
         app:layout_constraintGuide_percent="0.3333333" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="20dp" />
-
-    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.666666" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="400dp"
+        android:layout_height="75dp"
+
+        android:padding="22dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline3"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo_largo_dos" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/horasEdit"
@@ -114,7 +80,7 @@
 
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
-        android:hint="Horas"
+        android:hint="@string/Horas"
         app:boxCornerRadiusBottomEnd="20dp"
         app:boxCornerRadiusBottomStart="20dp"
         app:boxCornerRadiusTopEnd="20dp"
@@ -157,7 +123,7 @@
 
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
-        android:hint="$ kWh"
+        android:hint="@string/kWh"
         app:boxCornerRadiusBottomEnd="20dp"
         app:boxCornerRadiusBottomStart="20dp"
         app:boxCornerRadiusTopEnd="20dp"
@@ -192,7 +158,7 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
 
-        android:hint="x 1 Kg"
+        android:hint="@string/kg"
         app:boxCornerRadiusBottomEnd="20dp"
         app:boxCornerRadiusBottomStart="20dp"
         app:boxCornerRadiusTopEnd="20dp"
@@ -221,7 +187,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="540dp" />
+        app:layout_constraintGuide_percent="0.63829786" />
 
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -231,7 +197,7 @@
 
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
-        android:hint="Peso "
+        android:hint="@string/Peso"
         app:boxCornerRadiusBottomEnd="20dp"
         app:boxCornerRadiusBottomStart="20dp"
         app:boxCornerRadiusTopEnd="20dp"
@@ -263,7 +229,7 @@
 
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
-        android:hint="Material"
+        android:hint="@string/Material"
         app:boxCornerRadiusBottomEnd="20dp"
         app:boxCornerRadiusBottomStart="20dp"
         app:boxCornerRadiusTopEnd="20dp"
@@ -296,9 +262,9 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="50dp"
         android:background="@drawable/style_text_view"
-        android:drawableStart="@drawable/ic_baseline_electrical_guach"
+        app:drawableStartCompat="@drawable/ic_baseline_electrical_guach"
         android:gravity="center"
-        android:text="Costo Enérgetico"
+        android:text="@string/CE"
         android:textColor="@color/white"
 
         app:layout_constraintBottom_toBottomOf="parent"
@@ -316,9 +282,9 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="50dp"
         android:background="@drawable/style_text_view"
-        android:drawableStart="@drawable/ic_baseline_blur_on_24"
+        app:drawableStartCompat="@drawable/ic_baseline_blur_on_24"
         android:gravity="center"
-        android:text="Costo Materiales"
+        android:text="@string/CM"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline13"
@@ -335,14 +301,28 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="50dp"
         android:background="@drawable/style_text_view"
-        android:drawableStart="@drawable/ic_baseline_monetization_on_24"
         android:gravity="center"
-        android:text="Costo Total"
+        android:text="@string/CT"
         android:textColor="@color/white"
+        app:drawableStartCompat="@drawable/ic_baseline_monetization_on_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline13"
         app:layout_constraintTop_toTopOf="@+id/guideline12" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:lottie_rawRes="@raw/particle"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+
+        app:layout_constraintBottom_toTopOf="@+id/guideline7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline9"
+        tools:srcCompat="@tools:sample/avatars" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
