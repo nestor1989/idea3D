@@ -3,7 +3,6 @@ package com.idea3d.idea3d.ui.view
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.idea3d.idea3d.*
 import com.idea3d.idea3d.databinding.ActivityGuiaBinding
@@ -35,7 +34,7 @@ class GuiaActivity : AppCompatActivity(), OnFragmentActionsListener {
 
     override fun onClickFragmentButton(valor:Int, boton:Int) {
 
-        val fragment= SolucionFragment()
+        val fragment= SolutionFragment()
         val bundle = Bundle()
         bundle.putInt("valor", valor)
         bundle.putInt("boton", boton)
@@ -47,7 +46,7 @@ class GuiaActivity : AppCompatActivity(), OnFragmentActionsListener {
     }
 
     override fun onImageClick(valor: Int, imagen:Int) {
-        val fragment= SolucionFragment()
+        val fragment= SolutionFragment()
         val bundle = Bundle()
         bundle.putInt("valor", valor)
         bundle.putInt("imagen", imagen)

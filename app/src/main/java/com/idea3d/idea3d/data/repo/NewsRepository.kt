@@ -16,13 +16,6 @@ class NewsRepositoryImp @Inject constructor(
 
     override suspend fun getNews(country: String): List<News> {
         val apiResponse = newsProvider.topHeadLines(country).body()
-        if(apiResponse?.status=="error"){
-            when(apiResponse.code){
-                "apiKeyMissing"-> throw MissingApiKeyException()
-                "apiKeyInvalid"-> throw ApiKeyInvalidException()
-                else -> throw Exception()
-            }
-        }
         news= apiResponse?.articles?: emptyList()
         return news
     }
@@ -33,6 +26,3 @@ class NewsRepositoryImp @Inject constructor(
     }
 
 }
-
-class MissingApiKeyException: java.lang.Exception()
-class ApiKeyInvalidException: java.lang.Exception()

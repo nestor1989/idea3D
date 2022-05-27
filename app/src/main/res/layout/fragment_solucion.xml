@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/gradiente"
     android:textAlignment="textEnd"
-    tools:context=".ui.view.SolucionFragment">
+    tools:context=".ui.view.SolutionFragment">
 
 
     <TextView

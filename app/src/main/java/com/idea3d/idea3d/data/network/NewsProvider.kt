@@ -1,6 +1,6 @@
 package com.idea3d.idea3d.data.network
 
-import com.idea3d.idea3d.core.Constantes.Companion.API_KEY
+import com.idea3d.idea3d.core.Constants.Companion.API_KEY
 import com.idea3d.idea3d.data.model.NewsApiResponse
 import retrofit2.Response
 import retrofit2.http.GET
