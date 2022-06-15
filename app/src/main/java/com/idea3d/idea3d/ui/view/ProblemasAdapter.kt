@@ -6,12 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 
 import androidx.recyclerview.widget.RecyclerView
-import com.idea3d.idea3d.R
 import com.idea3d.idea3d.databinding.ListProblemasBinding
-import com.idea3d.idea3d.data.model.Problemas
+import com.idea3d.idea3d.data.model.Problems
 
-class problemasAdapter (private val itemClickListener: OnFragmentActionsListener,
-                        val guiaErrores:List<Problemas>): RecyclerView.Adapter<problemasAdapter.ProblemasHolder>() {
+class ProblemsAdapter (private val itemClickListener: OnFragmentActionsListener,
+                       val guiaErrores:List<Problems>): RecyclerView.Adapter<ProblemsAdapter.ProblemasHolder>() {
 
 
 
@@ -37,26 +36,26 @@ class problemasAdapter (private val itemClickListener: OnFragmentActionsListener
 
 
 
-          fun render(guiaErrores: Problemas) {
+          fun render(guiaErrores: Problems) {
 
             itemBinding.resolucionUno.setOnClickListener { itemClickListener.onClickFragmentButton(bindingAdapterPosition, 1) }
             itemBinding.resolucionDos.setOnClickListener { itemClickListener.onClickFragmentButton(bindingAdapterPosition, 2) }
             itemBinding.resolucionTres.setOnClickListener { itemClickListener.onClickFragmentButton(bindingAdapterPosition, 3) }
 
-            itemBinding.imagen.setOnClickListener { itemClickListener.onImageClick(bindingAdapterPosition, guiaErrores.imagen) }
+            itemBinding.imagen.setOnClickListener { itemClickListener.onImageClick(bindingAdapterPosition, guiaErrores.image) }
 
-            itemBinding.imagen.setImageResource(guiaErrores.imagen)
+            itemBinding.imagen.setImageResource(guiaErrores.image)
 
-            itemBinding.problemaString.text = guiaErrores.NombreProblema
-            itemBinding.descripcionString.text = guiaErrores.Descripcion
-              itemBinding.resolucionUno.text= guiaErrores.Resolucion1
-            if (guiaErrores.Resolucion2!=null) {
-                itemBinding.resolucionDos.text = guiaErrores.Resolucion2
+            itemBinding.problemaString.text = guiaErrores.name
+            itemBinding.descripcionString.text = guiaErrores.description
+              itemBinding.resolucionUno.text= guiaErrores.resOne
+            if (guiaErrores.resTwo!=null) {
+                itemBinding.resolucionDos.text = guiaErrores.resTwo
                 itemBinding.resolucionDos.visibility=View.VISIBLE
             }else {itemBinding.resolucionDos.visibility=View.INVISIBLE
             }
-              if (guiaErrores.Resolucion3!=null) {
-                  itemBinding.resolucionTres.text = guiaErrores.Resolucion3
+              if (guiaErrores.resThree!=null) {
+                  itemBinding.resolucionTres.text = guiaErrores.resThree
                   itemBinding.resolucionTres.visibility=View.VISIBLE
               }else {itemBinding.resolucionTres.visibility=View.INVISIBLE
               }

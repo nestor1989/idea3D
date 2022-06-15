@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.idea3d.idea3d.*
 import com.idea3d.idea3d.databinding.ActivityGuiaBinding
 
-import com.idea3d.idea3d.data.model.problemasModel.Companion.guiaErrores
+import com.idea3d.idea3d.data.model.ListProblems.Companion.errorGuide
 
 
 class GuiaActivity : AppCompatActivity(), OnFragmentActionsListener {
@@ -26,7 +26,7 @@ class GuiaActivity : AppCompatActivity(), OnFragmentActionsListener {
     fun initAdapter(){
         //binding.recyclerGuia.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
         binding.recyclerGuia.layoutManager=LinearLayoutManager(this)
-        val adapter = problemasAdapter(this, guiaErrores)
+        val adapter = ProblemsAdapter(this, errorGuide)
         binding.recyclerGuia.adapter = adapter
 
 
