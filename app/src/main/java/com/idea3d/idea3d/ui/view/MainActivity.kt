@@ -9,58 +9,59 @@ import android.content.Intent
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
 import android.view.View
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.navigation.NavigationBarView
 import com.idea3d.idea3d.R
 
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setTheme(R.style.Theme_Idea3D)
-
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        setupNavController()
+        setUpNavigation()
 
-        val cm = this.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-        val activeNetwork: NetworkInfo? = cm.activeNetworkInfo
-        val isConnected: Boolean = activeNetwork?.isConnectedOrConnecting == true
+    }
 
-        if (isConnected==false){
-            binding.newsBoton.visibility= View.INVISIBLE
+
+    private fun setupNavController() {
+        val bottomNavigationView = binding.bottomNavigation
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navController = navHostFragment.navController
+        bottomNavigationView.setupWithNavController(navController)
+    }
+
+    private fun setUpNavigation(){
+        NavigationBarView.OnItemSelectedListener { item ->
+            when(item.itemId) {
+                R.id.page_1 -> {
+                    navController.navigate(R.id.mainFragment)
+                    true
+                }
+                R.id.page_2 -> {
+                    navController.navigate(R.id.calcuFragment)
+                    true
+                }
+                R.id.page_3 -> {
+                    navController.navigate(R.id.guideFragment)
+                    true
+                }
+
+                else -> false
+            }
         }
 
-        binding.guiaBoton.setOnClickListener { goGuia() }
-        binding.infoBoton.setOnClickListener { goInfo() }
-        binding.calcuBoton.setOnClickListener { goCalcu() }
-        binding.newsBoton.setOnClickListener { goNews() }
-
-
     }
-
-
-
-    private fun goGuia(){
-        val intent = Intent(this, GuiaActivity::class.java)
-        startActivity(intent)
-    }
-
-    private fun goInfo(){
-        val intent = Intent(this, InfoActivity::class.java)
-        startActivity(intent)
-    }
-
-    private fun goCalcu(){
-        val intent = Intent(this, CalcuActivity::class.java)
-        startActivity(intent)
-    }
-
-    private fun goNews(){
-        val intent = Intent(this, NewsActivity::class.java)
-        startActivity(intent)
-    }
-
-
-
 }
+
+
+

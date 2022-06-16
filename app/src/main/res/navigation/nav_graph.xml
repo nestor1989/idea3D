@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.idea3d.idea3d.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" />
+    <fragment
+        android:id="@+id/guideFragment"
+        android:name="com.idea3d.idea3d.GuideFragment"
+        android:label="fragment_guide"
+        tools:layout="@layout/fragment_guide" />
+    <fragment
+        android:id="@+id/calcuFragment"
+        android:name="com.idea3d.idea3d.CalcuFragment"
+        android:label="fragment_calcu"
+        tools:layout="@layout/fragment_calcu" />
+</navigation>

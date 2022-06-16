@@ -61,7 +61,7 @@ Por ejemplo, si se ha establecido un relleno del 10% y dos capas superiores sól
 
      Si la retracción es demasiado rápida, el filamento puede crear burbujas dentro de la boquilla o un movimiento rápido de la polea puede morder el filamento. Los valores normales de trabajo están comprendidos entre 30-60mm/seg. Este parámetro puede variar un poco en función del tipo de filamento que estamos imprimiendo, será el propio fabricante el que proporcione esos valores.
     </string>
-    
+
     <string name="b1v6">Si no contamos con ventilación de capa, esta puede ser la razón principal.
 
 En caso de disponer de ventilación, puede ser que no esté bien configurado el flujo de aire. Para modificar esa opción, hay que acceder a los parámetros de configuración del filamento y establecer los parámetros correctos de “Cooling”.
@@ -87,12 +87,12 @@ Comprobar que la temperatura de fusión es correcta, revisar los parámetros de 
     Si la retracción es demasiado rápida, el filamento puede crear burbujas dentro de la boquilla o un movimiento rápido de la polea puede morder el filamento. Los valores normales de trabajo están comprendidos entre 30-60mm/seg. Este parámetro puede variar un poco en función del tipo de filamento que estamos imprimiendo.
     
     Si se produce al finalizar la capa modificamos el parámetro “Extra length on restart”.</string>
-    
+
     <string name="b1v13">Podemos intentar modificando el parámetro que controla el relación porcentual entre el perímetro y el relleno, denominándose “Infill/Perimeter Overlap”. Este parámetro indica que porcentaje de relleno se superpone en los perímetros. Si tenemos el problema como en la figura debemos de aumentar el valor de este parámetro y probar que se ha solucionado.
 
     Podemos probar aumentando un 30% el parámetro “Infill/Perimeter Overlap”. Si no es suficiente, aumentar más dicho parámetro.
 </string>
-    
+
     <string name="b1v14">Si observas que desde el inicio se despegan las primeras capas, ver el apartado “La primer capa no adhiere a la base”.</string>
     <string name="b1v15">Este efecto aparece si la primera de capa se imprime demasiado cerca del cristal. 
     El eje Z no está correctamente calibrado y la boquilla toca el cristal impidiendo que el plástico salga con facilidad. Este problema se observa durante la impresión de la primera capa.
@@ -100,24 +100,24 @@ Comprobar que la temperatura de fusión es correcta, revisar los parámetros de 
     Bajar la cama caliente de la impresora si tu impresora lo permite. 
     
     Ajuste de la altura del nozzle mediante Software: Para ello debemos de tener en cuenta el parámetro de Z offset. Con este parámetro lo que hacemos es indicar a la impresora que el punto cero de eje Z está a “x mm” del punto homming.</string>
-    
+
     <string name="b1v16">Este error se produce cuando el eje Z tiene holgura y el movimiento lineal de este eje no es recto. Esta holgura puede producirse por varias razones: 
     *Varillas lisas: alguna de las varillas lisas se mueve o vibra. Fijar correctamente. 
     *Varillas roscadas: comprobar que están rectas y concéntricas con los motores. 
     *Tuercas Eje Z: asegurarse de que las tuercas que permiten el movimiento en el eje Z están fijas</string>
-    
+
     <string name="b1v17">Se deben revisar y ajustar los parámetros de velocidad de movimientos de impresión de su máquina. Ir reduciendo de a poco los valores hasta conseguir una buena impresión de la pieza. </string>
-    
+
     <string name="b1v18">Podemos intentar modificando el parámetro que controla el relación porcentual entre el perímetro y el relleno, denominándose “Infill/Perimeter Overlap”. Este parámetro indica que porcentaje de relleno se superpone en los perímetros. Si tenemos el problema como en la figura debemos de aumentar el valor de este parámetro y probar que se ha solucionado.
 
     Podemos probar aumentando un 30% el parámetro “Infill/Perimeter Overlap”. Si no es suficiente, aumentar más dicho parámetro.</string>
-    
+
     <string name="b1v19">Cambiar la boquilla del nozzle por una de menor diámetro.
 
 Debemos tener en cuenta que la resolución de capa más alta será el 80% del diametro de la boquilla.
 
 Por ejemplo, con una boquilla de 0.3mm podremos imprimir capas con una altura máxima de 0.24mm (0.3mm*80%=0.24mm).</string>
-    
+
     <string name="b1v20">La altura de capa nunca puede estar por encima 80% del diámetro de la boquilla. 
     Por ejemplo, si tenemos una boquilla de 0,3 mm, la altura de capa máxima será de 0,24 mm.</string>
 
@@ -129,20 +129,20 @@ Por ejemplo, con una boquilla de 0.3mm podremos imprimir capas con una altura m�
     <string name="b2v0">Probablemente el extrusor esté obstruido. Esto puede ser provocado porque se ha quedado algo de plástico en el interior del Nozzle impidiendo que fluya el plástico. Hay que desarmar el extrusor, hay que ver el manual de la impresora o ponerse en contacto con el fabricante para que indique los pasos a seguir. </string>
 
     <string name="b2v1">Cómo regla general la primer capa se debe de realizar a la mitad de velocidad del resto de la impresión. De esta manera lo que hacemos es asegurarnos de que el filamento se adhiere a la base. Se soluciona modificando el parámetro que se denomina “First Layer Speed”. Si indicamos un 50%, le estamos indicando a la impresora que imprima la primera capa a la mitad de velocidad que el resto de capas. Si le parece que todavía va demasiado rápida, disminuya el valor.</string>
-   
+
     <string name="b2v2">Ajustar el valor del “extrusión multiplier”. Modificando este parámetro lo que logramos es variar cuanto plástico se extruye en cada impresión. Por ejemplo, por defecto está establecido el valor de 1, pero si lo aumentamos hasta 1.15, significa que se extruira un 15% más plástico que anteriormente. El valor típico para filamento PLA es de 0.9, mientras que para filamento ABS se tiende a un valor de cerca 1.0. Si realizas alguna modificación, es conveniente realizar una impresión de prueba de calibración para comprobar que se ha solucionado el problema.</string>
-   
+
     <string name="b2v4">Si el porcentaje de relleno está por debajo de lo correcto, aparecerán huecos en las caras superiores, la superficie de apoyo es demasiado pequeña y el filamento se puede hundir. Para solucionar esto, deberás aumentarlo desde el parámetro infill de tu laminador. </string>
-    
+
     <string name="b2v5">Una temperatura de extrusión incorrecta es uno de los problemas más frecuentes. Si la temperatura es muy alta, el filamento dentro de la boquilla se vuelve demasiado viscoso y sale sin que el extrusor esté funcionando. Prueba con disminuir 5-10 grados la temperatura del extrusor, si en posición de reposo el plástico sigue saliendo continúa bajando la temperatura. </string>
 
     <string name="b2v6">Si aún con ventilador, el problema persiste, deberías probar bajando la temperatura del extrusor. De esta manera conseguiras que el filamento se solidifique más rápido. </string>
-    
+
     <string name="b2v7"> Un exceso o una baja de tensión en las correas provoca irregularidades en la transmisión de movimiento. Ajustar las correas forma parte del mantenimiento periódico de una impresora, consulta el manual de la misma para realizarlo correctamente.
  </string>
 
     <string name="b2v8">Una extrusión demasiada rápida puede provocar que se extruya más plástico de lo que el hotend es capaz de sacar por la boquilla. Podemos ajustar el flujo de plástico que va a echar durante la impresión, podemos ir reduciendo la velocidad e ir probando, hasta que consigamos solucionar el problema. </string>
-    
+
     <string name="b2v9">Extraer el filamento y cortar el segmento gastado para quitar cualquier tipo de impureza que pueda existir en ese tramo. Volver a cargar el filamento y con el hotend caliente empujar de forma manual para comprobar que sale por la boquilla sin ejercer excesiva presión.</string>
 
     <string name="b2v10">Extraer el filamento y cortar el segmento gastado para quitar cualquier tipo de impureza que pueda existir en ese tramo. Volver a cargar el filamento y con el hotend caliente empujar de forma manual para comprobar que sale por la boquilla sin ejercer excesiva presión. </string>
@@ -157,7 +157,7 @@ Por ejemplo, con una boquilla de 0.3mm podremos imprimir capas con una altura m�
      Una posible solución podría ser disminuir la velocidad de impresión del relleno de la capa superior. </string>
 
     <string name="b2v14">Si tu impresora no tiene una estructura cerrada, cualquier corriente de aire puede provocar que el material se retraiga demasiado y se despegue de la base. Debes tratar de controlar el entorno de impresión cómo sea posible.</string>
-    
+
     <string name="b2v15">Si ya la cama está correctamente nivelada, hay que determinar la altura adecuada del Nozzle con respecto a la misma, de alguna de las siguientes maneras:
 
 En algunos modelos, lo que podemos hacer es bajar el final de carrera del eje Z, de esta manera, lo que hacemos es disminuir la distancia de nozzle con respecto a la cama.
@@ -169,7 +169,7 @@ Ajuste de la altura del nozzle mediante hardware. Para ello deberemos de tener e
 Debe ponerse en contacto con el soporte técnico para que le guíe sobre como proceder de forma adecuada.</string>
 
     <string name="b2v18">Aumenta por parámetros la anchura de los perimetros si es demasiado pequeña. Puedes empezar por configurar el parametro con la misma medida que la boquilla. Es una medida acertada para la mayoría de los laminadores. Por ejemplo, si tenemos una boquilla de 0.3mm debemos configurar este parametro con un valor de 0.3.</string>
-    
+
     <string name="b2v19">Se puede indicar al laminador que disponemos de una boquilla de menor resolución de la que tenemos, y así conseguir que imprima con más detalle.
 
 Aunque de alguna manera estamos “engañando” a la impresora, por lo que pieza podría tener otros problemas asociados a esta solución.</string>
@@ -203,20 +203,20 @@ Por otro lado, si disponemos de ventilador de capa, deshabilitarlo para la prime
 
     <string name="b3v8">Cada material tiene un rango de temperatura adecuado e incluso según el color, por su tinte, podría variar, en caso de que, durante la impresión, la temperatura no sea la óptima, el plástico podría no extruir correctamente y provocar que el filamento se “muerda”. Deberá de variar la temperatura de hotend hasta conseguir la temperatura ideal. </string>
     <string name="b3v9">Si con las anteriores soluciones no se ha podido resolver el problema, debes desarmar el hotend y corroborar lo que está sucediendo dentro.  </string>
-    
+
     <string name="b3v10">Durante una impresión larga, puede darse el caso que el motor del extrusor se sobrecaliente provocando que el driver de control del mismo, desactive el motor, dejando de extruir filamento. Esto es provocado porque no están bien ajustado los mA del driver.
     La electrónica dispone de drivers de control para los motores paso a paso, si no están ajustados a los mA adecuados, el motor perderá pasos y las capas se desplazarán. Si disponemos de un polímetro, lo que haremos es ajustar la corriente de cada eje de motor acorde a la impresora que tengamos. Ante la duda, consultar al fabricante.
     </string>
-   
+
     <string name="b3v11">Ajustar el valor del “extrusión multiplier”. Modificando este parámetro lo que logramos es variar cuanto plástico se extruye en cada impresión. Por ejemplo, por defecto está establecido el valor de 1, pero si lo aumentamos hasta 1.15, significa que se extruira un 15% más plástico que anteriormente. El valor típico para filamento PLA es de 0.9, mientras que para filamento ABS se tiende a un valor de cerca 1.0. Si realizas alguna modificación, es conveniente realizar una impresión de prueba de calibración para comprobar que se ha solucionado el problema.</string>
-   
+
     <string name="b3v13">Capas superiores insuficientes. Aumentar parámetro "Top layers" </string>
 
     <string name="b3v14">Si estás imprimiendo con filamento ABS, deberás utilizar un fijador o adherente para que se pegue la primera capa correctamente.
     Cuando se imprime con este tipo de plástico es conveniente crear  “brim” alrededor de la pieza. “Brim” crea una plataforma de plástico alrededor de la pieza, lo que mejora su adherencia. </string>
-   
+
     <string name="b3v17">Un exceso o una baja de tensión en las correas provoca irregularidades en la transmisión de movimiento. Ajustar las correas forma parte del mantenimiento periódico de una impresora, consulta el manual de la misma para realizarlo correctamente.</string>
-    
+
     <string name="b3v19">Cómo última opción, podemos modificar el diseño de la pieza para conseguir que las paredes que son más finas puedan imprimirse mejor.</string>
 
     <string name="b3v22">Debes aumentar el ancho de linea de la primera capa, cómo máxima el doble del diametro de la boquilla.
