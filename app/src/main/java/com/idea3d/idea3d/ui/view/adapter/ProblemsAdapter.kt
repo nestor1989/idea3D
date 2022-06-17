@@ -1,4 +1,4 @@
-package com.idea3d.idea3d.ui.view
+package com.idea3d.idea3d.ui.view.adapter
 
 
 import android.view.LayoutInflater
@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.idea3d.idea3d.databinding.ListProblemasBinding
 import com.idea3d.idea3d.data.model.Problems
+import com.idea3d.idea3d.ui.view.OnFragmentActionsListener
 
 class ProblemsAdapter (private val itemClickListener: OnFragmentActionsListener,
                        val guiaErrores:List<Problems>): RecyclerView.Adapter<ProblemsAdapter.ProblemasHolder>() {

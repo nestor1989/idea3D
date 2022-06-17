@@ -15,26 +15,13 @@
         android:theme="@style/Theme.Idea3D">
 
         <activity
-            android:name=".ui.view.NewsActivity"
-            android:exported="true"
-            android:label="@string/title_activity_news"
-            android:theme="@style/Theme.Idea3D.NoActionBar"
-            android:screenOrientation="portrait"/>
-        <activity
-            android:name=".ui.view.InfoActivity"
-            android:exported="true"
-            android:label="@string/title_activity_info"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.Idea3D.NoActionBar" />
-        <activity
             android:name=".ui.view.GuiaActivity"
             android:screenOrientation="portrait"
             />
         <activity
             android:name=".ui.view.CalcuActivity"
             android:label="@string/title_activity_calcu"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.Idea3D.NoActionBar" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.view.MainActivity"
             android:exported="true"

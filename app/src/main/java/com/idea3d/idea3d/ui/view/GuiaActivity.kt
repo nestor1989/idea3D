@@ -8,6 +8,7 @@ import com.idea3d.idea3d.*
 import com.idea3d.idea3d.databinding.ActivityGuiaBinding
 
 import com.idea3d.idea3d.data.model.ListProblems.Companion.errorGuide
+import com.idea3d.idea3d.ui.view.adapter.ProblemsAdapter
 
 
 class GuiaActivity : AppCompatActivity(), OnFragmentActionsListener {
