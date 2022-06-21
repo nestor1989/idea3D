@@ -9,7 +9,11 @@
         android:id="@+id/mainFragment"
         android:name="com.idea3d.idea3d.MainFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/guideFragment"
         android:name="com.idea3d.idea3d.GuideFragment"
@@ -29,4 +33,9 @@
         android:name="com.idea3d.idea3d.ui.view.SolutionFragment"
         android:label="fragment_solucion"
         tools:layout="@layout/fragment_solucion" />
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.idea3d.idea3d.DetailsFragment"
+        android:label="fragment_details"
+        tools:layout="@layout/fragment_details" />
 </navigation>
