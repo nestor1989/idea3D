@@ -5,55 +5,86 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import com.idea3d.idea3d.databinding.FragmentCalcuBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [CalcuFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class CalcuFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+class CalcuFragment : Fragment(), AdapterView.OnItemClickListener {
+    private var _binding: FragmentCalcuBinding? = null
+    private val binding get() = _binding!!
+    var coeficiente=1.0
+    var costoEnergy:Double=0.0
+    var costoHoras=0.0
+    var costoKwh=0.0
+    var costoFilamento=0.0
+    var costoPeso=0.0
+    var costoFila:Double=0.0
+    var costoTotal=0.0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_calcu, container, false)
+        _binding = FragmentCalcuBinding.inflate(inflater, container, false)
+
+        binding.kwhHint.setOnClickListener { calculate() }
+        binding.pesoHint.setOnClickListener { calculate() }
+        binding.filamentoHint.setOnClickListener { calculate() }
+        binding.horasHint.setOnClickListener { calculate() }
+
+        val materiales = resources.getStringArray(R.array.filamentos)
+        val adapter = ArrayAdapter(
+            requireContext(),
+            R.layout.list_item,
+            materiales
+        )
+
+        with(binding.autoCompleteTextView) {
+            setAdapter(adapter)
+            onItemClickListener=this@CalcuFragment
+
+        }
+
+        return binding.root
+
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment CalcuFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            CalcuFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    private fun calculate(){
+        if(binding.kwhHint.text!!.isNotEmpty()&& binding.horasHint.text!!.isNotEmpty()) {
+            costoKwh = binding.kwhHint.text.toString().toDouble()
+            costoHoras= binding.horasHint.text.toString().toDouble()
+            costoEnergy=costoHoras*costoKwh*coeficiente
+
+            binding.enegyCost.text= ("%.2f".format(costoEnergy))
+        }
+
+        if(binding.pesoHint.text!!.isNotEmpty()&& binding.filamentoHint.text!!.isNotEmpty()) {
+            costoPeso = binding.pesoHint.text.toString().toDouble()
+            costoFilamento= binding.filamentoHint.text.toString().toDouble()
+            costoFila=costoPeso*costoFilamento*0.001
+            binding.materialCost.text = "$"+("%.2f".format(costoFila))
+        }
+        costoTotal=costoFila + costoEnergy
+        binding.totalCost.text=("%.2f".format(costoTotal))
     }
+
+    override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+
+        when(position){
+            0->coeficiente=0.08166
+            1->coeficiente=0.12
+            2->coeficiente=0.11
+            3->coeficiente=0.14
+            4->coeficiente=0.095
+
+        }
+        calculate()
+
+    }
+
 }

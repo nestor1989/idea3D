@@ -5,55 +5,66 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.idea3d.idea3d.data.model.ListProblems
+import com.idea3d.idea3d.databinding.FragmentGuideBinding
+import com.idea3d.idea3d.databinding.FragmentMainBinding
+import com.idea3d.idea3d.ui.view.OnFragmentActionsListener
+import com.idea3d.idea3d.ui.view.SolutionFragment
+import com.idea3d.idea3d.ui.view.adapter.ProblemsAdapter
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [GuideFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class GuideFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+class GuideFragment : Fragment(), OnFragmentActionsListener {
+    private var _binding: FragmentGuideBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_guide, container, false)
+        _binding = FragmentGuideBinding.inflate(inflater, container, false)
+
+        initAdapter()
+
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment GuideFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            GuideFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    fun initAdapter(){
+
+        binding.recyclerGuia.layoutManager= LinearLayoutManager(requireContext())
+        val adapter = ProblemsAdapter(this, ListProblems.errorGuide)
+        binding.recyclerGuia.adapter = adapter
+
+
     }
+
+    override fun onClickFragmentButton(valor:Int, boton:Int) {
+
+        val fragment= SolutionFragment()
+        val bundle = Bundle()
+        bundle.putInt("valor", valor)
+        bundle.putInt("boton", boton)
+        fragment.arguments=bundle
+        val fragmentTransaction = requireActivity().supportFragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.fragmentContainer, fragment)
+        fragmentTransaction.addToBackStack(null)
+        fragmentTransaction.commit()
+    }
+
+    override fun onImageClick(valor: Int, imagen:Int) {
+        val fragment= SolutionFragment()
+        val bundle = Bundle()
+        bundle.putInt("valor", valor)
+        bundle.putInt("imagen", imagen)
+        fragment.arguments=bundle
+        val fragmentTransaction = requireActivity().supportFragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.fragmentContainer, fragment)
+        fragmentTransaction.addToBackStack(null)
+        fragmentTransaction.commit()
+    }
+
 }

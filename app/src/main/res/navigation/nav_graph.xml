@@ -14,10 +14,19 @@
         android:id="@+id/guideFragment"
         android:name="com.idea3d.idea3d.GuideFragment"
         android:label="fragment_guide"
-        tools:layout="@layout/fragment_guide" />
+        tools:layout="@layout/fragment_guide" >
+        <action
+            android:id="@+id/action_guideFragment_to_solutionFragment"
+            app:destination="@id/solutionFragment" />
+    </fragment>
     <fragment
         android:id="@+id/calcuFragment"
         android:name="com.idea3d.idea3d.CalcuFragment"
         android:label="fragment_calcu"
         tools:layout="@layout/fragment_calcu" />
+    <fragment
+        android:id="@+id/solutionFragment"
+        android:name="com.idea3d.idea3d.ui.view.SolutionFragment"
+        android:label="fragment_solucion"
+        tools:layout="@layout/fragment_solucion" />
 </navigation>

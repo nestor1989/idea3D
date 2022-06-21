@@ -42,7 +42,7 @@ class SolutionFragment  : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.imageButton.setOnClickListener { requireActivity().onBackPressed() }
+        binding.imageButton.setOnClickListener { requireActivity().supportFragmentManager.popBackStack() }
 
         if (arguments != null) {
             val boton = requireArguments().getInt("boton")
