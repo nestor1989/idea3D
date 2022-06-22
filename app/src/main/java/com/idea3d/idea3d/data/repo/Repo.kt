@@ -4,5 +4,5 @@ import com.idea3d.idea3d.core.Resource
 import com.idea3d.idea3d.data.model.Thing
 
 interface Repo {
-    suspend fun getThingsByNews(): Resource<List<Thing>>
+    suspend fun getThingsByNews(searchBy:String): Resource<List<Thing>>
 }

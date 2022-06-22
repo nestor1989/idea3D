@@ -8,7 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitClient {
 
-    val thingsService by lazy{
+    val thingsService: WebService by lazy{
         Retrofit.Builder()
             .baseUrl("https://api.thingiverse.com/")
             .addConverterFactory(GsonConverterFactory.create(GsonBuilder().create()))

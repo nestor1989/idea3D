@@ -9,8 +9,10 @@ data class Thing(
     @SerializedName ("id")
     var id: Int,
     @SerializedName("name")
-    var name:String
-):Parcelable
+    var name:String,
+    @SerializedName("thumbnail")
+    var image:String,
+    ):Parcelable
 
 @Parcelize
 data class Things(
