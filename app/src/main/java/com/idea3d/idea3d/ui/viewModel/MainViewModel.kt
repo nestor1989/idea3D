@@ -2,8 +2,10 @@ package com.idea3d.idea3d.ui.viewModel
 
 import androidx.lifecycle.*
 import com.idea3d.idea3d.core.Resource
+import com.idea3d.idea3d.data.model.News
 import com.idea3d.idea3d.data.repo.Repo
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class MainViewModel(private val repo: Repo): ViewModel() {
     private val searchThing = MutableLiveData<String>()
@@ -26,5 +28,15 @@ class MainViewModel(private val repo: Repo): ViewModel() {
             }
         }
     }
+
+    val fetchNewsList= liveData(Dispatchers.IO) {
+        emit(Resource.Loading())
+        try {
+            emit(repo.getNews("es"))
+        }catch (e:Exception){
+            emit(Resource.Failure(e))
+        }
+    }
+
 
 }

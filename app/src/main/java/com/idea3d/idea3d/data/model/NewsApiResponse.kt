@@ -1,8 +1,11 @@
 package com.idea3d.idea3d.data.model
 
-class NewsApiResponse {
-    val status:String?=null
-    val code:String?=null
-    val articles:List<News>? =null
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
 
-}
+@Parcelize
+data class NewsApiResponse (
+    var status:String?=null,
+    var code:String?=null,
+    var articles:List<News>
+): Parcelable
