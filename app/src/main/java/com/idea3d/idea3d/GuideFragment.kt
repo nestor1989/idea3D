@@ -38,7 +38,7 @@ class GuideFragment : Fragment(), OnFragmentActionsListener {
         binding.recyclerGuia.layoutManager= LinearLayoutManager(requireContext())
         val adapter = ProblemsAdapter(this, ListProblems.errorGuide)
         binding.recyclerGuia.adapter = adapter
-
+        binding.recyclerGuia.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
 
     }
 

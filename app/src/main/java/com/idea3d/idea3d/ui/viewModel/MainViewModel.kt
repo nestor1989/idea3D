@@ -15,7 +15,7 @@ class MainViewModel(private val repo: Repo): ViewModel() {
     }
 
     init{
-        setThings("newest/")
+        setThings("relevant")
     }
 
     val fetchThings = searchThing.distinctUntilChanged().switchMap {

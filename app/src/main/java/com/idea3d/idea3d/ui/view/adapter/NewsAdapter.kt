@@ -46,8 +46,7 @@ class NewsAdapter(private val context: Context, private val newsList:List<News>,
                 .placeholder(R.drawable.idea_3d_brand_2020_02)
                 .dontAnimate()
                 .into(itemBinding.ivPortada)
-            itemBinding.tvTitulo.text = item.title
-            itemBinding.tvDesc.text=item.content
+
             itemView.setOnClickListener {itemClickListener.onNewsClick(item)}
         }
     }

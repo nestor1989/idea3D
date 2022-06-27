@@ -9,70 +9,56 @@
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="297dp"
+        android:orientation="vertical">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
+            android:layout_marginStart="8dp"
+            android:orientation="horizontal">
 
-            <ImageView
-                android:id="@+id/ivPortada"
-                android:layout_width="140dp"
-                android:layout_height="140dp"
-                android:src="@mipmap/ic_launcher"
-                />
-
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/tvtitle"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginStart="8dp">
-                <TextView
-                    android:id="@+id/tvtitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ellipsize="end"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginTop="8dp"
-                    android:paddingStart="8sp"
-                    android:fontFamily="@font/roboto_thin"
-                    android:maxLines="2"
-                    android:textAlignment="textStart"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
-                    android:lineHeight="31sp"
-                    android:textFontWeight="600"
-                    tools:text="Matrix" />
-                <TextView
-                    android:id="@+id/tvDesc"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:textSize="10dp"
-                    android:paddingStart="8sp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="10dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/roboto_thin"
+                android:lineHeight="31sp"
+                android:maxLines="1"
+                android:paddingStart="8sp"
+                android:textAlignment="textStart"
+                android:textFontWeight="600"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                tools:text="Matrix" />
 
-                    android:fontFamily="@font/roboto_thin"
-                    android:letterSpacing="0.013"
-                    android:lineHeight="22sp"
-                    android:textAlignment="textStart"
-                    android:text="@string/title_activity_calcu"/>
-                <TextView
-                    android:id="@+id/tvDescSub"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:paddingStart="8sp"
-                    android:textSize="10dp"
-                    android:textColor="#E91E63"
-                    android:fontFamily="@font/roboto_thin"
-                    android:letterSpacing="0.013"
-                    android:lineHeight="22sp"
-                    android:textAlignment="textStart"
-                    tools:text="Neo, Morfeo y gran elenco"/>
-
-
-            </LinearLayout>
+            <TextView
+                android:id="@+id/tvDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/roboto_thin"
+                android:letterSpacing="0.013"
+                android:visibility="gone"
+                android:lineHeight="22sp"
+                android:paddingStart="8sp"
+                android:text="@string/title_activity_calcu"
+                android:textAlignment="textStart"
+                android:textSize="10dp" />
         </LinearLayout>
+
+        <ImageView
+            android:id="@+id/ivPortada"
+            android:layout_width="match_parent"
+            android:layout_height="254dp"
+            android:src="@mipmap/ic_launcher" />
+    </LinearLayout>
 </androidx.cardview.widget.CardView>
 
 
