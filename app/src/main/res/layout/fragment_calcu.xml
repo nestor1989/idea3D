@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/material_dynamic_primary30"
+    android:background="#03A9F4"
     tools:context=".ui.view.MainActivity">
 
     <androidx.constraintlayout.widget.Guideline
@@ -24,22 +24,16 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/horasEdit"
-
-
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginHorizontal="32dp"
         android:hint="@string/kWh"
         app:boxCornerRadiusBottomEnd="20dp"
         app:boxCornerRadiusBottomStart="20dp"
         app:boxCornerRadiusTopEnd="20dp"
         app:boxCornerRadiusTopStart="20dp"
         app:boxStrokeColor="@color/white"
-
         app:helperText="...de impresión"
         app:helperTextTextColor="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/guideline11"
@@ -55,7 +49,7 @@
 
             android:id="@+id/horasHint"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="50dp"
             android:layout_weight="60"
             android:inputType="number|numberDecimal" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -73,8 +67,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginVertical="8dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginHorizontal="32dp"
         android:hint="@string/kWh"
         app:boxCornerRadiusBottomEnd="20dp"
         app:boxCornerRadiusBottomStart="20dp"
@@ -93,7 +86,7 @@
 
             android:id="@+id/kwhHint"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="50dp"
             android:layout_weight="60"
             android:inputType="number|numberDecimal" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -104,8 +97,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginHorizontal="32dp"
         android:layout_marginBottom="10dp"
         android:layout_marginVertical="8dp"
         android:hint="@string/kg"
@@ -127,7 +119,7 @@
 
             android:id="@+id/filamentoHint"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="50dp"
             android:layout_weight="60"
             android:inputType="number|numberDecimal" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -143,10 +135,8 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="16dp"
         android:layout_marginVertical="8dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginHorizontal="32dp"
         android:hint="@string/Peso"
         app:boxCornerRadiusBottomEnd="20dp"
         app:boxCornerRadiusBottomStart="20dp"
@@ -165,7 +155,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/pesoHint"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="50dp"
             android:layout_weight="60"
             android:inputType="number|numberDecimal" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -175,9 +165,8 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginVertical="8dp"
         android:hint="@string/Material"
         app:boxCornerRadiusBottomEnd="20dp"
         app:boxCornerRadiusBottomStart="20dp"
@@ -197,7 +186,7 @@
         <AutoCompleteTextView
             android:id="@+id/autoCompleteTextView"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="50dp"
             android:layout_weight="60"
             android:inputType="none" />
 
@@ -207,12 +196,11 @@
         android:id="@+id/enegyCost"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginHorizontal="32dp"
         android:background="@drawable/style_text_view"
         android:gravity="center"
         android:text="@string/CE"
-        android:layout_marginVertical="8dp"
+        android:layout_marginVertical="24dp"
         android:textColor="@color/white"
         app:drawableStartCompat="@drawable/ic_baseline_electrical_guach"
         app:layout_constraintBottom_toTopOf="@+id/guideline15"
@@ -224,9 +212,8 @@
         android:id="@+id/materialCost"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginVertical="8dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginVertical="24dp"
+        android:layout_marginHorizontal="32dp"
         android:background="@drawable/style_text_view"
         android:gravity="center"
         android:text="@string/CM"
@@ -241,9 +228,8 @@
         android:id="@+id/totalCost"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginVertical="8dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginVertical="24dp"
         android:background="@drawable/style_text_view"
         android:gravity="center"
         android:text="@string/CT"
@@ -253,7 +239,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.452"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/enegyCost" />
+        app:layout_constraintTop_toTopOf="@+id/guideline15" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
