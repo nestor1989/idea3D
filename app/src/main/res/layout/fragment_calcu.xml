@@ -49,7 +49,7 @@
                 app:boxCornerRadiusTopEnd="20dp"
                 app:boxCornerRadiusTopStart="20dp"
                 app:boxStrokeColor="@color/white"
-                app:helperText="...de impresión"
+                app:helperText="Horas de impresión"
                 app:helperTextTextColor="@color/white"
                 android:layout_marginVertical="8dp"
 
@@ -78,7 +78,7 @@
                 app:boxCornerRadiusTopEnd="20dp"
                 app:boxCornerRadiusTopStart="20dp"
                 app:boxStrokeColor="@color/white"
-                app:helperText="Precio del kWh"
+                app:helperText="Precio del kWh (ver en factura de luz)"
                 app:helperTextTextColor="@color/white"
                 app:startIconDrawable="@drawable/ic_baseline_offline_bolt_24">
 
@@ -131,7 +131,7 @@
                 app:boxCornerRadiusTopEnd="20dp"
                 app:boxCornerRadiusTopStart="20dp"
                 app:boxStrokeColor="@color/white"
-                app:helperText="Filamento (kg)"
+                app:helperText="Costo del Filamento (Kg)"
                 app:helperTextTextColor="@color/white"
                 app:startIconDrawable="@drawable/ic_baseline_attach_money_24">
 
@@ -164,7 +164,7 @@
                 app:boxCornerRadiusTopEnd="20dp"
                 app:boxCornerRadiusTopStart="20dp"
                 app:boxStrokeColor="@color/white"
-                app:helperText="de la pieza(gr)"
+                app:helperText="Cuál es el peso de la pieza (Gr)"
                 app:helperTextTextColor="@color/white"
                 app:startIconDrawable="@drawable/peso">
 
@@ -189,7 +189,7 @@
                 app:boxCornerRadiusTopEnd="20dp"
                 app:boxCornerRadiusTopStart="20dp"
                 app:boxStrokeColor="@color/white"
-                app:helperText="Tipo"
+                app:helperText="Tipo de filamento"
                 app:helperTextTextColor="@color/white">
 
                 <AutoCompleteTextView

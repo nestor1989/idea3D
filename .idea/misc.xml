@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/android-sdk/idea3D/app/src/main/res/drawable/ic_calcu.xml" value="0.195" />
+        <entry key="..\:/android-sdk/idea3D/app/src/main/res/drawable/ic_guide.xml" value="0.195" />
+        <entry key="..\:/android-sdk/idea3D/app/src/main/res/drawable/ic_home.xml" value="0.195" />
         <entry key="..\:/android-sdk/idea3D/app/src/main/res/drawable/splash_background.xml" value="0.1331081081081081" />
         <entry key="..\:/android-sdk/idea3D/app/src/main/res/drawable/splash_dark.xml" value="0.14290540540540542" />
         <entry key="..\:/android-sdk/idea3D/app/src/main/res/drawable/splash_screen_dark.xml" value="0.14290540540540542" />
