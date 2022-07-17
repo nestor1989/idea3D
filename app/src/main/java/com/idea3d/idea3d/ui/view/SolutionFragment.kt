@@ -6,7 +6,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.idea3d.idea3d.R
 import com.idea3d.idea3d.databinding.FragmentSolucionBinding
 
@@ -42,7 +44,7 @@ class SolutionFragment  : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.imageButton.setOnClickListener { requireActivity().supportFragmentManager.popBackStack() }
+        binding.floatingActionButton.setOnClickListener { findNavController().popBackStack() }
 
         if (arguments != null) {
             val boton = requireArguments().getInt("boton")
@@ -53,7 +55,6 @@ class SolutionFragment  : Fragment() {
                 0 -> {
                     binding.imageView.visibility = View.VISIBLE
                     binding.imageView.setImageResource(imagen)
-                    binding.fondo.background = null
                 }
 
                 1-> {

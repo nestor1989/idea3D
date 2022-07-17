@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.idea3d.idea3d.data.model.ListProblems
 import com.idea3d.idea3d.databinding.FragmentGuideBinding
@@ -44,27 +45,17 @@ class GuideFragment : Fragment(), OnFragmentActionsListener {
 
     override fun onClickFragmentButton(valor:Int, boton:Int) {
 
-        val fragment= SolutionFragment()
         val bundle = Bundle()
         bundle.putInt("valor", valor)
         bundle.putInt("boton", boton)
-        fragment.arguments=bundle
-        val fragmentTransaction = requireActivity().supportFragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.fragmentContainer, fragment)
-        fragmentTransaction.addToBackStack(null)
-        fragmentTransaction.commit()
+        findNavController().navigate(R.id.action_guideFragment_to_solutionFragment, bundle)
     }
 
     override fun onImageClick(valor: Int, imagen:Int) {
-        val fragment= SolutionFragment()
         val bundle = Bundle()
         bundle.putInt("valor", valor)
         bundle.putInt("imagen", imagen)
-        fragment.arguments=bundle
-        val fragmentTransaction = requireActivity().supportFragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.fragmentContainer, fragment)
-        fragmentTransaction.addToBackStack(null)
-        fragmentTransaction.commit()
+        findNavController().navigate(R.id.action_guideFragment_to_solutionFragment, bundle)
     }
 
 }

@@ -1,5 +1,7 @@
 package com.idea3d.idea3d
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,6 +11,7 @@ import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
 import com.idea3d.idea3d.core.Resource
 import com.idea3d.idea3d.data.DataSource
 import com.idea3d.idea3d.data.model.News
@@ -105,7 +108,19 @@ class MainFragment : Fragment(), MainAdapter.OnThingClickListener, NewsAdapter.O
     }
 
     override fun onNewsClick(news: News) {
-        TODO("Not yet implemented")
+        binding.dialogNews.visibility = View.VISIBLE
+        val image = "${news.urlToImage}"
+        Glide.with(this)
+            .load(image)
+            .centerCrop()
+            .placeholder(R.drawable.logoidea)
+            .into(binding.includeNews.ivPortada)
+        binding.includeNews.tvTitle.text=news.title
+        binding.includeNews.tvDesc.text=news.content
+        binding.includeNews.floatingActionButton.setOnClickListener { binding.dialogNews.visibility = View.GONE}
+        val intent: Intent = Uri.parse("${news.url}").let { webpage ->
+            Intent(Intent.ACTION_VIEW, webpage)}
+        binding.includeNews.button.setOnClickListener { startActivity(intent) }
     }
 
 }

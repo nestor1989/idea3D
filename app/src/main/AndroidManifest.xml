@@ -19,10 +19,6 @@
             android:screenOrientation="portrait"
             />
         <activity
-            android:name=".ui.view.CalcuActivity"
-            android:label="@string/title_activity_calcu"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".ui.view.MainActivity"
             android:exported="true"
             android:screenOrientation="portrait"

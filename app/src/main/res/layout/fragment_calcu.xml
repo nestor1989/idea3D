@@ -22,7 +22,7 @@
         card_view:cardUseCompatPadding="true"
         android:layout_marginVertical="16dp"
         android:layout_marginHorizontal="10dp"
-        app:cardBackgroundColor="#9503A9F4">
+        app:cardBackgroundColor="@color/teal_idea">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -101,7 +101,7 @@
         card_view:cardUseCompatPadding="true"
         android:layout_marginVertical="16dp"
         android:layout_marginHorizontal="10dp"
-        app:cardBackgroundColor="#9503A9F4">
+        app:cardBackgroundColor="@color/teal_idea">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -212,7 +212,7 @@
         card_view:cardUseCompatPadding="true"
         android:layout_marginVertical="16dp"
         android:layout_marginHorizontal="10dp"
-        app:cardBackgroundColor="#9503A9F4">
+        app:cardBackgroundColor="@color/teal_idea">
 
     <LinearLayout
         android:layout_width="match_parent"
