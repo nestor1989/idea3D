@@ -46,22 +46,52 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-    <androidx.recyclerview.widget.RecyclerView
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/at_surt_semi_bold"
+        android:text="Buenas noches"
+        android:layout_marginTop="25sp"
+        android:layout_marginHorizontal="20dp"
+        android:textSize="25sp"/>
+
+
+
+         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_news"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="8dp"
             android:orientation="horizontal"
+             android:layout_marginHorizontal="20dp"
             android:visibility="visible" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_things"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="8dp"
-        android:orientation="horizontal"
-        tools:listitem="@layout/row_things"
-        android:visibility="visible" />
+        <SearchView
+            android:id="@+id/search"
+            android:elevation="6dp"
+            android:translationZ="6dp"
+            android:background="@drawable/search_view_style"
+            android:layout_marginHorizontal="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="20dp"
+            android:queryHint="STL"
+            android:iconifiedByDefault="false"
+            android:focusable="false"
+            android:textColorHint = "@color/grey"
+            android:queryBackground="@null"
+            />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_things"
+            android:layout_width="match_parent"
+            android:layout_marginHorizontal="15dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            tools:listitem="@layout/row_things"
+            android:visibility="visible" />
 
     </LinearLayout>
     </ScrollView>

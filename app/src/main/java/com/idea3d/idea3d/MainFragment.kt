@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -43,6 +44,7 @@ class MainFragment : Fragment(), MainAdapter.OnThingClickListener, NewsAdapter.O
         setUpRecyclerView()
         setUpNewsRecyclerView()
         setUpObservers()
+        setUpSearchView()
 
         return binding.root
     }
@@ -121,6 +123,22 @@ class MainFragment : Fragment(), MainAdapter.OnThingClickListener, NewsAdapter.O
         val intent: Intent = Uri.parse("${news.url}").let { webpage ->
             Intent(Intent.ACTION_VIEW, webpage)}
         binding.includeNews.button.setOnClickListener { startActivity(intent) }
+    }
+
+    fun setUpSearchView() {
+        binding.search.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(p0: String?): Boolean {
+                var search = p0!!
+                //LLAMAR A LA OTRA API
+                return false
+            }
+
+            override fun onQueryTextChange(p0: String?): Boolean {
+                var search = p0!!
+                //LO MISMO
+                return false
+            }
+        })
     }
 
 }
