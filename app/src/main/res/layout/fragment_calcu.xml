@@ -1,269 +1,284 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    tools:context=".ui.view.MainActivity">
+    android:background="@drawable/background_calcu"
+    tools:context=".CalcuFragment">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginVertical="8dp"
+        android:text="Energía"
+        android:fontFamily="@font/at_surt_semi_bold"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline10"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/totalCost" />
 
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/horasEdit"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        card_view:cardElevation="4dp"
-        card_view:cardCornerRadius="20dp"
-        card_view:cardUseCompatPadding="true"
-        android:layout_marginVertical="16dp"
-        android:layout_marginHorizontal="10dp"
-        app:cardBackgroundColor="@color/teal_idea">
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginVertical="8dp"
+        android:hint="@string/Horas"
+        app:boxCornerRadiusBottomEnd="20dp"
+        app:boxCornerRadiusBottomStart="20dp"
+        app:boxCornerRadiusTopEnd="20dp"
+        app:boxCornerRadiusTopStart="20dp"
+        app:boxStrokeColor="@color/white"
+        app:helperText="Horas de impresión"
+        app:helperTextTextColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline10"
+        app:layout_constraintTop_toTopOf="@+id/guideline5"
+        app:startIconDrawable="@drawable/ic_baseline_access_time_24">
 
-        <LinearLayout
+        <com.google.android.material.textfield.TextInputEditText
+
+            android:id="@+id/horasHint"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                android:text="Costo Energético"
-                android:layout_marginHorizontal="32dp"
-                android:layout_marginVertical="8dp"/>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/horasEdit"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="32dp"
-                android:hint="@string/kWh"
-                app:boxCornerRadiusBottomEnd="20dp"
-                app:boxCornerRadiusBottomStart="20dp"
-                app:boxCornerRadiusTopEnd="20dp"
-                app:boxCornerRadiusTopStart="20dp"
-                app:boxStrokeColor="@color/white"
-                app:helperText="Horas de impresión"
-                app:helperTextTextColor="@color/white"
-                android:layout_marginVertical="8dp"
-
-                app:startIconDrawable="@drawable/ic_baseline_access_time_24">
-
-                <com.google.android.material.textfield.TextInputEditText
-
-                    android:id="@+id/horasHint"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_weight="60"
-                    android:inputType="number|numberDecimal" />
-            </com.google.android.material.textfield.TextInputLayout>
+            android:layout_height="match_parent"
+            android:layout_weight="60"
+            android:inputType="number|numberDecimal"
+            android:imeOptions="actionNext"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/kwhEdit"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="8dp"
-                android:layout_marginHorizontal="32dp"
-                android:hint="@string/kWh"
-                app:boxCornerRadiusBottomEnd="20dp"
-                app:boxCornerRadiusBottomStart="20dp"
-                app:boxCornerRadiusTopEnd="20dp"
-                app:boxCornerRadiusTopStart="20dp"
-                app:boxStrokeColor="@color/white"
-                app:helperText="Precio del kWh (ver en factura de luz)"
-                app:helperTextTextColor="@color/white"
-                app:startIconDrawable="@drawable/ic_baseline_offline_bolt_24">
-
-                <com.google.android.material.textfield.TextInputEditText
-
-                    android:id="@+id/kwhHint"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_weight="60"
-                    android:inputType="number|numberDecimal" />
-            </com.google.android.material.textfield.TextInputLayout>
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/kwhEdit"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        card_view:cardElevation="4dp"
-        card_view:cardCornerRadius="20dp"
-        card_view:cardUseCompatPadding="true"
-        android:layout_marginVertical="16dp"
-        android:layout_marginHorizontal="10dp"
-        app:cardBackgroundColor="@color/teal_idea">
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginVertical="8dp"
+        android:hint="@string/kWh"
+        app:boxCornerRadiusBottomEnd="20dp"
+        app:boxCornerRadiusBottomStart="20dp"
+        app:boxCornerRadiusTopEnd="20dp"
+        app:boxCornerRadiusTopStart="20dp"
+        app:boxStrokeColor="@color/white"
+        app:helperText="Precio del kWh (ver en factura de luz)"
+        app:helperTextTextColor="@color/white"
+        app:layout_constraintEnd_toStartOf="@+id/guideline10"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline5"
+        app:startIconDrawable="@drawable/ic_baseline_offline_bolt_24">
 
-        <LinearLayout
+        <com.google.android.material.textfield.TextInputEditText
+
+            android:id="@+id/kwhHint"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                android:text="Costo de Filamentos"
-                android:layout_marginHorizontal="32dp"
-                android:layout_marginVertical="8dp"/>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInputLayout"
-
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="32dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginVertical="8dp"
-                android:hint="@string/kg"
-                app:boxCornerRadiusBottomEnd="20dp"
-                app:boxCornerRadiusBottomStart="20dp"
-                app:boxCornerRadiusTopEnd="20dp"
-                app:boxCornerRadiusTopStart="20dp"
-                app:boxStrokeColor="@color/white"
-                app:helperText="Costo del Filamento (Kg)"
-                app:helperTextTextColor="@color/white"
-                app:startIconDrawable="@drawable/ic_baseline_attach_money_24">
-
-                <com.google.android.material.textfield.TextInputEditText
+            android:layout_height="match_parent"
+            android:layout_weight="60"
+            android:inputType="number|numberDecimal"
+            android:imeOptions="actionNext"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
 
-                    android:id="@+id/filamentoHint"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_weight="60"
-                    android:inputType="number|numberDecimal" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guideline15"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.875" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="8dp"
-                android:layout_marginHorizontal="32dp"
-                android:hint="@string/Peso"
-                app:boxCornerRadiusBottomEnd="20dp"
-                app:boxCornerRadiusBottomStart="20dp"
-                app:boxCornerRadiusTopEnd="20dp"
-                app:boxCornerRadiusTopStart="20dp"
-                app:boxStrokeColor="@color/white"
-                app:helperText="Cuál es el peso de la pieza (Gr)"
-                app:helperTextTextColor="@color/white"
-                app:startIconDrawable="@drawable/peso">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/pesoHint"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_weight="60"
-                    android:inputType="number|numberDecimal" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="32dp"
-                android:layout_marginVertical="8dp"
-                android:hint="@string/Material"
-                app:boxCornerRadiusBottomEnd="20dp"
-                app:boxCornerRadiusBottomStart="20dp"
-                app:boxCornerRadiusTopEnd="20dp"
-                app:boxCornerRadiusTopStart="20dp"
-                app:boxStrokeColor="@color/white"
-                app:helperText="Tipo de filamento"
-                app:helperTextTextColor="@color/white">
-
-                <AutoCompleteTextView
-                    android:id="@+id/autoCompleteTextView"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_weight="60"
-                    android:inputType="none" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-    </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        card_view:cardElevation="4dp"
-        card_view:cardCornerRadius="20dp"
-        card_view:cardUseCompatPadding="true"
-        android:layout_marginVertical="16dp"
-        android:layout_marginHorizontal="10dp"
-        app:cardBackgroundColor="@color/teal_idea">
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginVertical="8dp"
+        android:fontFamily="@font/at_surt_semi_bold"
+        android:text="Insumos"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline10"
+        app:layout_constraintTop_toBottomOf="@+id/totalCost" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginVertical="8dp"
+        android:hint="@string/kg"
+        app:boxCornerRadiusBottomEnd="20dp"
+        app:boxCornerRadiusBottomStart="20dp"
+        app:boxCornerRadiusTopEnd="20dp"
+        app:boxCornerRadiusTopStart="20dp"
+        app:boxStrokeColor="@color/white"
+        app:helperText="Costo del Filamento (Kg)"
+        app:helperTextTextColor="@color/white"
+        app:layout_constraintEnd_toStartOf="@+id/guideline10"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline6"
+        app:startIconDrawable="@drawable/ic_baseline_attach_money_24">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-            android:text="Resultados"
-            android:layout_marginHorizontal="32dp"
-            android:layout_marginVertical="8dp"/>
+        <com.google.android.material.textfield.TextInputEditText
+
+            android:id="@+id/filamentoHint"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="60"
+            android:inputType="number|numberDecimal"
+            android:imeOptions="actionNext"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout3"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginVertical="8dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:hint="@string/Peso"
+        app:boxCornerRadiusBottomEnd="20dp"
+        app:boxCornerRadiusBottomStart="20dp"
+        app:boxCornerRadiusTopEnd="20dp"
+        app:boxCornerRadiusTopStart="20dp"
+        app:boxStrokeColor="@color/white"
+        app:helperText="Cuál es el peso de la pieza (Gr)"
+        app:helperTextTextColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline10"
+        app:layout_constraintTop_toTopOf="@+id/guideline6"
+        app:startIconDrawable="@drawable/peso">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/pesoHint"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="60"
+            android:inputType="number|numberDecimal"
+            android:imeOptions="actionNext"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+
+        android:id="@+id/textInputLayout2"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginVertical="8dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:hint="@string/Material"
+        app:boxCornerRadiusBottomEnd="20dp"
+        app:boxCornerRadiusBottomStart="20dp"
+        app:boxCornerRadiusTopEnd="20dp"
+        app:boxCornerRadiusTopStart="20dp"
+        app:boxStrokeColor="@color/white"
+        app:helperText="Tipo de filamento"
+        app:helperTextTextColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/guideline5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline2">
+
+        <AutoCompleteTextView
+            android:id="@+id/autoCompleteTextView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="60"
+            android:inputType="none" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <TextView
         android:id="@+id/enegyCost"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_marginHorizontal="32dp"
-        android:background="@drawable/style_text_view"
         android:gravity="center"
-        android:text="@string/CE"
-        android:layout_marginVertical="24dp"
+        android:text="$0"
+        android:fontFamily="@font/at_surt_semi_bold"
         android:textColor="@color/white"
-        app:drawableStartCompat="@drawable/ic_baseline_electrical_guach" />
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline10"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <TextView
         android:id="@+id/materialCost"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:layout_marginVertical="24dp"
         android:layout_marginHorizontal="32dp"
-        android:background="@drawable/style_text_view"
         android:gravity="center"
-        android:text="@string/CM"
+        android:text="$0"
+        android:fontFamily="@font/at_surt_semi_bold"
         android:textColor="@color/white"
-        app:drawableStartCompat="@drawable/ic_baseline_blur_on_24" />
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.434"
+        app:layout_constraintStart_toStartOf="@+id/guideline10"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <TextView
         android:id="@+id/totalCost"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_width="299dp"
+        android:layout_height="116dp"
         android:layout_marginHorizontal="32dp"
-        android:layout_marginVertical="24dp"
-        android:background="@drawable/style_text_view"
+        android:fontFamily="@font/at_surt_semi_bold"
         android:gravity="center"
-        android:text="@string/CT"
+        android:text="$0"
         android:textColor="@color/white"
-        app:drawableStartCompat="@drawable/ic_baseline_monetization_on_24" />
-    </LinearLayout>
-    </androidx.cardview.widget.CardView>
-    </LinearLayout>
+        android:textSize="100sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
-</ScrollView>
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/at_surt_semi_bold"
+        android:text="Costo Total"
+        android:textColor="@color/white"
+        android:textSize="35sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.4" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.6" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.8" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

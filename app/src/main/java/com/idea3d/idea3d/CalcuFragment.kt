@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import androidx.core.widget.addTextChangedListener
 import com.idea3d.idea3d.databinding.FragmentCalcuBinding
 
 class CalcuFragment : Fragment(), AdapterView.OnItemClickListener {
@@ -32,10 +33,17 @@ class CalcuFragment : Fragment(), AdapterView.OnItemClickListener {
     ): View? {
         _binding = FragmentCalcuBinding.inflate(inflater, container, false)
 
-        binding.kwhHint.setOnClickListener { calculate() }
-        binding.pesoHint.setOnClickListener { calculate() }
-        binding.filamentoHint.setOnClickListener { calculate() }
-        binding.horasHint.setOnClickListener { calculate() }
+        setInit()
+
+        return binding.root
+
+    }
+
+    private fun setInit(){
+        binding.kwhHint.addTextChangedListener { calculate() }
+        binding.pesoHint.addTextChangedListener { calculate() }
+        binding.filamentoHint.addTextChangedListener { calculate() }
+        binding.horasHint.addTextChangedListener { calculate() }
 
         val materiales = resources.getStringArray(R.array.filamentos)
         val adapter = ArrayAdapter(
@@ -49,8 +57,6 @@ class CalcuFragment : Fragment(), AdapterView.OnItemClickListener {
             onItemClickListener=this@CalcuFragment
 
         }
-
-        return binding.root
 
     }
 
@@ -70,7 +76,7 @@ class CalcuFragment : Fragment(), AdapterView.OnItemClickListener {
             binding.materialCost.text = "$"+("%.2f".format(costoFila))
         }
         costoTotal=costoFila + costoEnergy
-        binding.totalCost.text=("%.2f".format(costoTotal))
+        binding.totalCost.text= costoTotal.toInt().toString()
     }
 
     override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {

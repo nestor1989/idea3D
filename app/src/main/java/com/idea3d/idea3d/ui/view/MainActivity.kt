@@ -4,6 +4,7 @@ package com.idea3d.idea3d.ui.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.content.ContextCompat
 import com.idea3d.idea3d.databinding.ActivityMainBinding
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
@@ -40,14 +41,20 @@ class MainActivity : AppCompatActivity() {
             when(item.itemId) {
                 R.id.main -> {
                     navController.navigate(R.id.mainFragment)
+                    binding.banner.background = null
+                    binding.banner.setImageDrawable(getDrawable(R.drawable.idea_logo_circ))
                     true
                 }
                 R.id.calcu -> {
                     navController.navigate(R.id.calcuFragment)
+                    binding.banner.setBackgroundColor(ContextCompat.getColor(this, R.color.blue_idea))
+                    binding.banner.setImageDrawable(getDrawable(R.drawable.idea_logo_circ))
                     true
                 }
                 R.id.guide -> {
                     navController.navigate(R.id.guideFragment)
+                    binding.banner.background = null
+                    binding.banner.setImageDrawable(getDrawable(R.drawable.idea_logo_circ))
                     true
                 }
 
