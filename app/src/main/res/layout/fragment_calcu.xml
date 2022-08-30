@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="32dp"
         android:layout_marginVertical="8dp"
-        android:text="Energía"
+        android:text="@string/energy"
         android:fontFamily="@font/at_surt_semi_bold"
         android:textColor="@color/white"
         android:textSize="20sp"
@@ -34,9 +34,9 @@
         app:boxCornerRadiusBottomStart="20dp"
         app:boxCornerRadiusTopEnd="20dp"
         app:boxCornerRadiusTopStart="20dp"
-        app:boxStrokeColor="@color/white"
+        app:boxStrokeColor="@color/blue_idea"
         app:helperText="Horas de impresión"
-        app:helperTextTextColor="@color/white"
+        app:helperTextTextColor="@color/blue_idea"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline10"
         app:layout_constraintTop_toTopOf="@+id/guideline5"
@@ -65,9 +65,9 @@
         app:boxCornerRadiusBottomStart="20dp"
         app:boxCornerRadiusTopEnd="20dp"
         app:boxCornerRadiusTopStart="20dp"
-        app:boxStrokeColor="@color/white"
+        app:boxStrokeColor="@color/blue_idea"
         app:helperText="Precio del kWh (ver en factura de luz)"
-        app:helperTextTextColor="@color/white"
+        app:helperTextTextColor="@color/blue_idea"
         app:layout_constraintEnd_toStartOf="@+id/guideline10"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline5"
@@ -91,7 +91,7 @@
         android:layout_marginHorizontal="32dp"
         android:layout_marginVertical="8dp"
         android:fontFamily="@font/at_surt_semi_bold"
-        android:text="Insumos"
+        android:text="@string/supplies"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
         android:textColor="@color/white"
         android:textSize="20sp"
@@ -111,9 +111,9 @@
         app:boxCornerRadiusBottomStart="20dp"
         app:boxCornerRadiusTopEnd="20dp"
         app:boxCornerRadiusTopStart="20dp"
-        app:boxStrokeColor="@color/white"
+        app:boxStrokeColor="@color/blue_idea"
         app:helperText="Costo del Filamento (Kg)"
-        app:helperTextTextColor="@color/white"
+        app:helperTextTextColor="@color/blue_idea"
         app:layout_constraintEnd_toStartOf="@+id/guideline10"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline6"
@@ -145,9 +145,9 @@
         app:boxCornerRadiusBottomStart="20dp"
         app:boxCornerRadiusTopEnd="20dp"
         app:boxCornerRadiusTopStart="20dp"
-        app:boxStrokeColor="@color/white"
+        app:boxStrokeColor="@color/blue_idea"
         app:helperText="Cuál es el peso de la pieza (Gr)"
-        app:helperTextTextColor="@color/white"
+        app:helperTextTextColor="@color/blue_idea"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline10"
@@ -178,10 +178,9 @@
         app:boxCornerRadiusBottomStart="20dp"
         app:boxCornerRadiusTopEnd="20dp"
         app:boxCornerRadiusTopStart="20dp"
-        app:boxStrokeColor="@color/white"
+        app:boxStrokeColor="@color/blue_idea"
         app:helperText="Tipo de filamento"
-        app:helperTextTextColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/guideline5"
+        app:helperTextTextColor="@color/blue_idea"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline2">
@@ -227,9 +226,8 @@
 
     <TextView
         android:id="@+id/totalCost"
-        android:layout_width="299dp"
+        android:layout_width="match_parent"
         android:layout_height="116dp"
-        android:layout_marginHorizontal="32dp"
         android:fontFamily="@font/at_surt_semi_bold"
         android:gravity="center"
         android:text="$0"
@@ -271,7 +269,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.8" />
+        app:layout_constraintGuide_percent="0.82" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline10"
@@ -279,6 +277,28 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.5" />
+
+    <TextView
+        style="@style/titlesSemiBoldSmall"
+        android:id="@+id/textView5"
+        android:textColor="@color/grey"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="@string/CE"
+        app:layout_constraintBottom_toTopOf="@+id/guideline5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        style="@style/titlesSemiBoldSmall"
+        android:textColor="@color/grey"
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="@string/CM"
+        app:layout_constraintBottom_toTopOf="@+id/guideline6"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

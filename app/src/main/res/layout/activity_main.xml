@@ -12,12 +12,12 @@
         android:id="@+id/banner"
         android:layout_width="match_parent"
         android:layout_height="75dp"
-        android:padding="5dp"
+        android:padding="22dp"
         app:background="@null"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/idea_logo_circ" />
+        app:srcCompat="@drawable/logo_largo_dos" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/nav_host_fragment"

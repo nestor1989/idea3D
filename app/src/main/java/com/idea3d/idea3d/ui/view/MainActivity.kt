@@ -42,19 +42,19 @@ class MainActivity : AppCompatActivity() {
                 R.id.main -> {
                     navController.navigate(R.id.mainFragment)
                     binding.banner.background = null
-                    binding.banner.setImageDrawable(getDrawable(R.drawable.idea_logo_circ))
+                    binding.banner.setImageDrawable(getDrawable(R.drawable.logo_largo_dos))
                     true
                 }
                 R.id.calcu -> {
                     navController.navigate(R.id.calcuFragment)
                     binding.banner.setBackgroundColor(ContextCompat.getColor(this, R.color.blue_idea))
-                    binding.banner.setImageDrawable(getDrawable(R.drawable.idea_logo_circ))
+                    binding.banner.setImageDrawable(getDrawable(R.drawable.logo_white_large))
                     true
                 }
                 R.id.guide -> {
                     navController.navigate(R.id.guideFragment)
                     binding.banner.background = null
-                    binding.banner.setImageDrawable(getDrawable(R.drawable.idea_logo_circ))
+                    binding.banner.setImageDrawable(getDrawable(R.drawable.logo_largo_dos))
                     true
                 }
 

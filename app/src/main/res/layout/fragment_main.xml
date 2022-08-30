@@ -47,13 +47,13 @@
         android:orientation="vertical">
 
     <TextView
+        android:id="@+id/tvGood"
+        style= "@style/titlesSemiBoldSmall"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/at_surt_semi_bold"
-        android:text="Buenas noches"
+        android:text="@string/good_night"
         android:layout_marginTop="25sp"
-        android:layout_marginHorizontal="20dp"
-        android:textSize="25sp"/>
+        android:layout_marginHorizontal="20dp" />
 
 
 

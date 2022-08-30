@@ -20,6 +20,13 @@
     <string name="CE">Costo Energético</string>
     <string name="CM">Costo Materiales</string>
     <string name="CT">Costo Total</string>
+    <string name="energy">Energía</string>
+    <string name="supplies">Insumos</string>
+
+    <string name="good_night">Buenas noches</string>
+    <string name="good_evening">Buenas tardes</string>
+    <string name="good_morning">Buen día</string>
+
 
 
 
