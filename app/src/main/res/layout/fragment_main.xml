@@ -49,6 +49,7 @@
     <TextView
         android:id="@+id/tvGood"
         style= "@style/titlesSemiBoldSmall"
+        android:textColor="@color/grey"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/good_night"

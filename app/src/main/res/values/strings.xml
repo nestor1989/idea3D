@@ -27,7 +27,7 @@
     <string name="good_evening">Buenas tardes</string>
     <string name="good_morning">Buen día</string>
 
-
+    <string name="guide_title">Guía visual para la resolución de problemas FDM</string>
 
 
     <string-array name="filamentos">

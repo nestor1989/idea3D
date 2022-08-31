@@ -6,18 +6,20 @@ import android.view.View
 import android.view.ViewGroup
 
 import androidx.recyclerview.widget.RecyclerView
-import com.idea3d.idea3d.databinding.ListProblemasBinding
+import com.idea3d.idea3d.databinding.RowProblemsBinding
 import com.idea3d.idea3d.data.model.Problems
 import com.idea3d.idea3d.ui.view.OnFragmentActionsListener
 
-class ProblemsAdapter (private val itemClickListener: OnFragmentActionsListener,
-                       val guiaErrores:List<Problems>): RecyclerView.Adapter<ProblemsAdapter.ProblemasHolder>() {
+class ProblemsAdapter (
+    private val itemClickListener: OnFragmentActionsListener,
+    private val guiaErrores:List<Problems>
+    ): RecyclerView.Adapter<ProblemsAdapter.ProblemasHolder>() {
 
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProblemasHolder {
         val itemBinding =
-            ListProblemasBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            RowProblemsBinding.inflate(LayoutInflater.from(parent.context), parent, false)
 
         return ProblemasHolder(itemBinding)
     }
@@ -25,19 +27,17 @@ class ProblemsAdapter (private val itemClickListener: OnFragmentActionsListener,
     override fun onBindViewHolder(holder: ProblemasHolder, position: Int) {
         holder.render(guiaErrores[position])
 
-
     }
 
     override fun getItemCount(): Int {
         return guiaErrores.size
     }
 
-    inner class ProblemasHolder(private val itemBinding: ListProblemasBinding) :
+    inner class ProblemasHolder(private val itemBinding: RowProblemsBinding) :
+
         RecyclerView.ViewHolder(itemBinding.root) {
 
-
-
-          fun render(guiaErrores: Problems) {
+        fun render(guiaErrores: Problems) {
 
             itemBinding.resolucionUno.setOnClickListener { itemClickListener.onClickFragmentButton(bindingAdapterPosition, 1) }
             itemBinding.resolucionDos.setOnClickListener { itemClickListener.onClickFragmentButton(bindingAdapterPosition, 2) }
@@ -62,15 +62,6 @@ class ProblemsAdapter (private val itemClickListener: OnFragmentActionsListener,
               }
 
             }
-
-
-
-
-
-
-
-
-
 
         }
 

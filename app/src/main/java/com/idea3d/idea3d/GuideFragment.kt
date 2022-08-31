@@ -34,13 +34,11 @@ class GuideFragment : Fragment(), OnFragmentActionsListener {
         return binding.root
     }
 
-    fun initAdapter(){
-
-        binding.recyclerGuia.layoutManager= LinearLayoutManager(requireContext())
+    private fun initAdapter(){
+        val appContext = requireContext().applicationContext
+        binding.recyclerGuia.layoutManager= LinearLayoutManager(appContext)
         val adapter = ProblemsAdapter(this, ListProblems.errorGuide)
         binding.recyclerGuia.adapter = adapter
-        binding.recyclerGuia.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-
     }
 
     override fun onClickFragmentButton(valor:Int, boton:Int) {
