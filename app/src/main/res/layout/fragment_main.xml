@@ -53,7 +53,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/good_night"
-        android:layout_marginTop="25sp"
         android:layout_marginHorizontal="20dp" />
 
 
@@ -67,22 +66,63 @@
              android:layout_marginHorizontal="20dp"
             android:visibility="visible" />
 
-        <SearchView
-            android:id="@+id/search"
-            android:elevation="6dp"
-            android:translationZ="6dp"
-            android:background="@drawable/search_view_style"
-            android:layout_marginHorizontal="20dp"
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="20dp"
-            android:queryHint="STL"
-            android:iconifiedByDefault="false"
-            android:focusable="false"
-            android:textColorHint = "@color/grey"
-            android:queryBackground="@null"
-            />
+            app:cardElevation="0dp">
 
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginVertical="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/style_button_search"
+                    android:elevation="0dp"
+                    android:paddingHorizontal="15dp"
+                    android:text="NEW"
+                    android:textAlignment="textEnd"
+                    app:backgroundTint="#B30079AF" />
+
+
+                <Button
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+
+                    android:layout_marginVertical="20dp"
+                    android:layout_marginEnd="75dp"
+                    android:background="@drawable/style_button_search"
+                    android:backgroundTint="#B300EDCB"
+                    android:elevation="0dp"
+                    android:paddingHorizontal="15dp"
+                    android:text="POP"
+                    android:textAlignment="textEnd" />
+
+
+                <SearchView
+                    android:id="@+id/search"
+                    style="@style/Widget.Material3.Button.ElevatedButton"
+                    android:layout_width="265dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginVertical="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:background="@drawable/search_view_style"
+                    android:elevation="6dp"
+                    android:focusable="false"
+                    android:iconifiedByDefault="false"
+                    android:queryBackground="@null"
+                    android:queryHint="STL"
+                    android:textColorHint="@color/grey"
+                    android:translationZ="6dp" />
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_things"
