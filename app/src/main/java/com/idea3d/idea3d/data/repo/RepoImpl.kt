@@ -13,4 +13,8 @@ class RepoImpl (private val dataSource: DataSource):Repo {
     override suspend fun getNews(country:String): Resource<List<News>> {
         return dataSource.getNews(country)
     }
+
+    override suspend fun getThingsByName(searchBy: String): Resource<List<Thing>> {
+        return dataSource.getThingByName(searchBy)
+    }
 }

@@ -45,6 +45,7 @@ class MainFragment : Fragment(), MainAdapter.OnThingClickListener, NewsAdapter.O
         setUpNewsRecyclerView()
         setUpObservers()
         setUpSearchView()
+        setUpButtons()
 
         return binding.root
     }
@@ -125,20 +126,30 @@ class MainFragment : Fragment(), MainAdapter.OnThingClickListener, NewsAdapter.O
         binding.includeNews.button.setOnClickListener { startActivity(intent) }
     }
 
-    fun setUpSearchView() {
+    private fun setUpSearchView() {
         binding.search.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(p0: String?): Boolean {
                 var search = p0!!
-                //LLAMAR A LA OTRA API
+                viewModel.setThings(search)
                 return false
             }
 
             override fun onQueryTextChange(p0: String?): Boolean {
                 var search = p0!!
-                //LO MISMO
+                viewModel.setThings(search)
                 return false
             }
         })
+    }
+
+    private fun setUpButtons(){
+        binding.newButton.setOnClickListener {
+            viewModel.setThings("newest")
+        }
+
+        binding.popButton.setOnClickListener {
+            viewModel.setThings("popular")
+        }
     }
 
 }

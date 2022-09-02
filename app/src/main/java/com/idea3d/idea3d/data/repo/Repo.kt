@@ -7,4 +7,5 @@ import com.idea3d.idea3d.data.model.Thing
 interface Repo {
     suspend fun getThingsByNews(searchBy:String): Resource<List<Thing>>
     suspend fun getNews (country:String): Resource<List<News>>
+    suspend fun getThingsByName(searchBy: String): Resource<List<Thing>>
 }

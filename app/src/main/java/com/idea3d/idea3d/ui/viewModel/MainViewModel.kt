@@ -22,7 +22,9 @@ class MainViewModel(private val repo: Repo): ViewModel() {
         liveData(Dispatchers.IO) {
             emit(Resource.Loading())
             try {
+                if (searchThing.value=="relevant" || searchThing.value=="popular" || searchThing.value=="newest"){
                 emit(repo.getThingsByNews(it))
+                }else emit(repo.getThingsByName(it))
             } catch (e: Exception) {
                 emit(Resource.Failure(e))
             }
@@ -37,6 +39,5 @@ class MainViewModel(private val repo: Repo): ViewModel() {
             emit(Resource.Failure(e))
         }
     }
-
 
 }

@@ -16,4 +16,8 @@ class DataSource {
         suspend fun getNews (country:String): Resource<List<News>> {
             return Resource.Success(RetrofitClient.newsService.topHeadLines(country).articles)
         }
+
+        suspend fun getThingByName (searchBy: String): Resource<List<Thing>>{
+            return Resource.Success(RetrofitClient.thingsService.searchThingByName(THING_KEY,searchBy).thingsList)
+        }
 }

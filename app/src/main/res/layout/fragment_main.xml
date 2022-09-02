@@ -46,14 +46,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tvGood"
-        style= "@style/titlesSemiBoldSmall"
-        android:textColor="@color/grey"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/good_night"
-        android:layout_marginHorizontal="20dp" />
+
 
 
 
@@ -69,13 +62,18 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardElevation="0dp">
+            android:layout_marginTop="10dp"
+            app:cardElevation="0dp"
+            app:backgroundTint="@null"
+            app:cardBackgroundColor="@color/transparent"
+            android:background="@null">
 
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
                 <Button
+                    android:id="@+id/new_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
@@ -90,10 +88,10 @@
 
 
                 <Button
+                    android:id="@+id/pop_button"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
-
                     android:layout_marginVertical="20dp"
                     android:layout_marginEnd="75dp"
                     android:background="@drawable/style_button_search"
@@ -107,11 +105,12 @@
                 <SearchView
                     android:id="@+id/search"
                     style="@style/Widget.Material3.Button.ElevatedButton"
-                    android:layout_width="265dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="130dp"
                     android:layout_alignParentStart="true"
                     android:layout_marginVertical="20dp"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginStart="20dp"
                     android:background="@drawable/search_view_style"
                     android:elevation="6dp"
                     android:focusable="false"
