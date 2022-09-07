@@ -9,13 +9,19 @@ import kotlinx.coroutines.launch
 
 class MainViewModel(private val repo: Repo): ViewModel() {
     private val searchThing = MutableLiveData<String>()
+    private val pagination = MutableLiveData<Int>()
 
     fun setThings(thingBy:String){
         searchThing.value = thingBy
     }
 
+    fun setPagination(pages:Int){
+        pagination.value = pages
+    }
+
     init{
         setThings("relevant")
+        setPagination(5)
     }
 
     val fetchThings = searchThing.distinctUntilChanged().switchMap {
@@ -39,5 +45,6 @@ class MainViewModel(private val repo: Repo): ViewModel() {
             emit(Resource.Failure(e))
         }
     }
+
 
 }

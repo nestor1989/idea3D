@@ -22,13 +22,21 @@ import com.idea3d.idea3d.databinding.FragmentGuideBinding
 import com.idea3d.idea3d.databinding.FragmentMainBinding
 import com.idea3d.idea3d.ui.view.adapter.MainAdapter
 import com.idea3d.idea3d.ui.view.adapter.NewsAdapter
+import com.idea3d.idea3d.ui.view.adapter.PaginationAdapter
 import com.idea3d.idea3d.ui.viewModel.MainViewModel
 import com.idea3d.idea3d.ui.viewModel.VMFactory
 
-class MainFragment : Fragment(), MainAdapter.OnThingClickListener, NewsAdapter.OnNewsClickListener {
+class MainFragment :
+    Fragment(),
+    MainAdapter.OnThingClickListener,
+    NewsAdapter.OnNewsClickListener,
+    PaginationAdapter.OnPageClickListener {
+
     private var _binding: FragmentMainBinding? = null
     private val binding get() = _binding!!
     private val viewModel by viewModels<MainViewModel>(){ VMFactory(RepoImpl(DataSource())) }
+
+    lateinit var listPages:MutableList<Int>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,6 +54,7 @@ class MainFragment : Fragment(), MainAdapter.OnThingClickListener, NewsAdapter.O
         setUpObservers()
         setUpSearchView()
         setUpButtons()
+        setUpPaginationRecycler()
 
         return binding.root
     }
@@ -91,6 +100,7 @@ class MainFragment : Fragment(), MainAdapter.OnThingClickListener, NewsAdapter.O
             }
 
         })
+
     }
 
     private fun setUpRecyclerView() {
@@ -102,8 +112,14 @@ class MainFragment : Fragment(), MainAdapter.OnThingClickListener, NewsAdapter.O
     private fun setUpNewsRecyclerView() {
         val appContext = requireContext().applicationContext
         val recyclerView = binding.rvNews
-        recyclerView.layoutManager= LinearLayoutManager(appContext)
+        //recyclerView.layoutManager= LinearLayoutManager(appContext)
         binding.rvNews.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+    }
+
+    private fun setUpPaginationRecycler(){
+        listPages = mutableListOf<Int>(1, 2, 3, 4 ,5)
+        binding.rvPage.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        binding.rvPage.adapter = PaginationAdapter(requireContext(), listPages , this )
     }
 
     override fun onThingClick(thing: Thing) {
@@ -150,6 +166,10 @@ class MainFragment : Fragment(), MainAdapter.OnThingClickListener, NewsAdapter.O
         binding.popButton.setOnClickListener {
             viewModel.setThings("popular")
         }
+    }
+
+    override fun onPageClick(page: Int) {
+
     }
 
 }

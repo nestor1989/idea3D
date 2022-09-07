@@ -47,16 +47,13 @@
         android:orientation="vertical">
 
 
-
-
-
          <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_news"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="8dp"
             android:orientation="horizontal"
-             android:layout_marginHorizontal="20dp"
+            android:layout_marginHorizontal="20dp"
             android:visibility="visible" />
 
         <androidx.cardview.widget.CardView
@@ -129,9 +126,49 @@
             android:layout_marginHorizontal="15dp"
             android:layout_height="match_parent"
             android:layout_marginTop="8dp"
-            android:orientation="horizontal"
+            android:orientation="vertical"
             tools:listitem="@layout/row_things"
             android:visibility="visible" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginVertical="20dp">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="20dp"
+                android:background="@null"
+                android:backgroundTint="@color/white"
+                android:src="@drawable/ic_baseline_chevron_left_24"
+                app:fabSize="mini"
+                app:tint="@color/teal_idea" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_page"
+                android:layout_width="match_parent"
+                android:layout_height="76dp"
+                android:layout_marginHorizontal="70dp"
+                android:orientation="horizontal"
+                android:visibility="visible"
+                tools:listitem="@layout/row_pagination" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_chevron_right_24"
+                app:tint="@color/teal_idea"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="20dp"
+                android:backgroundTint="@color/white"
+                android:background="@null"
+                app:fabSize="mini" />
+
+        </RelativeLayout>
 
     </LinearLayout>
     </ScrollView>
