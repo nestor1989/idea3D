@@ -35,8 +35,13 @@ class PaginationAdapter(private val context: Context, private val pages:List<Int
     inner class MainViewHolder(private val itemBinding: RowPaginationBinding):
         BaseViewHolder<Int>(itemBinding.root) {
         override fun bind(item: Int) {
-            itemBinding.tvLetter.text=item.toString()
-            itemBinding.tvLetter.setOnClickListener {itemClickListener.onPageClick(item)}
+            itemBinding.buttonNumber.text=item.toString()
+            itemBinding.buttonNumber.setOnClickListener {
+                it.isActivated =! it.isActivated
+
+                itemClickListener.onPageClick(item)
+
+            }
         }
     }
 }

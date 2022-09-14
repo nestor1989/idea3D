@@ -150,7 +150,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_page"
                 android:layout_width="match_parent"
-                android:layout_height="76dp"
+                android:layout_height="60dp"
                 android:layout_marginHorizontal="70dp"
                 android:orientation="horizontal"
                 android:visibility="visible"
@@ -159,14 +159,14 @@
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_baseline_chevron_right_24"
-                app:tint="@color/teal_idea"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="20dp"
-                android:backgroundTint="@color/white"
                 android:background="@null"
-                app:fabSize="mini" />
+                android:backgroundTint="@color/white"
+                android:src="@drawable/ic_baseline_chevron_right_24"
+                app:fabSize="mini"
+                app:tint="@color/teal_idea" />
 
         </RelativeLayout>
 

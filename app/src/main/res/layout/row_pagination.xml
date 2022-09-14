@@ -9,21 +9,23 @@
     >
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/tvLetter"
-        style="@style/Widget.Material3.ExtendedFloatingActionButton.Icon.Primary"
-        android:layout_width="56dp"
-        android:layout_height="56dp"
-        android:clickable="true"
-        android:elevation="6dp"
+        android:id="@+id/buttonNumber"
+        style="@style/ShapeAppearanceOverlay.Material3.FloatingActionButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:elevation="0dp"
         android:gravity="center"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:padding="0dp"
         android:text="1"
         android:textAlignment="center"
-        android:textAllCaps="true"
-        android:textColor="@color/white"
-        android:textSize="24sp"
-        app:backgroundTint="@color/teal_idea"
+        android:textColor="@drawable/color_selector"
+        android:textSize="12sp"
+        app:backgroundTint="@drawable/background_selector"
+        app:cornerRadius="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:pressedTranslationZ="6dp"
-        app:tint="@color/white" />
+        app:strokeColor="@color/teal_idea"
+        app:strokeWidth="2dp" />
 </RelativeLayout>
