@@ -47,7 +47,9 @@ class MainAdapter(private val context: Context, private val thingList:List<Thing
                 .into(itemBinding.ivPortada)
             itemBinding.tvtitle.text=item.name
             itemBinding.tvDesc.text=item.id.toString()
-            itemView.setOnClickListener {itemClickListener.onThingClick(item)}
+            itemBinding.cardThing.setOnClickListener {
+                itemClickListener.onThingClick(item)
+            }
         }
     }
 }

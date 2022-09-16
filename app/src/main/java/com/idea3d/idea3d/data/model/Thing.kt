@@ -12,10 +12,14 @@ data class Thing(
     var name:String,
     @SerializedName("thumbnail")
     var image:String,
+    @SerializedName("public_url")
+    val url:String
     ):Parcelable
 
 @Parcelize
 data class Things(
     @SerializedName("hits")
-    val thingsList: List<Thing>
+    val thingsList: List<Thing>,
+    @SerializedName("total")
+    val totalThings: Int
 ): Parcelable

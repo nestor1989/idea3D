@@ -123,7 +123,10 @@ class MainFragment :
     }
 
     override fun onThingClick(thing: Thing) {
-
+        val intent: Intent = Uri.parse("${thing.url}").let { webpage ->
+            Intent(Intent.ACTION_VIEW, webpage)
+        }
+        startActivity(intent)
     }
 
     override fun onNewsClick(news: News) {
