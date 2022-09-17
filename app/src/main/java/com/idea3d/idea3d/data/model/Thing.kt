@@ -23,3 +23,4 @@ data class Things(
     @SerializedName("total")
     val totalThings: Int
 ): Parcelable
+

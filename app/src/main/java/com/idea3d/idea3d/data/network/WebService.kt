@@ -8,10 +8,14 @@ import retrofit2.http.Query
 
 interface WebService {
     @GET ("search?")
-    suspend fun searchThingByNew (@Header("Authorization") value: String,
-                                  @Query(value ="sort") searchBy:String) : Things
+    suspend fun searchThingByNew (  @Header("Authorization") value: String,
+                                    @Query(value ="sort") searchBy:String,
+                                    @Query(value="page") page:Int,
+                                    @Query(value="per_page") per_page:Int) : Things
 
     @GET("search/{searchBy}/")
-    suspend fun searchThingByName (@Header("Authorization") value: String,
-                                   @Path("searchBy") searchBy: String): Things
-}
+    suspend fun searchThingByName ( @Header("Authorization") value: String,
+                                    @Path("searchBy") searchBy: String,
+                                    @Query(value="page") page:Int,
+                                    @Query(value="per_page") per_page:Int) : Things
+    }

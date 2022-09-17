@@ -13,6 +13,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
+import com.idea3d.idea3d.core.Constants
 import com.idea3d.idea3d.core.Resource
 import com.idea3d.idea3d.data.DataSource
 import com.idea3d.idea3d.data.model.News
@@ -54,7 +55,6 @@ class MainFragment :
         setUpObservers()
         setUpSearchView()
         setUpButtons()
-        setUpPaginationRecycler()
 
         return binding.root
     }
@@ -69,7 +69,33 @@ class MainFragment :
                 is Resource.Success->{
                     binding.prBar.visibility=View.GONE
                     binding.prError.visibility=View.GONE
-                    binding.rvThings.adapter= MainAdapter(requireContext(), result.data, this)
+                    binding.rvThings.adapter= MainAdapter(requireContext(), result.data.thingsList, this)
+                    var page = result.data.totalThings / Constants.PER_PAGE
+                    if (page==0) page++
+                    setUpPaginationRecycler(page)
+                }
+                is Resource.Failure->{
+                    binding.prBar.visibility=View.GONE
+                    binding.prError.visibility=View.VISIBLE
+                    Toast.makeText(requireContext(), result.exception.toString(), Toast.LENGTH_LONG).show()
+                }
+
+            }
+        })
+
+        viewModel.fetchPage.observe(viewLifecycleOwner, Observer { result ->
+            when(result){
+                is Resource.Loading->{
+                    binding.prBar.visibility=View.VISIBLE
+                    binding.prError.visibility=View.GONE
+                }
+                is Resource.Success->{
+                    binding.prBar.visibility=View.GONE
+                    binding.prError.visibility=View.GONE
+                    binding.rvThings.adapter= MainAdapter(requireContext(), result.data.thingsList, this)
+                    var page = result.data.totalThings / Constants.PER_PAGE
+                    if (page==0) page++
+                    setUpPaginationRecycler(page)
                 }
                 is Resource.Failure->{
                     binding.prBar.visibility=View.GONE
@@ -110,14 +136,14 @@ class MainFragment :
     }
 
     private fun setUpNewsRecyclerView() {
-        val appContext = requireContext().applicationContext
-        val recyclerView = binding.rvNews
-        //recyclerView.layoutManager= LinearLayoutManager(appContext)
         binding.rvNews.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
     }
 
-    private fun setUpPaginationRecycler(){
-        listPages = mutableListOf<Int>(1, 2, 3, 4 ,5)
+    private fun setUpPaginationRecycler(total:Int){
+        listPages = mutableListOf<Int>()
+        for (i in 1..total) {
+            listPages.add(i-1,i)
+        }
         binding.rvPage.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         binding.rvPage.adapter = PaginationAdapter(requireContext(), listPages , this )
     }
@@ -172,7 +198,7 @@ class MainFragment :
     }
 
     override fun onPageClick(page: Int) {
-
+        viewModel.setPagination(page)
     }
 
 }

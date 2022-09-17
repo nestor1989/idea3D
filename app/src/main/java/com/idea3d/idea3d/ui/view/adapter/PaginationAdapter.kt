@@ -38,9 +38,7 @@ class PaginationAdapter(private val context: Context, private val pages:List<Int
             itemBinding.buttonNumber.text=item.toString()
             itemBinding.buttonNumber.setOnClickListener {
                 it.isActivated =! it.isActivated
-
                 itemClickListener.onPageClick(item)
-
             }
         }
     }
