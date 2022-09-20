@@ -11,6 +11,8 @@ class PaginationAdapter(private val context: Context, private val pages:List<Int
                         private val itemClickListener:OnPageClickListener):
     RecyclerView.Adapter<BaseViewHolder<*>>() {
 
+    var selectedPosition = -1
+
     interface OnPageClickListener{
         fun onPageClick(page: Int)
     }
@@ -37,9 +39,16 @@ class PaginationAdapter(private val context: Context, private val pages:List<Int
         override fun bind(item: Int) {
             itemBinding.buttonNumber.text=item.toString()
             itemBinding.buttonNumber.setOnClickListener {
-                it.isActivated =! it.isActivated
+                if (selectedPosition >= 0) {
+                    notifyItemChanged(selectedPosition)
+                }
+                    selectedPosition = position
+                    notifyItemChanged(selectedPosition)
+
                 itemClickListener.onPageClick(item)
             }
+            itemBinding.buttonNumber.isActivated = selectedPosition == position
+
         }
     }
 }

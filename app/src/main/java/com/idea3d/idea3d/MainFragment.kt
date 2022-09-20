@@ -93,9 +93,9 @@ class MainFragment :
                     binding.prBar.visibility=View.GONE
                     binding.prError.visibility=View.GONE
                     binding.rvThings.adapter= MainAdapter(requireContext(), result.data.thingsList, this)
-                    var page = result.data.totalThings / Constants.PER_PAGE
+                    /*var page = result.data.totalThings / Constants.PER_PAGE
                     if (page==0) page++
-                    setUpPaginationRecycler(page)
+                    setUpPaginationRecycler(page)*/
                 }
                 is Resource.Failure->{
                     binding.prBar.visibility=View.GONE
