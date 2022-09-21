@@ -70,6 +70,16 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    fun setThemeMain(){
+        binding.banner.background = null
+        binding.banner.setImageDrawable(getDrawable(R.drawable.logo_largo_dos))
+    }
+
+    fun setThemeCalcu(){
+        binding.banner.setBackgroundColor(ContextCompat.getColor(this, R.color.blue_idea))
+        binding.banner.setImageDrawable(getDrawable(R.drawable.logo_white_large))
+    }
+
 }
 
 

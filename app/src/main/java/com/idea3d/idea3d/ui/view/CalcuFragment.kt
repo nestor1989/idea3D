@@ -3,8 +3,6 @@ package com.idea3d.idea3d.ui.view
 import android.app.Activity
 import android.content.Context
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -51,6 +49,7 @@ class CalcuFragment : Fragment(), AdapterView.OnItemClickListener {
     ): View? {
         _binding = FragmentCalcuBinding.inflate(inflater, container, false)
 
+        (activity as MainActivity).setThemeCalcu()
         setInit()
 
         return binding.root

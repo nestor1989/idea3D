@@ -50,6 +50,8 @@ class MainFragment :
     ): View? {
         _binding = FragmentMainBinding.inflate(inflater, container, false)
 
+        (activity as MainActivity).setThemeMain()
+
         setUpRecyclerView()
         setUpNewsRecyclerView()
         setUpObservers()

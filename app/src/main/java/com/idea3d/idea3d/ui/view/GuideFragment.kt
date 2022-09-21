@@ -27,6 +27,8 @@ class GuideFragment : Fragment(), OnFragmentActionsListener {
     ): View? {
         _binding = FragmentGuideBinding.inflate(inflater, container, false)
 
+        (activity as MainActivity).setThemeMain()
+
         initAdapter()
 
         return binding.root
