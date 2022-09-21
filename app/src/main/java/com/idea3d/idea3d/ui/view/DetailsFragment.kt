@@ -1,4 +1,4 @@
-package com.idea3d.idea3d
+package com.idea3d.idea3d.ui.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

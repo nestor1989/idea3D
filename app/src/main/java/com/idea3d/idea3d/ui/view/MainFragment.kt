@@ -1,4 +1,4 @@
-package com.idea3d.idea3d
+package com.idea3d.idea3d.ui.view
 
 import android.content.Intent
 import android.net.Uri
@@ -13,13 +13,13 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
+import com.idea3d.idea3d.R
 import com.idea3d.idea3d.core.Constants
 import com.idea3d.idea3d.core.Resource
 import com.idea3d.idea3d.data.DataSource
 import com.idea3d.idea3d.data.model.News
 import com.idea3d.idea3d.data.model.Thing
 import com.idea3d.idea3d.data.repo.RepoImpl
-import com.idea3d.idea3d.databinding.FragmentGuideBinding
 import com.idea3d.idea3d.databinding.FragmentMainBinding
 import com.idea3d.idea3d.ui.view.adapter.MainAdapter
 import com.idea3d.idea3d.ui.view.adapter.NewsAdapter

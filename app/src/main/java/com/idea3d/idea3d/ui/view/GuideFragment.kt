@@ -1,4 +1,4 @@
-package com.idea3d.idea3d
+package com.idea3d.idea3d.ui.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,11 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.idea3d.idea3d.R
 import com.idea3d.idea3d.data.model.ListProblems
 import com.idea3d.idea3d.databinding.FragmentGuideBinding
-import com.idea3d.idea3d.databinding.FragmentMainBinding
-import com.idea3d.idea3d.ui.view.OnFragmentActionsListener
-import com.idea3d.idea3d.ui.view.SolutionFragment
 import com.idea3d.idea3d.ui.view.adapter.ProblemsAdapter
 
 class GuideFragment : Fragment(), OnFragmentActionsListener {

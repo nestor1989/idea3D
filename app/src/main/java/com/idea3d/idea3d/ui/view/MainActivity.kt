@@ -2,9 +2,14 @@ package com.idea3d.idea3d.ui.view
 
 
 
+import android.app.Activity
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.view.inputmethod.InputMethodManager
 import androidx.core.content.ContextCompat
+import androidx.datastore.preferences.preferencesDataStore
 import com.idea3d.idea3d.databinding.ActivityMainBinding
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
@@ -14,6 +19,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationBarView
 import com.idea3d.idea3d.R
 
+val Context.dataStore by preferencesDataStore(name = "USER_PREFERENCES_NAME")
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -63,6 +69,7 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+
 }
 
 
