@@ -65,10 +65,12 @@ class MainFragment :
         viewModel.fetchThings.observe(viewLifecycleOwner, Observer { result ->
             when(result){
                 is Resource.Loading->{
+                    binding.searchLayout.visibility = View.GONE
                     binding.prBar.visibility=View.VISIBLE
                     binding.prError.visibility=View.GONE
                 }
                 is Resource.Success->{
+                    binding.searchLayout.visibility = View.VISIBLE
                     binding.prBar.visibility=View.GONE
                     binding.prError.visibility=View.GONE
                     binding.rvThings.adapter= MainAdapter(requireContext(), result.data.thingsList, this)
@@ -77,6 +79,7 @@ class MainFragment :
                     setUpPaginationRecycler(page)
                 }
                 is Resource.Failure->{
+                    binding.searchLayout.visibility = View.GONE
                     binding.prBar.visibility=View.GONE
                     binding.prError.visibility=View.VISIBLE
                     Toast.makeText(requireContext(), result.exception.toString(), Toast.LENGTH_LONG).show()
@@ -111,7 +114,7 @@ class MainFragment :
         viewModel.fetchNewsList.observe(viewLifecycleOwner, Observer{ result->
             when(result){
                 is Resource.Loading->{
-                    binding.prBar.visibility=View.VISIBLE
+                    //binding.prBar.visibility=View.VISIBLE
                     binding.prError.visibility=View.GONE
                 }
                 is Resource.Success->{
@@ -121,7 +124,7 @@ class MainFragment :
                 }
                 is Resource.Failure->{
                     binding.prBar.visibility=View.GONE
-                    binding.prError.visibility=View.VISIBLE
+                    //binding.prError.visibility=View.VISIBLE
                     Toast.makeText(requireContext(), result.exception.toString(), Toast.LENGTH_LONG).show()
                 }
 
@@ -197,6 +200,7 @@ class MainFragment :
         binding.popButton.setOnClickListener {
             viewModel.setThings("popular")
         }
+
     }
 
     override fun onPageClick(page: Int) {

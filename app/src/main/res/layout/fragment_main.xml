@@ -24,13 +24,15 @@
         android:id="@+id/prError"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="150dp"
         android:visibility="gone"
+        tools:visibility="visible"
         >
 
         <com.airbnb.lottie.LottieAnimationView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:lottie_rawRes="@raw/bubles"
+            app:lottie_rawRes="@raw/errortech"
             app:lottie_autoPlay="true"
             app:lottie_loop="true"/>
 
@@ -66,6 +68,7 @@
             android:background="@null">
 
             <RelativeLayout
+                android:id="@+id/searchLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
@@ -134,9 +137,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginVertical="20dp">
+            android:layout_marginVertical="20dp"
+            android:layout_marginHorizontal="20dp">
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/buttonLeft"
+                android:visibility="gone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -151,12 +157,14 @@
                 android:id="@+id/rv_page"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:layout_marginHorizontal="70dp"
+                android:layout_marginHorizontal="0dp"
                 android:orientation="horizontal"
                 android:visibility="visible"
                 tools:listitem="@layout/row_pagination" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/buttonRight"
+                android:visibility="gone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"

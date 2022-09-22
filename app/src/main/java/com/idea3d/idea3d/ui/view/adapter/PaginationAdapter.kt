@@ -51,4 +51,5 @@ class PaginationAdapter(private val context: Context, private val pages:List<Int
 
         }
     }
+
 }
