@@ -65,7 +65,6 @@ class MainFragment :
         viewModel.fetchThings.observe(viewLifecycleOwner, Observer { result ->
             when(result){
                 is Resource.Loading->{
-                    binding.searchLayout.visibility = View.GONE
                     binding.prBar.visibility=View.VISIBLE
                     binding.prError.visibility=View.GONE
                 }
@@ -79,7 +78,6 @@ class MainFragment :
                     setUpPaginationRecycler(page)
                 }
                 is Resource.Failure->{
-                    binding.searchLayout.visibility = View.GONE
                     binding.prBar.visibility=View.GONE
                     binding.prError.visibility=View.VISIBLE
                     Toast.makeText(requireContext(), result.exception.toString(), Toast.LENGTH_LONG).show()
