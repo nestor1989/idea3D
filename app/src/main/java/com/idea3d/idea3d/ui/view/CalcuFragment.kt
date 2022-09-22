@@ -149,6 +149,7 @@ class CalcuFragment : Fragment(), AdapterView.OnItemClickListener {
                     saveMaterialValues(binding.filamentoHint.text.toString())
                 }
                 view?.let { activity?.hideKeyboard(it) }
+                binding.scrollView.scrollTo(0, 0)
 
             }
             return@OnEditorActionListener true
