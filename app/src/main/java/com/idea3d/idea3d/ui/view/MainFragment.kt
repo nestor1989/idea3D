@@ -1,6 +1,9 @@
 package com.idea3d.idea3d.ui.view
 
+import android.content.Context
 import android.content.Intent
+import android.net.ConnectivityManager
+import android.net.NetworkInfo
 import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -65,10 +68,13 @@ class MainFragment :
         viewModel.fetchThings.observe(viewLifecycleOwner, Observer { result ->
             when(result){
                 is Resource.Loading->{
+                    binding.prNoThing.visibility = View.GONE
                     binding.prBar.visibility=View.VISIBLE
                     binding.prError.visibility=View.GONE
                 }
                 is Resource.Success->{
+                    binding.rvThings.visibility = View.VISIBLE
+                    binding.prNoThing.visibility = View.GONE
                     binding.searchLayout.visibility = View.VISIBLE
                     binding.prBar.visibility=View.GONE
                     binding.prError.visibility=View.GONE
@@ -76,10 +82,22 @@ class MainFragment :
                     var page = result.data.totalThings / Constants.PER_PAGE
                     if (page==0) page++
                     setUpPaginationRecycler(page)
+                    binding.rvPage.visibility = View.VISIBLE
                 }
                 is Resource.Failure->{
+                    binding.rvThings.visibility=View.GONE
                     binding.prBar.visibility=View.GONE
-                    binding.prError.visibility=View.VISIBLE
+
+                    val cm = (activity as MainActivity).getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+                    val activeNetwork: NetworkInfo? = cm.activeNetworkInfo
+                    val isConnected: Boolean = activeNetwork?.isConnectedOrConnecting == true
+
+                    if (!isConnected){
+                        binding.prError.visibility=View.VISIBLE
+                    }else binding.prNoThing.visibility = View.VISIBLE
+
+                    binding.rvPage.visibility = View.GONE
+
                     Toast.makeText(requireContext(), result.exception.toString(), Toast.LENGTH_LONG).show()
                 }
 

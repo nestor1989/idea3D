@@ -5,7 +5,7 @@
     android:id="@+id/fondo"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/transparent"
+    android:background="@color/trans_dialog"
     android:textAlignment="textEnd"
     tools:context=".ui.view.SolutionFragment">
 

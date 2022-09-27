@@ -8,9 +8,9 @@
     <application
         android:name=".core.MyApplication"
         android:allowBackup="true"
-        android:icon="@drawable/ideal_logo_cua"
+        android:icon="@drawable/log_rec"
         android:label="Idea 3D"
-        android:roundIcon="@drawable/idea_logo_circ"
+        android:roundIcon="@drawable/log_rounded"
         android:supportsRtl="true"
         android:theme="@style/Theme.Idea3D">
 

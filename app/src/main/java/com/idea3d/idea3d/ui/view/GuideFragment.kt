@@ -42,11 +42,11 @@ class GuideFragment : Fragment(), OnFragmentActionsListener {
     }
 
     override fun onClickFragmentButton(valor:Int, boton:Int) {
-
         val bundle = Bundle()
         bundle.putInt("valor", valor)
         bundle.putInt("boton", boton)
         findNavController().navigate(R.id.action_guideFragment_to_solutionFragment, bundle)
+
     }
 
     override fun onImageClick(valor: Int, imagen:Int) {
