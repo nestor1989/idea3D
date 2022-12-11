@@ -3,9 +3,12 @@ package com.idea3d.idea3d.ui.viewModel
 import androidx.lifecycle.*
 import com.idea3d.idea3d.core.Resource
 import com.idea3d.idea3d.data.repo.Repo
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
+import javax.inject.Inject
 
-class MainViewModel(private val repo: Repo): ViewModel() {
+@HiltViewModel
+class MainViewModel@Inject constructor(private val repo: Repo): ViewModel() {
     private val searchThing = MutableLiveData<String>()
     private val page = MutableLiveData<Int>()
 
@@ -18,7 +21,7 @@ class MainViewModel(private val repo: Repo): ViewModel() {
     }
 
     init{
-        setThings("relevant")
+        setThings("Relevant")
         setPagination(1)
     }
 
@@ -26,7 +29,7 @@ class MainViewModel(private val repo: Repo): ViewModel() {
         liveData(Dispatchers.IO) {
             emit(Resource.Loading())
             try {
-                if (searchThing.value=="relevant" || searchThing.value=="popular" || searchThing.value=="newest"){
+                if (searchThing.value=="Relevant" || searchThing.value=="popular" || searchThing.value=="newest"){
                 emit(repo.getThingsByNews(it, 1))
                 }else emit(repo.getThingsByName(it, 1))
             } catch (e: Exception) {

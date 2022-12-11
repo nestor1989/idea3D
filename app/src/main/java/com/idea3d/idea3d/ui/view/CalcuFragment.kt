@@ -20,12 +20,14 @@ import androidx.lifecycle.lifecycleScope
 import com.idea3d.idea3d.R
 import com.idea3d.idea3d.data.model.PredefinedCost
 import com.idea3d.idea3d.databinding.FragmentCalcuBinding
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
+@AndroidEntryPoint
 class CalcuFragment : Fragment(), AdapterView.OnItemClickListener {
     private var _binding: FragmentCalcuBinding? = null
     private val binding get() = _binding!!

@@ -19,17 +19,16 @@ import com.bumptech.glide.Glide
 import com.idea3d.idea3d.R
 import com.idea3d.idea3d.core.Constants
 import com.idea3d.idea3d.core.Resource
-import com.idea3d.idea3d.data.DataSource
 import com.idea3d.idea3d.data.model.News
 import com.idea3d.idea3d.data.model.Thing
-import com.idea3d.idea3d.data.repo.RepoImpl
 import com.idea3d.idea3d.databinding.FragmentMainBinding
 import com.idea3d.idea3d.ui.view.adapter.MainAdapter
 import com.idea3d.idea3d.ui.view.adapter.NewsAdapter
 import com.idea3d.idea3d.ui.view.adapter.PaginationAdapter
 import com.idea3d.idea3d.ui.viewModel.MainViewModel
-import com.idea3d.idea3d.ui.viewModel.VMFactory
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainFragment :
     Fragment(),
     MainAdapter.OnThingClickListener,
@@ -38,7 +37,7 @@ class MainFragment :
 
     private var _binding: FragmentMainBinding? = null
     private val binding get() = _binding!!
-    private val viewModel by viewModels<MainViewModel>(){ VMFactory(RepoImpl(DataSource())) }
+    private val viewModel by viewModels<MainViewModel>()
 
     lateinit var listPages:MutableList<Int>
 

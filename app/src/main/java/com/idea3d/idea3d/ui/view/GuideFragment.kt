@@ -11,7 +11,9 @@ import com.idea3d.idea3d.R
 import com.idea3d.idea3d.data.model.ListProblems
 import com.idea3d.idea3d.databinding.FragmentGuideBinding
 import com.idea3d.idea3d.ui.view.adapter.ProblemsAdapter
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class GuideFragment : Fragment(), OnFragmentActionsListener {
     private var _binding: FragmentGuideBinding? = null
     private val binding get() = _binding!!

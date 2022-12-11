@@ -7,7 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import com.idea3d.idea3d.databinding.FragmentDetailsBinding
 import com.idea3d.idea3d.databinding.FragmentSolucionBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class DetailsFragment : Fragment() {
     private var _binding: FragmentDetailsBinding? = null
     private val binding get() = _binding!!
