@@ -1,11 +1,12 @@
 package com.idea3d.idea3d.data.repo
 
 import com.idea3d.idea3d.core.Resource
-import com.idea3d.idea3d.data.DataSource
 import com.idea3d.idea3d.data.model.News
 import com.idea3d.idea3d.data.model.Things
+import com.idea3d.idea3d.data.network.DataSource
+import javax.inject.Inject
 
-class RepoImpl (private val dataSource: DataSource):Repo {
+class RepoImpl @Inject constructor(private val dataSource: DataSource):Repo {
     override suspend fun getThingsByNews(searchBy:String, page:Int): Resource<Things> {
         return dataSource.getThings(searchBy, page)
     }

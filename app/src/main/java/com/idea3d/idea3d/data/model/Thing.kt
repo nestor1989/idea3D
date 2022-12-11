@@ -1,6 +1,9 @@
 package com.idea3d.idea3d.data.model
 
 import android.os.Parcelable
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
@@ -23,4 +26,17 @@ data class Things(
     @SerializedName("total")
     val totalThings: Int
 ): Parcelable
+
+@Entity
+data class ThingEntity(
+    @PrimaryKey
+    var id: Int,
+    @ColumnInfo(name = "name")
+    var name:String,
+    @ColumnInfo(name = "thumbnail")
+    var image:String,
+    @ColumnInfo(name = "public_url")
+    val url:String
+)
+
 
