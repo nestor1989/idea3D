@@ -29,6 +29,7 @@
 
     <string name="guide_title">Guía visual para la resolución de problemas FDM</string>
 
+    <string name="no_resuts">No se encontraron resultados para tu búsqueda, intenta con otras palabras. Recuerda que el motor de búsqueda de Thingiverse sólo funciona en inglés.</string>
 
     <string-array name="filamentos">
         <item>PLA</item>
