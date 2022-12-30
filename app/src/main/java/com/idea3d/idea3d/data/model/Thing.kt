@@ -39,4 +39,11 @@ data class ThingEntity(
     val url:String
 )
 
+@Parcelize
+data class ThingWithCat(
+    var things: List<Thing>,
+    var catId: Int,
+    var catName: String
+): Parcelable
+
 

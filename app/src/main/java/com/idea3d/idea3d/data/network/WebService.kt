@@ -1,5 +1,6 @@
 package com.idea3d.idea3d.data.network
 
+import com.idea3d.idea3d.data.model.Category
 import com.idea3d.idea3d.data.model.Things
 import retrofit2.http.GET
 import retrofit2.http.Header
@@ -18,4 +19,14 @@ interface WebService {
                                     @Path("searchBy") searchBy: String,
                                     @Query(value="page") page:Int,
                                     @Query(value="per_page") per_page:Int) : Things
-    }
+
+    @GET ("categories")
+    suspend fun searchCategories (@Header("Authorization") value: String): List<Category>
+
+    @GET ("search?/")
+    suspend fun searchThingsFromCat (   @Header("Authorization") value: String,
+                                        @Query(value="page") page:Int,
+                                        @Query(value = "category_id") category: Int,
+                                        @Query(value="per_page") per_page:Int) : Things
+}
+

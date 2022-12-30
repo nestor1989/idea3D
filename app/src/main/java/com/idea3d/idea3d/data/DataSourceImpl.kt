@@ -3,6 +3,7 @@ package com.idea3d.idea3d.data
 import com.idea3d.idea3d.core.Constants
 import com.idea3d.idea3d.core.Constants.Companion.THING_KEY
 import com.idea3d.idea3d.core.Resource
+import com.idea3d.idea3d.data.model.Category
 import com.idea3d.idea3d.data.model.News
 import com.idea3d.idea3d.data.model.ThingEntity
 import com.idea3d.idea3d.data.model.Things
@@ -40,6 +41,17 @@ class DataSourceImpl @Inject constructor(
 
     override suspend fun deleteThing(thingEntity: ThingEntity) {
         thingsDao.deleteFavoriteThing(thingEntity)
+    }
+
+    override suspend fun getCategories(): Resource<List<Category>> {
+        return Resource.Success(webService.searchCategories(THING_KEY))
+    }
+
+    override suspend fun getThingsFromCat(
+        page: Int,
+        category: Int
+    ): Resource<Things> {
+        return Resource.Success(webService.searchThingsFromCat(THING_KEY, page, category, Constants.PER_PAGE))
     }
 
 }

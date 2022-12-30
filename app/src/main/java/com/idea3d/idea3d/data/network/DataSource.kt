@@ -1,6 +1,7 @@
 package com.idea3d.idea3d.data.network
 
 import com.idea3d.idea3d.core.Resource
+import com.idea3d.idea3d.data.model.Category
 import com.idea3d.idea3d.data.model.News
 import com.idea3d.idea3d.data.model.ThingEntity
 import com.idea3d.idea3d.data.model.Things
@@ -18,4 +19,8 @@ interface DataSource {
     suspend fun getFavoriteThings(): Resource<List<ThingEntity>>
 
     suspend fun deleteThing (thingEntity: ThingEntity)
+
+    suspend fun getCategories(): Resource<List<Category>>
+
+    suspend fun getThingsFromCat( page:Int, category:Int): Resource<Things>
 }
