@@ -1,6 +1,7 @@
 package com.idea3d.idea3d.ui.view
 
 import android.content.Context
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.content.ContextCompat
@@ -33,28 +34,28 @@ class MainActivity : AppCompatActivity() {
     private fun setUpNavController(){
         val bottomNavigationView = binding.bottomNavigation
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-        val navController = navHostFragment.navController
+        navController = navHostFragment.navController
         setupWithNavController(bottomNavigationView, navController)
 
 
         bottomNavigationView.setOnItemSelectedListener { item ->
             when(item.itemId) {
+
+                R.id.home -> {
+                    navController.navigate(R.id.homeFragment)
+                    true
+                }
+
                 R.id.main -> {
                     navController.navigate(R.id.mainFragment)
-                    binding.banner.background = null
-                    binding.banner.setImageDrawable(getDrawable(R.drawable.logo_largo_dos))
                     true
                 }
                 R.id.calcu -> {
                     navController.navigate(R.id.calcuFragment)
-                    binding.banner.setBackgroundColor(ContextCompat.getColor(this, R.color.blue_idea))
-                    binding.banner.setImageDrawable(getDrawable(R.drawable.logo_white_large))
                     true
                 }
                 R.id.guide -> {
                     navController.navigate(R.id.guideFragment)
-                    binding.banner.background = null
-                    binding.banner.setImageDrawable(getDrawable(R.drawable.logo_largo_dos))
                     true
                 }
 
@@ -67,11 +68,18 @@ class MainActivity : AppCompatActivity() {
     fun setThemeMain(){
         binding.banner.background = null
         binding.banner.setImageDrawable(getDrawable(R.drawable.logo_largo_dos))
+        window.statusBarColor = ContextCompat.getColor(this, R.color.white)
     }
 
     fun setThemeCalcu(){
         binding.banner.setBackgroundColor(ContextCompat.getColor(this, R.color.blue_idea))
         binding.banner.setImageDrawable(getDrawable(R.drawable.logo_white_large))
+        window.statusBarColor = ContextCompat.getColor(this, R.color.blue_idea)
+    }
+    fun setThemeHome(){
+        binding.banner.setBackgroundColor(ContextCompat.getColor(this, R.color.blue_dark))
+        binding.banner.setImageDrawable(getDrawable(R.drawable.logo_white_large))
+        window.statusBarColor = ContextCompat.getColor(this, R.color.blue_dark)
     }
 
 }

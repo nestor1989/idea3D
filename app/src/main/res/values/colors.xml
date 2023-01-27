@@ -12,5 +12,6 @@
     <color name="trans_dialog">#C9343434</color>
     <color name="grey">#858080</color>
     <color name="blue_idea">#0079AF</color>
+    <color name="blue_dark">#040404</color>
 
 </resources>

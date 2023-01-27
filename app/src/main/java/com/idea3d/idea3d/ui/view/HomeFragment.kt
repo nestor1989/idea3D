@@ -45,7 +45,7 @@ class HomeFragment : Fragment() {
 
     private fun setUp(){
 
-        (activity as MainActivity).setThemeMain()
+        (activity as MainActivity).setThemeHome()
 
         viewModel.fetchCategories().observe(viewLifecycleOwner, Observer { result ->
             when(result){

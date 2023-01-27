@@ -1,14 +1,20 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+
     <item
-        android:id="@+id/main"
+        android:id="@+id/home"
         android:enabled="true"
         android:icon="@drawable/ic_home"
         android:title="Inicio"/>
+
+    <item
+        android:id="@+id/main"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_search_24"
+        android:title="STL"/>
     <item
         android:id="@+id/calcu"
         android:enabled="true"
         android:icon="@drawable/ic_calcu"
-
         android:title="Calculadora"/>
 
     <item
@@ -16,4 +22,6 @@
         android:enabled="true"
         android:icon="@drawable/ic_guide"
         android:title="Guía"/>
+
+
 </menu>

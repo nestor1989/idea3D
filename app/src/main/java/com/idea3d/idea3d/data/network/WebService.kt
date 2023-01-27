@@ -21,7 +21,7 @@ interface WebService {
                                     @Query(value="per_page") per_page:Int) : Things
 
     @GET ("categories")
-    suspend fun searchCategories (@Header("Authorization") value: String): List<Category>
+    suspend fun searchCategories (  @Header("Authorization") value: String): List<Category>
 
     @GET ("search?/")
     suspend fun searchThingsFromCat (   @Header("Authorization") value: String,
