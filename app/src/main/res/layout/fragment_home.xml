@@ -3,14 +3,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.view.HomeFragment"
-    android:background = "@drawable/gradiente"
+    android:background="@drawable/gradiente"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_news"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="5dp"
+            android:visibility="visible"
+            tools:listitem="@layout/row_news"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/parent_recycler_view"

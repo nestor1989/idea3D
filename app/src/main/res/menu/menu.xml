@@ -1,4 +1,5 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
         android:id="@+id/home"
@@ -7,10 +8,16 @@
         android:title="Inicio"/>
 
     <item
+        android:id="@+id/works"
+        android:enabled="true"
+        android:icon="@drawable/ic_guide"
+        android:title="Trabajos"/>
+
+    <item
         android:id="@+id/main"
         android:enabled="true"
         android:icon="@drawable/ic_baseline_search_24"
-        android:title="STL"/>
+        android:title="STL" />
     <item
         android:id="@+id/calcu"
         android:enabled="true"
@@ -20,7 +27,7 @@
     <item
         android:id="@+id/guide"
         android:enabled="true"
-        android:icon="@drawable/ic_guide"
+        android:icon="@drawable/ic_baseline_playlist_add_check_24"
         android:title="Guía"/>
 
 

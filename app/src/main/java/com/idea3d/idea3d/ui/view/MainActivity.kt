@@ -66,9 +66,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun setThemeMain(){
-        binding.banner.background = null
-        binding.banner.setImageDrawable(getDrawable(R.drawable.logo_largo_dos))
-        window.statusBarColor = ContextCompat.getColor(this, R.color.white)
+        binding.banner.setBackgroundColor(ContextCompat.getColor(this, R.color.blue_dark))
+        binding.banner.setImageDrawable(getDrawable(R.drawable.logo_white_large))
+        window.statusBarColor = ContextCompat.getColor(this, R.color.blue_dark)
     }
 
     fun setThemeCalcu(){
