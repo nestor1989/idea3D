@@ -9,10 +9,14 @@ import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.idea3d.idea3d.R
+import com.idea3d.idea3d.data.model.News
 import com.idea3d.idea3d.databinding.FragmentSolucionBinding
+import com.idea3d.idea3d.ui.view.modals.BottomSheetNewsFragment
 
-class SolutionFragment  : Fragment() {
+class SolutionFragment  : BottomSheetDialogFragment() {
 
     private var _binding: FragmentSolucionBinding? = null
     private val binding get() = _binding!!
@@ -44,17 +48,20 @@ class SolutionFragment  : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.floatingActionButton.setOnClickListener { findNavController().popBackStack() }
+        binding.floatingActionButton.setOnClickListener { dismiss() }
 
         if (arguments != null) {
-            val boton = requireArguments().getInt("boton")
-            val valor = requireArguments().getInt("valor")
-            val imagen = requireArguments().getInt("imagen")
+            val bundle = requireArguments().getBundle("bundle")
+            val boton = bundle?.getInt("boton")
+            val valor = bundle?.getInt("valor")
+            val imagen = bundle?.getInt("imagen")
+
+            binding.imageView.visibility = View.VISIBLE
+            binding.imageView.setImageResource(imagen!!)
 
             when (boton) {
                 0 -> {
-                    binding.imageView.visibility = View.VISIBLE
-                    binding.imageView.setImageResource(imagen)
+
                 }
 
                 1-> {
@@ -201,6 +208,14 @@ class SolutionFragment  : Fragment() {
     override fun onDetach() {
         super.onDetach()
         listener = null
+    }
+
+    fun newInstance(bundle: Bundle): SolutionFragment {
+        val frag = SolutionFragment()
+        val args = Bundle()
+        args.putBundle("bundle", bundle)
+        frag.arguments = args
+        return frag
     }
 
 

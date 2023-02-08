@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.view.SolutionFragment">
+    tools:context=".ui.view.modals.BottomSheetNewsFragment">
 
     <FrameLayout
         android:id="@+id/standard_bottom_sheet"
@@ -66,22 +66,27 @@
                 android:background="@color/divider_gray"
                 android:visibility="visible" />
 
+            <ImageView
+                android:id="@+id/ivPhoto"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="wrap_content"
+                android:src="@drawable/logoidea"/>
+
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/tvDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:padding="16dp"
+                android:textSize="12sp"
+                android:maxLines="4"
                 android:fontFamily="@font/at_surt_light"/>
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="match_parent"
-                android:layout_gravity="center_horizontal"
-                android:layout_height="300dp"
-                android:src="@drawable/logoidea"
-                android:visibility="visible"/>
-
+            <Button
+                android:id="@+id/button_seemore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/see_more"
+                android:layout_gravity="center_horizontal"/>
 
 
         </LinearLayout>

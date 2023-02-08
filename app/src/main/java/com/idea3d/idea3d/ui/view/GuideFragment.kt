@@ -18,6 +18,8 @@ class GuideFragment : Fragment(), OnFragmentActionsListener {
     private var _binding: FragmentGuideBinding? = null
     private val binding get() = _binding!!
 
+    private lateinit var solutionFragment: SolutionFragment
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -43,11 +45,14 @@ class GuideFragment : Fragment(), OnFragmentActionsListener {
         binding.recyclerGuia.adapter = adapter
     }
 
-    override fun onClickFragmentButton(valor:Int, boton:Int) {
+    override fun onClickFragmentButton(valor:Int, boton:Int, imagen: Int) {
         val bundle = Bundle()
         bundle.putInt("valor", valor)
         bundle.putInt("boton", boton)
-        findNavController().navigate(R.id.action_guideFragment_to_solutionFragment, bundle)
+        bundle.putInt("imagen", imagen)
+        solutionFragment = SolutionFragment()
+        val solutionFragmentInst = solutionFragment.newInstance(bundle)
+        solutionFragmentInst.show(activity?.supportFragmentManager!!, "solution")
 
     }
 
@@ -55,7 +60,9 @@ class GuideFragment : Fragment(), OnFragmentActionsListener {
         val bundle = Bundle()
         bundle.putInt("valor", valor)
         bundle.putInt("imagen", imagen)
-        findNavController().navigate(R.id.action_guideFragment_to_solutionFragment, bundle)
+        solutionFragment = SolutionFragment()
+        val solutionFragmentInst = solutionFragment.newInstance(bundle)
+        solutionFragmentInst.show(activity?.supportFragmentManager!!, "IMAGE")
     }
 
 }

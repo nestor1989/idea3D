@@ -16,6 +16,7 @@ import com.idea3d.idea3d.data.model.ThingWithCat
 import com.idea3d.idea3d.databinding.FragmentHomeBinding
 import com.idea3d.idea3d.ui.view.adapter.NewsAdapter
 import com.idea3d.idea3d.ui.view.adapter.ThingsParentAdapter
+import com.idea3d.idea3d.ui.view.modals.BottomSheetNewsFragment
 import com.idea3d.idea3d.ui.viewModel.HomeViewModel
 import com.idea3d.idea3d.ui.viewModel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -29,6 +30,8 @@ class HomeFragment : Fragment(), NewsAdapter.OnNewsClickListener {
     private val mainViewModel by viewModels<MainViewModel>()
 
     private var thingsWithCat = mutableListOf<ThingWithCat>()
+
+    private lateinit var bottomSheetNewsFragment: BottomSheetNewsFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -125,7 +128,9 @@ class HomeFragment : Fragment(), NewsAdapter.OnNewsClickListener {
     }
 
     override fun onNewsClick(news: News) {
-        //LLAMAR BOTTOM SHEET
+        bottomSheetNewsFragment = BottomSheetNewsFragment(news)
+        val newInst = bottomSheetNewsFragment.newInstance(news)
+        newInst?.show(activity?.supportFragmentManager!!, "news")
     }
 
 }
