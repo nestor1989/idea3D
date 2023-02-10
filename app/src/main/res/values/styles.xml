@@ -4,6 +4,7 @@
     <style name="titlesSemiBoldSmall">
         <item name="android:fontFamily">@font/at_surt_semi_bold</item>
         <item name="android:textSize">25sp</item>
+        <item name="android:textColor">@color/design_default_color_on_primary</item>
     </style>
 
     <style name="ShapeAppearanceRect">

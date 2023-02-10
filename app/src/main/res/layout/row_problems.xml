@@ -43,6 +43,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent">
@@ -54,7 +55,6 @@
                     android:layout_gravity="top|center_horizontal"
                     android:layout_marginHorizontal="10dp"
                     android:layout_weight="1.2"
-                    android:background="#80FFFFFF"
                     android:fontFamily="@font/at_surt_semi_bold"
                     android:textColor="@android:color/holo_blue_dark"
                     android:textSize="16dp"
@@ -66,9 +66,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="10dp"
                     android:layout_weight="1.8"
-                    android:background="#80FFFFFF"
                     android:fontFamily="@font/at_surt_regular"
                     android:textSize="15dp"
+                    android:textColor="@color/white"
                     tools:text="desripcion sdkdkepkd sssksksks skksksknssksksksksk" />
 
             </LinearLayout>
@@ -83,7 +83,8 @@
             android:orientation="horizontal"
             android:layout_marginVertical="15dp">
 
-        <Button
+
+            <Button
             android:id="@+id/resolucionUno"
             style="@style/Widget.Material3.Button.ElevatedButton"
             android:layout_width="wrap_content"
@@ -92,12 +93,12 @@
             android:layout_weight="1"
             android:fontFamily="@font/at_surt_regular"
             android:textAllCaps="false"
-            android:textColor="#292727"
+            app:backgroundTint="?attr/colorSecondaryVariant"
             android:textSize="10dp"
+            android:textColor="?attr/colorOnSecondary"
             tools:text="RESOLUCION1" />
 
-
-        <Button
+            <Button
             android:id="@+id/resolucionDos"
             style="@style/Widget.Material3.Button.ElevatedButton"
             android:layout_width="wrap_content"
@@ -107,7 +108,8 @@
             android:fontFamily="@font/at_surt_regular"
             tools:text="RESOLUCION2"
             android:textAllCaps="false"
-            android:textColor="#292727"
+            app:backgroundTint="?attr/colorSecondaryVariant"
+            android:textColor="?attr/colorOnSecondary"
             android:textSize="10dp" />
 
 
@@ -120,8 +122,9 @@
             android:layout_weight="1"
             android:fontFamily="@font/at_surt_regular"
             tools:text="RESOLUCION2"
+            app:backgroundTint="?attr/colorSecondaryVariant"
             android:textAllCaps="false"
-            android:textColor="#292727"
+            android:textColor="?attr/colorOnSecondary"
             android:textSize="10dp" />
 
         </LinearLayout>
