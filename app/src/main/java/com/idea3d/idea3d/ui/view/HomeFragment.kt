@@ -12,17 +12,23 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.idea3d.idea3d.core.Resource
 import com.idea3d.idea3d.data.model.News
+import com.idea3d.idea3d.data.model.Thing
 import com.idea3d.idea3d.data.model.ThingWithCat
 import com.idea3d.idea3d.databinding.FragmentHomeBinding
 import com.idea3d.idea3d.ui.view.adapter.NewsAdapter
+import com.idea3d.idea3d.ui.view.adapter.ThingsChildAdapter
 import com.idea3d.idea3d.ui.view.adapter.ThingsParentAdapter
 import com.idea3d.idea3d.ui.view.modals.BottomSheetNewsFragment
+import com.idea3d.idea3d.ui.view.modals.ThingsModalFragment
 import com.idea3d.idea3d.ui.viewModel.HomeViewModel
 import com.idea3d.idea3d.ui.viewModel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class HomeFragment : Fragment(), NewsAdapter.OnNewsClickListener {
+class HomeFragment : Fragment(),
+    NewsAdapter.OnNewsClickListener,
+    ThingsParentAdapter.OnClickChild,
+    ThingsModalFragment.OnThingClickListener {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
@@ -32,6 +38,7 @@ class HomeFragment : Fragment(), NewsAdapter.OnNewsClickListener {
     private var thingsWithCat = mutableListOf<ThingWithCat>()
 
     private lateinit var bottomSheetNewsFragment: BottomSheetNewsFragment
+    private lateinit var thingsModalFragment: ThingsModalFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,7 +68,7 @@ class HomeFragment : Fragment(), NewsAdapter.OnNewsClickListener {
         val appContext = requireContext()
         val recyclerView = binding.parentRecyclerView
         recyclerView.layoutManager= LinearLayoutManager(appContext)
-        recyclerView.adapter = ThingsParentAdapter(appContext, thingsWithCat)
+        recyclerView.adapter = ThingsParentAdapter(appContext, thingsWithCat, this)
     }
 
     private fun setUpNewsObservers(){
@@ -131,6 +138,20 @@ class HomeFragment : Fragment(), NewsAdapter.OnNewsClickListener {
         bottomSheetNewsFragment = BottomSheetNewsFragment(news)
         val newInst = bottomSheetNewsFragment.newInstance(news)
         newInst?.show(activity?.supportFragmentManager!!, "news")
+    }
+
+    override fun onLikeClick() {
+        Toast.makeText(requireContext(), "added to favorites", Toast.LENGTH_LONG).show()
+    }
+
+    override fun onDownLoadClick() {
+        TODO("Not yet implemented")
+    }
+
+    override fun onClickChild(thing: Thing) {
+        thingsModalFragment = ThingsModalFragment(thing, this)
+        val newInst = thingsModalFragment.newInstance(thing)
+        newInst.show(activity?.supportFragmentManager!!, "thingmodal")
     }
 
 }

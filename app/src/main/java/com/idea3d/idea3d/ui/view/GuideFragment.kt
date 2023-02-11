@@ -5,12 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.idea3d.idea3d.R
 import com.idea3d.idea3d.data.model.ListProblems
 import com.idea3d.idea3d.databinding.FragmentGuideBinding
 import com.idea3d.idea3d.ui.view.adapter.ProblemsAdapter
+import com.idea3d.idea3d.ui.view.modals.SolutionFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

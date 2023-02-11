@@ -11,8 +11,15 @@ import com.idea3d.idea3d.data.model.ThingWithCat
 import com.idea3d.idea3d.databinding.RowHomeParentBinding
 
 
-class ThingsParentAdapter(private val context: Context, private val thingsWithCat: List<ThingWithCat>):
-    RecyclerView.Adapter<BaseViewHolder<*>>() {
+class ThingsParentAdapter(
+    private val context: Context,
+    private val thingsWithCat: List<ThingWithCat>,
+    private val onClickChild : OnClickChild): RecyclerView.Adapter<BaseViewHolder<*>>() {
+
+    interface OnClickChild{
+        fun onClickChild(thing: Thing)
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<*> {
         val itemBinding =
             RowHomeParentBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -40,7 +47,7 @@ class ThingsParentAdapter(private val context: Context, private val thingsWithCa
         }
 
         override fun onThingClick(thing: Thing) {
-
+            onClickChild.onClickChild(thing)
         }
     }
 

@@ -30,7 +30,7 @@
         tools:layout="@layout/fragment_calcu" />
     <fragment
         android:id="@+id/solutionFragment"
-        android:name="com.idea3d.idea3d.ui.view.SolutionFragment"
+        android:name="com.idea3d.idea3d.ui.view.modals.SolutionFragment"
         android:label="fragment_solucion"
         tools:layout="@layout/fragment_solucion" />
     <fragment

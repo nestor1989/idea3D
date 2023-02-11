@@ -1,4 +1,4 @@
-package com.idea3d.idea3d.ui.view
+package com.idea3d.idea3d.ui.view.modals
 
 
 import android.content.Context
@@ -6,15 +6,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.OnBackPressedCallback
-import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
-import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.idea3d.idea3d.R
-import com.idea3d.idea3d.data.model.News
 import com.idea3d.idea3d.databinding.FragmentSolucionBinding
-import com.idea3d.idea3d.ui.view.modals.BottomSheetNewsFragment
+import com.idea3d.idea3d.ui.view.OnFragmentActionsListener
 
 class SolutionFragment  : BottomSheetDialogFragment() {
 
