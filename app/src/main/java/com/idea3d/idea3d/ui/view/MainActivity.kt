@@ -37,8 +37,10 @@ class MainActivity : AppCompatActivity() {
         navController = navHostFragment.navController
         setupWithNavController(bottomNavigationView, navController)
 
+        bottomNavigationView.menu.getItem(2).isChecked = true
 
         bottomNavigationView.setOnItemSelectedListener { item ->
+
             when(item.itemId) {
 
                 R.id.home -> {

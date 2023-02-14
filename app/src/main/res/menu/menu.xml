@@ -2,10 +2,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/home"
+        android:id="@+id/main"
         android:enabled="true"
-        android:icon="@drawable/ic_home"
-        android:title="Inicio"/>
+        android:icon="@drawable/ic_baseline_search_24"
+        android:title="STL" />
 
     <item
         android:id="@+id/works"
@@ -14,10 +14,12 @@
         android:title="Trabajos"/>
 
     <item
-        android:id="@+id/main"
+        android:id="@+id/home"
         android:enabled="true"
-        android:icon="@drawable/ic_baseline_search_24"
-        android:title="STL" />
+        android:icon="@drawable/ic_home"
+        android:title="Inicio"
+        />
+
     <item
         android:id="@+id/calcu"
         android:enabled="true"
