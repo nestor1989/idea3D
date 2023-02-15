@@ -19,6 +19,7 @@ import com.idea3d.idea3d.ui.view.adapter.NewsAdapter
 import com.idea3d.idea3d.ui.view.adapter.ThingsChildAdapter
 import com.idea3d.idea3d.ui.view.adapter.ThingsParentAdapter
 import com.idea3d.idea3d.ui.view.modals.BottomSheetNewsFragment
+import com.idea3d.idea3d.ui.view.modals.ProgressDialogFragment
 import com.idea3d.idea3d.ui.view.modals.ThingsModalFragment
 import com.idea3d.idea3d.ui.viewModel.HomeViewModel
 import com.idea3d.idea3d.ui.viewModel.MainViewModel
@@ -39,6 +40,8 @@ class HomeFragment : Fragment(),
 
     private lateinit var bottomSheetNewsFragment: BottomSheetNewsFragment
     private lateinit var thingsModalFragment: ThingsModalFragment
+    private lateinit var progressDialogFragment: ProgressDialogFragment
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -75,7 +78,6 @@ class HomeFragment : Fragment(),
         mainViewModel.fetchNewsList.observe(viewLifecycleOwner, Observer{ result->
             when(result){
                 is Resource.Loading->{
-
                 }
                 is Resource.Success->{
                     binding.rvNews.adapter= NewsAdapter(requireContext(), result.data, this)
@@ -91,10 +93,14 @@ class HomeFragment : Fragment(),
     }
 
     private fun setUpThingsObservers(){
+        progressDialogFragment = ProgressDialogFragment()
+        val newProgress = progressDialogFragment.newInstance()
+
         homeViewModel.fetchCategories().observe(viewLifecycleOwner, Observer { result ->
+
             when(result){
                 is Resource.Loading->{
-
+                    newProgress.show(activity?.supportFragmentManager!!, "progress dialog")
                 }
                 is Resource.Success->{
                     println(result.data)
@@ -111,13 +117,15 @@ class HomeFragment : Fragment(),
                                     val thingWithCat = ThingWithCat(things.data.thingsList, catId, nameCat)
                                     Log.d("Y ACAAAAAA", thingWithCat.toString())
                                     thingsWithCat.add(thingWithCat)
-
                                     Log.d("QUE PASAAAA", thingsWithCat.toString())
                                     setUpRecyclerView(thingsWithCat)
+                                    newProgress.dismiss()
+
                                 }
                                 is Resource.Failure->{
                                     Toast.makeText(requireContext(), things.exception.toString(), Toast.LENGTH_LONG).show()
                                     Log.d("EXCEPCIONN",things.exception.toString() )
+                                    progressDialogFragment.dismiss()
                                 }
 
                             }
@@ -127,6 +135,7 @@ class HomeFragment : Fragment(),
 
                 }
                 is Resource.Failure->{
+                    newProgress.dismiss()
                     Toast.makeText(requireContext(), result.exception.toString(), Toast.LENGTH_LONG).show()
                 }
 
