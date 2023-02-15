@@ -101,6 +101,7 @@ class HomeFragment : Fragment(),
             when(result){
                 is Resource.Loading->{
                     newProgress.show(activity?.supportFragmentManager!!, "progress dialog")
+                    binding.rvNews.visibility = View.GONE
                 }
                 is Resource.Success->{
                     println(result.data)
@@ -119,12 +120,14 @@ class HomeFragment : Fragment(),
                                     thingsWithCat.add(thingWithCat)
                                     Log.d("QUE PASAAAA", thingsWithCat.toString())
                                     setUpRecyclerView(thingsWithCat)
+                                    binding.rvNews.visibility = View.VISIBLE
                                     newProgress.dismiss()
 
                                 }
                                 is Resource.Failure->{
                                     Toast.makeText(requireContext(), things.exception.toString(), Toast.LENGTH_LONG).show()
                                     Log.d("EXCEPCIONN",things.exception.toString() )
+                                    binding.rvNews.visibility = View.VISIBLE
                                     progressDialogFragment.dismiss()
                                 }
 
@@ -136,6 +139,7 @@ class HomeFragment : Fragment(),
                 }
                 is Resource.Failure->{
                     newProgress.dismiss()
+                    binding.rvNews.visibility = View.VISIBLE
                     Toast.makeText(requireContext(), result.exception.toString(), Toast.LENGTH_LONG).show()
                 }
 
