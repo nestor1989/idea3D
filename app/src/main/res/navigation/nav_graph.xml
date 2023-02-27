@@ -47,4 +47,9 @@
             android:id="@+id/action_homeFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/worksFragment"
+        android:name="com.idea3d.idea3d.ui.view.WorksFragment"
+        android:label="fragment_works"
+        tools:layout="@layout/fragment_works" />
 </navigation>

@@ -61,6 +61,11 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
 
+                R.id.works -> {
+                    navController.navigate(R.id.worksFragment)
+                    true
+                }
+
                 else -> false
             }
         }

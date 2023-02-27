@@ -48,6 +48,11 @@
     <string name="title_activity_news">NewsActivity</string>
     <string name="title_activity_list_screen">ListScreenActivity</string>
 
+    <string name="maker_zone_title">Zona \nMaker</string>
+    <string name="maker_zone_finance">Finanzas</string>
+    <string name="maker_zone_quick_actions">Acciones rápidas</string>
+    <string name="maker_zone_works">Trabajos</string>
+
 
     <string name="b1v0">Cuando hay una temperatura excesiva en el hotend puede darse que en los primeros segundos no salga plástico.
 
