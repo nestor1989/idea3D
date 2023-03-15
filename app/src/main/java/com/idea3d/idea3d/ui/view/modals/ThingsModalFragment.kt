@@ -23,7 +23,7 @@ class ThingsModalFragment(
 
     interface OnThingClickListener  {
         fun onLikeClick()
-        fun onDownLoadClick()
+        fun onDownLoadClick(url: String)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,9 +54,12 @@ class ThingsModalFragment(
 
         binding.tvTitle.text = thing.name
         binding.ivPhoto.isClickable = true
-        binding.ivPhoto.setOnClickListener {
+        binding.buttonFav.setOnClickListener {
             onThingClickListener.onLikeClick()
-            dismiss()
+        }
+
+        binding.buttonSeemore.setOnClickListener {
+            onThingClickListener.onDownLoadClick(thing.url)
         }
     }
 

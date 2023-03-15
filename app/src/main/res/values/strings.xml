@@ -27,6 +27,8 @@
     <string name="good_evening">Buenas tardes</string>
     <string name="good_morning">Buen día</string>
 
+    <string name="download">Lo quiero</string>
+
     <string name="guide_title">Guía visual para la resolución de problemas FDM</string>
 
     <string name="no_resuts">No se encontraron resultados para tu búsqueda, intenta con otras palabras. Recuerda que el motor de búsqueda de Thingiverse sólo funciona en inglés.</string>
