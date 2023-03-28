@@ -15,8 +15,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.idea3d.idea3d.core.Resource
 import com.idea3d.idea3d.data.model.News
 import com.idea3d.idea3d.data.model.Thing
+import com.idea3d.idea3d.data.model.ThingEntity
 import com.idea3d.idea3d.data.model.ThingWithCat
 import com.idea3d.idea3d.databinding.FragmentHomeBinding
+import com.idea3d.idea3d.ui.view.adapter.FavsAdapter
 import com.idea3d.idea3d.ui.view.adapter.NewsAdapter
 import com.idea3d.idea3d.ui.view.adapter.ThingsChildAdapter
 import com.idea3d.idea3d.ui.view.adapter.ThingsParentAdapter
@@ -31,7 +33,8 @@ import dagger.hilt.android.AndroidEntryPoint
 class HomeFragment : Fragment(),
     NewsAdapter.OnNewsClickListener,
     ThingsParentAdapter.OnClickChild,
-    ThingsModalFragment.OnThingClickListener {
+    ThingsModalFragment.OnThingClickListener,
+    FavsAdapter.OnThingClickListener {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
@@ -76,7 +79,14 @@ class HomeFragment : Fragment(),
         recyclerView.adapter = ThingsParentAdapter(appContext, thingsWithCat, this)
     }
 
+    private fun setUpRecyclerViewFavs(things: List<ThingEntity>) {
+        val appContext = requireContext()
+        val recyclerView = binding.favsRecycler
+        recyclerView.adapter = FavsAdapter(appContext, things, this)
+    }
+
     private fun setUpNewsObservers(){
+
         mainViewModel.fetchNewsList.observe(viewLifecycleOwner, Observer{ result->
             when(result){
                 is Resource.Loading->{
@@ -97,6 +107,23 @@ class HomeFragment : Fragment(),
     private fun setUpThingsObservers(){
         progressDialogFragment = ProgressDialogFragment()
         val newProgress = progressDialogFragment.newInstance()
+
+        homeViewModel.getFavorites().observe(viewLifecycleOwner, Observer { result ->
+
+            when(result){
+                is Resource.Loading->{
+                }
+                is Resource.Success->{
+                    setUpRecyclerViewFavs(result.data)
+                }
+                is Resource.Failure->{
+                    //binding.prError.visibility=View.VISIBLE
+                    Toast.makeText(requireContext(), result.exception.toString(), Toast.LENGTH_LONG).show()
+                }
+
+            }
+
+        })
 
         homeViewModel.fetchCategories().observe(viewLifecycleOwner, Observer { result ->
 
@@ -155,16 +182,24 @@ class HomeFragment : Fragment(),
         newInst?.show(activity?.supportFragmentManager!!, "news")
     }
 
-    override fun onLikeClick() {
+    override fun onLikeClick(thing: Thing) {
         Toast.makeText(requireContext(), "added to favorites", Toast.LENGTH_LONG).show()
+        val thingEntity = ThingEntity(thing.id, thing.name, thing.image, thing.url)
+        homeViewModel.addedToFavorite(thingEntity)
     }
 
     override fun onDownLoadClick(url: String) {
-        val intent: Intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
         startActivity(intent)
     }
 
     override fun onClickChild(thing: Thing) {
+        thingsModalFragment = ThingsModalFragment(thing, this)
+        val newInst = thingsModalFragment.newInstance(thing)
+        newInst.show(activity?.supportFragmentManager!!, "thingmodal")
+    }
+
+    override fun onThingClick(thing: Thing) {
         thingsModalFragment = ThingsModalFragment(thing, this)
         val newInst = thingsModalFragment.newInstance(thing)
         newInst.show(activity?.supportFragmentManager!!, "thingmodal")

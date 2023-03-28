@@ -25,6 +25,15 @@
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/favsRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            tools:listitem="@layout/row_things_home"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/parent_recycler_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

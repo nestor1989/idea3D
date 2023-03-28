@@ -22,7 +22,7 @@ class ThingsModalFragment(
     private val binding get() = _binding!!
 
     interface OnThingClickListener  {
-        fun onLikeClick()
+        fun onLikeClick(thing: Thing)
         fun onDownLoadClick(url: String)
     }
 
@@ -55,7 +55,7 @@ class ThingsModalFragment(
         binding.tvTitle.text = thing.name
         binding.ivPhoto.isClickable = true
         binding.buttonFav.setOnClickListener {
-            onThingClickListener.onLikeClick()
+            onThingClickListener.onLikeClick(thing)
         }
 
         binding.buttonSeemore.setOnClickListener {
