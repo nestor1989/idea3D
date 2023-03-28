@@ -14,4 +14,5 @@ interface Repo {
     suspend fun getThingsFromCat(page:Int, category:Int): Resource<Things>
     suspend fun addedThingToFav(thingEntity: ThingEntity)
     suspend fun getThingsFav(): Resource<List<ThingEntity>>
+    suspend fun deleteFavorite(thingEntity: ThingEntity)
 }

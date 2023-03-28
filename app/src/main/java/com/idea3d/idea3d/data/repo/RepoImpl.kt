@@ -36,4 +36,8 @@ class RepoImpl @Inject constructor(private val dataSource: DataSource):Repo {
     override suspend fun getThingsFav(): Resource<List<ThingEntity>> {
         return dataSource.getFavoriteThings()
     }
+
+    override suspend fun deleteFavorite(thingEntity: ThingEntity) {
+        return dataSource.deleteThing(thingEntity)
+    }
 }

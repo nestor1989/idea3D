@@ -24,14 +24,28 @@
             tools:listitem="@layout/row_news"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
+        <TextView
+            android:id="@+id/tvFavs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginHorizontal="10dp"
+            android:includeFontPadding="false"
+            android:text="Tus favoritos"
+            android:visibility="gone"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/favsRecycler"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="10dp"
-            tools:listitem="@layout/row_things_home"
+            tools:listitem="@layout/row_fav_things"
             android:orientation="horizontal"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/parent_recycler_view"

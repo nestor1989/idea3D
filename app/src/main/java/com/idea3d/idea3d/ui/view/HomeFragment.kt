@@ -47,6 +47,8 @@ class HomeFragment : Fragment(),
     private lateinit var thingsModalFragment: ThingsModalFragment
     private lateinit var progressDialogFragment: ProgressDialogFragment
 
+    var listFavs: List<ThingEntity>?=null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -89,8 +91,7 @@ class HomeFragment : Fragment(),
 
         mainViewModel.fetchNewsList.observe(viewLifecycleOwner, Observer{ result->
             when(result){
-                is Resource.Loading->{
-                }
+                is Resource.Loading->{}
                 is Resource.Success->{
                     binding.rvNews.adapter= NewsAdapter(requireContext(), result.data, this)
                 }
@@ -108,22 +109,7 @@ class HomeFragment : Fragment(),
         progressDialogFragment = ProgressDialogFragment()
         val newProgress = progressDialogFragment.newInstance()
 
-        homeViewModel.getFavorites().observe(viewLifecycleOwner, Observer { result ->
-
-            when(result){
-                is Resource.Loading->{
-                }
-                is Resource.Success->{
-                    setUpRecyclerViewFavs(result.data)
-                }
-                is Resource.Failure->{
-                    //binding.prError.visibility=View.VISIBLE
-                    Toast.makeText(requireContext(), result.exception.toString(), Toast.LENGTH_LONG).show()
-                }
-
-            }
-
-        })
+        setUpFavs()
 
         homeViewModel.fetchCategories().observe(viewLifecycleOwner, Observer { result ->
 
@@ -183,9 +169,19 @@ class HomeFragment : Fragment(),
     }
 
     override fun onLikeClick(thing: Thing) {
-        Toast.makeText(requireContext(), "added to favorites", Toast.LENGTH_LONG).show()
+        var favorite = false
         val thingEntity = ThingEntity(thing.id, thing.name, thing.image, thing.url)
-        homeViewModel.addedToFavorite(thingEntity)
+        listFavs?.let {
+            for(i in 0 until listFavs!!.size){
+                if (listFavs!![i].id == thingEntity.id){
+                    favorite = true
+                }
+            }
+        }
+
+        if (!favorite)homeViewModel.addedToFavorite(thingEntity)
+        else homeViewModel.deleteFavorite(thingEntity)
+        setUpFavs()
     }
 
     override fun onDownLoadClick(url: String) {
@@ -203,6 +199,27 @@ class HomeFragment : Fragment(),
         thingsModalFragment = ThingsModalFragment(thing, this)
         val newInst = thingsModalFragment.newInstance(thing)
         newInst.show(activity?.supportFragmentManager!!, "thingmodal")
+    }
+
+    private fun setUpFavs(){
+        homeViewModel.getFavorites().observe(viewLifecycleOwner, Observer { result ->
+
+            when(result){
+                is Resource.Loading->{
+                }
+                is Resource.Success->{
+                    listFavs = result.data
+                    if (result.data.isNotEmpty()) binding.tvFavs.visibility = View.VISIBLE
+                    setUpRecyclerViewFavs(listFavs!!)
+                }
+                is Resource.Failure->{
+                    //binding.prError.visibility=View.VISIBLE
+                    Toast.makeText(requireContext(), result.exception.toString(), Toast.LENGTH_LONG).show()
+                }
+
+            }
+
+        })
     }
 
 }

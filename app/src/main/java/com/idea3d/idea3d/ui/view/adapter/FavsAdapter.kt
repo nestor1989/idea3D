@@ -9,7 +9,7 @@ import com.idea3d.idea3d.R
 import com.idea3d.idea3d.core.BaseViewHolder
 import com.idea3d.idea3d.data.model.Thing
 import com.idea3d.idea3d.data.model.ThingEntity
-import com.idea3d.idea3d.databinding.RowThingsHomeBinding
+import com.idea3d.idea3d.databinding.RowFavThingsBinding
 
 class FavsAdapter (private val context: Context, private val thingList:List<ThingEntity>,
                    private val itemClickListener:OnThingClickListener):
@@ -21,7 +21,7 @@ class FavsAdapter (private val context: Context, private val thingList:List<Thin
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<*> {
         val itemBinding =
-            RowThingsHomeBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            RowFavThingsBinding.inflate(LayoutInflater.from(parent.context), parent, false)
 
         return MainViewHolder(itemBinding)
     }
@@ -36,7 +36,7 @@ class FavsAdapter (private val context: Context, private val thingList:List<Thin
         return thingList.size
     }
 
-    inner class MainViewHolder(private val itemBinding: RowThingsHomeBinding) :
+    inner class MainViewHolder(private val itemBinding: RowFavThingsBinding) :
         BaseViewHolder<ThingEntity>(itemBinding.root) {
         override fun bind(item: ThingEntity) {
             val image = "${item.image}"

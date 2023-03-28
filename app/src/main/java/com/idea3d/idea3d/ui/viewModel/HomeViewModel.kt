@@ -50,6 +50,12 @@ class HomeViewModel @Inject constructor(private val repo: Repo): ViewModel(){
         }
     }
 
+    fun deleteFavorite (thing: ThingEntity) {
+        CoroutineScope(Dispatchers.Main).launch {
+            repo.deleteFavorite(thing)
+        }
+    }
+
     fun getFavorites() = liveData(Dispatchers.IO) {
 
         emit(Resource.Loading())
