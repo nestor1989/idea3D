@@ -24,6 +24,7 @@ class ThingsModalFragment(
     interface OnThingClickListener  {
         fun onLikeClick(thing: Thing)
         fun onDownLoadClick(url: String)
+        fun onDismiss()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,7 +43,10 @@ class ThingsModalFragment(
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.floatingActionButton.setOnClickListener { dismiss() }
+        binding.floatingActionButton.setOnClickListener {
+            onThingClickListener.onDismiss()
+            dismiss()
+        }
 
         val image = "${thing.image}"
         Glide.with(requireContext())
@@ -54,8 +58,12 @@ class ThingsModalFragment(
 
         binding.tvTitle.text = thing.name
         binding.ivPhoto.isClickable = true
+
+        binding.buttonFav.isActivated = thing.favorite
+
         binding.buttonFav.setOnClickListener {
-            onThingClickListener.onLikeClick(thing)
+            binding.buttonFav.isActivated = !binding.buttonFav.isActivated
+                onThingClickListener.onLikeClick(thing)
         }
 
         binding.buttonSeemore.setOnClickListener {
@@ -66,6 +74,7 @@ class ThingsModalFragment(
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
+        onThingClickListener.onDismiss()
     }
 
     fun newInstance(thing: Thing): ThingsModalFragment {

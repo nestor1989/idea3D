@@ -16,7 +16,8 @@ data class Thing(
     @SerializedName("thumbnail")
     var image:String,
     @SerializedName("public_url")
-    val url:String
+    val url:String,
+    var favorite: Boolean = false
     ):Parcelable
 
 @Parcelize
@@ -36,7 +37,9 @@ data class ThingEntity(
     @ColumnInfo(name = "thumbnail")
     var image:String,
     @ColumnInfo(name = "public_url")
-    val url:String
+    val url:String,
+    @ColumnInfo(name = "favorite")
+    var favorite: Boolean
 )
 
 @Parcelize

@@ -109,8 +109,6 @@ class HomeFragment : Fragment(),
         progressDialogFragment = ProgressDialogFragment()
         val newProgress = progressDialogFragment.newInstance()
 
-        setUpFavs()
-
         homeViewModel.fetchCategories().observe(viewLifecycleOwner, Observer { result ->
 
             when(result){
@@ -136,6 +134,7 @@ class HomeFragment : Fragment(),
                                     Log.d("QUE PASAAAA", thingsWithCat.toString())
                                     setUpRecyclerView(thingsWithCat)
                                     binding.rvNews.visibility = View.VISIBLE
+                                    setUpFavs()
                                     newProgress.dismiss()
 
                                 }
@@ -169,19 +168,15 @@ class HomeFragment : Fragment(),
     }
 
     override fun onLikeClick(thing: Thing) {
-        var favorite = false
-        val thingEntity = ThingEntity(thing.id, thing.name, thing.image, thing.url)
-        listFavs?.let {
-            for(i in 0 until listFavs!!.size){
-                if (listFavs!![i].id == thingEntity.id){
-                    favorite = true
-                }
-            }
+        val thingEntity = ThingEntity(thing.id, thing.name, thing.image, thing.url, thing.favorite)
+
+        if (!thingEntity.favorite){
+            homeViewModel.addedToFavorite(thingEntity)
+        }
+        else {
+            homeViewModel.deleteFavorite(thingEntity)
         }
 
-        if (!favorite)homeViewModel.addedToFavorite(thingEntity)
-        else homeViewModel.deleteFavorite(thingEntity)
-        setUpFavs()
     }
 
     override fun onDownLoadClick(url: String) {
@@ -189,13 +184,23 @@ class HomeFragment : Fragment(),
         startActivity(intent)
     }
 
+    override fun onDismiss() {
+        setUpFavs()
+    }
+
+    //NORMALES
     override fun onClickChild(thing: Thing) {
+        var favorite = validateFav(thing)
+        thing.favorite = favorite
         thingsModalFragment = ThingsModalFragment(thing, this)
         val newInst = thingsModalFragment.newInstance(thing)
         newInst.show(activity?.supportFragmentManager!!, "thingmodal")
     }
 
+    //FAVORITOS
     override fun onThingClick(thing: Thing) {
+        var favorite = validateFav(thing)
+        thing.favorite = favorite
         thingsModalFragment = ThingsModalFragment(thing, this)
         val newInst = thingsModalFragment.newInstance(thing)
         newInst.show(activity?.supportFragmentManager!!, "thingmodal")
@@ -210,6 +215,7 @@ class HomeFragment : Fragment(),
                 is Resource.Success->{
                     listFavs = result.data
                     if (result.data.isNotEmpty()) binding.tvFavs.visibility = View.VISIBLE
+                    else binding.tvFavs.visibility = View.GONE
                     setUpRecyclerViewFavs(listFavs!!)
                 }
                 is Resource.Failure->{
@@ -220,6 +226,17 @@ class HomeFragment : Fragment(),
             }
 
         })
+    }
+
+    private fun validateFav(thingEntity : Thing): Boolean{
+        listFavs?.let {
+            for(i in 0 until listFavs!!.size){
+                if (listFavs!![i].id == thingEntity.id){
+                    thingEntity.favorite = true
+                }
+            }
+        }
+        return thingEntity.favorite
     }
 
 }

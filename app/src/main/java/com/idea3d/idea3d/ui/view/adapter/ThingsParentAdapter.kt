@@ -40,7 +40,10 @@ class ThingsParentAdapter(
     inner class MainViewHolder(private val itemBinding: RowHomeParentBinding) :
         BaseViewHolder<ThingWithCat>(itemBinding.root), ThingsChildAdapter.OnThingClickListener {
         override fun bind(item: ThingWithCat) {
-            itemBinding.contentTitle.text = item.catName
+
+            val title = translate(item.catName)
+            itemBinding.contentTitle.setText(title)
+
             val thingsChildAdapter = ThingsChildAdapter(context, item.things, this)
             itemBinding.childRecyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL,false)
             itemBinding.childRecyclerView.adapter = thingsChildAdapter
@@ -49,6 +52,35 @@ class ThingsParentAdapter(
         override fun onThingClick(thing: Thing) {
             onClickChild.onClickChild(thing)
         }
+    }
+
+    private fun translate (catName:String): String{
+        var spanishCat = ""
+
+        when(catName){
+            "3D Printing" -> spanishCat = "Impresos en 3D"
+
+            "Art" -> spanishCat = "Arte"
+
+            "Fashion" -> spanishCat = "Moda"
+
+            "Gadgets" -> spanishCat = "Hacks life"
+
+            "Hobby" -> spanishCat = "Hobbies"
+
+            "Household" -> spanishCat = "Hogar"
+
+            "Learning" -> spanishCat = "Educación"
+
+            "Models" -> spanishCat = "Modelos"
+
+            "Tools" -> spanishCat = "Herramientas"
+
+            "Toys & Games" -> spanishCat = "Juegos y Juguetes"
+
+            else -> spanishCat = catName
+        }
+        return spanishCat
     }
 
 }
