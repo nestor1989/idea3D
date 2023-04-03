@@ -53,9 +53,15 @@ class MainFragment :
         _binding = FragmentMainBinding.inflate(inflater, container, false)
 
         (activity as MainActivity).setThemeMain()
+        (activity as MainActivity).setCurrentNavController(0)
+
+        arguments?.let {
+            viewModel.setCategory(it.getInt("category"))
+            binding.tvCat.setText(it.getString("category_string"))
+            binding.tvCat.visibility = View.VISIBLE
+        }
 
         setUpRecyclerView()
-        setUpNewsRecyclerView()
         setUpObservers()
         setUpSearchView()
         setUpButtons()
@@ -126,26 +132,6 @@ class MainFragment :
             }
         })
 
-        viewModel.fetchNewsList.observe(viewLifecycleOwner, Observer{ result->
-            when(result){
-                is Resource.Loading->{
-                    //binding.prBar.visibility=View.VISIBLE
-                    binding.prError.visibility=View.GONE
-                }
-                is Resource.Success->{
-                    binding.prBar.visibility=View.GONE
-                    binding.prError.visibility=View.GONE
-                    binding.rvNews.adapter= NewsAdapter(requireContext(), result.data, this)
-                }
-                is Resource.Failure->{
-                    binding.prBar.visibility=View.GONE
-                    //binding.prError.visibility=View.VISIBLE
-                    Toast.makeText(requireContext(), result.exception.toString(), Toast.LENGTH_LONG).show()
-                }
-
-            }
-
-        })
 
     }
 
@@ -153,10 +139,6 @@ class MainFragment :
         val appContext = requireContext().applicationContext
         val recyclerView = binding.rvThings
         recyclerView.layoutManager= LinearLayoutManager(appContext)
-    }
-
-    private fun setUpNewsRecyclerView() {
-        binding.rvNews.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
     }
 
     private fun setUpPaginationRecycler(total:Int){

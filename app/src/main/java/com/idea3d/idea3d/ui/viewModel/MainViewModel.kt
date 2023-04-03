@@ -11,6 +11,7 @@ import javax.inject.Inject
 class MainViewModel@Inject constructor(private val repo: Repo): ViewModel() {
     private val searchThing = MutableLiveData<String>()
     private val page = MutableLiveData<Int>()
+    private val category = MutableLiveData<Int>()
 
     fun setThings(thingBy:String){
         searchThing.value = thingBy
@@ -20,9 +21,14 @@ class MainViewModel@Inject constructor(private val repo: Repo): ViewModel() {
         page.value = pages
     }
 
+    fun setCategory(cat:Int){
+        category.value = cat
+    }
+
     init{
         setThings("Relevant")
         setPagination(1)
+        setCategory(0)
     }
 
     val fetchThings = searchThing.distinctUntilChanged().switchMap {
@@ -30,8 +36,8 @@ class MainViewModel@Inject constructor(private val repo: Repo): ViewModel() {
             emit(Resource.Loading())
             try {
                 if (searchThing.value=="Relevant" || searchThing.value=="popular" || searchThing.value=="newest"){
-                emit(repo.getThingsByNews(it, 1))
-                }else emit(repo.getThingsByName(it, 1))
+                emit(repo.getThingsByNews(it, 1, category.value!!))
+                }else emit(repo.getThingsByName(it, 1, category.value!!))
             } catch (e: Exception) {
                 emit(Resource.Failure(e))
             }
@@ -43,8 +49,8 @@ class MainViewModel@Inject constructor(private val repo: Repo): ViewModel() {
         emit(Resource.Loading())
         try {
             if (searchThing.value=="relevant" || searchThing.value=="popular" || searchThing.value=="newest"){
-                emit(repo.getThingsByNews(searchThing.value!!, page.value!!))
-            }else emit(repo.getThingsByName(searchThing.value!!, page.value!!))
+                emit(repo.getThingsByNews(searchThing.value!!, page.value!!, category.value!!))
+            }else emit(repo.getThingsByName(searchThing.value!!, page.value!!, category.value!!))
         } catch (e: Exception) {
             emit(Resource.Failure(e))
         }

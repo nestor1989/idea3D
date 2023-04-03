@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.Theme_Idea3D)
         super.onCreate(savedInstanceState)
@@ -87,6 +88,11 @@ class MainActivity : AppCompatActivity() {
         binding.banner.setBackgroundColor(ContextCompat.getColor(this, R.color.blue_dark))
         binding.banner.setImageDrawable(getDrawable(R.drawable.logo_white_large))
         window.statusBarColor = ContextCompat.getColor(this, R.color.blue_dark)
+    }
+
+    fun setCurrentNavController(current: Int){
+        val bottomNavigationView = binding.bottomNavigation
+        bottomNavigationView.menu.getItem(current).isChecked = true
     }
 
 }

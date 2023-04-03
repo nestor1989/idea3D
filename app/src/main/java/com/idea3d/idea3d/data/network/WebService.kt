@@ -12,13 +12,15 @@ interface WebService {
     suspend fun searchThingByNew (  @Header("Authorization") value: String,
                                     @Query(value ="sort") searchBy:String,
                                     @Query(value="page") page:Int,
-                                    @Query(value="per_page") per_page:Int) : Things
+                                    @Query(value="per_page") per_page:Int,
+                                    @Query(value = "category_id") category_id:Int) : Things
 
     @GET("search/{searchBy}/")
     suspend fun searchThingByName ( @Header("Authorization") value: String,
                                     @Path("searchBy") searchBy: String,
                                     @Query(value="page") page:Int,
-                                    @Query(value="per_page") per_page:Int) : Things
+                                    @Query(value="per_page") per_page:Int,
+                                    @Query(value = "category_id") category_id:Int) : Things
 
     @GET ("categories")
     suspend fun searchCategories (  @Header("Authorization") value: String): List<Category>

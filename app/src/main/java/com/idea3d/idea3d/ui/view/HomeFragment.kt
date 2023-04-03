@@ -11,7 +11,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.idea3d.idea3d.R
 import com.idea3d.idea3d.core.Resource
 import com.idea3d.idea3d.data.model.News
 import com.idea3d.idea3d.data.model.Thing
@@ -195,6 +197,13 @@ class HomeFragment : Fragment(),
         thingsModalFragment = ThingsModalFragment(thing, this)
         val newInst = thingsModalFragment.newInstance(thing)
         newInst.show(activity?.supportFragmentManager!!, "thingmodal")
+    }
+
+    override fun onSearchByCat(category: Int, categoryName: String) {
+        val bundle = Bundle()
+        bundle.putInt("category", category)
+        bundle.putString("category_string", categoryName)
+        findNavController().navigate(R.id.action_homeFragment_to_mainFragment, bundle)
     }
 
     //FAVORITOS

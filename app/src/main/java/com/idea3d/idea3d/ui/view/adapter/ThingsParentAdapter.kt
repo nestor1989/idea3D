@@ -18,6 +18,7 @@ class ThingsParentAdapter(
 
     interface OnClickChild{
         fun onClickChild(thing: Thing)
+        fun onSearchByCat(category: Int, categoryString: String)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<*> {
@@ -47,6 +48,10 @@ class ThingsParentAdapter(
             val thingsChildAdapter = ThingsChildAdapter(context, item.things, this)
             itemBinding.childRecyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL,false)
             itemBinding.childRecyclerView.adapter = thingsChildAdapter
+
+            itemBinding.searchButton.setOnClickListener {
+                onClickChild.onSearchByCat(item.catId, title)
+            }
         }
 
         override fun onThingClick(thing: Thing) {

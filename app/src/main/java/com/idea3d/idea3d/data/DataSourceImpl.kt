@@ -19,16 +19,16 @@ class DataSourceImpl @Inject constructor(
     private val newsProvider: NewsProvider
 ): DataSource {
 
-    override suspend fun getThings (searchBy:String, page:Int): Resource<Things> {
-        return Resource.Success(webService.searchThingByNew(THING_KEY,searchBy, page, Constants.PER_PAGE))
+    override suspend fun getThings (searchBy:String, page:Int, category: Int): Resource<Things> {
+        return Resource.Success(webService.searchThingByNew(THING_KEY,searchBy, page, Constants.PER_PAGE, category))
     }
 
     override suspend fun getNews (country:String): Resource<List<News>> {
         return Resource.Success(newsProvider.topHeadLines(country).articles)
     }
 
-    override suspend fun getThingByName (searchBy: String, page:Int): Resource<Things>{
-        return Resource.Success(webService.searchThingByName(THING_KEY,searchBy, page, Constants.PER_PAGE))
+    override suspend fun getThingByName (searchBy: String, page:Int, category: Int): Resource<Things>{
+        return Resource.Success(webService.searchThingByName(THING_KEY,searchBy, page, Constants.PER_PAGE, category))
     }
 
     override suspend fun insertThing(thingEntity: ThingEntity) {

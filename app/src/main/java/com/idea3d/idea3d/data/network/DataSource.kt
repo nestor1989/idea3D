@@ -8,11 +8,11 @@ import com.idea3d.idea3d.data.model.Things
 
 interface DataSource {
 
-    suspend fun getThings (searchBy:String, page:Int): Resource<Things>
+    suspend fun getThings (searchBy:String, page:Int, category: Int): Resource<Things>
 
     suspend fun getNews (country:String): Resource<List<News>>
 
-    suspend fun getThingByName (searchBy: String, page:Int): Resource<Things>
+    suspend fun getThingByName (searchBy: String, page:Int, category: Int): Resource<Things>
 
     suspend fun insertThing (thingEntity: ThingEntity)
 
