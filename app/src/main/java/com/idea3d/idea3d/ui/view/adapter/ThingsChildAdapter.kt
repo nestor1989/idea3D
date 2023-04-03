@@ -10,8 +10,10 @@ import com.idea3d.idea3d.core.BaseViewHolder
 import com.idea3d.idea3d.data.model.Thing
 import com.idea3d.idea3d.databinding.RowThingsHomeBinding
 
-class ThingsChildAdapter(private val context: Context, private val thingList:List<Thing>,
-                  private val itemClickListener:OnThingClickListener):
+class ThingsChildAdapter(
+                        private val context: Context, private val thingList:List<Thing>,
+                        private val itemClickListener:OnThingClickListener
+                        ):
     RecyclerView.Adapter<BaseViewHolder<*>>() {
 
     interface OnThingClickListener {
