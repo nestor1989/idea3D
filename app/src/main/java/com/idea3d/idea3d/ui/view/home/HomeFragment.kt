@@ -1,4 +1,4 @@
-package com.idea3d.idea3d.ui.view
+package com.idea3d.idea3d.ui.view.home
 
 import android.content.Intent
 import android.net.Uri
@@ -20,11 +20,10 @@ import com.idea3d.idea3d.data.model.Thing
 import com.idea3d.idea3d.data.model.ThingEntity
 import com.idea3d.idea3d.data.model.ThingWithCat
 import com.idea3d.idea3d.databinding.FragmentHomeBinding
+import com.idea3d.idea3d.ui.view.MainActivity
 import com.idea3d.idea3d.ui.view.adapter.FavsAdapter
 import com.idea3d.idea3d.ui.view.adapter.NewsAdapter
-import com.idea3d.idea3d.ui.view.adapter.ThingsChildAdapter
 import com.idea3d.idea3d.ui.view.adapter.ThingsParentAdapter
-import com.idea3d.idea3d.ui.view.modals.BottomSheetNewsFragment
 import com.idea3d.idea3d.ui.view.modals.ProgressDialogFragment
 import com.idea3d.idea3d.ui.view.modals.ThingsModalFragment
 import com.idea3d.idea3d.ui.viewModel.HomeViewModel

@@ -1,4 +1,4 @@
-package com.idea3d.idea3d.ui.view
+package com.idea3d.idea3d.ui.view.guide
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,8 +8,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.idea3d.idea3d.data.model.ListProblems
 import com.idea3d.idea3d.databinding.FragmentGuideBinding
+import com.idea3d.idea3d.ui.view.MainActivity
 import com.idea3d.idea3d.ui.view.adapter.ProblemsAdapter
-import com.idea3d.idea3d.ui.view.modals.SolutionFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

@@ -55,6 +55,16 @@
     <string name="maker_zone_quick_actions">Acciones rápidas</string>
     <string name="maker_zone_works">Trabajos</string>
 
+    <string name="maker_zone_status_1">Pendiente</string>
+    <string name="maker_zone_status_2">Listos p/ empezar</string>
+    <string name="maker_zone_status_3">En progreso</string>
+    <string name="maker_zone_status_4">Imp. Terminada</string>
+    <string name="maker_zone_status_5">Postprocesado</string>
+    <string name="maker_zone_status_6">Listo p/ entregar</string>
+    <string name="maker_zone_status_7">Entregado</string>
+    <string name="maker_zone_status_8">Cobrado</string>
+    <string name="maker_zone_status_9">Pausado</string>
+
 
     <string name="b1v0">Cuando hay una temperatura excesiva en el hotend puede darse que en los primeros segundos no salga plástico.
 

@@ -1,4 +1,4 @@
-package com.idea3d.idea3d.ui.view.modals
+package com.idea3d.idea3d.ui.view.guide
 
 
 import android.content.Context
@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.idea3d.idea3d.R
 import com.idea3d.idea3d.databinding.FragmentSolucionBinding
-import com.idea3d.idea3d.ui.view.OnFragmentActionsListener
 
 class SolutionFragment  : BottomSheetDialogFragment() {
 

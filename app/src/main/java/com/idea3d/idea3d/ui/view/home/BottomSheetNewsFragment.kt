@@ -1,4 +1,4 @@
-package com.idea3d.idea3d.ui.view.modals
+package com.idea3d.idea3d.ui.view.home
 
 import android.content.Intent
 import android.net.Uri

@@ -1,4 +1,4 @@
-package com.idea3d.idea3d.ui.view
+package com.idea3d.idea3d.ui.view.search
 
 import android.content.Context
 import android.content.Intent
@@ -22,6 +22,7 @@ import com.idea3d.idea3d.core.Resource
 import com.idea3d.idea3d.data.model.News
 import com.idea3d.idea3d.data.model.Thing
 import com.idea3d.idea3d.databinding.FragmentMainBinding
+import com.idea3d.idea3d.ui.view.MainActivity
 import com.idea3d.idea3d.ui.view.adapter.MainAdapter
 import com.idea3d.idea3d.ui.view.adapter.NewsAdapter
 import com.idea3d.idea3d.ui.view.adapter.PaginationAdapter

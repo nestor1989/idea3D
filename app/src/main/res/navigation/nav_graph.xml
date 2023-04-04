@@ -7,16 +7,12 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.idea3d.idea3d.ui.view.MainFragment"
+        android:name="com.idea3d.idea3d.ui.view.search.MainFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main" >
-        <action
-            android:id="@+id/action_mainFragment_to_detailsFragment"
-            app:destination="@id/detailsFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_main" />
     <fragment
         android:id="@+id/guideFragment"
-        android:name="com.idea3d.idea3d.ui.view.GuideFragment"
+        android:name="com.idea3d.idea3d.ui.view.guide.GuideFragment"
         android:label="fragment_guide"
         tools:layout="@layout/fragment_guide" >
         <action
@@ -25,22 +21,17 @@
     </fragment>
     <fragment
         android:id="@+id/calcuFragment"
-        android:name="com.idea3d.idea3d.ui.view.CalcuFragment"
+        android:name="com.idea3d.idea3d.ui.view.calcu.CalcuFragment"
         android:label="fragment_calcu"
         tools:layout="@layout/fragment_calcu" />
     <fragment
         android:id="@+id/solutionFragment"
-        android:name="com.idea3d.idea3d.ui.view.modals.SolutionFragment"
+        android:name="com.idea3d.idea3d.ui.view.guide.SolutionFragment"
         android:label="fragment_solucion"
         tools:layout="@layout/fragment_solucion" />
     <fragment
-        android:id="@+id/detailsFragment"
-        android:name="com.idea3d.idea3d.ui.view.DetailsFragment"
-        android:label="fragment_details"
-        tools:layout="@layout/fragment_details" />
-    <fragment
         android:id="@+id/homeFragment"
-        android:name="com.idea3d.idea3d.ui.view.HomeFragment"
+        android:name="com.idea3d.idea3d.ui.view.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -49,7 +40,7 @@
     </fragment>
     <fragment
         android:id="@+id/worksFragment"
-        android:name="com.idea3d.idea3d.ui.view.WorksFragment"
+        android:name="com.idea3d.idea3d.ui.view.work.WorksFragment"
         android:label="fragment_works"
         tools:layout="@layout/fragment_works" />
 </navigation>

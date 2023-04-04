@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.view.modals.BottomSheetNewsFragment">
+    tools:context=".ui.view.home.BottomSheetNewsFragment">
 
     <FrameLayout
         android:id="@+id/standard_bottom_sheet"
