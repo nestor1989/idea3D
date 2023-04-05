@@ -6,24 +6,24 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class Task(
-    @PrimaryKey
-    val id: Int,
+    @PrimaryKey(autoGenerate = true)
+    val id: Int? = null,
     @ColumnInfo
     var name: String,
     @ColumnInfo
-    var id_status: Int,
+    var id_status: Int? = null,
     @ColumnInfo
-    var status: String,
+    var status: String? = null,
     @ColumnInfo
     var prioritize: Boolean = false,
     @ColumnInfo
-    var client: String,
+    var client: String? = null,
     @ColumnInfo
-    var id_client: Int,
+    var id_client: Int? = null,
     @ColumnInfo
-    var price: Float,
+    var price: Float? = null,
     @ColumnInfo
-    var cost: Float,
+    var cost: Float? = null,
     @ColumnInfo
     var thing_photo: String?=null,
     @ColumnInfo
@@ -33,7 +33,7 @@ data class Task(
     @ColumnInfo
     var client_ext:String? = null,
     @ColumnInfo
-    var date_begin: String,
+    var date_begin: String? = null,
     @ColumnInfo
-    var date_end: String
+    var date_end: String? = null
     )

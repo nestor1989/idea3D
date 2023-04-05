@@ -1,10 +1,7 @@
 package com.idea3d.idea3d.data.network
 
 import com.idea3d.idea3d.core.Resource
-import com.idea3d.idea3d.data.model.Category
-import com.idea3d.idea3d.data.model.News
-import com.idea3d.idea3d.data.model.ThingEntity
-import com.idea3d.idea3d.data.model.Things
+import com.idea3d.idea3d.data.model.*
 
 interface DataSource {
 
@@ -23,4 +20,10 @@ interface DataSource {
     suspend fun getCategories(): Resource<List<Category>>
 
     suspend fun getThingsFromCat( page:Int, category:Int): Resource<Things>
+
+    suspend fun insertTask (task: Task)
+
+    suspend fun getAllTask(): Resource<List<Task>>
+
+    suspend fun deleteTask(task: Task)
 }

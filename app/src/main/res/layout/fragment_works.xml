@@ -114,6 +114,7 @@
             android:padding="5dp">
 
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/btnQuick1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -121,6 +122,7 @@
                 android:layout_margin="5dp"/>
 
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/btnQuick2"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -128,6 +130,7 @@
                 android:layout_margin="5dp"/>
 
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/btnQuick3"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -135,11 +138,12 @@
                 android:layout_margin="5dp"/>
 
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/btnQuick4"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_margin="5dp"
                 android:layout_weight="1"
-                app:cardBackgroundColor="@color/teal_idea"
-                android:layout_margin="5dp"/>
+                app:cardBackgroundColor="@color/teal_idea" />
 
 
         </LinearLayout>

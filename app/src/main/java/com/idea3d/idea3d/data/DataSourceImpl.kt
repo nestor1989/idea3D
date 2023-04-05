@@ -3,20 +3,15 @@ package com.idea3d.idea3d.data
 import com.idea3d.idea3d.core.Constants
 import com.idea3d.idea3d.core.Constants.Companion.THING_KEY
 import com.idea3d.idea3d.core.Resource
-import com.idea3d.idea3d.data.model.Category
-import com.idea3d.idea3d.data.model.News
-import com.idea3d.idea3d.data.model.ThingEntity
-import com.idea3d.idea3d.data.model.Things
-import com.idea3d.idea3d.data.network.DataSource
-import com.idea3d.idea3d.data.network.NewsProvider
-import com.idea3d.idea3d.data.network.ThingsDao
-import com.idea3d.idea3d.data.network.WebService
+import com.idea3d.idea3d.data.model.*
+import com.idea3d.idea3d.data.network.*
 import javax.inject.Inject
 
 class DataSourceImpl @Inject constructor(
     private val webService: WebService,
     private val thingsDao: ThingsDao,
-    private val newsProvider: NewsProvider
+    private val newsProvider: NewsProvider,
+    private val tasksDao: TasksDao
 ): DataSource {
 
     override suspend fun getThings (searchBy:String, page:Int, category: Int): Resource<Things> {
@@ -52,6 +47,18 @@ class DataSourceImpl @Inject constructor(
         category: Int
     ): Resource<Things> {
         return Resource.Success(webService.searchThingsFromCat(THING_KEY, page, category, Constants.PER_PAGE))
+    }
+
+    override suspend fun insertTask(task: Task) {
+        tasksDao.addTask(task)
+    }
+
+    override suspend fun getAllTask(): Resource<List<Task>> {
+        return Resource.Success(tasksDao.getAllTask())
+    }
+
+    override suspend fun deleteTask(task: Task) {
+        tasksDao.deleteTask(task)
     }
 
 }

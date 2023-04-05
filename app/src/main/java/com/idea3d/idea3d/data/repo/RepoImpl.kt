@@ -40,4 +40,16 @@ class RepoImpl @Inject constructor(private val dataSource: DataSource):Repo {
     override suspend fun deleteFavorite(thingEntity: ThingEntity) {
         return dataSource.deleteThing(thingEntity)
     }
+
+    override suspend fun addTask(task: Task) {
+        dataSource.insertTask(task)
+    }
+
+    override suspend fun getAllTasks(): Resource<List<Task>> {
+        return dataSource.getAllTask()
+    }
+
+    override suspend fun deleteTask(task: Task) {
+        dataSource.deleteTask(task)
+    }
 }
