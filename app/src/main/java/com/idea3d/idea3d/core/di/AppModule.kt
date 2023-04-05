@@ -56,4 +56,8 @@ object AppModule {
     @Singleton
     @Provides
     fun provideThingsDao(db: AppDataBase) = db.thingsDao()
+
+    @Singleton
+    @Provides
+    fun provideTasksDao(db: AppDataBase) = db.tasksDao()
 }
