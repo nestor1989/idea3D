@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.idea3d.idea3d.R
 import com.idea3d.idea3d.core.Resource
 import com.idea3d.idea3d.data.model.Task
@@ -44,7 +45,7 @@ class WorksFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.btnQuick1.setOnClickListener {
-            tasksViewModel.addTask(Task(name = "JSJSJJS"))
+            findNavController().navigate(R.id.action_worksFragment_to_newTaskFragment)
         }
 
         binding.btnQuick2.setOnClickListener {
