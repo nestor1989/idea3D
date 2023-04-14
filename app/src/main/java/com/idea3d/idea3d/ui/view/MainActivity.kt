@@ -75,18 +75,18 @@ class MainActivity : AppCompatActivity() {
 
     fun setThemeMain(){
         binding.banner.setBackgroundColor(ContextCompat.getColor(this, R.color.blue_dark))
-        binding.banner.setImageDrawable(getDrawable(R.drawable.logo_white_large))
+        binding.bannerLogo.setImageDrawable(getDrawable(R.drawable.logo_white_large))
         window.statusBarColor = ContextCompat.getColor(this, R.color.blue_dark)
     }
 
     fun setThemeCalcu(){
         binding.banner.setBackgroundColor(ContextCompat.getColor(this, R.color.blue_idea))
-        binding.banner.setImageDrawable(getDrawable(R.drawable.logo_white_large))
+        binding.bannerLogo.setImageDrawable(getDrawable(R.drawable.logo_white_large))
         window.statusBarColor = ContextCompat.getColor(this, R.color.blue_idea)
     }
     fun setThemeHome(){
         binding.banner.setBackgroundColor(ContextCompat.getColor(this, R.color.blue_dark))
-        binding.banner.setImageDrawable(getDrawable(R.drawable.logo_white_large))
+        binding.bannerLogo.setImageDrawable(getDrawable(R.drawable.logo_white_large))
         window.statusBarColor = ContextCompat.getColor(this, R.color.blue_dark)
     }
 

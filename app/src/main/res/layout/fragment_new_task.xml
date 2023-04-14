@@ -14,15 +14,25 @@
         android:orientation="vertical"
         android:layout_marginHorizontal="16dp">
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Crear nuevo trabajo"
+            android:fontFamily="@font/at_surt_black"
+            android:textAlignment="center"
+            android:padding="16dp"
+            android:textColor="@color/teal_idea"
+            android:textSize="24sp"/>
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/lytName"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            style="@style/TextInputLayoutStyle"
             android:layout_width="match_parent"
             android:layout_weight="1"
             android:layout_height="0dp"
             android:textColorHint="@color/teal_idea"
-            android:hint="Nombre"
             app:boxStrokeColor="@color/teal_idea"
+            android:hint="Nombre"
             android:layout_marginTop="16dp"
             app:boxCornerRadiusBottomEnd="20dp"
             app:boxCornerRadiusBottomStart="20dp"
@@ -32,14 +42,10 @@
             <AutoCompleteTextView
                 android:id="@+id/inputName"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/at_surt_black"
-                android:lineHeight="20sp"
-                android:paddingTop="25dp"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/at_surt_light"
                 android:textColor="@color/grey"
-                android:paddingHorizontal="15dp"
-                android:textFontWeight="400"
-                android:textSize="14sp" />
+                android:paddingHorizontal="15dp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -60,32 +66,31 @@
         <AutoCompleteTextView
             android:id="@+id/inputDescription"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/at_surt_black"
-            android:textSize="14sp"
-            android:textFontWeight="400"
-            android:lineHeight="20sp"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/at_surt_light"
             android:paddingHorizontal="15dp"
-            android:paddingTop="25dp"
-            android:textColor="@color/grey" />
+            />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
 
             android:id="@+id/ddClient"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            app:endIconDrawable="@drawable/ic_arrow_down"
+            app:endIconTint="@color/teal_idea"
             android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_weight="1"
             android:layout_height="0dp"
             android:hint="Cliente"
+            android:fontFamily="@font/at_surt_light"
+            android:textColorHint="@color/teal_idea"
             app:boxCornerRadiusBottomEnd="20dp"
             app:boxCornerRadiusBottomStart="20dp"
             app:boxCornerRadiusTopEnd="20dp"
             app:boxCornerRadiusTopStart="20dp"
-            app:boxStrokeColor="@color/blue_idea"
-            app:helperText="Tipo de filamento"
-            app:helperTextTextColor="@color/blue_idea">
+            app:boxStrokeColor="@color/teal_idea"
+            app:helperText="Tipo de filamento">
 
             <AutoCompleteTextView
                 android:id="@+id/autoCompleteTextView"
@@ -98,7 +103,9 @@
         <CheckBox
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Prioritario"/>
+            android:text="Prioritario"
+            android:textColor="@color/teal_idea"
+             />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -108,7 +115,7 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/etPrice"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/TextInputLayoutStyle"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
@@ -120,7 +127,6 @@
                 app:boxCornerRadiusTopStart="20dp">
 
                 <com.google.android.material.textfield.TextInputEditText
-
                     android:id="@+id/kwhHint"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -131,7 +137,7 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/horasEdit"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/TextInputLayoutStyle"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_marginStart="12dp"
@@ -143,7 +149,6 @@
                 app:boxCornerRadiusTopStart="20dp">
 
                 <com.google.android.material.textfield.TextInputEditText
-
                     android:id="@+id/horasHint"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -160,6 +165,9 @@
 
             <TextView
                 android:id="@+id/tvBegin"
+                android:padding="5dp"
+                android:fontFamily="@font/at_surt_light"
+                android:textColor="@color/teal_idea"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_marginEnd="12dp"
@@ -170,6 +178,9 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/lytBegin"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                app:endIconDrawable="@drawable/ic_arrow_down"
+                app:boxStrokeColor="@color/teal_idea"
+                app:endIconTint="@color/teal_idea"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_marginStart="12dp"
@@ -182,7 +193,8 @@
                 <AutoCompleteTextView
                     android:id="@+id/dbBegin"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="wrap_content"
+                   />
 
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
@@ -195,6 +207,9 @@
 
             <TextView
                 android:id="@+id/tvFinish"
+                android:padding="5dp"
+                android:fontFamily="@font/at_surt_light"
+                android:textColor="@color/teal_idea"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_marginEnd="12dp"
@@ -205,13 +220,16 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/lytFinish"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                app:endIconDrawable="@drawable/ic_arrow_down"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_marginStart="12dp"
+                app:boxStrokeColor="@color/teal_idea"
                 android:layout_height="wrap_content"
                 app:boxCornerRadiusBottomEnd="20dp"
                 app:boxCornerRadiusBottomStart="20dp"
                 app:boxCornerRadiusTopEnd="20dp"
+                app:endIconTint="@color/teal_idea"
                 app:boxCornerRadiusTopStart="20dp">
 
                 <AutoCompleteTextView
@@ -221,8 +239,14 @@
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
 
-
-
+        <Button
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_marginTop="16sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Crear"
+            android:textColor="@color/teal_idea"
+            app:boxStrokeColor="@color/teal_idea"/>
 
     </LinearLayout>
 </ScrollView>

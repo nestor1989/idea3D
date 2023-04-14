@@ -8,16 +8,26 @@
     tools:context=".ui.view.MainActivity">
 
 
-    <ImageView
+    <LinearLayout
         android:id="@+id/banner"
         android:layout_width="match_parent"
         android:layout_height="75dp"
-        android:padding="22dp"
+        android:orientation="vertical"
+        android:paddingVertical="22dp"
         app:background="@null"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo_largo_dos" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/banner_logo"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/logo_largo_dos"
+            android:layout_gravity="start" />
+
+    </LinearLayout>
+
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/nav_host_fragment"

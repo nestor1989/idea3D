@@ -21,6 +21,12 @@
         <item name="iconTint">?attr/colorSecondary</item>
     </style>
 
+    <style name="TextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="boxStrokeColor">@color/teal_idea</item>
+    </style>
+
+
     <style name="titlesMakerZone">
         <item name="android:fontFamily">@font/at_surt_black</item>
         <item name="android:textSize">24sp</item>
