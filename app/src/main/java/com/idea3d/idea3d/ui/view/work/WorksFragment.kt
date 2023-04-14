@@ -14,6 +14,7 @@ import com.idea3d.idea3d.core.Resource
 import com.idea3d.idea3d.data.model.Task
 import com.idea3d.idea3d.databinding.FragmentHomeBinding
 import com.idea3d.idea3d.databinding.FragmentWorksBinding
+import com.idea3d.idea3d.ui.view.MainActivity
 import com.idea3d.idea3d.ui.view.adapter.NewsAdapter
 import com.idea3d.idea3d.ui.viewModel.HomeViewModel
 import com.idea3d.idea3d.ui.viewModel.TasksViewModel
@@ -44,12 +45,19 @@ class WorksFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setUp()
+
+    }
+
+    private fun setUp(){
+        (activity as MainActivity).setThemeHome()
+
         binding.btnQuick1.setOnClickListener {
             findNavController().navigate(R.id.action_worksFragment_to_newTaskFragment)
         }
 
         binding.btnQuick2.setOnClickListener {
-            tasksViewModel.addTask(Task(name = "HOLAAAA"))
+
         }
 
         binding.btnQuick4.setOnClickListener {
@@ -74,11 +82,6 @@ class WorksFragment : Fragment() {
         binding.btnQuick3.setOnClickListener {
             tasksViewModel.deleteTask(fav[1])
         }
-
-
-
-
-
     }
 
 

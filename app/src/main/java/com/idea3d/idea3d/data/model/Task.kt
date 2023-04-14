@@ -11,6 +11,8 @@ data class Task(
     @ColumnInfo
     var name: String,
     @ColumnInfo
+    var description: String,
+    @ColumnInfo
     var id_status: Int? = null,
     @ColumnInfo
     var status: String? = null,

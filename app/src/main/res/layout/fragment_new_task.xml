@@ -10,7 +10,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_marginHorizontal="16dp">
 
@@ -28,8 +28,7 @@
             android:id="@+id/lytName"
             style="@style/TextInputLayoutStyle"
             android:layout_width="match_parent"
-            android:layout_weight="1"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:textColorHint="@color/teal_idea"
             app:boxStrokeColor="@color/teal_idea"
             android:hint="Nombre"
@@ -52,8 +51,7 @@
             android:id="@+id/lytDescription"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
-            android:layout_weight="1"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:textColorHint="@color/teal_idea"
             android:hint="Descripción"
             app:boxStrokeColor="@color/teal_idea"
@@ -80,8 +78,7 @@
             app:endIconTint="@color/teal_idea"
             android:layout_marginTop="20dp"
             android:layout_width="match_parent"
-            android:layout_weight="1"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:hint="Cliente"
             android:fontFamily="@font/at_surt_light"
             android:textColorHint="@color/teal_idea"
@@ -101,6 +98,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <CheckBox
+            android:id = "@+id/cbPriority"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Prioritario"
@@ -240,6 +238,7 @@
         </LinearLayout>
 
         <Button
+            android:id = "@+id/buttonSend"
             style="@style/Widget.Material3.Button.OutlinedButton"
             android:layout_marginTop="16sp"
             android:layout_width="match_parent"

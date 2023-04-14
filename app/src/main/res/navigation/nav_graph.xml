@@ -46,10 +46,22 @@
         <action
             android:id="@+id/action_worksFragment_to_newTaskFragment"
             app:destination="@id/newTaskFragment" />
+        <action
+            android:id="@+id/action_worksFragment_to_worksDetailsFragment"
+            app:destination="@id/worksDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/newTaskFragment"
         android:name="com.idea3d.idea3d.ui.view.work.NewTaskFragment"
         android:label="fragment_new_task"
-        tools:layout="@layout/fragment_new_task" />
+        tools:layout="@layout/fragment_new_task" >
+        <action
+            android:id="@+id/action_newTaskFragment_to_worksDetailsFragment"
+            app:destination="@id/worksDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/worksDetailsFragment"
+        android:name="com.idea3d.idea3d.ui.view.work.WorksDetailsFragment"
+        android:label="fragment_works_details"
+        tools:layout="@layout/fragment_works_details" />
 </navigation>

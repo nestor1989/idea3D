@@ -4,6 +4,8 @@ import android.content.Context
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
 import androidx.datastore.preferences.preferencesDataStore
 import com.idea3d.idea3d.databinding.ActivityMainBinding
@@ -27,6 +29,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        setThemes()
         setUpNavController()
 
     }
@@ -93,6 +96,18 @@ class MainActivity : AppCompatActivity() {
     fun setCurrentNavController(current: Int){
         val bottomNavigationView = binding.bottomNavigation
         bottomNavigationView.menu.getItem(current).isChecked = true
+    }
+
+    fun setThemes(){
+
+        val darkMode = AppCompatDelegate.getDefaultNightMode()
+        Log.d("DARK_MODE", darkMode.toString())
+        if (darkMode == AppCompatDelegate.MODE_NIGHT_YES || darkMode == AppCompatDelegate.MODE_NIGHT_UNSPECIFIED) binding.switch1.isChecked = true
+
+        binding.switch1.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            else AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        }
     }
 
 }
