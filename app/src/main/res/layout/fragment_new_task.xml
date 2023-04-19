@@ -112,7 +112,7 @@
             android:gravity="center_horizontal">
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/etPrice"
+                android:id="@+id/lytPrice"
                 style="@style/TextInputLayoutStyle"
                 android:layout_width="0dp"
                 android:layout_weight="1"
@@ -125,7 +125,7 @@
                 app:boxCornerRadiusTopStart="20dp">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/kwhHint"
+                    android:id="@+id/etPrice"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="60"
@@ -134,7 +134,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/horasEdit"
+                android:id="@+id/lytCost"
                 style="@style/TextInputLayoutStyle"
                 android:layout_width="0dp"
                 android:layout_weight="1"
@@ -147,7 +147,7 @@
                 app:boxCornerRadiusTopStart="20dp">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/horasHint"
+                    android:id="@+id/etCost"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:imeOptions="actionNext"

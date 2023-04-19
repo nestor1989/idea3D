@@ -55,8 +55,16 @@ class NewTaskFragment : Fragment() {
         val nameTask = binding.inputName.text.toString()
         val descriptionTask = binding.inputDescription.text.toString()
         val priority = binding.cbPriority.isChecked
+        val price = binding.etPrice.text.toString().toFloat()
+        val cost = binding.etCost.text.toString().toFloat()
 
-        val task = Task(name =nameTask, description = descriptionTask, prioritize = priority)
+        val task = Task(
+            name =nameTask,
+            description = descriptionTask,
+            prioritize = priority,
+            price = price,
+            cost = cost
+        )
 
         tasksViewModel.addTask(task)
     }

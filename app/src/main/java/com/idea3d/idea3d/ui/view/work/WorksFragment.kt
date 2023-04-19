@@ -1,5 +1,6 @@
 package com.idea3d.idea3d.ui.view.work
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -19,6 +20,7 @@ import com.idea3d.idea3d.ui.view.adapter.NewsAdapter
 import com.idea3d.idea3d.ui.viewModel.HomeViewModel
 import com.idea3d.idea3d.ui.viewModel.TasksViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlin.math.cos
 
 @AndroidEntryPoint
 class WorksFragment : Fragment() {
@@ -46,42 +48,58 @@ class WorksFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setUp()
+        setFinances()
 
     }
 
     private fun setUp(){
         (activity as MainActivity).setThemeHome()
 
-        binding.btnQuick1.setOnClickListener {
+        binding.buttonAdd.setOnClickListener {
             findNavController().navigate(R.id.action_worksFragment_to_newTaskFragment)
         }
 
-        binding.btnQuick2.setOnClickListener {
-
+        binding.btnfilter1.setOnClickListener {
+            navigation()
         }
+    }
 
-        binding.btnQuick4.setOnClickListener {
-            tasksViewModel.getFavorites().observe(viewLifecycleOwner, Observer{ result->
-                when(result){
-                    is Resource.Loading->{}
-                    is Resource.Success->{
-                        fav = result.data
-                        println(fav)
-                    }
-                    is Resource.Failure->{
-                        //binding.prError.visibility=View.VISIBLE
-                        Toast.makeText(requireContext(), result.exception.toString(), Toast.LENGTH_LONG).show()
+    private fun navigation(){
+        findNavController().navigate(R.id.action_worksFragment_to_worksDetailsFragment)
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun setFinances(){
+        tasksViewModel.getFavorites().observe(viewLifecycleOwner, Observer{ result->
+            when(result){
+                is Resource.Loading->{}
+                is Resource.Success->{
+                    var profits = 0.0
+                    var cost = 0.0
+                    var sales = 0.0
+
+                    fav = result.data
+                    println(fav)
+
+                    for (i in fav.indices){
+                        sales += fav[i].price!!
+                        cost += fav[i].cost!!
                     }
 
+                    profits = sales - cost
+
+                    binding.tvSales.text = "$${sales}"
+                    binding.tvCost.text = "$${cost}"
+                    binding.tvProfits.text = "$${profits}"
+                }
+                is Resource.Failure->{
+                    //binding.prError.visibility=View.VISIBLE
+                    Toast.makeText(requireContext(), result.exception.toString(), Toast.LENGTH_LONG).show()
                 }
 
-            })
+            }
 
-        }
-
-        binding.btnQuick3.setOnClickListener {
-            tasksViewModel.deleteTask(fav[1])
-        }
+        })
     }
 
 

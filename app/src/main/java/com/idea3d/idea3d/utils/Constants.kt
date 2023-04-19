@@ -1,7 +1,4 @@
-package com.idea3d.idea3d.core
-
-import android.content.Context
-import androidx.datastore.preferences.preferencesDataStore
+package com.idea3d.idea3d.utils
 
 class Constants {
     companion object {

@@ -1,7 +1,7 @@
 package com.idea3d.idea3d.data
 
-import com.idea3d.idea3d.core.Constants
-import com.idea3d.idea3d.core.Constants.Companion.THING_KEY
+import com.idea3d.idea3d.utils.Constants
+import com.idea3d.idea3d.utils.Constants.Companion.THING_KEY
 import com.idea3d.idea3d.core.Resource
 import com.idea3d.idea3d.data.model.*
 import com.idea3d.idea3d.data.network.*

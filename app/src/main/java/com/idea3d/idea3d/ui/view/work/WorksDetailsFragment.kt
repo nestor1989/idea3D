@@ -54,7 +54,7 @@ class WorksDetailsFragment : Fragment(), TaskAdapter.OnClickArrow {
                 is Resource.Loading->{}
                 is Resource.Success->{
                     val tasks = result.data
-                    val adapter = TaskAdapter(tasks, this)
+                    val adapter = TaskAdapter(tasks, this, requireContext().applicationContext)
                     binding.rvTasks.adapter = adapter
                 }
                 is Resource.Failure->{

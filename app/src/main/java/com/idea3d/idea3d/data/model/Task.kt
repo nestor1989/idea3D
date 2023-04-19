@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 @Entity
 data class Task(
     @PrimaryKey(autoGenerate = true)
-    val id: Int? = null,
+    val id: Long? = null,
     @ColumnInfo
     var name: String,
     @ColumnInfo
@@ -23,9 +23,9 @@ data class Task(
     @ColumnInfo
     var id_client: Int? = null,
     @ColumnInfo
-    var price: Float? = null,
+    var price: Float?,
     @ColumnInfo
-    var cost: Float? = null,
+    var cost: Float?,
     @ColumnInfo
     var thing_photo: String?=null,
     @ColumnInfo

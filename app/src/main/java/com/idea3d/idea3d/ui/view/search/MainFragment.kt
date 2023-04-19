@@ -17,7 +17,7 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.idea3d.idea3d.R
-import com.idea3d.idea3d.core.Constants
+import com.idea3d.idea3d.utils.Constants
 import com.idea3d.idea3d.core.Resource
 import com.idea3d.idea3d.data.model.News
 import com.idea3d.idea3d.data.model.Thing
