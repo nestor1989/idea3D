@@ -233,8 +233,29 @@
 
             </com.google.android.material.card.MaterialCardView>
 
+
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/btnQuick2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                app:cardBackgroundColor="@color/transparent"
+                app:strokeColor="@color/teal_idea"
+                android:layout_margin="5dp">
+
+                <ImageButton
+                    android:id="@+id/button_all"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    app:tint="@color/teal_idea"
+                    android:src="@drawable/ic_task" />
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/btnQuick3"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -254,22 +275,24 @@
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/btnQuick3"
+                android:id="@+id/btnQuick4"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 app:cardBackgroundColor="@color/transparent"
                 app:strokeColor="@color/teal_idea"
-                android:layout_margin="5dp"/>
+                android:layout_margin="5dp">
 
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/btnQuick4"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                app:cardBackgroundColor="@color/transparent"
-                app:strokeColor="@color/teal_idea" />
+                <ImageButton
+                    android:id="@+id/button_urgent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    app:tint="@color/teal_idea"
+                    android:src="@drawable/ic_urgent" />
+
+
+            </com.google.android.material.card.MaterialCardView>
 
 
         </LinearLayout>

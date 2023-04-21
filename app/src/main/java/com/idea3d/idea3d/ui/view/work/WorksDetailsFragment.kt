@@ -49,46 +49,17 @@ class WorksDetailsFragment : Fragment(), TaskAdapter.OnClickArrow {
         if (!arguments?.getString("date").isNullOrEmpty()){
             val date = arguments?.getString("date")
             tasksViewModel.getByDate(date!!).observe(viewLifecycleOwner, Observer { result ->
-                when (result) {
-                    is Resource.Loading -> {}
-                    is Resource.Success -> {
-                        val tasks = result.data
-                        val adapter = TaskAdapter(tasks, this, requireContext().applicationContext)
-                        binding.rvTasks.adapter = adapter
-                    }
-                    is Resource.Failure -> {
-                        //binding.prError.visibility=View.VISIBLE
-                        Toast.makeText(
-                            requireContext(),
-                            result.exception.toString(),
-                            Toast.LENGTH_LONG
-                        ).show()
-                    }
-
-                }
-
+                callToRepo(result)
             })
-        }else {
-
+        }else if (arguments?.getBoolean("urgent")!=null) {
+            val urgent = arguments?.getBoolean("urgent")
+            if (urgent!!) tasksViewModel.getUrgent().observe(viewLifecycleOwner, Observer { result->
+                callToRepo(result)
+            })
+        }else
+            {
             tasksViewModel.getAllTask().observe(viewLifecycleOwner, Observer { result ->
-                when (result) {
-                    is Resource.Loading -> {}
-                    is Resource.Success -> {
-                        val tasks = result.data
-                        val adapter = TaskAdapter(tasks, this, requireContext().applicationContext)
-                        binding.rvTasks.adapter = adapter
-                    }
-                    is Resource.Failure -> {
-                        //binding.prError.visibility=View.VISIBLE
-                        Toast.makeText(
-                            requireContext(),
-                            result.exception.toString(),
-                            Toast.LENGTH_LONG
-                        ).show()
-                    }
-
-                }
-
+                callToRepo(result)
             })
         }
     }
@@ -100,5 +71,25 @@ class WorksDetailsFragment : Fragment(), TaskAdapter.OnClickArrow {
 
     override fun onClickArrow(task: Task) {
 
+    }
+
+    private fun callToRepo(result: Resource<List<Task>>){
+        when (result) {
+            is Resource.Loading -> {}
+            is Resource.Success -> {
+                val tasks = result.data
+                val adapter = TaskAdapter(tasks, this, requireContext().applicationContext)
+                binding.rvTasks.adapter = adapter
+            }
+            is Resource.Failure -> {
+                //binding.prError.visibility=View.VISIBLE
+                Toast.makeText(
+                    requireContext(),
+                    result.exception.toString(),
+                    Toast.LENGTH_LONG
+                ).show()
+            }
+
+        }
     }
 }

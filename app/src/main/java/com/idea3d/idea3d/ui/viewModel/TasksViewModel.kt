@@ -27,7 +27,6 @@ class TasksViewModel @Inject constructor(private val repo: Repo): ViewModel(){
     }
 
     fun getAllTask() = liveData(Dispatchers.IO) {
-
         emit(Resource.Loading())
         try {
             emit(repo.getAllTasks())
@@ -37,10 +36,18 @@ class TasksViewModel @Inject constructor(private val repo: Repo): ViewModel(){
     }
 
     fun getByDate(date:String) = liveData(Dispatchers.IO) {
-
         emit(Resource.Loading())
         try {
             emit(repo.getByDate(date))
+        } catch (e: Exception) {
+            emit(Resource.Failure(e))
+        }
+    }
+
+    fun getUrgent() = liveData(Dispatchers.IO) {
+        emit(Resource.Loading())
+        try {
+            emit(repo.getUrgent())
         } catch (e: Exception) {
             emit(Resource.Failure(e))
         }

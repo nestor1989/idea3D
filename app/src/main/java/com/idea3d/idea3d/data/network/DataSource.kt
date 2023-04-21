@@ -28,4 +28,6 @@ interface DataSource {
     suspend fun deleteTask(task: Task)
 
     suspend fun getByDate(date:String): Resource<List<Task>>
+
+    suspend fun getUrgent(): Resource<List<Task>>
 }

@@ -65,4 +65,8 @@ class DataSourceImpl @Inject constructor(
         return Resource.Success(tasksDao.getByDate(date))
     }
 
+    override suspend fun getUrgent(): Resource<List<Task>> {
+        return Resource.Success(tasksDao.getUrgent())
+    }
+
 }

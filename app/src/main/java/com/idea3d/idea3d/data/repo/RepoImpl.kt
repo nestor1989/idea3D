@@ -56,4 +56,8 @@ class RepoImpl @Inject constructor(private val dataSource: DataSource):Repo {
     override suspend fun getByDate(date: String): Resource<List<Task>> {
         return dataSource.getByDate(date)
     }
+
+    override suspend fun getUrgent(): Resource<List<Task>> {
+        return dataSource.getUrgent()
+    }
 }

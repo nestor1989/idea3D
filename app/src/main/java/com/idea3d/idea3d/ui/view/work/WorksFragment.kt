@@ -62,9 +62,21 @@ class WorksFragment : Fragment(), ScheduleDialogFragment.OnDateClick {
             dateInst.show(activity?.supportFragmentManager!!,"Dialog Bottom")
         }
 
+        binding.buttonAll.setOnClickListener {
+            findNavController().navigate(R.id.action_worksFragment_to_worksDetailsFragment)
+        }
+
+        binding.buttonUrgent.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putBoolean("urgent", true)
+            findNavController().navigate(R.id.action_worksFragment_to_worksDetailsFragment, bundle)
+        }
+
         binding.btnfilter1.setOnClickListener {
             navigation()
         }
+
+
     }
 
     private fun navigation(){
