@@ -45,22 +45,52 @@ class WorksDetailsFragment : Fragment(), TaskAdapter.OnClickArrow {
     }
 
     private fun setUp(){
-        tasksViewModel.getAllTask().observe(viewLifecycleOwner, Observer{ result->
-            when(result){
-                is Resource.Loading->{}
-                is Resource.Success->{
-                    val tasks = result.data
-                    val adapter = TaskAdapter(tasks, this, requireContext().applicationContext)
-                    binding.rvTasks.adapter = adapter
-                }
-                is Resource.Failure->{
-                    //binding.prError.visibility=View.VISIBLE
-                    Toast.makeText(requireContext(), result.exception.toString(), Toast.LENGTH_LONG).show()
+
+        if (!arguments?.getString("date").isNullOrEmpty()){
+            val date = arguments?.getString("date")
+            tasksViewModel.getByDate(date!!).observe(viewLifecycleOwner, Observer { result ->
+                when (result) {
+                    is Resource.Loading -> {}
+                    is Resource.Success -> {
+                        val tasks = result.data
+                        val adapter = TaskAdapter(tasks, this, requireContext().applicationContext)
+                        binding.rvTasks.adapter = adapter
+                    }
+                    is Resource.Failure -> {
+                        //binding.prError.visibility=View.VISIBLE
+                        Toast.makeText(
+                            requireContext(),
+                            result.exception.toString(),
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
+
                 }
 
-            }
+            })
+        }else {
 
-        })
+            tasksViewModel.getAllTask().observe(viewLifecycleOwner, Observer { result ->
+                when (result) {
+                    is Resource.Loading -> {}
+                    is Resource.Success -> {
+                        val tasks = result.data
+                        val adapter = TaskAdapter(tasks, this, requireContext().applicationContext)
+                        binding.rvTasks.adapter = adapter
+                    }
+                    is Resource.Failure -> {
+                        //binding.prError.visibility=View.VISIBLE
+                        Toast.makeText(
+                            requireContext(),
+                            result.exception.toString(),
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
+
+                }
+
+            })
+        }
     }
 
     private fun initAdapter(){

@@ -35,4 +35,16 @@ class TasksViewModel @Inject constructor(private val repo: Repo): ViewModel(){
             emit(Resource.Failure(e))
         }
     }
+
+    fun getByDate(date:String) = liveData(Dispatchers.IO) {
+
+        emit(Resource.Loading())
+        try {
+            emit(repo.getByDate(date))
+        } catch (e: Exception) {
+            emit(Resource.Failure(e))
+        }
+    }
+
+
 }

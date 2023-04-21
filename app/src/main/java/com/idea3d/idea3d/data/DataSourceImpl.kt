@@ -61,4 +61,8 @@ class DataSourceImpl @Inject constructor(
         tasksDao.deleteTask(task)
     }
 
+    override suspend fun getByDate(date: String): Resource<List<Task>> {
+        return Resource.Success(tasksDao.getByDate(date))
+    }
+
 }

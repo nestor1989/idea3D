@@ -8,6 +8,9 @@ interface TasksDao {
     @Query("SELECT * FROM Task ")
     suspend fun getAllTask(): List<Task>
 
+    @Query("SELECT * FROM Task WHERE [date_begin] LIKE :date")
+    suspend fun getByDate(date:String): List<Task>
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addTask(task: Task)
 

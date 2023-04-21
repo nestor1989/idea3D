@@ -79,10 +79,10 @@ class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick {
     }
 
     companion object{
-        var DISPLAY_DATE = ""
+        var DISPLAY_DATE = "Fecha"
     }
 
-    override fun onDateClick() {
+    override fun onDateClick(date:String) {
         binding.dbBegin.setText(DISPLAY_DATE)
     }
 }

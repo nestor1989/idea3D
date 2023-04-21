@@ -105,8 +105,10 @@ class WorksFragment : Fragment(), ScheduleDialogFragment.OnDateClick {
         })
     }
 
-    override fun onDateClick() {
-
+    override fun onDateClick(date:String) {
+        val bundle = Bundle()
+        bundle.putString("date", date)
+        findNavController().navigate(R.id.action_worksFragment_to_worksDetailsFragment, bundle)
     }
 
 

@@ -38,6 +38,7 @@ class ScheduleDialogFragment(private val onClick:OnDateClick) :
     val calendar = Calendar.getInstance()
     var preselectedDates: MutableList<CalendarDate> = mutableListOf<CalendarDate>()
     var worksDate: MutableList<CalendarDate> = mutableListOf<CalendarDate>()
+    var eventsDate: MutableList<String> = mutableListOf()
 
     val today = CalendarDate(calendar.time)
     private lateinit var c: Calendar
@@ -58,7 +59,7 @@ class ScheduleDialogFragment(private val onClick:OnDateClick) :
 
 
     interface OnDateClick {
-        fun onDateClick()
+        fun onDateClick(date:String)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -107,11 +108,14 @@ class ScheduleDialogFragment(private val onClick:OnDateClick) :
                         val taskDate = getCalendarDate(tasks[i].date_begin!!)
                         Log.d("TASK_DATE", taskDate.toString())
                         worksDate.add(taskDate)
+                        eventsDate.add(tasks[i].name)
                     }
                     val indicators: List<CalendarView.DateIndicator> = generateCalendarDateIndicators()
+                    val additionalTexts: List<CalendarView.AdditionalText> = generateAdditionalTexts()
                     binding.calendarView.datesIndicators = indicators
+                    //binding.calendarView.datesAdditionalTexts = additionalTexts
 
-                    Log.d("INDICATORS", indicators.toString())
+                    //Log.d("INDICATORS", indicators.toString())
                     Log.d("LISTA_DE_DATES", worksDate.toString())
                 }
                 is Resource.Failure -> {
@@ -127,7 +131,12 @@ class ScheduleDialogFragment(private val onClick:OnDateClick) :
     private fun setListeners() {
         when(arguments?.getInt(TYPE)){
 
-            0 -> {}
+            0 -> {
+                binding.calendarView.onDateClickListener = { date ->
+                    onClick.onDateClick(date.toString())
+                    dismiss()
+                }
+            }
             1 -> {
                 binding.calendarView.onDateClickListener = { date ->
 
@@ -135,7 +144,7 @@ class ScheduleDialogFragment(private val onClick:OnDateClick) :
 
                     NewTaskFragment.DISPLAY_DATE = date.toString()
                     //Log.d("FECHA_FORMATO", RescheduleFromFragment.DATE)
-                    onClick.onDateClick()
+                    onClick.onDateClick(NewTaskFragment.DISPLAY_DATE)
                     dismiss()
                 }
             }
@@ -282,22 +291,33 @@ class ScheduleDialogFragment(private val onClick:OnDateClick) :
         return dateFinal
     }
 
+    private fun generateAdditionalTexts(): List<CalendarView.AdditionalText> {
+        val context = requireContext()
+        val events = mutableListOf<CalendarView.AdditionalText>()
+
+        for (i in 0 until worksDate.size) {
+            events += CalendarEventsIndicator(
+                date = worksDate[i],
+                color = context.getColorInt(R.color.teal_idea),
+                text = eventsDate[i]
+            )
+
+        }
+
+        return events
+    }
+
 
     private fun generateCalendarDateIndicators(): List<CalendarView.DateIndicator> {
         val context = requireContext()
-        val calendar = Calendar.getInstance()
         val indicators = mutableListOf<CalendarView.DateIndicator>()
 
-        //indicators.clear()
         for (i in 0 until worksDate.size) {
             indicators += CalendarDateIndicator(
-                eventName = "Event #1", //mck
                 date = worksDate[i],
-                color = context.getColorInt(R.color.blue_dark),
-                eventTime = "15:00 - 16:45" //mock
+                color = context.getColorInt(R.color.teal_idea),
             )
 
-            //   calendar.add(Calendar.DAY_OF_MONTH, 5)
         }
 
         return indicators
@@ -306,8 +326,13 @@ class ScheduleDialogFragment(private val onClick:OnDateClick) :
     class CalendarDateIndicator(
         override val date: CalendarDate,
         override val color: Int,
-        val eventName: String,
-        val eventTime: String
 
     ) : CalendarView.DateIndicator
+
+    class CalendarEventsIndicator(
+        override val color: Int,
+        override val date: CalendarDate,
+        override val text: String
+
+    ): CalendarView.AdditionalText
 }
