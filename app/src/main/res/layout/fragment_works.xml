@@ -240,7 +240,18 @@
                 android:layout_weight="1"
                 app:cardBackgroundColor="@color/transparent"
                 app:strokeColor="@color/teal_idea"
-                android:layout_margin="5dp"/>
+                android:layout_margin="5dp">
+
+                <ImageButton
+                    android:id="@+id/button_calendar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    app:tint="@color/teal_idea"
+                    android:src="@drawable/ic_calendar" />
+
+
+            </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/btnQuick3"
@@ -289,7 +300,18 @@
                     android:layout_weight="1"
                     app:cardBackgroundColor="@color/transparent"
                     app:strokeColor="@color/teal_idea"
-                    android:layout_margin="5dp"/>
+                    android:layout_margin="5dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/at_surt_semi_bold"
+                        android:gravity="center"
+                        android:text="@string/maker_zone_status_1"
+                        android:textColor="@color/white"
+                        android:textSize="15sp" />
+
+                </com.google.android.material.card.MaterialCardView>
 
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/btnfilter2"
@@ -298,7 +320,18 @@
                     android:layout_weight="1"
                     app:cardBackgroundColor="@color/transparent"
                     app:strokeColor="@color/teal_idea"
-                    android:layout_margin="5dp"/>
+                    android:layout_margin="5dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/at_surt_semi_bold"
+                        android:gravity="center"
+                        android:text="@string/maker_zone_status_2"
+                        android:textColor="@color/white"
+                        android:textSize="15sp" />
+
+                </com.google.android.material.card.MaterialCardView>
 
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/btnfilter3"
@@ -307,7 +340,18 @@
                     android:layout_weight="1"
                     app:cardBackgroundColor="@color/transparent"
                     app:strokeColor="@color/teal_idea"
-                    android:layout_margin="5dp"/>
+                    android:layout_margin="5dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/at_surt_semi_bold"
+                        android:gravity="center"
+                        android:text="@string/maker_zone_status_3"
+                        android:textColor="@color/white"
+                        android:textSize="15sp" />
+
+                </com.google.android.material.card.MaterialCardView>
 
 
             </LinearLayout>
@@ -326,7 +370,18 @@
                     android:layout_weight="1"
                     app:cardBackgroundColor="@color/transparent"
                     app:strokeColor="@color/teal_idea"
-                    android:layout_margin="5dp"/>
+                    android:layout_margin="5dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/at_surt_semi_bold"
+                        android:gravity="center"
+                        android:text="@string/maker_zone_status_4"
+                        android:textColor="@color/white"
+                        android:textSize="15sp" />
+
+                </com.google.android.material.card.MaterialCardView>
 
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/btnfilter5"
@@ -335,7 +390,18 @@
                     android:layout_weight="1"
                     app:cardBackgroundColor="@color/transparent"
                     app:strokeColor="@color/teal_idea"
-                    android:layout_margin="5dp"/>
+                    android:layout_margin="5dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/at_surt_semi_bold"
+                        android:gravity="center"
+                        android:text="@string/maker_zone_status_5"
+                        android:textColor="@color/white"
+                        android:textSize="15sp" />
+
+                </com.google.android.material.card.MaterialCardView>
 
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/btnfilter6"
@@ -344,7 +410,18 @@
                     android:layout_weight="1"
                     app:cardBackgroundColor="@color/transparent"
                     app:strokeColor="@color/teal_idea"
-                    android:layout_margin="5dp"/>
+                    android:layout_margin="5dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/at_surt_semi_bold"
+                        android:gravity="center"
+                        android:text="@string/maker_zone_status_6"
+                        android:textColor="@color/white"
+                        android:textSize="15sp" />
+
+                </com.google.android.material.card.MaterialCardView>
 
 
             </LinearLayout>
@@ -362,7 +439,18 @@
                     android:layout_weight="1"
                     app:cardBackgroundColor="@color/transparent"
                     app:strokeColor="@color/teal_idea"
-                    android:layout_margin="5dp"/>
+                    android:layout_margin="5dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/at_surt_semi_bold"
+                        android:gravity="center"
+                        android:text="@string/maker_zone_status_7"
+                        android:textColor="@color/white"
+                        android:textSize="15sp" />
+
+                </com.google.android.material.card.MaterialCardView>
 
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/btnfilter8"
@@ -371,7 +459,18 @@
                     android:layout_weight="1"
                     app:cardBackgroundColor="@color/transparent"
                     app:strokeColor="@color/teal_idea"
-                    android:layout_margin="5dp"/>
+                    android:layout_margin="5dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/at_surt_semi_bold"
+                        android:gravity="center"
+                        android:text="@string/maker_zone_status_8"
+                        android:textColor="@color/white"
+                        android:textSize="15sp" />
+
+                </com.google.android.material.card.MaterialCardView>
 
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/btnfilter9"
@@ -380,7 +479,18 @@
                     android:layout_weight="1"
                     app:cardBackgroundColor="@color/transparent"
                     app:strokeColor="@color/teal_idea"
-                    android:layout_margin="5dp"/>
+                    android:layout_margin="5dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/at_surt_semi_bold"
+                        android:gravity="center"
+                        android:text="@string/maker_zone_status_9"
+                        android:textColor="@color/white"
+                        android:textSize="15sp" />
+
+                </com.google.android.material.card.MaterialCardView>
 
             </LinearLayout>
 

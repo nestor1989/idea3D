@@ -176,7 +176,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/lytBegin"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-                app:endIconDrawable="@drawable/ic_arrow_down"
+                app:endIconDrawable="@drawable/ic_calendar"
                 app:boxStrokeColor="@color/teal_idea"
                 app:endIconTint="@color/teal_idea"
                 android:layout_width="0dp"
@@ -192,6 +192,8 @@
                     android:id="@+id/dbBegin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:focusableInTouchMode="false"
+                    android:lines="1"
                    />
 
             </com.google.android.material.textfield.TextInputLayout>

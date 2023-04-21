@@ -9,13 +9,9 @@ import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.idea3d.idea3d.R
 import com.idea3d.idea3d.core.Resource
-import com.idea3d.idea3d.data.model.ListProblems
 import com.idea3d.idea3d.data.model.Task
-import com.idea3d.idea3d.databinding.FragmentWorksBinding
 import com.idea3d.idea3d.databinding.FragmentWorksDetailsBinding
-import com.idea3d.idea3d.ui.view.adapter.ProblemsAdapter
 import com.idea3d.idea3d.ui.view.adapter.TaskAdapter
 import com.idea3d.idea3d.ui.viewModel.TasksViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -49,7 +45,7 @@ class WorksDetailsFragment : Fragment(), TaskAdapter.OnClickArrow {
     }
 
     private fun setUp(){
-        tasksViewModel.getFavorites().observe(viewLifecycleOwner, Observer{ result->
+        tasksViewModel.getAllTask().observe(viewLifecycleOwner, Observer{ result->
             when(result){
                 is Resource.Loading->{}
                 is Resource.Success->{

@@ -19,4 +19,23 @@
         <item name="android:windowBackground">@drawable/splash_background</item>
     </style>
 
+    <style name="CalendarView">
+        <item name="android:background">@color/transparent</item>
+        <item name="calendar_date_background">@drawable/background_calendar_date</item>
+        <item name="calendar_date_text_color">@color/blue_dark</item>
+        <item name="calendar_day_bar_background">@color/white</item>
+        <item name="calendar_day_bar_text_color">@color/grey</item>
+        <item name="calendar_day_bar_weekend_text_color">@color/teal_idea</item>
+        <item name="calendar_grid_color">@color/white</item>
+        <item name="calendar_grid_on_selected_dates">false</item>
+        <item name="calendar_month_text_color">@color/blue_dark</item>
+        <item name="calendar_year_selection_arrows_color">@color/teal_idea</item>
+        <item name="calendar_year_selection_background">@color/white</item>
+        <item name="calendar_year_selection_text_color">@color/blue_dark</item>
+        <item name="android:fontFamily">@font/at_surt_regular</item>
+        <item name="calendar_date_background_tint">@color/custom_color_calendar_selector</item>
+
+    </style>
+
+
 </resources>

@@ -13,23 +13,20 @@ import androidx.navigation.fragment.findNavController
 import com.idea3d.idea3d.R
 import com.idea3d.idea3d.core.Resource
 import com.idea3d.idea3d.data.model.Task
-import com.idea3d.idea3d.databinding.FragmentHomeBinding
 import com.idea3d.idea3d.databinding.FragmentWorksBinding
 import com.idea3d.idea3d.ui.view.MainActivity
-import com.idea3d.idea3d.ui.view.adapter.NewsAdapter
-import com.idea3d.idea3d.ui.viewModel.HomeViewModel
 import com.idea3d.idea3d.ui.viewModel.TasksViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import kotlin.math.cos
 
 @AndroidEntryPoint
-class WorksFragment : Fragment() {
+class WorksFragment : Fragment(), ScheduleDialogFragment.OnDateClick {
     private var _binding: FragmentWorksBinding? = null
     private val binding get() = _binding!!
 
     private val tasksViewModel by viewModels<TasksViewModel>()
 
     private lateinit var fav: List<Task>
+    private lateinit var scheduleDialogFragment: ScheduleDialogFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,6 +56,12 @@ class WorksFragment : Fragment() {
             findNavController().navigate(R.id.action_worksFragment_to_newTaskFragment)
         }
 
+        binding.buttonCalendar.setOnClickListener {
+            scheduleDialogFragment = ScheduleDialogFragment(this)
+            val dateInst = scheduleDialogFragment.newInstance(0)
+            dateInst.show(activity?.supportFragmentManager!!,"Dialog Bottom")
+        }
+
         binding.btnfilter1.setOnClickListener {
             navigation()
         }
@@ -70,7 +73,7 @@ class WorksFragment : Fragment() {
 
     @SuppressLint("SetTextI18n")
     private fun setFinances(){
-        tasksViewModel.getFavorites().observe(viewLifecycleOwner, Observer{ result->
+        tasksViewModel.getAllTask().observe(viewLifecycleOwner, Observer{ result->
             when(result){
                 is Resource.Loading->{}
                 is Resource.Success->{
@@ -100,6 +103,10 @@ class WorksFragment : Fragment() {
             }
 
         })
+    }
+
+    override fun onDateClick() {
+
     }
 
 

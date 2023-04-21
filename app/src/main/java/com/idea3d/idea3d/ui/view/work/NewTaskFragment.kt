@@ -16,12 +16,14 @@ import com.idea3d.idea3d.ui.viewModel.TasksViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class NewTaskFragment : Fragment() {
+class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick {
 
     private var _binding: FragmentNewTaskBinding? = null
     private val binding get() = _binding!!
 
     private val tasksViewModel by viewModels<TasksViewModel>()
+
+    private lateinit var scheduleDialogFragment: ScheduleDialogFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,6 +51,12 @@ class NewTaskFragment : Fragment() {
             createTask()
             findNavController().navigate(R.id.action_newTaskFragment_to_worksDetailsFragment)
         }
+
+        binding.dbBegin.setOnClickListener {
+            scheduleDialogFragment = ScheduleDialogFragment(this)
+            val dateInst = scheduleDialogFragment.newInstance(1)
+            dateInst.show(activity?.supportFragmentManager!!,"Dialog Bottom")
+        }
     }
 
     private fun createTask (){
@@ -63,9 +71,18 @@ class NewTaskFragment : Fragment() {
             description = descriptionTask,
             prioritize = priority,
             price = price,
-            cost = cost
+            cost = cost,
+            date_begin = DISPLAY_DATE
         )
 
         tasksViewModel.addTask(task)
+    }
+
+    companion object{
+        var DISPLAY_DATE = ""
+    }
+
+    override fun onDateClick() {
+        binding.dbBegin.setText(DISPLAY_DATE)
     }
 }

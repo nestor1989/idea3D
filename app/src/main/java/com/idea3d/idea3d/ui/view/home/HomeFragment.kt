@@ -130,9 +130,7 @@ class HomeFragment : Fragment(),
                                 }
                                 is Resource.Success->{
                                     val thingWithCat = ThingWithCat(things.data.thingsList, catId, nameCat)
-                                    Log.d("Y ACAAAAAA", thingWithCat.toString())
                                     thingsWithCat.add(thingWithCat)
-                                    Log.d("QUE PASAAAA", thingsWithCat.toString())
                                     setUpRecyclerView(thingsWithCat)
                                     binding.rvNews.visibility = View.VISIBLE
                                     setUpFavs()

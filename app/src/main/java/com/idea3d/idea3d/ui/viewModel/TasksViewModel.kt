@@ -26,7 +26,7 @@ class TasksViewModel @Inject constructor(private val repo: Repo): ViewModel(){
         }
     }
 
-    fun getFavorites() = liveData(Dispatchers.IO) {
+    fun getAllTask() = liveData(Dispatchers.IO) {
 
         emit(Resource.Loading())
         try {
