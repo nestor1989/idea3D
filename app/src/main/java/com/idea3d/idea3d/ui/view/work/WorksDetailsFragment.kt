@@ -1,6 +1,7 @@
 package com.idea3d.idea3d.ui.view.work
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -46,18 +47,26 @@ class WorksDetailsFragment : Fragment(), TaskAdapter.OnClickArrow {
 
     private fun setUp(){
 
-        if (!arguments?.getString("date").isNullOrEmpty()){
-            val date = arguments?.getString("date")
-            tasksViewModel.getByDate(date!!).observe(viewLifecycleOwner, Observer { result ->
+        Log.d("ARGUMENTSSSSS", arguments.toString())
+
+        val date = arguments?.getString("date")
+        val urgent = arguments?.getBoolean("urgent")
+        val idStatus = arguments?.getInt("idStatus")
+
+        if (!date.isNullOrEmpty()) {
+            tasksViewModel.getByDate(date).observe(viewLifecycleOwner, Observer { result ->
                 callToRepo(result)
             })
-        }else if (arguments?.getBoolean("urgent")!=null) {
-            val urgent = arguments?.getBoolean("urgent")
-            if (urgent!!) tasksViewModel.getUrgent().observe(viewLifecycleOwner, Observer { result->
+        } else if (urgent != null && urgent) {
+            tasksViewModel.getUrgent().observe(viewLifecycleOwner, Observer { result ->
                 callToRepo(result)
             })
-        }else
-            {
+        } else if (idStatus != null) {
+            Log.d("ID_STATUSSS", idStatus.toString())
+            tasksViewModel.getByStatus(idStatus).observe(viewLifecycleOwner, Observer { result ->
+                callToRepo(result)
+            })
+        } else {
             tasksViewModel.getAllTask().observe(viewLifecycleOwner, Observer { result ->
                 callToRepo(result)
             })
@@ -78,6 +87,7 @@ class WorksDetailsFragment : Fragment(), TaskAdapter.OnClickArrow {
             is Resource.Loading -> {}
             is Resource.Success -> {
                 val tasks = result.data
+                Log.d("RESULTADOSS", result.data.toString())
                 val adapter = TaskAdapter(tasks, this, requireContext().applicationContext)
                 binding.rvTasks.adapter = adapter
             }

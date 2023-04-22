@@ -2,6 +2,7 @@ package com.idea3d.idea3d.ui.view.work
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -72,15 +73,39 @@ class WorksFragment : Fragment(), ScheduleDialogFragment.OnDateClick {
             findNavController().navigate(R.id.action_worksFragment_to_worksDetailsFragment, bundle)
         }
 
-        binding.btnfilter1.setOnClickListener {
-            navigation()
-        }
-
-
+        setFilters()
     }
 
-    private fun navigation(){
-        findNavController().navigate(R.id.action_worksFragment_to_worksDetailsFragment)
+    private fun setFilters() {
+
+        binding.btnfilter1.setOnClickListener {
+            navigateWithStatus(1)
+        }
+        binding.btnfilter2.setOnClickListener {
+            navigateWithStatus(2)
+        }
+        binding.btnfilter3.setOnClickListener {
+            navigateWithStatus(3)
+        }
+        binding.btnfilter4.setOnClickListener {
+            navigateWithStatus(4)
+        }
+        binding.btnfilter5.setOnClickListener {
+            navigateWithStatus(5)
+        }
+        binding.btnfilter6.setOnClickListener {
+            navigateWithStatus(6)
+        }
+        binding.btnfilter7.setOnClickListener {
+            navigateWithStatus(7)
+        }
+        binding.btnfilter8.setOnClickListener {
+            navigateWithStatus(8)
+        }
+        binding.btnfilter9.setOnClickListener {
+            navigateWithStatus(9)
+        }
+
     }
 
     @SuppressLint("SetTextI18n")
@@ -120,6 +145,13 @@ class WorksFragment : Fragment(), ScheduleDialogFragment.OnDateClick {
     override fun onDateClick(date:String) {
         val bundle = Bundle()
         bundle.putString("date", date)
+        findNavController().navigate(R.id.action_worksFragment_to_worksDetailsFragment, bundle)
+    }
+
+    private fun navigateWithStatus(idStatus:Int){
+        val bundle = Bundle()
+        bundle.putInt("idStatus", idStatus)
+        Log.d("BUNDLEEEE", bundle.toString())
         findNavController().navigate(R.id.action_worksFragment_to_worksDetailsFragment, bundle)
     }
 

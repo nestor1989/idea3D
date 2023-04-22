@@ -69,4 +69,8 @@ class DataSourceImpl @Inject constructor(
         return Resource.Success(tasksDao.getUrgent())
     }
 
+    override suspend fun getByStatus(id_status: Int): Resource<List<Task>> {
+        return Resource.Success(tasksDao.getByStatus(id_status))
+    }
+
 }

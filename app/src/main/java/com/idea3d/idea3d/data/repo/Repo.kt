@@ -17,4 +17,5 @@ interface Repo {
     suspend fun deleteTask(task: Task)
     suspend fun getByDate(date:String): Resource<List<Task>>
     suspend fun getUrgent(): Resource<List<Task>>
+    suspend fun getByStatus(id_status: Int) : Resource<List<Task>>
 }

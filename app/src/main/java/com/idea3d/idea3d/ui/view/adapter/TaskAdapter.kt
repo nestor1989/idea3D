@@ -52,6 +52,7 @@ class TaskAdapter (
         override fun bind(item: Task) {
             itemBinding.tvTitle.text = item.name
             itemBinding.tvDate.text=item.description
+            itemBinding.tvState.text = item.status
             
             itemBinding.cvTask.setOnTouchListener (object : OnSwipeTouchListener(context) {
                 @SuppressLint("ClickableViewAccessibility")
@@ -65,8 +66,6 @@ class TaskAdapter (
                 }
             })
 
-
-            itemBinding.tvState.text = item.prioritize.toString()
             itemBinding.cvTask.setOnClickListener {
                 onClickArrow.onClickArrow(item)
             }

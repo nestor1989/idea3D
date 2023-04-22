@@ -53,5 +53,14 @@ class TasksViewModel @Inject constructor(private val repo: Repo): ViewModel(){
         }
     }
 
+    fun getByStatus(id_status: Int) = liveData(Dispatchers.IO) {
+        emit(Resource.Loading())
+        try {
+            emit(repo.getByStatus(id_status))
+        } catch (e: Exception) {
+            emit(Resource.Failure(e))
+        }
+    }
+
 
 }

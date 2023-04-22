@@ -65,6 +65,21 @@
     <string name="maker_zone_status_8">Cobrado</string>
     <string name="maker_zone_status_9">Pausado</string>
 
+    <string-array name="status">
+
+        <item>Pendiente</item>
+        <item>Listos p/ empezar</item>
+        <item>En progreso</item>
+        <item>Imp. Terminada</item>
+        <item>Postprocesado</item>
+        <item>Listo p/ entregar</item>
+        <item>Entregado</item>
+        <item>Cobrado</item>
+        <item>Pausado</item>
+
+    </string-array>
+
+
 
     <string name="b1v0">Cuando hay una temperatura excesiva en el hotend puede darse que en los primeros segundos no salga plástico.
 
