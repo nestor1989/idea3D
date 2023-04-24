@@ -64,6 +64,23 @@ class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterV
         }
 
         initArray()
+
+        val clients = arguments?.getStringArrayList("clients")
+        clients?.let { if (clients.isNotEmpty()) initClientArray(clients) }
+    }
+
+    private fun initClientArray(clients: ArrayList<String>) {
+
+
+        val adapter = ArrayAdapter(
+            requireContext(),
+            R.layout.list_item,
+            clients
+        )
+
+        with(binding.etClient) {
+            setAdapter(adapter)
+        }
     }
 
     private fun createTask (){
@@ -72,6 +89,7 @@ class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterV
         val priority = binding.cbPriority.isChecked
         val price = binding.etPrice.text.toString().toFloat()
         val cost = binding.etCost.text.toString().toFloat()
+        val client = binding.etClient.text.toString()
 
         val task = Task(
             name =nameTask,
@@ -81,7 +99,8 @@ class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterV
             cost = cost,
             date_begin = DISPLAY_DATE,
             id_status = idStatus,
-            status = stringStatus
+            status = stringStatus,
+            client = client
         )
 
         tasksViewModel.addTask(task)
@@ -111,43 +130,44 @@ class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterV
     }
 
     override fun onItemClick(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-        when(p2){
-            0-> {
-                idStatus = 1
-                stringStatus = getString(R.string.maker_zone_status_1)
+            when (p2) {
+                0 -> {
+                    idStatus = 1
+                    stringStatus = getString(R.string.maker_zone_status_1)
+                }
+                1 -> {
+                    idStatus = 2
+                    stringStatus = getString(R.string.maker_zone_status_2)
+                }
+                2 -> {
+                    idStatus = 3
+                    stringStatus = getString(R.string.maker_zone_status_3)
+                }
+                3 -> {
+                    idStatus = 4
+                    stringStatus = getString(R.string.maker_zone_status_4)
+                }
+                4 -> {
+                    idStatus = 5
+                    stringStatus = getString(R.string.maker_zone_status_5)
+                }
+                5 -> {
+                    idStatus = 6
+                    stringStatus = getString(R.string.maker_zone_status_6)
+                }
+                6 -> {
+                    idStatus = 7
+                    stringStatus = getString(R.string.maker_zone_status_7)
+                }
+                7 -> {
+                    idStatus = 8
+                    stringStatus = getString(R.string.maker_zone_status_8)
+                }
+                8 -> {
+                    idStatus = 9
+                    stringStatus = getString(R.string.maker_zone_status_9)
+                }
             }
-            1-> {
-                idStatus = 2
-                stringStatus = getString(R.string.maker_zone_status_2)
-            }
-            2-> {
-                idStatus = 3
-                stringStatus = getString(R.string.maker_zone_status_3)
-            }
-            3-> {
-                idStatus = 4
-                stringStatus = getString(R.string.maker_zone_status_4)
-            }
-            4-> {
-                idStatus = 5
-                stringStatus = getString(R.string.maker_zone_status_5)
-            }
-            5-> {
-                idStatus = 6
-                stringStatus = getString(R.string.maker_zone_status_6)
-            }
-            6-> {
-                idStatus = 7
-                stringStatus = getString(R.string.maker_zone_status_7)
-            }
-            7-> {
-                idStatus = 8
-                stringStatus = getString(R.string.maker_zone_status_8)
-            }
-            8-> {
-                idStatus = 9
-                stringStatus = getString(R.string.maker_zone_status_9)
-            }
-        }
+
     }
 }

@@ -29,6 +29,8 @@ class WorksFragment : Fragment(), ScheduleDialogFragment.OnDateClick {
     private lateinit var fav: List<Task>
     private lateinit var scheduleDialogFragment: ScheduleDialogFragment
 
+    private var clientsList = ArrayList<String>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -54,7 +56,9 @@ class WorksFragment : Fragment(), ScheduleDialogFragment.OnDateClick {
         (activity as MainActivity).setThemeHome()
 
         binding.buttonAdd.setOnClickListener {
-            findNavController().navigate(R.id.action_worksFragment_to_newTaskFragment)
+            val bundle = Bundle()
+            bundle.putStringArrayList("clients", clientsList)
+            findNavController().navigate(R.id.action_worksFragment_to_newTaskFragment, bundle)
         }
 
         binding.buttonCalendar.setOnClickListener {
@@ -124,7 +128,20 @@ class WorksFragment : Fragment(), ScheduleDialogFragment.OnDateClick {
                     for (i in fav.indices){
                         sales += fav[i].price!!
                         cost += fav[i].cost!!
+
+                        fav[i].client?.let {
+                            var clientFlag = false
+                            for (j in clientsList.indices){
+                                if (it == clientsList[j]) {
+                                    clientFlag = true
+                                    break
+                                }
+                            }
+                            if (!clientFlag) clientsList.add(it)
+                        }
                     }
+
+                    Log.d("LISTA_DE_CLIENTES", clientsList.toString())
 
                     profits = sales - cost
 
