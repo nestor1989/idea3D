@@ -76,7 +76,7 @@ OnTouchListener {
    open fun onSwipeLeft() {}
    open fun onSwipeUp() {}
    open fun onSwipeDown() {}
-   private fun onClick() {}
+   open fun onClick() {}
    private fun onDoubleClick() {}
    private fun onLongClick() {}
    init {

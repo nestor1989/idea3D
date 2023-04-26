@@ -18,7 +18,6 @@ import com.idea3d.idea3d.R
 import com.idea3d.idea3d.core.Resource
 import com.idea3d.idea3d.data.model.Task
 import com.idea3d.idea3d.databinding.FragmentScheduleDialogBinding
-import com.idea3d.idea3d.ui.view.adapter.TaskAdapter
 import com.idea3d.idea3d.ui.viewModel.TasksViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import ru.cleverpumpkin.calendar.CalendarDate

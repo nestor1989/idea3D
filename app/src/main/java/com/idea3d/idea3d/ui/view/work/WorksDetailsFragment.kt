@@ -24,6 +24,8 @@ class WorksDetailsFragment : Fragment(), TaskAdapter.OnClickArrow {
 
     private val tasksViewModel by viewModels<TasksViewModel>()
 
+    private lateinit var modalWorksFragment: ModalWorksFragment
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -79,7 +81,9 @@ class WorksDetailsFragment : Fragment(), TaskAdapter.OnClickArrow {
     }
 
     override fun onClickArrow(task: Task) {
-
+        modalWorksFragment = ModalWorksFragment(task)
+        val modalInst = modalWorksFragment.newInstance(task)
+        modalInst.show(activity?.supportFragmentManager!!, "taskmodal")
     }
 
     private fun callToRepo(result: Resource<List<Task>>){

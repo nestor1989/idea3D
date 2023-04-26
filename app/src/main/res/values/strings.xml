@@ -80,7 +80,6 @@
     </string-array>
 
 
-
     <string name="b1v0">Cuando hay una temperatura excesiva en el hotend puede darse que en los primeros segundos no salga plástico.
 
 Habilitar la opción “Skirt”, para que el cabezal se purgue.

@@ -3,7 +3,10 @@ package com.idea3d.idea3d.ui.view.adapter
 import android.annotation.SuppressLint
 import android.app.Application
 import android.content.Context
+import android.graphics.BitmapFactory
 import android.os.Build
+import android.util.Base64
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
@@ -52,8 +55,11 @@ class TaskAdapter (
         override fun bind(item: Task) {
             itemBinding.tvTitle.text = item.name
             itemBinding.tvDate.text=item.description
-            itemBinding.tvState.text = item.status
-            
+
+            val imageBytes = Base64.decode(item.thing_photo, Base64.DEFAULT)
+            val decodedImage = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.size)
+            itemBinding.ivPhoto.setImageBitmap(decodedImage)
+
             itemBinding.cvTask.setOnTouchListener (object : OnSwipeTouchListener(context) {
                 @SuppressLint("ClickableViewAccessibility")
                 override fun onSwipeLeft() {
@@ -64,11 +70,13 @@ class TaskAdapter (
                     super.onSwipeRight()
                     itemBinding.buttonArrow.setImageResource(R.drawable.ic_like_in)
                 }
+                override fun onClick(){
+                    onClickArrow.onClickArrow(item)
+                }
+
             })
 
-            itemBinding.cvTask.setOnClickListener {
-                onClickArrow.onClickArrow(item)
-            }
+
 
         }
     }

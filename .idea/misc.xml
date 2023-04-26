@@ -18,6 +18,7 @@
         <entry key="..\:/Users/Usuario.W01234/AndroidStudioProjects/idea3D/app/src/main/res/drawable/search_view_style.xml" value="0.149" />
         <entry key="..\:/Users/Usuario.W01234/AndroidStudioProjects/idea3D/app/src/main/res/drawable/selector_like.xml" value="0.142" />
         <entry key="..\:/Users/Usuario.W01234/AndroidStudioProjects/idea3D/app/src/main/res/drawable/splash_background.xml" value="0.149" />
+        <entry key="..\:/Users/Usuario.W01234/AndroidStudioProjects/idea3D/app/src/main/res/drawable/splash_dark.xml" value="0.114" />
         <entry key="..\:/Users/Usuario.W01234/AndroidStudioProjects/idea3D/app/src/main/res/layout-land/fragment_things_modal.xml" value="0.3036036036036036" />
         <entry key="..\:/Users/Usuario.W01234/AndroidStudioProjects/idea3D/app/src/main/res/layout/activity_main.xml" value="0.14666666666666667" />
         <entry key="..\:/Users/Usuario.W01234/AndroidStudioProjects/idea3D/app/src/main/res/layout/fragment_bottom_sheet_news_list_dialog.xml" value="0.17552083333333332" />
@@ -26,6 +27,7 @@
         <entry key="..\:/Users/Usuario.W01234/AndroidStudioProjects/idea3D/app/src/main/res/layout/fragment_guide.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/Usuario.W01234/AndroidStudioProjects/idea3D/app/src/main/res/layout/fragment_home.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/Usuario.W01234/AndroidStudioProjects/idea3D/app/src/main/res/layout/fragment_main.xml" value="0.1" />
+        <entry key="..\:/Users/Usuario.W01234/AndroidStudioProjects/idea3D/app/src/main/res/layout/fragment_modal_works.xml" value="0.1" />
         <entry key="..\:/Users/Usuario.W01234/AndroidStudioProjects/idea3D/app/src/main/res/layout/fragment_new_task.xml" value="0.22" />
         <entry key="..\:/Users/Usuario.W01234/AndroidStudioProjects/idea3D/app/src/main/res/layout/fragment_progress_dialog.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/Usuario.W01234/AndroidStudioProjects/idea3D/app/src/main/res/layout/fragment_schedule_dialog.xml" value="0.16145833333333334" />
@@ -38,7 +40,7 @@
         <entry key="..\:/Users/Usuario.W01234/AndroidStudioProjects/idea3D/app/src/main/res/layout/row_home_parent.xml" value="0.17447916666666666" />
         <entry key="..\:/Users/Usuario.W01234/AndroidStudioProjects/idea3D/app/src/main/res/layout/row_news.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/Usuario.W01234/AndroidStudioProjects/idea3D/app/src/main/res/layout/row_problems.xml" value="0.17552083333333332" />
-        <entry key="..\:/Users/Usuario.W01234/AndroidStudioProjects/idea3D/app/src/main/res/layout/row_tasks.xml" value="0.17447916666666666" />
+        <entry key="..\:/Users/Usuario.W01234/AndroidStudioProjects/idea3D/app/src/main/res/layout/row_tasks.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/Usuario.W01234/AndroidStudioProjects/idea3D/app/src/main/res/layout/row_things.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/Usuario.W01234/AndroidStudioProjects/idea3D/app/src/main/res/layout/row_things_home.xml" value="0.17447916666666666" />
         <entry key="..\:/Users/Usuario.W01234/AndroidStudioProjects/idea3D/app/src/main/res/menu/menu.xml" value="0.17552083333333332" />
