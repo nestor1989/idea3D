@@ -29,6 +29,7 @@ import com.idea3d.idea3d.ui.viewModel.TasksViewModel
 import com.idea3d.idea3d.utils.Functional
 import com.idea3d.idea3d.utils.Functional.Companion.ACCEPT_MIME_TYPES
 import dagger.hilt.android.AndroidEntryPoint
+import okhttp3.internal.notify
 import ru.cleverpumpkin.calendar.CalendarDate
 import ru.cleverpumpkin.calendar.CalendarDate.Companion.today
 import java.io.InputStream
@@ -207,6 +208,10 @@ class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterV
     }
 
     private fun initArray(){
+
+        binding.listStatus.setText(getString(R.string.maker_zone_status_1))
+        stringStatus = (getString(R.string.maker_zone_status_1))
+
         val status = resources.getStringArray(R.array.status)
         val adapter = ArrayAdapter(
             requireContext(),
@@ -218,11 +223,7 @@ class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterV
             setAdapter(adapter)
             onItemClickListener=this@NewTaskFragment
         }
-
-        binding.listStatus.setText(getString(R.string.maker_zone_status_1))
-        stringStatus = getString(R.string.maker_zone_status_1)
-
-    }
+     }
 
     override fun onItemClick(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
 
@@ -262,6 +263,10 @@ class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterV
             8 -> {
                 idStatus = 9
                 stringStatus = getString(R.string.maker_zone_status_9)
+            }
+            else -> {
+                idStatus = 1
+                stringStatus = getString(R.string.maker_zone_status_1)
             }
         }
 
