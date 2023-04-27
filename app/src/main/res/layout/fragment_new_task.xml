@@ -19,8 +19,6 @@
             android:layout_height="wrap_content"
             android:text="Crear nuevo trabajo"
             android:fontFamily="@font/at_surt_black"
-            android:textAlignment="center"
-            android:padding="16dp"
             android:textColor="@color/teal_idea"
             android:textSize="24sp"/>
 
@@ -28,46 +26,46 @@
             android:id="@+id/lytName"
             style="@style/TextInputLayoutStyle"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:textColorHint="@color/teal_idea"
             app:boxStrokeColor="@color/teal_idea"
             android:hint="Nombre"
             android:layout_marginTop="16dp"
-            app:boxCornerRadiusBottomEnd="20dp"
-            app:boxCornerRadiusBottomStart="20dp"
-            app:boxCornerRadiusTopEnd="20dp"
-            app:boxCornerRadiusTopStart="20dp">
+            app:boxCornerRadiusBottomEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusTopStart="12dp">
 
             <AutoCompleteTextView
                 android:id="@+id/inputName"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/at_surt_light"
-                android:textColor="@color/grey"
-                android:paddingHorizontal="15dp" />
+                android:textSize="16sp"
+                android:paddingHorizontal ="16sp"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/lytDescription"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:textColorHint="@color/teal_idea"
             android:hint="Descripción"
             app:boxStrokeColor="@color/teal_idea"
             android:layout_marginTop="16dp"
-            app:boxCornerRadiusBottomEnd="20dp"
-            app:boxCornerRadiusBottomStart="20dp"
-            app:boxCornerRadiusTopEnd="20dp"
-            app:boxCornerRadiusTopStart="20dp">
+            app:boxCornerRadiusBottomEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusTopStart="12dp">
 
-        <AutoCompleteTextView
-            android:id="@+id/inputDescription"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fontFamily="@font/at_surt_light"
-            android:paddingHorizontal="15dp"
-            />
+            <AutoCompleteTextView
+                android:id="@+id/inputDescription"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/at_surt_light"
+                android:textSize="16sp"
+                android:paddingHorizontal ="16sp"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -76,20 +74,20 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             app:endIconDrawable="@drawable/ic_arrow_down"
             app:endIconTint="@color/teal_idea"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="16dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:hint="Cliente"
-            android:fontFamily="@font/at_surt_light"
             android:textColorHint="@color/teal_idea"
-            app:boxCornerRadiusBottomEnd="20dp"
-            app:boxCornerRadiusBottomStart="20dp"
-            app:boxCornerRadiusTopEnd="20dp"
-            app:boxCornerRadiusTopStart="20dp"
-            app:boxStrokeColor="@color/teal_idea"
-            app:helperText="Tipo de filamento">
+            app:boxCornerRadiusBottomEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusTopStart="12dp"
+            app:boxStrokeColor="@color/teal_idea">
 
             <AutoCompleteTextView
+                android:fontFamily="@font/at_surt_light"
+                android:textSize="16sp"
                 android:id="@+id/etClient"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
@@ -101,6 +99,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Prioritario"
+            android:fontFamily="@font/at_surt_light"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp"
             android:textColor="@color/teal_idea"
              />
 
@@ -108,7 +109,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="center_horizontal">
+            android:gravity="center_horizontal"
+            android:layout_marginTop="16dp">
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/lytPrice"
@@ -125,6 +127,8 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etPrice"
+                    android:fontFamily="@font/at_surt_light"
+                    android:textSize="16sp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="60"
@@ -147,6 +151,8 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etCost"
+                    android:fontFamily="@font/at_surt_light"
+                    android:textSize="16sp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:imeOptions="actionNext"
@@ -158,18 +164,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="center_horizontal">
+            android:gravity="center_horizontal"
+            android:layout_marginTop="16dp">
 
             <TextView
                 android:id="@+id/tvBegin"
                 android:padding="5dp"
                 android:fontFamily="@font/at_surt_light"
+                android:textSize="16sp"
                 android:textColor="@color/teal_idea"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_marginEnd="12dp"
                 android:layout_height="wrap_content"
-                android:text="Comienza"/>
+                android:text="Comienza" />
 
 
             <com.google.android.material.textfield.TextInputLayout
@@ -189,6 +197,8 @@
 
                 <AutoCompleteTextView
                     android:id="@+id/dbBegin"
+                    android:fontFamily="@font/at_surt_light"
+                    android:textSize="16sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:focusableInTouchMode="false"
@@ -202,12 +212,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="center_horizontal">
+            android:gravity="center_horizontal"
+            android:layout_marginTop="16dp">
 
             <TextView
                 android:id="@+id/tvStatus"
                 android:padding="5dp"
                 android:fontFamily="@font/at_surt_light"
+                android:textSize="16sp"
                 android:textColor="@color/teal_idea"
                 android:layout_width="0dp"
                 android:layout_weight="1"
@@ -232,6 +244,8 @@
 
                 <AutoCompleteTextView
                     android:id="@+id/listStatus"
+                    android:fontFamily="@font/at_surt_light"
+                    android:textSize="16sp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:inputType="none" />
@@ -243,6 +257,8 @@
             android:id = "@+id/buttonPhoto"
             style="@style/Widget.Material3.Button.OutlinedButton"
             android:layout_marginTop="16sp"
+            android:fontFamily="@font/at_surt_light"
+            android:textSize="16sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Subir foto de STL"
@@ -254,9 +270,12 @@
             android:id = "@+id/buttonSend"
             style="@style/Widget.Material3.Button.OutlinedButton"
             android:layout_marginTop="16sp"
+            android:layout_marginBottom="16sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Crear"
+            android:fontFamily="@font/at_surt_light"
+            android:textSize="16sp"
             android:textColor="@color/teal_idea"
             app:boxStrokeColor="@color/teal_idea"/>
 

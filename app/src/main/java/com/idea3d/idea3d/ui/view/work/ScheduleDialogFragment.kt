@@ -39,7 +39,7 @@ class ScheduleDialogFragment(private val onClick:OnDateClick) :
     var worksDate: MutableList<CalendarDate> = mutableListOf<CalendarDate>()
     var eventsDate: MutableList<String> = mutableListOf()
 
-    val today = CalendarDate(calendar.time)
+    private val today = CalendarDate(calendar.time)
     private lateinit var c: Calendar
     private lateinit var df: SimpleDateFormat
     private lateinit var formattedDate: String

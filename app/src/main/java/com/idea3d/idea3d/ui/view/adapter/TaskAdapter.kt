@@ -56,9 +56,11 @@ class TaskAdapter (
             itemBinding.tvTitle.text = item.name
             itemBinding.tvDate.text=item.description
 
-            val imageBytes = Base64.decode(item.thing_photo, Base64.DEFAULT)
-            val decodedImage = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.size)
-            itemBinding.ivPhoto.setImageBitmap(decodedImage)
+            item.thing_photo?.let {
+                val imageBytes = Base64.decode(item.thing_photo, Base64.DEFAULT)
+                val decodedImage = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.size)
+                itemBinding.ivPhoto.setImageBitmap(decodedImage)
+            }
 
             itemBinding.cvTask.setOnTouchListener (object : OnSwipeTouchListener(context) {
                 @SuppressLint("ClickableViewAccessibility")
@@ -72,6 +74,7 @@ class TaskAdapter (
                 }
                 override fun onClick(){
                     onClickArrow.onClickArrow(item)
+                    Log.d("ITEM_STATUS", item.status.toString() + item.id_status.toString())
                 }
 
             })

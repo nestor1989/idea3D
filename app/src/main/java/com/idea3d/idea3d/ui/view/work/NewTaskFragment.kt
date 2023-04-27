@@ -29,7 +29,11 @@ import com.idea3d.idea3d.ui.viewModel.TasksViewModel
 import com.idea3d.idea3d.utils.Functional
 import com.idea3d.idea3d.utils.Functional.Companion.ACCEPT_MIME_TYPES
 import dagger.hilt.android.AndroidEntryPoint
+import ru.cleverpumpkin.calendar.CalendarDate
+import ru.cleverpumpkin.calendar.CalendarDate.Companion.today
 import java.io.InputStream
+import java.util.*
+import kotlin.collections.ArrayList
 
 @AndroidEntryPoint
 class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterView.OnItemClickListener {
@@ -37,7 +41,7 @@ class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterV
     private var _binding: FragmentNewTaskBinding? = null
     private val binding get() = _binding!!
 
-    private var idStatus = 0
+    private var idStatus = 1
     private var stringStatus = ""
 
     private val tasksViewModel by viewModels<TasksViewModel>()
@@ -141,6 +145,8 @@ class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterV
             findNavController().navigate(R.id.action_newTaskFragment_to_worksDetailsFragment)
         }
 
+        binding.dbBegin.setText(DISPLAY_DATE)
+
         binding.dbBegin.setOnClickListener {
             scheduleDialogFragment = ScheduleDialogFragment(this)
             val dateInst = scheduleDialogFragment.newInstance(1)
@@ -193,7 +199,7 @@ class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterV
     }
 
     companion object{
-        var DISPLAY_DATE = "Fecha"
+        var DISPLAY_DATE = today.toString()
     }
 
     override fun onDateClick(date:String) {
@@ -211,11 +217,15 @@ class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterV
         with(binding.listStatus) {
             setAdapter(adapter)
             onItemClickListener=this@NewTaskFragment
-
         }
+
+        binding.listStatus.setText(getString(R.string.maker_zone_status_1))
+        stringStatus = getString(R.string.maker_zone_status_1)
+
     }
 
     override fun onItemClick(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+
         when (p2) {
             0 -> {
                 idStatus = 1
