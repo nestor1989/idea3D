@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background = "@color/white"
+    android:background = "@drawable/gradiente"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <FrameLayout
@@ -33,17 +33,16 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:text="Trabajos"
-            android:paddingHorizontal="16dp"
+            android:text="Tus trabajos"
+            android:textSize="32sp"
+            android:layout_marginHorizontal="16dp"
             style="@style/titlesMakerZone"
-            android:textColor ="@color/blue_dark"/>
+            android:textColor ="@color/teal_idea"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvTasks"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             tools:listitem="@layout/row_tasks"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 

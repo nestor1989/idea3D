@@ -18,9 +18,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Crear nuevo trabajo"
+            android:gravity="center"
             android:fontFamily="@font/at_surt_black"
             android:textColor="@color/teal_idea"
-            android:textSize="24sp"/>
+            android:textSize="32sp"/>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/lytName"
@@ -30,11 +31,7 @@
             android:textColorHint="@color/teal_idea"
             app:boxStrokeColor="@color/teal_idea"
             android:hint="Nombre"
-            android:layout_marginTop="16dp"
-            app:boxCornerRadiusBottomEnd="12dp"
-            app:boxCornerRadiusBottomStart="12dp"
-            app:boxCornerRadiusTopEnd="12dp"
-            app:boxCornerRadiusTopStart="12dp">
+            android:layout_marginTop="16dp">
 
             <AutoCompleteTextView
                 android:id="@+id/inputName"
@@ -47,17 +44,13 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/lytDescription"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            style="@style/TextInputLayoutStyle"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:textColorHint="@color/teal_idea"
             android:hint="Descripción"
             app:boxStrokeColor="@color/teal_idea"
-            android:layout_marginTop="16dp"
-            app:boxCornerRadiusBottomEnd="12dp"
-            app:boxCornerRadiusBottomStart="12dp"
-            app:boxCornerRadiusTopEnd="12dp"
-            app:boxCornerRadiusTopStart="12dp">
+            android:layout_marginTop="16dp">
 
             <AutoCompleteTextView
                 android:id="@+id/inputDescription"
@@ -71,7 +64,7 @@
         <com.google.android.material.textfield.TextInputLayout
 
             android:id="@+id/ddClient"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            style="@style/StyleDropDown"
             app:endIconDrawable="@drawable/ic_arrow_down"
             app:endIconTint="@color/teal_idea"
             android:layout_marginTop="16dp"
@@ -79,10 +72,6 @@
             android:layout_height="60dp"
             android:hint="Cliente"
             android:textColorHint="@color/teal_idea"
-            app:boxCornerRadiusBottomEnd="12dp"
-            app:boxCornerRadiusBottomStart="12dp"
-            app:boxCornerRadiusTopEnd="12dp"
-            app:boxCornerRadiusTopStart="12dp"
             app:boxStrokeColor="@color/teal_idea">
 
             <AutoCompleteTextView
@@ -95,7 +84,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <CheckBox
-            android:id = "@+id/cbPriority"
+            android:id="@+id/cbPriority"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Prioritario"
@@ -119,11 +108,7 @@
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:hint="Precio"
-                android:layout_marginEnd="12dp"
-                app:boxCornerRadiusBottomEnd="20dp"
-                app:boxCornerRadiusBottomStart="20dp"
-                app:boxCornerRadiusTopEnd="20dp"
-                app:boxCornerRadiusTopStart="20dp">
+                android:layout_marginEnd="12dp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etPrice"
@@ -143,11 +128,7 @@
                 android:layout_weight="1"
                 android:layout_marginStart="12dp"
                 android:layout_height="wrap_content"
-                android:hint="Costo"
-                app:boxCornerRadiusBottomEnd="20dp"
-                app:boxCornerRadiusBottomStart="20dp"
-                app:boxCornerRadiusTopEnd="20dp"
-                app:boxCornerRadiusTopStart="20dp">
+                android:hint="Costo">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etCost"
@@ -182,18 +163,14 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/lytBegin"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                style="@style/StyleDropDown"
                 app:endIconDrawable="@drawable/ic_calendar"
                 app:boxStrokeColor="@color/teal_idea"
                 app:endIconTint="@color/teal_idea"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_marginStart="12dp"
-                android:layout_height="wrap_content"
-                app:boxCornerRadiusBottomEnd="20dp"
-                app:boxCornerRadiusBottomStart="20dp"
-                app:boxCornerRadiusTopEnd="20dp"
-                app:boxCornerRadiusTopStart="20dp">
+                android:layout_height="wrap_content">
 
                 <AutoCompleteTextView
                     android:id="@+id/dbBegin"
@@ -231,16 +208,13 @@
             <com.google.android.material.textfield.TextInputLayout
 
                 android:id="@+id/lytStatus"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                style="@style/StyleDropDown"
+                app:boxStrokeColor="@color/teal_idea"
+                app:endIconTint="@color/teal_idea"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_marginStart="12dp"
-                android:layout_height="wrap_content"
-                app:boxCornerRadiusBottomEnd="20dp"
-                app:boxCornerRadiusBottomStart="20dp"
-                app:boxCornerRadiusTopEnd="20dp"
-                app:boxCornerRadiusTopStart="20dp"
-                app:boxStrokeColor="@color/blue_idea">
+                android:layout_height="wrap_content">
 
                 <AutoCompleteTextView
                     android:id="@+id/listStatus"

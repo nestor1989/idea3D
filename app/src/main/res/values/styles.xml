@@ -24,6 +24,21 @@
     <style name="TextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="boxStrokeWidth">1dp</item>
         <item name="boxStrokeColor">@color/teal_idea</item>
+        <item name="boxCornerRadiusBottomEnd">50dp</item>
+        <item name="boxCornerRadiusBottomStart">50dp</item>
+        <item name="boxCornerRadiusTopEnd">50dp</item>
+        <item name="boxCornerRadiusTopStart">50dp</item>
+        <item name="android:layout_height">60dp</item>
+    </style>
+
+    <style name="StyleDropDown" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="boxStrokeColor">@color/teal_idea</item>
+        <item name="boxCornerRadiusBottomEnd">50dp</item>
+        <item name="boxCornerRadiusBottomStart">50dp</item>
+        <item name="boxCornerRadiusTopEnd">50dp</item>
+        <item name="boxCornerRadiusTopStart">50dp</item>
+        <item name="android:layout_height">60dp</item>
     </style>
 
 
