@@ -63,5 +63,9 @@
         android:id="@+id/worksDetailsFragment"
         android:name="com.idea3d.idea3d.ui.view.work.WorksDetailsFragment"
         android:label="fragment_works_details"
-        tools:layout="@layout/fragment_works_details" />
+        tools:layout="@layout/fragment_works_details" >
+        <action
+            android:id="@+id/action_worksDetailsFragment_to_newTaskFragment"
+            app:destination="@id/newTaskFragment" />
+    </fragment>
 </navigation>

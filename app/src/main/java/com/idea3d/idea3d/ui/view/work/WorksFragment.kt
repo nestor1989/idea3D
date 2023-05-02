@@ -68,12 +68,16 @@ class WorksFragment : Fragment(), ScheduleDialogFragment.OnDateClick {
         }
 
         binding.buttonAll.setOnClickListener {
-            findNavController().navigate(R.id.action_worksFragment_to_worksDetailsFragment)
+            val bundle = Bundle()
+            bundle.putStringArrayList("clients", clientsList)
+            Log.d("BUNDLE_ALLLL", bundle.toString())
+            findNavController().navigate(R.id.action_worksFragment_to_worksDetailsFragment, bundle)
         }
 
         binding.buttonUrgent.setOnClickListener {
             val bundle = Bundle()
             bundle.putBoolean("urgent", true)
+            bundle.putStringArrayList("clients", clientsList)
             findNavController().navigate(R.id.action_worksFragment_to_worksDetailsFragment, bundle)
         }
 
@@ -162,12 +166,14 @@ class WorksFragment : Fragment(), ScheduleDialogFragment.OnDateClick {
     override fun onDateClick(date:String) {
         val bundle = Bundle()
         bundle.putString("date", date)
+        bundle.putStringArrayList("clients", clientsList)
         findNavController().navigate(R.id.action_worksFragment_to_worksDetailsFragment, bundle)
     }
 
     private fun navigateWithStatus(idStatus:Int){
         val bundle = Bundle()
         bundle.putInt("idStatus", idStatus)
+        bundle.putStringArrayList("clients", clientsList)
         Log.d("BUNDLEEEE", bundle.toString())
         findNavController().navigate(R.id.action_worksFragment_to_worksDetailsFragment, bundle)
     }

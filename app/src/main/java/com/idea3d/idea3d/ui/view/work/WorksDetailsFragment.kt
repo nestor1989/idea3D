@@ -9,7 +9,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.idea3d.idea3d.R
 import com.idea3d.idea3d.core.Resource
 import com.idea3d.idea3d.data.model.Task
 import com.idea3d.idea3d.databinding.FragmentWorksDetailsBinding
@@ -26,6 +28,7 @@ class WorksDetailsFragment : Fragment(), TaskAdapter.OnClickArrow {
     private val tasksViewModel by viewModels<TasksViewModel>()
 
     private lateinit var modalWorksFragment: ModalWorksFragment
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,6 +58,7 @@ class WorksDetailsFragment : Fragment(), TaskAdapter.OnClickArrow {
         val date = arguments?.getString("date")
         val urgent = arguments?.getBoolean("urgent")
         val idStatus = arguments?.getInt("idStatus")
+        val clients = arguments?.getStringArrayList("clients")
 
         if (!date.isNullOrEmpty()) {
             tasksViewModel.getByDate(date).observe(viewLifecycleOwner, Observer { result ->
@@ -64,7 +68,7 @@ class WorksDetailsFragment : Fragment(), TaskAdapter.OnClickArrow {
             tasksViewModel.getUrgent().observe(viewLifecycleOwner, Observer { result ->
                 callToRepo(result)
             })
-        } else if (idStatus != null) {
+        } else if (idStatus !=null && idStatus!=0) {
             Log.d("ID_STATUSSS", idStatus.toString())
             tasksViewModel.getByStatus(idStatus).observe(viewLifecycleOwner, Observer { result ->
                 callToRepo(result)
@@ -73,6 +77,12 @@ class WorksDetailsFragment : Fragment(), TaskAdapter.OnClickArrow {
             tasksViewModel.getAllTask().observe(viewLifecycleOwner, Observer { result ->
                 callToRepo(result)
             })
+        }
+
+        binding.floatingActionButton2.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putStringArrayList("clients", clients)
+            findNavController().navigate(R.id.action_worksDetailsFragment_to_newTaskFragment, bundle)
         }
     }
 

@@ -141,11 +141,6 @@ class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterV
             launchGaleryClicked()
         }
 
-        binding.buttonSend.setOnClickListener {
-            createTask()
-            findNavController().navigate(R.id.action_newTaskFragment_to_worksDetailsFragment)
-        }
-
         binding.dbBegin.setText(DISPLAY_DATE)
 
         binding.dbBegin.setOnClickListener {
@@ -154,10 +149,17 @@ class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterV
             dateInst.show(activity?.supportFragmentManager!!,"Dialog Bottom")
         }
 
-        initArray()
-
         val clients = arguments?.getStringArrayList("clients")
         clients?.let { if (clients.isNotEmpty()) initClientArray(clients) }
+
+        binding.buttonSend.setOnClickListener {
+            createTask()
+            val bundle = Bundle()
+            bundle.putStringArrayList("clients", clients)
+            findNavController().navigate(R.id.action_newTaskFragment_to_worksDetailsFragment, bundle)
+        }
+
+        initArray()
     }
 
     private fun initClientArray(clients: ArrayList<String>) {

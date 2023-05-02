@@ -111,11 +111,12 @@
         <ImageButton
 
             android:id="@+id/button_arrow"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@null"
+            android:layout_width="13dp"
+            android:layout_height="13dp"
             android:layout_gravity="center"
-            android:src="@drawable/arrow_left_fit" />
+            android:background="@null"
+            android:src="@drawable/arrow_left_fit"
+            android:visibility="gone"/>
 
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>
