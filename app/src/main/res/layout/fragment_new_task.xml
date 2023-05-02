@@ -14,14 +14,6 @@
         android:orientation="vertical"
         android:layout_marginHorizontal="16dp">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Crear nuevo trabajo"
-            android:gravity="center"
-            android:fontFamily="@font/at_surt_black"
-            android:textColor="@color/teal_idea"
-            android:textSize="32sp"/>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/lytName"

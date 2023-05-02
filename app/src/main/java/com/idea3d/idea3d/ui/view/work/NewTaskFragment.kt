@@ -133,7 +133,7 @@ class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterV
     }
 
     private fun setUp(){
-        (activity as MainActivity).setThemeHome()
+        (activity as MainActivity).setNoBanner("Crear nuevo trabajo")
 
         createPermissionLauncher()
 

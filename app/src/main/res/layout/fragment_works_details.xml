@@ -30,14 +30,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Tus trabajos"
-            android:textSize="32sp"
-            android:layout_marginHorizontal="16dp"
-            style="@style/titlesMakerZone"
-            android:textColor ="@color/teal_idea"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvTasks"

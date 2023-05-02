@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.idea3d.idea3d.core.Resource
 import com.idea3d.idea3d.data.model.Task
 import com.idea3d.idea3d.databinding.FragmentWorksDetailsBinding
+import com.idea3d.idea3d.ui.view.MainActivity
 import com.idea3d.idea3d.ui.view.adapter.TaskAdapter
 import com.idea3d.idea3d.ui.viewModel.TasksViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -49,7 +50,7 @@ class WorksDetailsFragment : Fragment(), TaskAdapter.OnClickArrow {
 
     private fun setUp(){
 
-        Log.d("ARGUMENTSSSSS", arguments.toString())
+        (activity as MainActivity).setNoBanner("Tus trabajos")
 
         val date = arguments?.getString("date")
         val urgent = arguments?.getBoolean("urgent")

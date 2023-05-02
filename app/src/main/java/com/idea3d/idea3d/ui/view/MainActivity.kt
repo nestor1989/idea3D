@@ -5,6 +5,7 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
 import androidx.datastore.preferences.preferencesDataStore
@@ -78,17 +79,26 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun setThemeMain(){
+        binding.bannerLogo.visibility = View.VISIBLE
+        binding.switch1.visibility = View.VISIBLE
+        binding.noBanner.visibility = View.GONE
         binding.banner.setBackgroundColor(ContextCompat.getColor(this, R.color.blue_dark))
         binding.bannerLogo.setImageDrawable(getDrawable(R.drawable.logo_white_large))
         window.statusBarColor = ContextCompat.getColor(this, R.color.blue_dark)
     }
 
     fun setThemeCalcu(){
+        binding.bannerLogo.visibility = View.VISIBLE
+        binding.switch1.visibility = View.VISIBLE
+        binding.noBanner.visibility = View.GONE
         binding.banner.setBackgroundColor(ContextCompat.getColor(this, R.color.blue_idea))
         binding.bannerLogo.setImageDrawable(getDrawable(R.drawable.logo_white_large))
         window.statusBarColor = ContextCompat.getColor(this, R.color.blue_idea)
     }
     fun setThemeHome(){
+        binding.bannerLogo.visibility = View.VISIBLE
+        binding.switch1.visibility = View.VISIBLE
+        binding.noBanner.visibility = View.GONE
         binding.banner.setBackgroundColor(ContextCompat.getColor(this, R.color.blue_dark))
         binding.bannerLogo.setImageDrawable(getDrawable(R.drawable.logo_white_large))
         window.statusBarColor = ContextCompat.getColor(this, R.color.blue_dark)
@@ -99,7 +109,7 @@ class MainActivity : AppCompatActivity() {
         bottomNavigationView.menu.getItem(current).isChecked = true
     }
 
-    fun setThemes(){
+    private fun setThemes(){
 
         val darkMode = applicationContext.resources.configuration.uiMode
         Log.d("DARK_MODE", darkMode.toString())
@@ -108,6 +118,16 @@ class MainActivity : AppCompatActivity() {
         binding.switch1.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
             else AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        }
+    }
+
+    fun setNoBanner(title: String){
+        binding.bannerLogo.visibility = View.GONE
+        binding.switch1.visibility = View.GONE
+        binding.noBanner.visibility = View.VISIBLE
+        binding.tvNoBanner.setText(title)
+        binding.buttonBack.setOnClickListener {
+            navController.popBackStack()
         }
     }
 

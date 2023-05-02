@@ -13,15 +13,17 @@
         android:layout_width="match_parent"
         android:layout_height="75dp"
         android:orientation="horizontal"
-        android:paddingVertical="22dp"
+
         app:background="@null"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
+            tools:visibility ="gone"
             android:id="@+id/banner_logo"
             android:layout_width="160dp"
+            android:paddingVertical="22dp"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/logo_largo_dos"
             android:layout_gravity="start" />
@@ -32,16 +34,45 @@
             android:layout_weight="16"/>
 
         <com.google.android.material.materialswitch.MaterialSwitch
+            tools:visibility ="gone"
             android:id="@+id/switch1"
             app:thumbIcon ="@drawable/ic_dark"
             app:thumbTint="@color/blue_dark"
             android:layout_width="75dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="end"
+            android:layout_gravity="end | center_vertical"
             android:layout_marginEnd="16dp"/>
 
+        <RelativeLayout
+            android:id="@+id/noBanner"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation = "horizontal"
+            android:visibility ="gone"
+            tools:visibility ="visible">
+
+            <Button
+                android:id="@+id/button_back"
+                style="@style/Widget.App.Button.OutlinedButton.IconOnly"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:layout_marginStart= "8dp"
+                app:icon="@drawable/ic_arrow_left"
+                app:iconTint="@color/teal_idea"/>
 
 
+            <TextView
+                android:id="@+id/tvNoBanner"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/at_surt_regular"
+                android:gravity="center"
+                android:text="Tus trabajos"
+                android:textColor="@color/teal_idea"
+                android:textSize="28sp" />
+
+        </RelativeLayout>
 
     </LinearLayout>
 
