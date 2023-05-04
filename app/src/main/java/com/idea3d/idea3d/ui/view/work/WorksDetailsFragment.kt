@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -28,6 +29,8 @@ class WorksDetailsFragment : Fragment(), TaskAdapter.OnClickArrow {
     private val tasksViewModel by viewModels<TasksViewModel>()
 
     private lateinit var modalWorksFragment: ModalWorksFragment
+
+    private lateinit var tasks: List<Task>
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -95,6 +98,11 @@ class WorksDetailsFragment : Fragment(), TaskAdapter.OnClickArrow {
         binding.rvTasks.layoutManager= LinearLayoutManager(appContext)
     }
 
+    private fun setAdapter(tasks: List<Task>){
+        val adapter = TaskAdapter(tasks, this, requireContext().applicationContext)
+        binding.rvTasks.adapter = adapter
+    }
+
     override fun onClickArrow(task: Task) {
         modalWorksFragment = ModalWorksFragment(task)
         val modalInst = modalWorksFragment.newInstance(task)
@@ -105,12 +113,15 @@ class WorksDetailsFragment : Fragment(), TaskAdapter.OnClickArrow {
         when (result) {
             is Resource.Loading -> {}
             is Resource.Success -> {
-                val tasks = result.data
+                tasks = result.data
                 Log.d("RESULTADOSS", result.data.toString())
-                val adapter = TaskAdapter(tasks, this, requireContext().applicationContext)
-                binding.rvTasks.adapter = adapter
+                setAdapter(tasks)
+                setUpSearchView()
 
-                if (tasks.isEmpty()) binding.notTasks.visibility = View.VISIBLE
+                if (tasks.isEmpty()) {
+                    binding.notTasks.visibility = View.VISIBLE
+                    binding.search.visibility = View.GONE
+                }
             }
             is Resource.Failure -> {
                 //binding.prError.visibility=View.VISIBLE
@@ -122,5 +133,31 @@ class WorksDetailsFragment : Fragment(), TaskAdapter.OnClickArrow {
             }
 
         }
+    }
+
+    private fun setUpSearchView() {
+        binding.search.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(p0: String?): Boolean {
+                var search = p0!!
+                showFilterTask(search)
+                return false
+            }
+
+            override fun onQueryTextChange(p0: String?): Boolean {
+                var search = p0!!
+                showFilterTask(search)
+                return false
+            }
+        })
+    }
+
+    private fun showFilterTask(search:String){
+        var tasksFilter: ArrayList<Task> = arrayListOf()
+        for (i in tasks.indices){
+            if (tasks[i].name.contains(search) || tasks[i].client!!.contains(search)){
+                tasksFilter.add(tasks[i])
+            }
+        }
+        setAdapter(tasksFilter)
     }
 }
