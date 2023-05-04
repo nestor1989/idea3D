@@ -105,6 +105,8 @@ class WorksDetailsFragment : Fragment(), TaskAdapter.OnClickArrow {
                 Log.d("RESULTADOSS", result.data.toString())
                 val adapter = TaskAdapter(tasks, this, requireContext().applicationContext)
                 binding.rvTasks.adapter = adapter
+
+                if (tasks.isEmpty()) binding.notTasks.visibility = View.VISIBLE
             }
             is Resource.Failure -> {
                 //binding.prError.visibility=View.VISIBLE

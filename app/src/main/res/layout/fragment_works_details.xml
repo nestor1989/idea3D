@@ -15,19 +15,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <RelativeLayout
-                android:id="@+id/not_tasks"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:visibility="gone">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/logoidea"
-                    android:layout_centerInParent="true"/>
-
-            </RelativeLayout>
 
             <LinearLayout
                 android:id="@+id/linear_with_contracts"
@@ -54,8 +41,40 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         app:srcCompat="@drawable/ic_add"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
+        app:backgroundTint="@color/teal_idea"
+        app:tint="@color/white"
         android:layout_margin = "16dp"/>
+
+    <RelativeLayout
+        android:id="@+id/not_tasks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation = "vertical">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:layout_width="wrap_content"
+                android:layout_height="350dp"
+                android:gravity="center"
+                app:lottie_rawRes="@raw/imp"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text = "Aún no tienes trabajos"
+                android:fontFamily="@font/at_surt_regular"
+                android:gravity="center"
+                android:textColor="@color/teal_idea"
+                android:textSize="28sp"/>
+            </LinearLayout>
+
+    </RelativeLayout>
 
     </FrameLayout>
