@@ -53,7 +53,11 @@ class WorksDetailsFragment : Fragment(), TaskAdapter.OnClickArrow {
 
     private fun setUp(){
 
-        (activity as MainActivity).setNoBanner("Tus trabajos")
+        var title = arguments?.getString("title")
+
+        if (title.isNullOrEmpty()) title = "Tus trabajos"
+
+        (activity as MainActivity).setNoBanner(title)
 
         val date = arguments?.getString("date")
         val urgent = arguments?.getBoolean("urgent")

@@ -56,7 +56,7 @@
     <string name="maker_zone_works">Trabajos</string>
 
     <string name="maker_zone_status_1">Pendiente</string>
-    <string name="maker_zone_status_2">Listos p/ empezar</string>
+    <string name="maker_zone_status_2">Listo p/ empezar</string>
     <string name="maker_zone_status_3">En progreso</string>
     <string name="maker_zone_status_4">Imp. Terminada</string>
     <string name="maker_zone_status_5">Postprocesado</string>
@@ -68,7 +68,7 @@
     <string-array name="status">
 
         <item>Pendiente</item>
-        <item>Listos p/ empezar</item>
+        <item>Listo p/ empezar</item>
         <item>En progreso</item>
         <item>Imp. Terminada</item>
         <item>Postprocesado</item>

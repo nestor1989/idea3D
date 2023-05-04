@@ -31,6 +31,8 @@ class WorksFragment : Fragment(), ScheduleDialogFragment.OnDateClick {
 
     private var clientsList = ArrayList<String>()
 
+    private var stringStatus:String?=null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -87,31 +89,40 @@ class WorksFragment : Fragment(), ScheduleDialogFragment.OnDateClick {
     private fun setFilters() {
 
         binding.btnfilter1.setOnClickListener {
-            navigateWithStatus(1)
+            stringStatus = getString(R.string.maker_zone_status_1)
+            navigateWithStatus(1, stringStatus!!)
         }
         binding.btnfilter2.setOnClickListener {
-            navigateWithStatus(2)
+            stringStatus = getString(R.string.maker_zone_status_2)
+            navigateWithStatus(2, stringStatus!!)
         }
         binding.btnfilter3.setOnClickListener {
-            navigateWithStatus(3)
+            stringStatus = getString(R.string.maker_zone_status_3)
+            navigateWithStatus(3, stringStatus!!)
         }
         binding.btnfilter4.setOnClickListener {
-            navigateWithStatus(4)
+            stringStatus = getString(R.string.maker_zone_status_4)
+            navigateWithStatus(4, stringStatus!!)
         }
         binding.btnfilter5.setOnClickListener {
-            navigateWithStatus(5)
+            stringStatus = getString(R.string.maker_zone_status_5)
+            navigateWithStatus(5, stringStatus!!)
         }
         binding.btnfilter6.setOnClickListener {
-            navigateWithStatus(6)
+            stringStatus = getString(R.string.maker_zone_status_6)
+            navigateWithStatus(6, stringStatus!!)
         }
         binding.btnfilter7.setOnClickListener {
-            navigateWithStatus(7)
+            stringStatus = getString(R.string.maker_zone_status_7)
+            navigateWithStatus(7, stringStatus!!)
         }
         binding.btnfilter8.setOnClickListener {
-            navigateWithStatus(8)
+            stringStatus = getString(R.string.maker_zone_status_8)
+            navigateWithStatus(8, stringStatus!!)
         }
         binding.btnfilter9.setOnClickListener {
-            navigateWithStatus(9)
+            stringStatus = getString(R.string.maker_zone_status_9)
+            navigateWithStatus(9, stringStatus!!)
         }
 
     }
@@ -170,10 +181,11 @@ class WorksFragment : Fragment(), ScheduleDialogFragment.OnDateClick {
         findNavController().navigate(R.id.action_worksFragment_to_worksDetailsFragment, bundle)
     }
 
-    private fun navigateWithStatus(idStatus:Int){
+    private fun navigateWithStatus(idStatus:Int, statusString: String){
         val bundle = Bundle()
         bundle.putInt("idStatus", idStatus)
         bundle.putStringArrayList("clients", clientsList)
+        bundle.putString("title", statusString )
         Log.d("BUNDLEEEE", bundle.toString())
         findNavController().navigate(R.id.action_worksFragment_to_worksDetailsFragment, bundle)
     }
