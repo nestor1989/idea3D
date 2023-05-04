@@ -1,5 +1,6 @@
 package com.idea3d.idea3d.ui.view.work
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -30,8 +31,9 @@ class WorksDetailsFragment : Fragment(), TaskAdapter.OnClickArrow {
 
     private lateinit var modalWorksFragment: ModalWorksFragment
 
-    private lateinit var tasks: List<Task>
+    private lateinit var adapter: TaskAdapter
 
+    private lateinit var tasks: MutableList<Task>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -99,7 +101,7 @@ class WorksDetailsFragment : Fragment(), TaskAdapter.OnClickArrow {
     }
 
     private fun setAdapter(tasks: List<Task>){
-        val adapter = TaskAdapter(tasks, this, requireContext().applicationContext)
+        adapter = TaskAdapter(tasks, this, requireContext().applicationContext)
         binding.rvTasks.adapter = adapter
     }
 
@@ -109,11 +111,18 @@ class WorksDetailsFragment : Fragment(), TaskAdapter.OnClickArrow {
         modalInst.show(activity?.supportFragmentManager!!, "taskmodal")
     }
 
+    @SuppressLint("NotifyDataSetChanged")
+    override fun onDelete(task: Task) {
+        tasksViewModel.deleteTask(task)
+        tasks.remove(task)
+        adapter.notifyDataSetChanged()
+    }
+
     private fun callToRepo(result: Resource<List<Task>>){
         when (result) {
             is Resource.Loading -> {}
             is Resource.Success -> {
-                tasks = result.data
+                tasks = (result.data).toMutableList()
                 Log.d("RESULTADOSS", result.data.toString())
                 setAdapter(tasks)
                 setUpSearchView()

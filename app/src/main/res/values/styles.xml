@@ -71,6 +71,7 @@
         <item name="android:focusable">false</item>
         <item name="android:iconifiedByDefault">false</item>
         <item name="android:queryBackground">@null</item>
+        <item name="iconTint">@color/teal_idea</item>
         <item name="android:textColorHint">@color/teal_idea</item>
         <item name="android:translationZ">6dp</item>
     </style>

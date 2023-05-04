@@ -8,6 +8,7 @@ import android.os.Build
 import android.util.Base64
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.annotation.RequiresApi
@@ -26,6 +27,7 @@ class TaskAdapter (
 
     interface OnClickArrow{
         fun onClickArrow(task: Task)
+        fun onDelete(task:Task)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<*> {
@@ -66,11 +68,14 @@ class TaskAdapter (
                 @SuppressLint("ClickableViewAccessibility")
                 override fun onSwipeLeft() {
                     super.onSwipeLeft()
-                    itemBinding.buttonArrow.setImageResource(R.drawable.ic_baseline_close)
+                    itemBinding.lytDelete.visibility = View.VISIBLE
+                    itemBinding.lytDelete.setOnClickListener {
+                        onClickArrow.onDelete(item)
+                    }
                 }
                 override fun onSwipeRight() {
                     super.onSwipeRight()
-                    itemBinding.buttonArrow.setImageResource(R.drawable.ic_like_in)
+                    itemBinding.lytDelete.visibility = View.GONE
                 }
                 override fun onClick(){
                     onClickArrow.onClickArrow(item)
