@@ -164,7 +164,6 @@ class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterV
 
     private fun initClientArray(clients: ArrayList<String>) {
 
-
         val adapter = ArrayAdapter(
             requireContext(),
             R.layout.list_item,
@@ -215,6 +214,9 @@ class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterV
         stringStatus = (getString(R.string.maker_zone_status_1))
 
         val status = resources.getStringArray(R.array.status)
+
+        Log.d("LISTA_DE_STATUS", status.toString())
+
         val adapter = ArrayAdapter(
             requireContext(),
             R.layout.list_item,

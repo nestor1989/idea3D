@@ -73,4 +73,9 @@ class DataSourceImpl @Inject constructor(
         return Resource.Success(tasksDao.getByStatus(id_status))
     }
 
+    override suspend fun updateTask(task: Task) {
+        tasksDao.updateTask(task)
+    }
+
+
 }

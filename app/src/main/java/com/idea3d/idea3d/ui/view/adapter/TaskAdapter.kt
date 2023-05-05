@@ -10,13 +10,17 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.RecyclerView
 import com.idea3d.idea3d.R
 import com.idea3d.idea3d.core.BaseViewHolder
 import com.idea3d.idea3d.data.model.Task
 import com.idea3d.idea3d.databinding.RowTasksBinding
+import com.idea3d.idea3d.ui.view.work.WorksDetailsFragment.Companion.STATUS
 import com.idea3d.idea3d.utils.OnSwipeTouchListener
 
 class TaskAdapter (
@@ -28,14 +32,12 @@ class TaskAdapter (
     interface OnClickArrow{
         fun onClickArrow(task: Task)
         fun onDelete(task:Task)
+        fun onUpdate(task: Task, idStatus:Int, stringStatus: String)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<*> {
         val itemBinding =
             RowTasksBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-
-
-
         return MainViewHolder(itemBinding)
     }
 
@@ -51,12 +53,16 @@ class TaskAdapter (
     }
 
     inner class MainViewHolder(private val itemBinding: RowTasksBinding):
-        BaseViewHolder<Task>(itemBinding.root) {
+        BaseViewHolder<Task>(itemBinding.root), AdapterView.OnItemClickListener {
+
         @SuppressLint("ClickableViewAccessibility")
         @RequiresApi(Build.VERSION_CODES.O)
         override fun bind(item: Task) {
             itemBinding.tvTitle.text = item.name
             itemBinding.tvDate.text=item.description
+            itemBinding.listStatus.setText(item.status)
+
+            initArray()
 
             item.thing_photo?.let {
                 val imageBytes = Base64.decode(item.thing_photo, Base64.DEFAULT)
@@ -85,7 +91,23 @@ class TaskAdapter (
             })
 
 
+        }
+        private fun initArray(){
+            val status = STATUS
+            val adapter = ArrayAdapter(
+                itemBinding.root.context,
+                R.layout.list_item,
+                status
+            )
 
+            with(itemBinding.listStatus) {
+                setAdapter(adapter)
+                onItemClickListener=this@MainViewHolder
+            }
+        }
+
+        override fun onItemClick(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+            onClickArrow.onUpdate(taskList[position], p2+1, STATUS[p2])
         }
     }
 

@@ -32,4 +32,6 @@ interface DataSource {
     suspend fun getUrgent(): Resource<List<Task>>
 
     suspend fun getByStatus(id_status: Int): Resource<List<Task>>
+
+    suspend fun updateTask(task:Task)
 }

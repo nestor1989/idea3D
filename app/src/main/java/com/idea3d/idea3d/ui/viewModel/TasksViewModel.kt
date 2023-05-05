@@ -62,6 +62,12 @@ class TasksViewModel @Inject constructor(private val repo: Repo): ViewModel(){
         }
     }
 
+    fun updateTask(task: Task) {
+        CoroutineScope(Dispatchers.Main).launch {
+            repo.updateTask(task)
+        }
+    }
+
 
 
 

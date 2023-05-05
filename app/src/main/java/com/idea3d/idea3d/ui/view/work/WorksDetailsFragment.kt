@@ -51,6 +51,11 @@ class WorksDetailsFragment : Fragment(), TaskAdapter.OnClickArrow {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val status = resources.getStringArray(R.array.status)
+        STATUS = status
+
+        Log.d("LISTA_DE_STATUS", STATUS.toString())
+
         initAdapter()
         setUp()
 
@@ -118,6 +123,12 @@ class WorksDetailsFragment : Fragment(), TaskAdapter.OnClickArrow {
         adapter.notifyDataSetChanged()
     }
 
+    override fun onUpdate(task: Task, idStatus: Int, stringStatus: String) {
+        task.id_status = idStatus
+        task.status = stringStatus
+        tasksViewModel.updateTask(task)
+    }
+
     private fun callToRepo(result: Resource<List<Task>>){
         when (result) {
             is Resource.Loading -> {}
@@ -168,5 +179,9 @@ class WorksDetailsFragment : Fragment(), TaskAdapter.OnClickArrow {
             }
         }
         setAdapter(tasksFilter)
+    }
+
+    companion object{
+        var STATUS: Array<String> = arrayOf<String>()
     }
 }

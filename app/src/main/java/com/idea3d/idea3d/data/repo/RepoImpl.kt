@@ -64,4 +64,8 @@ class RepoImpl @Inject constructor(private val dataSource: DataSource):Repo {
     override suspend fun getByStatus(id_status: Int): Resource<List<Task>> {
         return dataSource.getByStatus(id_status)
     }
+
+    override suspend fun updateTask(task: Task) {
+        dataSource.updateTask(task)
+    }
 }
