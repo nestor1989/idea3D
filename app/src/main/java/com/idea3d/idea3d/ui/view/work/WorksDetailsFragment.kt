@@ -174,7 +174,7 @@ class WorksDetailsFragment : Fragment(), TaskAdapter.OnClickArrow {
     private fun showFilterTask(search:String){
         var tasksFilter: ArrayList<Task> = arrayListOf()
         for (i in tasks.indices){
-            if (tasks[i].name.contains(search) || tasks[i].client!!.contains(search)){
+            if (tasks[i].name.contains(search, ignoreCase = true) || tasks[i].client!!.contains(search, ignoreCase = true)){
                 tasksFilter.add(tasks[i])
             }
         }

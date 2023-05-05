@@ -61,6 +61,7 @@ class TaskAdapter (
             itemBinding.tvTitle.text = item.name
             itemBinding.tvDate.text=item.description
             itemBinding.listStatus.setText(item.status)
+            if (item.prioritize) itemBinding.buttonUrgent.visibility = View.VISIBLE
 
             initArray()
 

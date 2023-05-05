@@ -66,8 +66,26 @@
                     android:textAlignment="textStart"
                     android:textColor="@color/teal_idea"
                     android:textFontWeight="600"
-                    android:textSize="21sp"
+                    android:textSize="20sp"
                     tools:text="ihyyifyu" />
+
+                <ImageButton
+                    android:id="@+id/button_urgent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="end|center"
+                    android:layout_marginEnd="16dp"
+                    android:background="@null"
+                    android:src="@drawable/ic_urgent"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="@color/teal_idea" />
+
+
+
 
             </LinearLayout>
 
@@ -79,31 +97,16 @@
                 <TextView
                     android:id="@+id/tvDate"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:fontFamily="@font/at_surt_light"
                     android:lineHeight="16sp"
-                    android:maxLines="2"
+                    android:maxLines="1"
                     android:text="lihguoguogou\n kwjwj"
                     android:textAlignment="textStart"
                     android:textColor="@color/white"
                     android:textFontWeight="400"
-                    android:textSize="18sp" />
+                    android:textSize="16sp" />
 
-                <TextView
-                    android:id="@+id/tvStatus"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:fontFamily="@font/at_surt_light"
-                    android:lineHeight="16sp"
-                    android:maxLines="1"
-                    android:paddingStart="8dp"
-                    android:textAlignment="textStart"
-                    android:textColor="@color/blue_dark"
-                    android:textFontWeight="400"
-                    android:textSize="12sp"
-                    android:visibility="gone"
-                    tools:text="- 12:00 h" />
 
             </LinearLayout>
 
@@ -111,7 +114,7 @@
                 android:id="@+id/lytStatus"
                 style="@style/StyleDropDown"
                 app:boxStrokeColor="@color/teal_idea"
-                app:boxStrokeWidth="1dp"
+                app:boxStrokeWidth="0dp"
                 android:padding="0dp"
                 app:endIconTint="@color/teal_idea"
                 android:layout_width="wrap_content"
