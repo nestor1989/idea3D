@@ -59,7 +59,7 @@ class TaskAdapter (
         @RequiresApi(Build.VERSION_CODES.O)
         override fun bind(item: Task) {
             itemBinding.tvTitle.text = item.name
-            itemBinding.tvDate.text=item.description
+            itemBinding.tvClient.text=item.client
             itemBinding.listStatus.setText(item.status)
             if (item.prioritize) itemBinding.buttonUrgent.visibility = View.VISIBLE
 

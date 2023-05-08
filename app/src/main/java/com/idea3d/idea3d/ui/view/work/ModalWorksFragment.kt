@@ -58,7 +58,11 @@ class ModalWorksFragment(
         }
         binding.tvTitle.text=task.name
         binding.tvDescription.text=task.description
-        binding.tvEdit.setOnClickListener {
+        binding.tvDate.text=task.date_begin
+        binding.tvPrice.text = "$${task.price.toString()}"
+        binding.tvCost.text = "$${task.cost.toString()}"
+
+        binding.buttonEdit.setOnClickListener {
             onModalWorksClick.onEdit(task)
             dismiss()
         }
