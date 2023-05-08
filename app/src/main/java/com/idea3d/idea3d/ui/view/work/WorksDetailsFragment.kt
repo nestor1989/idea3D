@@ -23,7 +23,7 @@ import com.idea3d.idea3d.ui.viewModel.TasksViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class WorksDetailsFragment : Fragment(), TaskAdapter.OnClickArrow {
+class WorksDetailsFragment : Fragment(), TaskAdapter.OnClickArrow, ModalWorksFragment.OnModalWorksClick {
     private var _binding: FragmentWorksDetailsBinding? = null
     private val binding get() = _binding!!
 
@@ -34,6 +34,8 @@ class WorksDetailsFragment : Fragment(), TaskAdapter.OnClickArrow {
     private lateinit var adapter: TaskAdapter
 
     private lateinit var tasks: MutableList<Task>
+
+    var clients: ArrayList<String>? = arrayListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -72,7 +74,7 @@ class WorksDetailsFragment : Fragment(), TaskAdapter.OnClickArrow {
         val date = arguments?.getString("date")
         val urgent = arguments?.getBoolean("urgent")
         val idStatus = arguments?.getInt("idStatus")
-        val clients = arguments?.getStringArrayList("clients")
+        clients = arguments?.getStringArrayList("clients")
 
         if (!date.isNullOrEmpty()) {
             tasksViewModel.getByDate(date).observe(viewLifecycleOwner, Observer { result ->
@@ -111,7 +113,7 @@ class WorksDetailsFragment : Fragment(), TaskAdapter.OnClickArrow {
     }
 
     override fun onClickArrow(task: Task) {
-        modalWorksFragment = ModalWorksFragment(task)
+        modalWorksFragment = ModalWorksFragment(task, this)
         val modalInst = modalWorksFragment.newInstance(task)
         modalInst.show(activity?.supportFragmentManager!!, "taskmodal")
     }
@@ -183,5 +185,16 @@ class WorksDetailsFragment : Fragment(), TaskAdapter.OnClickArrow {
 
     companion object{
         var STATUS: Array<String> = arrayOf<String>()
+    }
+
+    override fun onEdit(task: Task) {
+        val bundle = Bundle()
+        bundle.putStringArrayList("clients", clients)
+        bundle.putParcelable("task", task)
+        findNavController().navigate(R.id.action_worksDetailsFragment_to_newTaskFragment, bundle)
+    }
+
+    override fun onDeleteModal(task: Task) {
+        onDelete(task)
     }
 }

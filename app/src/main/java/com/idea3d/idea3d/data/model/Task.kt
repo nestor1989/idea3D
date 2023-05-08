@@ -1,9 +1,12 @@
 package com.idea3d.idea3d.data.model
 
+import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 @Entity
 data class Task(
     @PrimaryKey(autoGenerate = true)
@@ -38,4 +41,4 @@ data class Task(
     var date_begin: String? = null,
     @ColumnInfo
     var date_end: String? = null
-    )
+    ):Parcelable

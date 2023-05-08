@@ -141,9 +141,7 @@ class ScheduleDialogFragment(private val onClick:OnDateClick) :
 
                     val selectedDate: CalendarDate = date
 
-                    NewTaskFragment.DISPLAY_DATE = date.toString()
-                    //Log.d("FECHA_FORMATO", RescheduleFromFragment.DATE)
-                    onClick.onDateClick(NewTaskFragment.DISPLAY_DATE)
+                    onClick.onDateClick(date.toString())
                     dismiss()
                 }
             }

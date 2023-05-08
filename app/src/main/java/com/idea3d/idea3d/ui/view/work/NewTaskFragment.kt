@@ -43,7 +43,7 @@ class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterV
     private val binding get() = _binding!!
 
     private var idStatus = 1
-    private var stringStatus = ""
+    private var stringStatus = "Pendiente"
 
     private val tasksViewModel by viewModels<TasksViewModel>()
 
@@ -54,6 +54,7 @@ class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterV
 
     var image:String?=null
     var extension: String?=null
+    var concatImage:String?=null
 
     var resultGalleryLauncher =
     registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
@@ -65,7 +66,7 @@ class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterV
             if (intent!=null){
                 if (clipData != null) {
                     var i = 0
-                    var concatUri: String = ""
+                    var concatUri = ""
 
                     while (i < clipData.itemCount) {
                         concatUri += "${
@@ -133,7 +134,33 @@ class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterV
     }
 
     private fun setUp(){
-        (activity as MainActivity).setNoBanner("Crear nuevo trabajo")
+
+        val oldTask = arguments?.getParcelable<Task>("task")
+
+        var title = ""
+        var update = false
+
+        if (oldTask == null) {
+            title = "Crear nuevo trabajo"
+            binding.dbBegin.setText(DISPLAY_DATE)
+        }
+        else {
+            title = "Editar trabajo"
+            update = true
+            binding.inputName.setText(oldTask.name)
+            binding.inputDescription.setText(oldTask.description)
+            binding.cbPriority.isChecked = oldTask.prioritize
+            binding.etPrice.setText(oldTask.price.toString())
+            binding.etCost.setText(oldTask.cost.toString())
+            binding.etClient.setText(oldTask.client)
+            binding.dbBegin.setText(oldTask.date_begin)
+            idStatus = oldTask.id_status!!
+            stringStatus = oldTask.status!!
+
+            binding.buttonSend.setText("Listo")
+        }
+
+        (activity as MainActivity).setNoBanner(title)
 
         createPermissionLauncher()
 
@@ -141,7 +168,7 @@ class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterV
             launchGaleryClicked()
         }
 
-        binding.dbBegin.setText(DISPLAY_DATE)
+
 
         binding.dbBegin.setOnClickListener {
             scheduleDialogFragment = ScheduleDialogFragment(this)
@@ -153,7 +180,8 @@ class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterV
         clients?.let { if (clients.isNotEmpty()) initClientArray(clients) }
 
         binding.buttonSend.setOnClickListener {
-            createTask()
+            if (!update) createTask()
+            else oldTask?.let { updateTask(oldTask) }
             val bundle = Bundle()
             bundle.putStringArrayList("clients", clients)
             findNavController().navigate(R.id.action_newTaskFragment_to_worksDetailsFragment, bundle)
@@ -175,21 +203,23 @@ class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterV
         }
     }
 
-    private fun createTask (){
+
+    private fun createTask () {
         val nameTask = binding.inputName.text.toString()
         val descriptionTask = binding.inputDescription.text.toString()
         val priority = binding.cbPriority.isChecked
         val price = binding.etPrice.text.toString().toFloat()
         val cost = binding.etCost.text.toString().toFloat()
         val client = binding.etClient.text.toString()
+        val dateBegin = binding.dbBegin.text.toString()
 
         val task = Task(
-            name =nameTask,
+            name = nameTask,
             description = descriptionTask,
             prioritize = priority,
             price = price,
             cost = cost,
-            date_begin = DISPLAY_DATE,
+            date_begin = dateBegin,
             id_status = idStatus,
             status = stringStatus,
             client = client,
@@ -200,18 +230,31 @@ class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterV
         tasksViewModel.addTask(task)
     }
 
+    private fun updateTask(task: Task){
+        task.name = binding.inputName.text.toString()
+        task.description = binding.inputDescription.text.toString()
+        task.prioritize = binding.cbPriority.isChecked
+        task.price = binding.etPrice.text.toString().toFloat()
+        task.cost = binding.etCost.text.toString().toFloat()
+        task.client = binding.etClient.text.toString()
+        task.date_begin = binding.dbBegin.text.toString()
+        task.status = stringStatus
+        task.id_status = idStatus
+
+        tasksViewModel.updateTask(task)
+    }
+
     companion object{
         var DISPLAY_DATE = today.toString()
     }
 
     override fun onDateClick(date:String) {
-        binding.dbBegin.setText(DISPLAY_DATE)
+        binding.dbBegin.setText(date)
     }
 
     private fun initArray(){
 
-        binding.listStatus.setText(getString(R.string.maker_zone_status_1))
-        stringStatus = (getString(R.string.maker_zone_status_1))
+        binding.listStatus.setText(stringStatus)
 
         val status = resources.getStringArray(R.array.status)
 

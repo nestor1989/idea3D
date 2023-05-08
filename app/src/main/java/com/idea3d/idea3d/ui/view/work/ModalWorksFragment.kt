@@ -1,6 +1,8 @@
 package com.idea3d.idea3d.ui.view.work
 
+import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.util.Base64
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,10 +12,18 @@ import com.idea3d.idea3d.R
 import com.idea3d.idea3d.data.model.Task
 import com.idea3d.idea3d.databinding.FragmentModalWorksBinding
 
-class ModalWorksFragment(private val task: Task) : BottomSheetDialogFragment() {
+class ModalWorksFragment(
+    private val task: Task,
+    private val onModalWorksClick: OnModalWorksClick
+    ): BottomSheetDialogFragment() {
 
     private var _binding: FragmentModalWorksBinding? = null
     private val binding get() = _binding!!
+
+    interface OnModalWorksClick{
+        fun onEdit(task: Task)
+        fun onDeleteModal(task: Task)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -24,15 +34,7 @@ class ModalWorksFragment(private val task: Task) : BottomSheetDialogFragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        binding.floatingActionButton.setOnClickListener { dismiss() }
-        val image = "${task.thing_photo+task.thing_extension}"
-        Glide.with(this)
-            .load(image)
-            .centerCrop()
-            .placeholder(R.drawable.logoidea)
-            .into(binding.ivPhoto)
-        binding.tvTitle.text=task.name
-        binding.tvDescription.text=task.description
+        setUp()
     }
 
     override fun onDestroy() {
@@ -41,10 +43,29 @@ class ModalWorksFragment(private val task: Task) : BottomSheetDialogFragment() {
     }
 
     fun newInstance(task: Task): ModalWorksFragment{
-        val frag = ModalWorksFragment(task)
+        val frag = ModalWorksFragment(task, onModalWorksClick)
         val args = Bundle()
         frag.arguments = args
         return frag
+    }
+
+    private fun setUp(){
+        binding.floatingActionButton.setOnClickListener { dismiss() }
+        task.thing_photo?.let {
+            val imageBytes = Base64.decode(task.thing_photo, Base64.DEFAULT)
+            val decodedImage = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.size)
+            binding.ivPhoto.setImageBitmap(decodedImage)
+        }
+        binding.tvTitle.text=task.name
+        binding.tvDescription.text=task.description
+        binding.tvEdit.setOnClickListener {
+            onModalWorksClick.onEdit(task)
+            dismiss()
+        }
+        binding.tvDelete.setOnClickListener {
+            onModalWorksClick.onDeleteModal(task)
+            dismiss()
+        }
     }
 
 }
