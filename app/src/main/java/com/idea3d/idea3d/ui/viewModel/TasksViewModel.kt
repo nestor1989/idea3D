@@ -9,6 +9,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.util.*
 import javax.inject.Inject
 
 @HiltViewModel
@@ -68,7 +69,12 @@ class TasksViewModel @Inject constructor(private val repo: Repo): ViewModel(){
         }
     }
 
+    fun getDateRange(today: String, dateInit:String) = liveData(Dispatchers.IO){
+        try {
+            emit(repo.getDateRange(today, dateInit))
+        } catch (e: Exception) {
+            emit(Resource.Failure(e))
+        }
 
-
-
+    }
 }

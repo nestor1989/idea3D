@@ -4,6 +4,7 @@ import android.util.Log
 import com.idea3d.idea3d.core.Resource
 import com.idea3d.idea3d.data.model.*
 import com.idea3d.idea3d.data.network.DataSource
+import java.util.*
 import javax.inject.Inject
 
 class RepoImpl @Inject constructor(private val dataSource: DataSource):Repo {
@@ -67,5 +68,9 @@ class RepoImpl @Inject constructor(private val dataSource: DataSource):Repo {
 
     override suspend fun updateTask(task: Task) {
         dataSource.updateTask(task)
+    }
+
+    override suspend fun getDateRange(today: String, dateInit: String):Resource<List<Task>> {
+        return dataSource.getDateRange(today, dateInit)
     }
 }

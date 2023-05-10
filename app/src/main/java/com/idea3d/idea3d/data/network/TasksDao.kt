@@ -2,6 +2,7 @@ package com.idea3d.idea3d.data.network
 
 import androidx.room.*
 import com.idea3d.idea3d.data.model.Task
+import java.util.*
 
 @Dao
 interface TasksDao {
@@ -25,4 +26,7 @@ interface TasksDao {
 
     @Update
     suspend fun updateTask(task: Task)
+
+    @Query("SELECT * FROM Task WHERE date([date_begin]) BETWEEN :dateInit and :today")
+    suspend fun getInRange(today: String, dateInit: String):List<Task>
 }

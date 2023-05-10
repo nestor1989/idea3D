@@ -5,6 +5,7 @@ import com.idea3d.idea3d.utils.Constants.Companion.THING_KEY
 import com.idea3d.idea3d.core.Resource
 import com.idea3d.idea3d.data.model.*
 import com.idea3d.idea3d.data.network.*
+import java.util.*
 import javax.inject.Inject
 
 class DataSourceImpl @Inject constructor(
@@ -75,6 +76,10 @@ class DataSourceImpl @Inject constructor(
 
     override suspend fun updateTask(task: Task) {
         tasksDao.updateTask(task)
+    }
+
+    override suspend fun getDateRange(today: String, dateInit: String): Resource<List<Task>> {
+        return Resource.Success(tasksDao.getInRange(today, dateInit))
     }
 
 

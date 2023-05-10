@@ -34,7 +34,7 @@ class ScheduleDialogFragment(private val onClick:OnDateClick) :
 
     private val tasksViewModel by viewModels<TasksViewModel>()
 
-    val calendar = Calendar.getInstance()
+    private val calendar: Calendar = Calendar.getInstance()
     var preselectedDates: MutableList<CalendarDate> = mutableListOf<CalendarDate>()
     var worksDate: MutableList<CalendarDate> = mutableListOf<CalendarDate>()
     var eventsDate: MutableList<String> = mutableListOf()
@@ -86,8 +86,6 @@ class ScheduleDialogFragment(private val onClick:OnDateClick) :
         preselectedDates.add(today)
 
         c = Calendar.getInstance()
-        df = SimpleDateFormat("dd/MM/yyyy")
-        formattedDate = df.format(c.time)
         list = java.util.ArrayList()
 
         setIndicators()
@@ -112,9 +110,7 @@ class ScheduleDialogFragment(private val onClick:OnDateClick) :
                     val indicators: List<CalendarView.DateIndicator> = generateCalendarDateIndicators()
                     val additionalTexts: List<CalendarView.AdditionalText> = generateAdditionalTexts()
                     binding.calendarView.datesIndicators = indicators
-                    //binding.calendarView.datesAdditionalTexts = additionalTexts
 
-                    //Log.d("INDICATORS", indicators.toString())
                     Log.d("LISTA_DE_DATES", worksDate.toString())
                 }
                 is Resource.Failure -> {
@@ -138,9 +134,6 @@ class ScheduleDialogFragment(private val onClick:OnDateClick) :
             }
             1 -> {
                 binding.calendarView.onDateClickListener = { date ->
-
-                    val selectedDate: CalendarDate = date
-
                     onClick.onDateClick(date.toString())
                     dismiss()
                 }
@@ -153,10 +146,6 @@ class ScheduleDialogFragment(private val onClick:OnDateClick) :
     private fun setCalendar() {
 
         val calendarView = binding.calendarView
-
-
-        // Initial date
-
 
         //obtener primer dia del mes
         minDate = getFirstDayOfMonth(calendar)
@@ -282,7 +271,7 @@ class ScheduleDialogFragment(private val onClick:OnDateClick) :
 
     @RequiresApi(VERSION_CODES.O)
     fun getCalendarDate(date: String): CalendarDate {
-        val formatter = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+        val formatter = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
         val dateCurrent = formatter.parse(date)
         val dateFinal = CalendarDate(dateCurrent)
         return dateFinal

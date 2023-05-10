@@ -8,7 +8,12 @@ import android.os.Build
 import android.provider.OpenableColumns
 import android.util.Base64
 import android.webkit.MimeTypeMap
+import androidx.annotation.RequiresApi
 import java.io.ByteArrayOutputStream
+import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+import java.util.*
 
 class Functional {
     companion object{
@@ -50,6 +55,37 @@ class Functional {
             "application/pdf",
             "image/*"
         )
+
+        @RequiresApi(Build.VERSION_CODES.O)
+        fun convertDatesToDisplay(dateApi: String): String {
+            val inputFormatter: DateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd", Locale.ENGLISH)
+            val outputFormatter: DateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy", Locale.ENGLISH)
+            val date: LocalDate = LocalDate.parse(dateApi, inputFormatter)
+            return outputFormatter.format(date)
+        }
+
+        fun convertDatesToSQL(date: String): String {
+            // Array with possible input formats
+            val inputFormats = arrayOf("dd/MM/yyyy", "d/M/yyyy", "dd/M/yyyy", "d/MM/yyyy")
+
+            // Desired output format
+            val outputFormat = SimpleDateFormat("yyyy-MM-dd")
+
+            // Try to parse the date with each format
+            for (format in inputFormats) {
+                try {
+                    val formattedDate = SimpleDateFormat(format).parse(date)
+                    return outputFormat.format(formattedDate)
+                } catch (e: Exception) {
+                    // The date doesn't match the current format, try the next format
+                }
+            }
+
+            // If the date couldn't be converted, return the original date
+            return date
+        }
+
+
 
     }
 

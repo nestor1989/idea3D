@@ -20,6 +20,7 @@ import com.idea3d.idea3d.databinding.FragmentWorksDetailsBinding
 import com.idea3d.idea3d.ui.view.MainActivity
 import com.idea3d.idea3d.ui.view.adapter.TaskAdapter
 import com.idea3d.idea3d.ui.viewModel.TasksViewModel
+import com.idea3d.idea3d.utils.Functional
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -77,7 +78,7 @@ class WorksDetailsFragment : Fragment(), TaskAdapter.OnClickArrow, ModalWorksFra
         clients = arguments?.getStringArrayList("clients")
 
         if (!date.isNullOrEmpty()) {
-            tasksViewModel.getByDate(date).observe(viewLifecycleOwner, Observer { result ->
+            tasksViewModel.getByDate(Functional.convertDatesToSQL(date)).observe(viewLifecycleOwner, Observer { result ->
                 callToRepo(result)
             })
         } else if (urgent != null && urgent) {

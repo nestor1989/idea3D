@@ -4,6 +4,7 @@ import android.Manifest
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Base64
@@ -17,6 +18,7 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -126,6 +128,7 @@ class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterV
         return binding.root
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -133,6 +136,7 @@ class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterV
 
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun setUp(){
 
         val oldTask = arguments?.getParcelable<Task>("task")
@@ -153,7 +157,7 @@ class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterV
             binding.etPrice.setText(oldTask.price.toString())
             binding.etCost.setText(oldTask.cost.toString())
             binding.etClient.setText(oldTask.client)
-            binding.dbBegin.setText(oldTask.date_begin)
+            oldTask.date_begin?.let{binding.dbBegin.setText(Functional.convertDatesToDisplay(oldTask.date_begin!!))}
             idStatus = oldTask.id_status!!
             stringStatus = oldTask.status!!
 
@@ -167,8 +171,6 @@ class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterV
         binding.buttonPhoto.setOnClickListener {
             launchGaleryClicked()
         }
-
-
 
         binding.dbBegin.setOnClickListener {
             scheduleDialogFragment = ScheduleDialogFragment(this)
@@ -204,6 +206,7 @@ class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterV
     }
 
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun createTask () {
         val nameTask = binding.inputName.text.toString()
         val descriptionTask = binding.inputDescription.text.toString()
@@ -212,6 +215,7 @@ class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterV
         val cost = binding.etCost.text.toString().toFloat()
         val client = binding.etClient.text.toString()
         val dateBegin = binding.dbBegin.text.toString()
+        val dateBeginParse = Functional.convertDatesToSQL(dateBegin)
 
         val task = Task(
             name = nameTask,
@@ -219,7 +223,7 @@ class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterV
             prioritize = priority,
             price = price,
             cost = cost,
-            date_begin = dateBegin,
+            date_begin = dateBeginParse,
             id_status = idStatus,
             status = stringStatus,
             client = client,
@@ -230,6 +234,7 @@ class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterV
         tasksViewModel.addTask(task)
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun updateTask(task: Task){
         task.name = binding.inputName.text.toString()
         task.description = binding.inputDescription.text.toString()
@@ -237,7 +242,7 @@ class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterV
         task.price = binding.etPrice.text.toString().toFloat()
         task.cost = binding.etCost.text.toString().toFloat()
         task.client = binding.etClient.text.toString()
-        task.date_begin = binding.dbBegin.text.toString()
+        task.date_begin = Functional.convertDatesToSQL(binding.dbBegin.text.toString())
         task.status = stringStatus
         task.id_status = idStatus
 

@@ -2,6 +2,7 @@ package com.idea3d.idea3d.data.repo
 
 import com.idea3d.idea3d.core.Resource
 import com.idea3d.idea3d.data.model.*
+import java.util.*
 
 interface Repo {
     suspend fun getThingsByNews(searchBy:String, page:Int, category: Int): Resource<Things>
@@ -19,4 +20,5 @@ interface Repo {
     suspend fun getUrgent(): Resource<List<Task>>
     suspend fun getByStatus(id_status: Int) : Resource<List<Task>>
     suspend fun updateTask(task:Task)
+    suspend fun getDateRange(today: String, dateInit:String): Resource<List<Task>>
 }

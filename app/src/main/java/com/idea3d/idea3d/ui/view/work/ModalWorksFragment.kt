@@ -1,16 +1,19 @@
 package com.idea3d.idea3d.ui.view.work
 
 import android.graphics.BitmapFactory
+import android.os.Build
 import android.os.Bundle
 import android.util.Base64
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 import com.bumptech.glide.Glide
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.idea3d.idea3d.R
 import com.idea3d.idea3d.data.model.Task
 import com.idea3d.idea3d.databinding.FragmentModalWorksBinding
+import com.idea3d.idea3d.utils.Functional
 
 class ModalWorksFragment(
     private val task: Task,
@@ -33,6 +36,7 @@ class ModalWorksFragment(
         return binding.root
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         setUp()
     }
@@ -49,6 +53,7 @@ class ModalWorksFragment(
         return frag
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun setUp(){
         binding.floatingActionButton.setOnClickListener { dismiss() }
         task.thing_photo?.let {
@@ -58,7 +63,7 @@ class ModalWorksFragment(
         }
         binding.tvTitle.text=task.name
         binding.tvDescription.text=task.description
-        binding.tvDate.text=task.date_begin
+        binding.tvDate.text= task.date_begin?.let { Functional.convertDatesToDisplay(it) }
         binding.tvPrice.text = "$${task.price.toString()}"
         binding.tvCost.text = "$${task.cost.toString()}"
 
