@@ -8,6 +8,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.viewModels
@@ -29,7 +31,7 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 @AndroidEntryPoint
-class WorksFragment : Fragment(), ScheduleDialogFragment.OnDateClick {
+class WorksFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterView.OnItemClickListener {
     private var _binding: FragmentWorksBinding? = null
     private val binding get() = _binding!!
 
@@ -69,8 +71,8 @@ class WorksFragment : Fragment(), ScheduleDialogFragment.OnDateClick {
         super.onViewCreated(view, savedInstanceState)
 
         setUp()
+        initArray()
         setFinances()
-        getTaskRange()
     }
 
     private fun setUp(){
@@ -146,50 +148,73 @@ class WorksFragment : Fragment(), ScheduleDialogFragment.OnDateClick {
 
     }
 
+    private fun initArray(){
+
+        binding.listPeriod.setText("total")
+
+        val period = resources.getStringArray(R.array.period)
+
+        val adapter = ArrayAdapter(
+            requireContext(),
+            R.layout.list_item,
+            period
+        )
+
+        with(binding.listPeriod) {
+            setAdapter(adapter)
+            onItemClickListener=this@WorksFragment
+        }
+    }
+
     @SuppressLint("SetTextI18n")
     private fun setFinances(){
-        tasksViewModel.getAllTask().observe(viewLifecycleOwner, Observer{ result->
-            when(result){
-                is Resource.Loading->{}
-                is Resource.Success->{
-                    var profits = 0.0
-                    var cost = 0.0
-                    var sales = 0.0
+        tasksViewModel.getAllTask().observe(viewLifecycleOwner, Observer { result ->
+            setProfits(result)
+        })
+    }
 
-                    fav = result.data
+    private fun setProfits(result: Resource<List<Task>>){
+        when(result){
+            is Resource.Loading->{}
+            is Resource.Success->{
+                var profits = 0.0
+                var cost = 0.0
+                var sales = 0.0
 
-                    for (i in fav.indices){
+                fav = result.data
+
+                for (i in fav.indices){
+                    if (fav[i].id_status == 8) {
                         sales += fav[i].price!!
                         cost += fav[i].cost!!
-
-                        fav[i].client?.let {
-                            var clientFlag = false
-                            for (j in clientsList.indices){
-                                if (it == clientsList[j]) {
-                                    clientFlag = true
-                                    break
-                                }
-                            }
-                            if (!clientFlag) clientsList.add(it)
-                        }
                     }
 
-                    Log.d("LISTA_DE_CLIENTES", clientsList.toString())
-
-                    profits = sales - cost
-
-                    binding.tvSales.text = "$${sales}"
-                    binding.tvCost.text = "$${cost}"
-                    binding.tvProfits.text = "$${profits}"
+                    fav[i].client?.let {
+                        var clientFlag = false
+                        for (j in clientsList.indices){
+                            if (it == clientsList[j]) {
+                                clientFlag = true
+                                break
+                            }
+                        }
+                        if (!clientFlag) clientsList.add(it)
+                    }
                 }
-                is Resource.Failure->{
-                    //binding.prError.visibility=View.VISIBLE
-                    Toast.makeText(requireContext(), result.exception.toString(), Toast.LENGTH_LONG).show()
-                }
 
+                Log.d("LISTA_DE_CLIENTES", clientsList.toString())
+
+                profits = sales - cost
+
+                binding.tvSales.text = "$${sales}"
+                binding.tvCost.text = "$${cost}"
+                binding.tvProfits.text = "$${profits}"
+            }
+            is Resource.Failure->{
+                //binding.prError.visibility=View.VISIBLE
+                Toast.makeText(requireContext(), result.exception.toString(), Toast.LENGTH_LONG).show()
             }
 
-        })
+        }
     }
 
     override fun onDateClick(date:String) {
@@ -209,17 +234,29 @@ class WorksFragment : Fragment(), ScheduleDialogFragment.OnDateClick {
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
-    private fun getTaskRange(){
-        Log.d("HOYYYY", today.toString())
-        Log.d("AÑOOOO", firstDayYear.toString())
-
-        tasksViewModel.getDateRange(today.toString(), firstDayYear.toString()).observe(viewLifecycleOwner, Observer{ result->
-            if (result is Resource.Success){
-                val taskInRange = result.data
-                Log.d("RANGO_DE_TASK", taskInRange.toString())
+    override fun onItemClick(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+        when(p2){
+            0 -> {
+                tasksViewModel.getAllTask().observe(viewLifecycleOwner, Observer { result ->
+                    setProfits(result) })
             }
-        })
 
+            1 -> {
+                tasksViewModel.getDateRange(today.toString(), firstDayMonth.toString()).observe(viewLifecycleOwner, Observer{ result->
+                    setProfits(result)})
+            }
+
+            2 -> {
+                tasksViewModel.getDateRange(today.toString(), firstDayYear.toString()).observe(viewLifecycleOwner, Observer{ result->
+                    setProfits(result)})
+            }
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        initArray()
     }
 
 

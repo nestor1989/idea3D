@@ -79,6 +79,12 @@
 
     </string-array>
 
+    <string-array name= "period">
+        <item>total</item>
+        <item>este mes</item>
+        <item>este año</item>
+    </string-array>
+
 
     <string name="b1v0">Cuando hay una temperatura excesiva en el hotend puede darse que en los primeros segundos no salga plástico.
 
