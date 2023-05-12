@@ -46,20 +46,22 @@ class SolutionFragment  : BottomSheetDialogFragment() {
 
         if (arguments != null) {
             val bundle = requireArguments().getBundle("bundle")
-            val boton = bundle?.getInt("boton")
-            val valor = bundle?.getInt("valor")
-            val imagen = bundle?.getInt("imagen")
+            val button = bundle?.getInt("button")
+            val value = bundle?.getInt("value")
+            val image = bundle?.getInt("image")
+            val title = bundle?.getString("title")
 
+            binding.tvTitle.setText(title)
             binding.imageView.visibility = View.VISIBLE
-            binding.imageView.setImageResource(imagen!!)
+            binding.imageView.setImageResource(image!!)
 
-            when (boton) {
+            when (button) {
                 0 -> {
 
                 }
 
                 1-> {
-                    when (valor) {
+                    when (value) {
                         0 -> {
                             binding.textView.text = getString(R.string.b1v0)
                         }
@@ -111,7 +113,7 @@ class SolutionFragment  : BottomSheetDialogFragment() {
                 }
 
                 2-> {
-                    when (valor) {
+                    when (value) {
                         0 -> {
                             binding.textView.text = getString(R.string.b2v0)
                         }
@@ -157,7 +159,7 @@ class SolutionFragment  : BottomSheetDialogFragment() {
                 }
 
                 3-> {
-                    when (valor) {
+                    when (value) {
                         0 -> {
                             binding.textView.text = getString(R.string.b3v0)
                         }

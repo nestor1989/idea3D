@@ -44,21 +44,23 @@ class GuideFragment : Fragment(), OnFragmentActionsListener {
         binding.recyclerGuia.adapter = adapter
     }
 
-    override fun onClickFragmentButton(valor:Int, boton:Int, imagen: Int) {
+    override fun onClickFragmentButton(value:Int, button:Int, image: Int, title:String) {
         val bundle = Bundle()
-        bundle.putInt("valor", valor)
-        bundle.putInt("boton", boton)
-        bundle.putInt("imagen", imagen)
+        bundle.putInt("button", button)
+        bundle.putInt("value", value)
+        bundle.putInt("image", image)
+        bundle.putString("title", title)
         solutionFragment = SolutionFragment()
         val solutionFragmentInst = solutionFragment.newInstance(bundle)
         solutionFragmentInst.show(activity?.supportFragmentManager!!, "solution")
 
     }
 
-    override fun onImageClick(valor: Int, imagen:Int) {
+    override fun onImageClick(value: Int, image:Int, title:String) {
         val bundle = Bundle()
-        bundle.putInt("valor", valor)
-        bundle.putInt("imagen", imagen)
+        bundle.putInt("value", value)
+        bundle.putInt("image", image)
+        bundle.putString("title", title)
         solutionFragment = SolutionFragment()
         val solutionFragmentInst = solutionFragment.newInstance(bundle)
         solutionFragmentInst.show(activity?.supportFragmentManager!!, "IMAGE")

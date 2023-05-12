@@ -39,11 +39,11 @@ class ProblemsAdapter (
 
         fun render(guiaErrores: Problems) {
 
-            itemBinding.resolucionUno.setOnClickListener { itemClickListener.onClickFragmentButton(bindingAdapterPosition, 1, guiaErrores.image) }
-            itemBinding.resolucionDos.setOnClickListener { itemClickListener.onClickFragmentButton(bindingAdapterPosition, 2, guiaErrores.image) }
-            itemBinding.resolucionTres.setOnClickListener { itemClickListener.onClickFragmentButton(bindingAdapterPosition, 3, guiaErrores.image) }
+            itemBinding.resolucionUno.setOnClickListener { itemClickListener.onClickFragmentButton(bindingAdapterPosition, 1, guiaErrores.image, guiaErrores.resOne) }
+            itemBinding.resolucionDos.setOnClickListener { itemClickListener.onClickFragmentButton(bindingAdapterPosition, 2, guiaErrores.image, guiaErrores.resTwo!!) }
+            itemBinding.resolucionTres.setOnClickListener { itemClickListener.onClickFragmentButton(bindingAdapterPosition, 3, guiaErrores.image, guiaErrores.resThree!!) }
 
-            itemBinding.imagen.setOnClickListener { itemClickListener.onImageClick(bindingAdapterPosition, guiaErrores.image) }
+            itemBinding.imagen.setOnClickListener { itemClickListener.onImageClick(bindingAdapterPosition, guiaErrores.image, guiaErrores.name) }
 
             itemBinding.imagen.setImageResource(guiaErrores.image)
 

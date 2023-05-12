@@ -2,8 +2,8 @@ package com.idea3d.idea3d.ui.view.guide
 
 
 interface OnFragmentActionsListener {
-    fun onClickFragmentButton(valor:Int, boton:Int, image: Int)
-    fun onImageClick(valor:Int, imagen:Int)
+    fun onClickFragmentButton(value:Int, button:Int, image: Int, title:String)
+    fun onImageClick(value:Int, image:Int, title:String)
 
 
 }
