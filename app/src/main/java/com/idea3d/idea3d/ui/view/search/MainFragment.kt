@@ -21,12 +21,15 @@ import com.idea3d.idea3d.utils.Constants
 import com.idea3d.idea3d.core.Resource
 import com.idea3d.idea3d.data.model.News
 import com.idea3d.idea3d.data.model.Thing
+import com.idea3d.idea3d.data.model.ThingEntity
 import com.idea3d.idea3d.databinding.FragmentMainBinding
 import com.idea3d.idea3d.ui.view.MainActivity
 import com.idea3d.idea3d.ui.view.adapter.MainAdapter
 import com.idea3d.idea3d.ui.view.adapter.NewsAdapter
 import com.idea3d.idea3d.ui.view.adapter.PaginationAdapter
 import com.idea3d.idea3d.ui.view.modals.ProgressDialogFragment
+import com.idea3d.idea3d.ui.view.modals.ThingsModalFragment
+import com.idea3d.idea3d.ui.viewModel.HomeViewModel
 import com.idea3d.idea3d.ui.viewModel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -35,15 +38,19 @@ class MainFragment :
     Fragment(),
     MainAdapter.OnThingClickListener,
     NewsAdapter.OnNewsClickListener,
-    PaginationAdapter.OnPageClickListener {
+    PaginationAdapter.OnPageClickListener,
+    ThingsModalFragment.OnThingClickListener {
 
     private var _binding: FragmentMainBinding? = null
     private val binding get() = _binding!!
     private val viewModel by viewModels<MainViewModel>()
+    private val homeViewModel by viewModels<HomeViewModel>()
 
     lateinit var listPages:MutableList<Int>
+    var listFavs: List<ThingEntity>?=null
 
     private lateinit var progressDialogFragment: ProgressDialogFragment
+    private lateinit var thingsModalFragment: ThingsModalFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,6 +73,7 @@ class MainFragment :
         }
 
         setUpRecyclerView()
+        setUpFavs()
         setUpObservers()
         setUpSearchView()
         setUpButtons()
@@ -159,10 +167,11 @@ class MainFragment :
     }
 
     override fun onThingClick(thing: Thing) {
-        val intent: Intent = Uri.parse("${thing.url}").let { webpage ->
-            Intent(Intent.ACTION_VIEW, webpage)
-        }
-        startActivity(intent)
+        var favorite = validateFav(thing)
+        thing.favorite = favorite
+        thingsModalFragment = ThingsModalFragment(thing, this)
+        val newInst = thingsModalFragment.newInstance(thing)
+        newInst.show(activity?.supportFragmentManager!!, "thingmodal")
     }
 
     override fun onNewsClick(news: News) {
@@ -210,6 +219,44 @@ class MainFragment :
 
     override fun onPageClick(page: Int) {
         viewModel.setPagination(page)
+    }
+
+    override fun onLikeClick(thing: Thing) {
+        val thingEntity = ThingEntity(thing.id, thing.name, thing.image, thing.url, thing.favorite)
+
+        if (!thingEntity.favorite){
+            homeViewModel.addedToFavorite(thingEntity)
+        }
+        else {
+            homeViewModel.deleteFavorite(thingEntity)
+        }
+    }
+
+    override fun onDownLoadClick(url: String) {
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+        startActivity(intent)
+    }
+
+    override fun onDismiss() {}
+
+    private fun validateFav(thingEntity : Thing): Boolean{
+        listFavs?.let {
+            for(i in 0 until listFavs!!.size){
+                if (listFavs!![i].id == thingEntity.id){
+                    thingEntity.favorite = true
+                }
+            }
+        }
+        return thingEntity.favorite
+    }
+
+    private fun setUpFavs(){
+        homeViewModel.getFavorites().observe(viewLifecycleOwner, Observer { result ->
+
+            if (result is Resource.Success) {
+                listFavs = result.data
+            }
+        })
     }
 
 }
