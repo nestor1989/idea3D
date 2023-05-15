@@ -26,6 +26,7 @@ import com.idea3d.idea3d.ui.view.MainActivity
 import com.idea3d.idea3d.ui.view.adapter.MainAdapter
 import com.idea3d.idea3d.ui.view.adapter.NewsAdapter
 import com.idea3d.idea3d.ui.view.adapter.PaginationAdapter
+import com.idea3d.idea3d.ui.view.modals.ProgressDialogFragment
 import com.idea3d.idea3d.ui.viewModel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -41,6 +42,8 @@ class MainFragment :
     private val viewModel by viewModels<MainViewModel>()
 
     lateinit var listPages:MutableList<Int>
+
+    private lateinit var progressDialogFragment: ProgressDialogFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -71,18 +74,23 @@ class MainFragment :
     }
 
     private fun setUpObservers(){
+
+        progressDialogFragment = ProgressDialogFragment()
+        val newProgress = progressDialogFragment.newInstance()
+
         viewModel.fetchThings.observe(viewLifecycleOwner, Observer { result ->
+
             when(result){
                 is Resource.Loading->{
+                    newProgress.show(activity?.supportFragmentManager!!, "progress dialog")
                     binding.prNoThing.visibility = View.GONE
-                    binding.prBar.visibility=View.VISIBLE
                     binding.prError.visibility=View.GONE
                 }
                 is Resource.Success->{
                     binding.rvThings.visibility = View.VISIBLE
                     binding.prNoThing.visibility = View.GONE
                     binding.searchLayout.visibility = View.VISIBLE
-                    binding.prBar.visibility=View.GONE
+                    newProgress.dismiss()
                     binding.prError.visibility=View.GONE
                     binding.rvThings.adapter= MainAdapter(requireContext(), result.data.thingsList, this)
                     var page = result.data.totalThings / Constants.PER_PAGE
@@ -92,8 +100,7 @@ class MainFragment :
                 }
                 is Resource.Failure->{
                     binding.rvThings.visibility=View.GONE
-                    binding.prBar.visibility=View.GONE
-
+                    newProgress.dismiss()
                     val cm = (activity as MainActivity).getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
                     val activeNetwork: NetworkInfo? = cm.activeNetworkInfo
                     val isConnected: Boolean = activeNetwork?.isConnectedOrConnecting == true
@@ -113,11 +120,11 @@ class MainFragment :
         viewModel.fetchPage.observe(viewLifecycleOwner, Observer { result ->
             when(result){
                 is Resource.Loading->{
-                    binding.prBar.visibility=View.VISIBLE
+
                     binding.prError.visibility=View.GONE
                 }
                 is Resource.Success->{
-                    binding.prBar.visibility=View.GONE
+                    newProgress.dismiss()
                     binding.prError.visibility=View.GONE
                     binding.rvThings.adapter= MainAdapter(requireContext(), result.data.thingsList, this)
                     /*var page = result.data.totalThings / Constants.PER_PAGE
@@ -125,7 +132,7 @@ class MainFragment :
                     setUpPaginationRecycler(page)*/
                 }
                 is Resource.Failure->{
-                    binding.prBar.visibility=View.GONE
+                    newProgress.dismiss()
                     binding.prError.visibility=View.VISIBLE
                     Toast.makeText(requireContext(), result.exception.toString(), Toast.LENGTH_LONG).show()
                 }
