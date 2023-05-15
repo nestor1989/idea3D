@@ -4,6 +4,7 @@ import android.Manifest
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.BitmapFactory
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
@@ -88,6 +89,8 @@ class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterV
 
                         this.image = base64
                         this.extension = extension
+
+                        setPhoto()
                     }
                 } else {
 
@@ -106,6 +109,8 @@ class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterV
                         val base64 = Functional.getBase64ScaledImageString(bitmap)
                         this.image = base64
                         this.extension = extension
+
+                        setPhoto()
                     }
 
                 }
@@ -158,6 +163,11 @@ class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterV
             binding.etCost.setText(oldTask.cost.toString())
             binding.etClient.setText(oldTask.client)
             oldTask.date_begin?.let{binding.dbBegin.setText(Functional.convertDatesToDisplay(oldTask.date_begin!!))}
+            oldTask.thing_photo?.let {
+                this.image = oldTask.thing_photo
+                this.extension = oldTask.thing_extension
+                setPhoto()
+            }
             idStatus = oldTask.id_status!!
             stringStatus = oldTask.status!!
 
@@ -245,6 +255,8 @@ class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterV
         task.date_begin = Functional.convertDatesToSQL(binding.dbBegin.text.toString())
         task.status = stringStatus
         task.id_status = idStatus
+        task.thing_photo = image
+        task.thing_extension = extension
 
         tasksViewModel.updateTask(task)
     }
@@ -372,6 +384,17 @@ class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterV
             requireContext(),
             it
         ) == PackageManager.PERMISSION_GRANTED
+    }
+
+    private fun setPhoto(){
+        val imageBytes = Base64.decode(this.image, Base64.DEFAULT)
+        val decodedImage = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.size)
+        binding.ivThing.setImageBitmap(decodedImage)
+        binding.cardThing.visibility = View.VISIBLE
+        binding.buttonPhoto.visibility = View.GONE
+        binding.buttonEdit.setOnClickListener {
+            launchGaleryClicked()
+        }
     }
 
 

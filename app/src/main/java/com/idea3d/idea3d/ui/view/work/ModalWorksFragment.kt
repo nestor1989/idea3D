@@ -62,6 +62,7 @@ class ModalWorksFragment(
             binding.ivPhoto.setImageBitmap(decodedImage)
         }
         binding.tvTitle.text=task.name
+        binding.tvClient.text = task.client
         binding.tvDescription.text=task.description
         binding.tvDate.text= task.date_begin?.let { Functional.convertDatesToDisplay(it) }
         binding.tvPrice.text = "$${task.price.toString()}"

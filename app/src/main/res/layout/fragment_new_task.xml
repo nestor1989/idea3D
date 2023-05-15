@@ -226,10 +226,47 @@
             android:fontFamily="@font/at_surt_light"
             android:textSize="16sp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:text="Subir foto de STL"
-            android:textColor="@color/teal_idea"
+            android:textColor="?attr/colorSecondary"
             app:boxStrokeColor="@color/teal_idea"/>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id= "@+id/cardThing"
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardElevation="0dp"
+            app:cardCornerRadius="16dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageButton
+                    android:id="@+id/button_edit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginTop="16dp"
+                    android:src="@drawable/ic_edit"
+                    android:background="@null"
+                    app:elevation="0dp"
+                    android:clickable="true"
+                    android:layout_alignParentEnd="true"
+                    app:fabSize="mini"
+                    app:tint="?attr/colorSecondary" />
+
+                <ImageView
+                    android:id="@+id/ivThing"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ic_launcher" />
+
+            </RelativeLayout>
+
+        </com.google.android.material.card.MaterialCardView>
 
 
         <Button
@@ -238,11 +275,11 @@
             android:layout_marginTop="16sp"
             android:layout_marginBottom="16sp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:text="Crear"
             android:fontFamily="@font/at_surt_light"
             android:textSize="16sp"
-            android:textColor="@color/teal_idea"
+            android:textColor="?attr/colorSecondary"
             app:boxStrokeColor="@color/teal_idea"/>
 
     </LinearLayout>
