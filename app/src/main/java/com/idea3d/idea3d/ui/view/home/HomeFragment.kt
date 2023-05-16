@@ -21,6 +21,7 @@ import com.idea3d.idea3d.data.model.ThingEntity
 import com.idea3d.idea3d.data.model.ThingWithCat
 import com.idea3d.idea3d.databinding.FragmentHomeBinding
 import com.idea3d.idea3d.ui.view.MainActivity
+import com.idea3d.idea3d.ui.view.adapter.AlternativeNewsAdapter
 import com.idea3d.idea3d.ui.view.adapter.FavsAdapter
 import com.idea3d.idea3d.ui.view.adapter.NewsAdapter
 import com.idea3d.idea3d.ui.view.adapter.ThingsParentAdapter
@@ -35,6 +36,7 @@ class HomeFragment : Fragment(),
     NewsAdapter.OnNewsClickListener,
     ThingsParentAdapter.OnClickChild,
     ThingsModalFragment.OnThingClickListener,
+    AlternativeNewsAdapter.OnThingClickListener,
     FavsAdapter.OnThingClickListener {
 
     private var _binding: FragmentHomeBinding? = null
@@ -88,6 +90,12 @@ class HomeFragment : Fragment(),
         recyclerView.adapter = FavsAdapter(appContext, things, this)
     }
 
+    private fun setUpRecyclerAlternative(things: List<Thing>) {
+        val appContext = requireContext()
+        val recyclerView = binding.rvNews
+        recyclerView.adapter = AlternativeNewsAdapter(appContext, things, this)
+    }
+
     private fun setUpNewsObservers(){
 
         mainViewModel.fetchNewsList.observe(viewLifecycleOwner, Observer{ result->
@@ -97,8 +105,12 @@ class HomeFragment : Fragment(),
                     binding.rvNews.adapter= NewsAdapter(requireContext(), result.data, this)
                 }
                 is Resource.Failure->{
-                    //binding.prError.visibility=View.VISIBLE
-                    Toast.makeText(requireContext(), result.exception.toString(), Toast.LENGTH_LONG).show()
+                    mainViewModel.setThings("newest")
+                    mainViewModel.fetchPage.observe(viewLifecycleOwner, Observer { result ->
+                    if (result is Resource.Success){
+                        setUpRecyclerAlternative(result.data.thingsList)
+                        }
+                    })
                 }
 
             }
@@ -189,11 +201,7 @@ class HomeFragment : Fragment(),
 
     //NORMALES
     override fun onClickChild(thing: Thing) {
-        var favorite = validateFav(thing)
-        thing.favorite = favorite
-        thingsModalFragment = ThingsModalFragment(thing, this)
-        val newInst = thingsModalFragment.newInstance(thing)
-        newInst.show(activity?.supportFragmentManager!!, "thingmodal")
+        modalInst(thing)
     }
 
     override fun onSearchByCat(category: Int, categoryName: String) {
@@ -205,7 +213,11 @@ class HomeFragment : Fragment(),
 
     //FAVORITOS
     override fun onThingClick(thing: Thing) {
-        var favorite = validateFav(thing)
+        modalInst(thing)
+    }
+
+    private fun modalInst(thing: Thing){
+        val favorite = validateFav(thing)
         thing.favorite = favorite
         thingsModalFragment = ThingsModalFragment(thing, this)
         val newInst = thingsModalFragment.newInstance(thing)
@@ -243,6 +255,10 @@ class HomeFragment : Fragment(),
             }
         }
         return thingEntity.favorite
+    }
+
+    override fun onNewThingClick(thing: Thing) {
+        modalInst(thing)
     }
 
 }
