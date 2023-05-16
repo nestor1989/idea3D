@@ -141,7 +141,7 @@ class HomeFragment : Fragment(),
                                     Toast.makeText(requireContext(), things.exception.toString(), Toast.LENGTH_LONG).show()
                                     Log.d("EXCEPCIONN",things.exception.toString() )
                                     binding.rvNews.visibility = View.VISIBLE
-                                    progressDialogFragment.dismiss()
+                                    newProgress.dismiss()
                                 }
 
                             }

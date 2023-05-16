@@ -50,6 +50,7 @@ class MainFragment :
     var listFavs: List<ThingEntity>?=null
 
     private lateinit var progressDialogFragment: ProgressDialogFragment
+
     private lateinit var thingsModalFragment: ThingsModalFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -72,6 +73,8 @@ class MainFragment :
             binding.tvCat.visibility = View.VISIBLE
         }
 
+
+
         setUpRecyclerView()
         setUpFavs()
         setUpObservers()
@@ -90,7 +93,7 @@ class MainFragment :
 
             when(result){
                 is Resource.Loading->{
-                    newProgress.show(activity?.supportFragmentManager!!, "progress dialog")
+                    newProgress.show(activity?.supportFragmentManager!!, "progress dialog things")
                     binding.prNoThing.visibility = View.GONE
                     binding.prError.visibility=View.GONE
                 }
@@ -98,17 +101,19 @@ class MainFragment :
                     binding.rvThings.visibility = View.VISIBLE
                     binding.prNoThing.visibility = View.GONE
                     binding.searchLayout.visibility = View.VISIBLE
-                    newProgress.dismiss()
                     binding.prError.visibility=View.GONE
                     binding.rvThings.adapter= MainAdapter(requireContext(), result.data.thingsList, this)
                     var page = result.data.totalThings / Constants.PER_PAGE
                     if (page==0) page++
                     setUpPaginationRecycler(page)
                     binding.rvPage.visibility = View.VISIBLE
+                    if (activity?.supportFragmentManager!!.findFragmentByTag("progress dialog things") == null) {
+                        newProgress.show(activity?.supportFragmentManager!!, "progress dialog things")
+                    }
+                    newProgress.dismiss()
                 }
                 is Resource.Failure->{
                     binding.rvThings.visibility=View.GONE
-                    newProgress.dismiss()
                     val cm = (activity as MainActivity).getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
                     val activeNetwork: NetworkInfo? = cm.activeNetworkInfo
                     val isConnected: Boolean = activeNetwork?.isConnectedOrConnecting == true
@@ -119,6 +124,11 @@ class MainFragment :
 
                     binding.rvPage.visibility = View.GONE
 
+                    if (activity?.supportFragmentManager!!.findFragmentByTag("progress dialog things") == null) {
+                        newProgress.show(activity?.supportFragmentManager!!, "progress dialog things")
+                    }
+                    newProgress.dismiss()
+
                     Toast.makeText(requireContext(), result.exception.toString(), Toast.LENGTH_LONG).show()
                 }
 
@@ -128,20 +138,20 @@ class MainFragment :
         viewModel.fetchPage.observe(viewLifecycleOwner, Observer { result ->
             when(result){
                 is Resource.Loading->{
-
+                    //newProgress.show(activity?.supportFragmentManager!!, "progress dialog pagination")
                     binding.prError.visibility=View.GONE
                 }
                 is Resource.Success->{
-                    newProgress.dismiss()
                     binding.prError.visibility=View.GONE
                     binding.rvThings.adapter= MainAdapter(requireContext(), result.data.thingsList, this)
-                    /*var page = result.data.totalThings / Constants.PER_PAGE
+                    newProgress.dismiss()
+                /*var page = result.data.totalThings / Constants.PER_PAGE
                     if (page==0) page++
                     setUpPaginationRecycler(page)*/
                 }
                 is Resource.Failure->{
-                    newProgress.dismiss()
                     binding.prError.visibility=View.VISIBLE
+                    newProgress.dismiss()
                     Toast.makeText(requireContext(), result.exception.toString(), Toast.LENGTH_LONG).show()
                 }
 
@@ -258,5 +268,6 @@ class MainFragment :
             }
         })
     }
+
 
 }
