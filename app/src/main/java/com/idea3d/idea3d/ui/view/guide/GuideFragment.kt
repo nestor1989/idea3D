@@ -5,11 +5,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.idea3d.idea3d.data.model.ListProblems
+import com.idea3d.idea3d.data.model.Problems
+import com.idea3d.idea3d.data.model.Task
 import com.idea3d.idea3d.databinding.FragmentGuideBinding
 import com.idea3d.idea3d.ui.view.MainActivity
 import com.idea3d.idea3d.ui.view.adapter.ProblemsAdapter
+import com.idea3d.idea3d.ui.view.adapter.TaskAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -18,6 +22,8 @@ class GuideFragment : Fragment(), OnFragmentActionsListener {
     private val binding get() = _binding!!
 
     private lateinit var solutionFragment: SolutionFragment
+
+    private lateinit var adapter: ProblemsAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +39,7 @@ class GuideFragment : Fragment(), OnFragmentActionsListener {
         (activity as MainActivity).setThemeMain()
 
         initAdapter()
+        setUpSearchView()
 
         return binding.root
     }
@@ -40,7 +47,7 @@ class GuideFragment : Fragment(), OnFragmentActionsListener {
     private fun initAdapter(){
         val appContext = requireContext().applicationContext
         binding.recyclerGuia.layoutManager= LinearLayoutManager(appContext)
-        val adapter = ProblemsAdapter(this, ListProblems.errorGuide)
+        adapter = ProblemsAdapter(this, ListProblems.errorGuide)
         binding.recyclerGuia.adapter = adapter
     }
 
@@ -64,6 +71,38 @@ class GuideFragment : Fragment(), OnFragmentActionsListener {
         solutionFragment = SolutionFragment()
         val solutionFragmentInst = solutionFragment.newInstance(bundle)
         solutionFragmentInst.show(activity?.supportFragmentManager!!, "IMAGE")
+    }
+
+    private fun setUpSearchView() {
+        binding.search.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(p0: String?): Boolean {
+                var search = p0!!
+                showFilterList(search)
+                return false
+            }
+
+            override fun onQueryTextChange(p0: String?): Boolean {
+                var search = p0!!
+                showFilterList(search)
+                return false
+            }
+        })
+    }
+
+    private fun showFilterList(search:String){
+        var listFilter: ArrayList<Problems> = arrayListOf()
+        val list = ListProblems.errorGuide
+        for (i in list.indices){
+            if (list[i].name.contains(search, ignoreCase = true) || list[i].description.contains(search, ignoreCase = true)){
+                listFilter.add(list[i])
+            }
+        }
+        setAdapter(listFilter)
+    }
+
+    private fun setAdapter(list: ArrayList<Problems>){
+        adapter = ProblemsAdapter(this, list)
+        binding.recyclerGuia.adapter = adapter
     }
 
 }
