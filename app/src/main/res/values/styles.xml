@@ -76,5 +76,16 @@
         <item name="android:translationZ">6dp</item>
     </style>
 
+    <style name = "ModalTitles">
+
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:fontFamily">@font/at_surt_light</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textColor">?attr/colorSecondary</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
 
 </resources>

@@ -48,13 +48,11 @@
                     />
 
                 <TextView
-
+                    style="@style/ModalTitles"
                     android:id="@+id/tvTitle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="16"
-                    android:gravity="center_horizontal"
-                    android:paddingVertical="12dp"
                     android:text="Tipo de Matrícula" />
 
                 <Button
@@ -86,17 +84,17 @@
 
 
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/button_seemore"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/download"
-                android:layout_gravity="center_horizontal"
-                android:textColor="?attr/colorSecondary"
-                app:backgroundTint="?attr/colorSecondaryVariant"/>
-
-
         </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_seemore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:text="@string/download"
+            android:layout_margin = "16dp"
+            android:textColor="?attr/colorSecondary"
+            app:backgroundTint="?attr/colorSecondaryVariant"/>
 
     </FrameLayout>
 

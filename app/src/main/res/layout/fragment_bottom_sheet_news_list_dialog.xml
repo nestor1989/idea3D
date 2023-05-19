@@ -52,8 +52,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="center_horizontal"
-                    android:paddingVertical="12dp"
+                    style="@style/ModalTitles"
                     android:text="Tipo de Matrícula" />
 
                 <Space
@@ -69,32 +68,41 @@
                 android:background="@color/divider_gray"
                 android:visibility="visible" />
 
-            <ImageView
-                android:id="@+id/ivPhoto"
-                android:layout_width="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_height="wrap_content"
-                android:src="@drawable/logoidea"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/tvDescription"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="12sp"
-                android:maxLines="4"
-                android:fontFamily="@font/at_surt_light"/>
+                <ImageView
+                    android:id="@+id/ivPhoto"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:padding="12dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/logoidea"/>
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/button_seemore"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/see_more"
-                android:layout_gravity="center_horizontal"
-                android:textColor="?attr/colorSecondary"
-                app:backgroundTint="?attr/colorSecondaryVariant"/>
-
+                <TextView
+                    android:id="@+id/tvDescription"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:padding="12dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/at_surt_light"/>
 
         </LinearLayout>
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_seemore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/see_more"
+            android:layout_gravity="bottom|end"
+            android:layout_margin = "16dp"
+            android:textColor="?attr/colorSecondary"
+            app:backgroundTint="?attr/colorSecondaryVariant"/>
 
     </FrameLayout>
 
