@@ -94,7 +94,7 @@ Hay que probar ajustando la temperatura y si sale material por la boquilla duran
 
 En algunos modelos, lo que podemos hacer es bajar el final de carrera del eje Z, de esta manera, lo que hacemos es disminuir la distancia de nozzle con respecto a la cama.
 Ajuste de la altura del nozzle mediante hardware. Para ello deberemos de tener en cuenta el parámetro de Z offset. En este parámetro, lo que hacemos es indicar a la impresora que acerque “-x mm” la boquilla de la cama caliente. </string>
-    <string name="b1v2">Lo primero que hay que corroborar es que se ha configurado el diámetro correcto del filamento que se está imprimiendo. Se puede comprobar con un calibre que diámetro tiene el filamento exactamente. Existen los siguientes valores de mercado: 1.75mm ó 3mm.</string>
+    <string name="b1v2">La primera verificación necesaria es confirmar que se ha configurado el diámetro adecuado del filamento utilizado para la impresión. Puede verificarse utilizando un calibrador para medir con precisión el diámetro del filamento. En el mercado, se encuentran disponibles los siguientes valores estándar: 1.75 mm o 3 mm.</string>
     <string name="b1v3">Cuando no tenemos la suficiente experiencia puede darse el caso de que se extruya más plástico de lo debido, algunas impresoras no disponen de mecanismos para controlar el flujo de plástico.
 
 Ajusta los parametros del filamento en tu programa laminador. Deberás aumentar el dimetro para reducir la cantidad de plástico que extruye la máquina o reducir el factor multiplicador.

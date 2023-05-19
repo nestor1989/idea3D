@@ -76,58 +76,63 @@
 
         </LinearLayout>
 
-
-        <LinearLayout
+        <HorizontalScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginVertical="15dp">
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginVertical="15dp">
+
+
+                <Button
+                android:id="@+id/resolucionUno"
+                style="@style/Widget.Material3.Button.ElevatedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/at_surt_regular"
+                android:textAllCaps="false"
+                app:backgroundTint="?attr/colorSecondaryVariant"
+                android:textSize="12sp"
+                android:textColor="?attr/colorOnSecondary"
+                tools:text="RESOLUCION1" />
+
+                <Button
+                android:id="@+id/resolucionDos"
+                style="@style/Widget.Material3.Button.ElevatedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/at_surt_regular"
+                tools:text="RESOLUCION2"
+                android:textAllCaps="false"
+                app:backgroundTint="?attr/colorSecondaryVariant"
+                android:textColor="?attr/colorOnSecondary"
+                android:textSize="12sp" />
 
 
             <Button
-            android:id="@+id/resolucionUno"
-            style="@style/Widget.Material3.Button.ElevatedButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="10dp"
-            android:layout_weight="1"
-            android:fontFamily="@font/at_surt_regular"
-            android:textAllCaps="false"
-            app:backgroundTint="?attr/colorSecondaryVariant"
-            android:textSize="10dp"
-            android:textColor="?attr/colorOnSecondary"
-            tools:text="RESOLUCION1" />
+                android:id="@+id/resolucionTres"
+                style="@style/Widget.Material3.Button.ElevatedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/at_surt_regular"
+                tools:text="RESOLUCION2"
+                app:backgroundTint="?attr/colorSecondaryVariant"
+                android:textAllCaps="false"
+                android:textColor="?attr/colorOnSecondary"
+                android:textSize="12sp" />
 
-            <Button
-            android:id="@+id/resolucionDos"
-            style="@style/Widget.Material3.Button.ElevatedButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="10dp"
-            android:layout_weight="1"
-            android:fontFamily="@font/at_surt_regular"
-            tools:text="RESOLUCION2"
-            android:textAllCaps="false"
-            app:backgroundTint="?attr/colorSecondaryVariant"
-            android:textColor="?attr/colorOnSecondary"
-            android:textSize="10dp" />
+            </LinearLayout>
 
-
-        <Button
-            android:id="@+id/resolucionTres"
-            style="@style/Widget.Material3.Button.ElevatedButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="10dp"
-            android:layout_weight="1"
-            android:fontFamily="@font/at_surt_regular"
-            tools:text="RESOLUCION2"
-            app:backgroundTint="?attr/colorSecondaryVariant"
-            android:textAllCaps="false"
-            android:textColor="?attr/colorOnSecondary"
-            android:textSize="10dp" />
-
-        </LinearLayout>
+        </HorizontalScrollView>
 
     </LinearLayout>
 
