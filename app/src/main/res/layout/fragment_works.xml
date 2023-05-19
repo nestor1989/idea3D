@@ -246,13 +246,32 @@
                 android:layout_weight="1"
                 android:layout_margin="5dp">
 
-                <ImageButton
-                    android:id="@+id/button_add"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@null"
-                    app:tint="@color/teal_idea"
-                    android:src="@drawable/ic_add" />
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/button_add"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        app:tint="@color/teal_idea"
+                        android:layout_margin="8sp"
+                        android:src="@drawable/ic_add" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/at_surt_semi_bold"
+                        android:gravity="center"
+                        android:text="nuevo"
+                        android:layout_marginBottom="8sp"
+                        android:textColor="@color/teal_idea"
+                        android:textSize="15sp" />
+
+                    </LinearLayout>
 
 
             </com.google.android.material.card.MaterialCardView>
@@ -267,13 +286,32 @@
                 app:strokeColor="@color/teal_idea"
                 android:layout_margin="5dp">
 
-                <ImageButton
-                    android:id="@+id/button_all"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@null"
-                    app:tint="@color/teal_idea"
-                    android:src="@drawable/ic_task" />
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/button_all"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:layout_margin="8sp"
+                        app:tint="@color/teal_idea"
+                        android:src="@drawable/ic_task" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/at_surt_semi_bold"
+                        android:gravity="center"
+                        android:text="todos"
+                        android:layout_marginBottom="8sp"
+                        android:textColor="@color/teal_idea"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
 
 
             </com.google.android.material.card.MaterialCardView>
@@ -287,13 +325,32 @@
                 app:strokeColor="@color/teal_idea"
                 android:layout_margin="5dp">
 
-                <ImageButton
-                    android:id="@+id/button_calendar"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@null"
-                    app:tint="@color/teal_idea"
-                    android:src="@drawable/ic_calendar" />
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/button_calendar"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:layout_margin="8sp"
+                        android:background="@null"
+                        app:tint="@color/teal_idea"
+                        android:src="@drawable/ic_calendar" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/at_surt_semi_bold"
+                        android:gravity="center"
+                        android:text="agenda"
+                        android:layout_marginBottom="8sp"
+                        android:textColor="@color/teal_idea"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
 
 
             </com.google.android.material.card.MaterialCardView>
@@ -307,13 +364,32 @@
                 app:strokeColor="@color/teal_idea"
                 android:layout_margin="5dp">
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
                 <ImageButton
                     android:id="@+id/button_urgent"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_margin="8sp"
                     android:background="@null"
                     app:tint="@color/teal_idea"
                     android:src="@drawable/ic_urgent" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/at_surt_semi_bold"
+                        android:gravity="center"
+                        android:text="urgentes"
+                        android:layout_marginBottom="8sp"
+                        android:textColor="@color/teal_idea"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
 
 
             </com.google.android.material.card.MaterialCardView>
@@ -355,6 +431,7 @@
                         android:fontFamily="@font/at_surt_semi_bold"
                         android:gravity="center"
                         android:text="@string/maker_zone_status_1"
+                        android:layout_margin="8sp"
                         android:textColor="@color/white"
                         android:textSize="15sp" />
 
@@ -375,6 +452,7 @@
                         android:fontFamily="@font/at_surt_semi_bold"
                         android:gravity="center"
                         android:text="@string/maker_zone_status_2"
+                        android:layout_margin="8sp"
                         android:textColor="@color/white"
                         android:textSize="15sp" />
 
@@ -395,6 +473,7 @@
                         android:fontFamily="@font/at_surt_semi_bold"
                         android:gravity="center"
                         android:text="@string/maker_zone_status_3"
+                        android:layout_margin="8sp"
                         android:textColor="@color/white"
                         android:textSize="15sp" />
 
@@ -425,6 +504,7 @@
                         android:fontFamily="@font/at_surt_semi_bold"
                         android:gravity="center"
                         android:text="@string/maker_zone_status_4"
+                        android:layout_margin="8sp"
                         android:textColor="@color/white"
                         android:textSize="15sp" />
 
@@ -445,6 +525,7 @@
                         android:fontFamily="@font/at_surt_semi_bold"
                         android:gravity="center"
                         android:text="@string/maker_zone_status_5"
+                        android:layout_margin="8sp"
                         android:textColor="@color/white"
                         android:textSize="15sp" />
 
@@ -465,6 +546,7 @@
                         android:fontFamily="@font/at_surt_semi_bold"
                         android:gravity="center"
                         android:text="@string/maker_zone_status_6"
+                        android:layout_margin="8sp"
                         android:textColor="@color/white"
                         android:textSize="15sp" />
 
@@ -494,6 +576,7 @@
                         android:fontFamily="@font/at_surt_semi_bold"
                         android:gravity="center"
                         android:text="@string/maker_zone_status_7"
+                        android:layout_margin="8sp"
                         android:textColor="@color/white"
                         android:textSize="15sp" />
 
@@ -514,6 +597,7 @@
                         android:fontFamily="@font/at_surt_semi_bold"
                         android:gravity="center"
                         android:text="@string/maker_zone_status_8"
+                        android:layout_margin="8sp"
                         android:textColor="@color/white"
                         android:textSize="15sp" />
 
@@ -534,6 +618,7 @@
                         android:fontFamily="@font/at_surt_semi_bold"
                         android:gravity="center"
                         android:text="@string/maker_zone_status_9"
+                        android:layout_margin="8sp"
                         android:textColor="@color/white"
                         android:textSize="15sp" />
 
