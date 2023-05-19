@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
+    android:background="@drawable/gradiente"
     tools:context=".ui.view.calcu.CalcuFragment">
 
     <ScrollView
@@ -152,7 +153,7 @@
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="20dp"
                 android:text="@string/CE"
-                android:textColor="@color/grey" />
+                android:textColor="@color/teal_idea" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -224,7 +225,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginStart="32dp"
                 android:text="@string/CM"
-                android:textColor="@color/grey" />
+                android:textColor="@color/teal_idea" />
 
             <LinearLayout
                 android:layout_width="match_parent"
