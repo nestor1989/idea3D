@@ -148,7 +148,7 @@ class MainFragment :
                     setUpPaginationRecycler(page)*/
                 }
                 is Resource.Failure->{
-                    binding.prError.visibility=View.VISIBLE
+                    //binding.prError.visibility=View.VISIBLE
                     newProgress.dismiss()
                     Toast.makeText(requireContext(), result.exception.toString(), Toast.LENGTH_LONG).show()
                 }

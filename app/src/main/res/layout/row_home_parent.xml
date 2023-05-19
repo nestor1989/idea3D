@@ -32,16 +32,14 @@
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
-            <Button
+            <ImageButton
                 android:id="@+id/search_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                style="@style/Widget.App.Button.OutlinedButton.IconOnly"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@null"
                 android:layout_gravity="center"
-                android:layout_marginEnd="16dp"
-                app:icon="@drawable/ic_search_cat"
-                app:iconTint = "@color/teal_idea"/>
-
+                android:src="@drawable/ic_search_frame"
+                app:tint = "@color/teal_idea"/>
 
         </LinearLayout>
 

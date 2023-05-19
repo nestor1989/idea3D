@@ -255,11 +255,11 @@
                         android:id="@+id/button_add"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
+                        android:layout_margin="8sp"
                         android:layout_weight="1"
                         android:background="@null"
-                        app:tint="@color/teal_idea"
-                        android:layout_margin="8sp"
-                        android:src="@drawable/ic_add" />
+                        android:src="@drawable/ic_add"
+                        app:tint="@color/teal_idea" />
 
                     <TextView
                         android:layout_width="match_parent"

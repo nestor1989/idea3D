@@ -35,16 +35,15 @@
                 <ImageButton
                     android:id="@+id/floatingActionButton"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="14dp"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginStart="16dp"
+                    android:background="@null"
                     android:clickable="true"
                     android:src="@drawable/arrow_left_fit"
-                    android:background="@null"
                     app:elevation="0dp"
-                    android:layout_gravity="center_vertical"
                     app:fabSize="mini"
-                    app:tint="?attr/colorSecondary"
-                    />
+                    app:tint="?attr/colorSecondary" />
 
                 <TextView
                     style="@style/ModalTitles"
