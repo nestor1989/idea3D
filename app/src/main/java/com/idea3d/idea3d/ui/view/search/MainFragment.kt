@@ -70,8 +70,10 @@ class MainFragment :
 
         arguments?.let {
             viewModel.setCategory(it.getInt("category"))
-            binding.tvCat.setText(it.getString("category_string"))
-            binding.tvCat.visibility = View.VISIBLE
+            val stringCat = it.getString("category_string")
+            binding.search.queryHint = "STL - $stringCat"
+            //binding.tvCat.setText()
+            //binding.tvCat.visibility = View.VISIBLE
         }
 
 
