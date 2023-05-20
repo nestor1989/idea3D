@@ -14,6 +14,7 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI.setupWithNavController
 import com.idea3d.idea3d.R
+import com.idea3d.idea3d.ui.view.modals.DonateModalFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 val Context.dataStore by preferencesDataStore(name = "USER_PREFERENCES_NAME")
@@ -23,6 +24,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
 
+    private lateinit var donateModalFragment: DonateModalFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.Theme_Idea3D)
@@ -33,7 +35,16 @@ class MainActivity : AppCompatActivity() {
         setThemeMain()
         setThemes()
         setUpNavController()
+        setButtons()
 
+    }
+
+    private fun setButtons() {
+        binding.donateButton.setOnClickListener{
+            donateModalFragment = DonateModalFragment()
+            val donateNewInst = donateModalFragment.newInstance()
+            donateNewInst.show(supportFragmentManager, "donate")
+        }
     }
 
 

@@ -93,6 +93,8 @@
             android:layout_gravity="bottom|end"
             android:text="@string/download"
             android:layout_margin = "16dp"
+            android:textSize="16dp"
+            android:fontFamily="@font/at_surt_regular"
             android:textColor="?attr/colorSecondary"
             app:backgroundTint="?attr/colorSecondaryVariant"/>
 

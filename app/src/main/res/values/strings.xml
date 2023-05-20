@@ -79,11 +79,22 @@
 
     </string-array>
 
-    <string-array name= "period">
+    <string-array name="period">
         <item>total</item>
         <item>este mes</item>
         <item>este año</item>
     </string-array>
+
+    <string name="donate_button">Contribuir</string>
+
+    <string name="donate_tv">Hola, soy Néstor, creador de la app Idea 3D. Quiero agradecer a todos los makers que han utilizado nuestra plataforma y que nos han proporcionado comentarios valiosos. Como saben, Idea 3D es una aplicación gratuita que hemos desarrollado con el objetivo de ayudar a la comunidad de makers y usuarios de impresoras 3D.\n
+
+Sin embargo, el desarrollo y mantenimiento de esta aplicación requiere de esfuerzo y recursos continuos. Por eso, hoy les pido su apoyo financiero para ayudarnos a continuar mejorando Idea 3D y ofrecer una mejor experiencia para todos los usuarios. Cualquier contribución que hagan será invertida directamente en el desarrollo y mantenimiento de nuestra plataforma.\n
+
+Quiero destacar que Idea 3D seguirá siendo una aplicación gratuita. No estamos buscando beneficios económicos con esta campaña de financiación, sino simplemente recursos para mejorar nuestra plataforma y hacerla aún más útil para todos los usuarios. Estamos comprometidos en ofrecer una herramienta que ayude a la comunidad de makers y estamos agradecidos por cualquier contribución que puedan hacer para ayudarnos a lograr este objetivo.\n
+
+Gracias por su apoyo y por ser parte de la comunidad de makers. Juntos podemos hacer realidad una plataforma mejor y más útil para todos.
+    </string>
 
 
     <string name="b1v0">Cuando hay una temperatura excesiva en el hotend puede darse que en los primeros segundos no salga plástico.
