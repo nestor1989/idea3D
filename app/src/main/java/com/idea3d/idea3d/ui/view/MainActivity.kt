@@ -97,6 +97,7 @@ class MainActivity : AppCompatActivity() {
     fun setThemeMain(){
         binding.bannerLogo.visibility = View.VISIBLE
         binding.switch1.visibility = View.VISIBLE
+        binding.donateButton.visibility = View.VISIBLE
         binding.noBanner.visibility = View.GONE
         binding.banner.setBackgroundColor(ContextCompat.getColor(this, R.color.blue_dark))
         binding.bannerLogo.setImageDrawable(getDrawable(R.drawable.logo_white_large))
@@ -106,6 +107,7 @@ class MainActivity : AppCompatActivity() {
     fun setThemeCalcu(){
         binding.bannerLogo.visibility = View.VISIBLE
         binding.switch1.visibility = View.VISIBLE
+        binding.donateButton.visibility = View.VISIBLE
         binding.noBanner.visibility = View.GONE
         binding.banner.setBackgroundColor(ContextCompat.getColor(this, R.color.blue_idea))
         binding.bannerLogo.setImageDrawable(getDrawable(R.drawable.logo_white_large))
@@ -114,6 +116,7 @@ class MainActivity : AppCompatActivity() {
     fun setThemeHome(){
         binding.bannerLogo.visibility = View.VISIBLE
         binding.switch1.visibility = View.VISIBLE
+        binding.donateButton.visibility = View.VISIBLE
         binding.noBanner.visibility = View.GONE
         binding.banner.setBackgroundColor(ContextCompat.getColor(this, R.color.blue_dark))
         binding.bannerLogo.setImageDrawable(getDrawable(R.drawable.logo_white_large))
@@ -140,6 +143,7 @@ class MainActivity : AppCompatActivity() {
     fun setNoBanner(title: String){
         binding.bannerLogo.visibility = View.GONE
         binding.switch1.visibility = View.GONE
+        binding.donateButton.visibility = View.GONE
         binding.noBanner.visibility = View.VISIBLE
         binding.tvNoBanner.setText(title)
         binding.buttonBack.setOnClickListener {
