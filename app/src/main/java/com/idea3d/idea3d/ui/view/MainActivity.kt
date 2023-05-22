@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.datastore.preferences.preferencesDataStore
 import com.idea3d.idea3d.databinding.ActivityMainBinding
 import androidx.navigation.NavController
@@ -27,10 +28,14 @@ class MainActivity : AppCompatActivity() {
     private lateinit var donateModalFragment: DonateModalFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        setTheme(R.style.Theme_Idea3D)
+
+        val screenSplash = installSplashScreen()
+
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        screenSplash.setKeepOnScreenCondition {false}
 
         setThemeMain()
         setThemes()
