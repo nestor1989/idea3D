@@ -68,6 +68,14 @@ class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterV
 
             if (intent!=null){
                 if (clipData != null) {
+
+                    Toast.makeText(
+                        requireContext(),
+                        "Debes adjuntar sólo una imagen",
+                        Toast.LENGTH_SHORT
+                    ).show()
+
+                    /*
                     var i = 0
                     var concatUri = ""
 
@@ -91,7 +99,7 @@ class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterV
                         this.extension = extension
 
                         setPhoto()
-                    }
+                    }*/
                 } else {
 
                     var concatString = Functional.displayName(
@@ -111,6 +119,12 @@ class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterV
                         this.extension = extension
 
                         setPhoto()
+                    }else {
+                        Toast.makeText(
+                            requireContext(),
+                            "Debes adjuntar .jpg o .png",
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
 
                 }

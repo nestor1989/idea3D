@@ -16,8 +16,8 @@ android {
         applicationId "com.idea3d.idea3d"
         minSdkVersion 21
         targetSdkVersion 31
-        versionCode 7
-        versionName "1.6"
+        versionCode 9
+        versionName "1.7.1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -29,6 +29,7 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug
         }
     }
     compileOptions {
