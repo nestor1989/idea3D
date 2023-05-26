@@ -12,6 +12,8 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="title_activity_main2">MainActivity</string>
 
+    <string name="mandatory_fill">Este campo es obligatorio</string>
+
     <string name="Horas">Horas</string>
     <string name="kWh">$ kWh</string>
     <string name="kg">x 1Kg</string>

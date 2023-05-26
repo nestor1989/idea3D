@@ -23,6 +23,7 @@ import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.textfield.TextInputLayout
 import com.idea3d.idea3d.R
 import com.idea3d.idea3d.data.model.Task
 import com.idea3d.idea3d.databinding.FragmentNewTaskBinding
@@ -51,6 +52,7 @@ class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterV
     private val tasksViewModel by viewModels<TasksViewModel>()
 
     private lateinit var scheduleDialogFragment: ScheduleDialogFragment
+    private var enabled = true
 
     private val REQUIRED_PERMISSION = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE)
     private lateinit var registerPermissionLauncher: ActivityResultLauncher<Array<String>>
@@ -59,7 +61,7 @@ class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterV
     var extension: String?=null
     var concatImage:String?=null
 
-    var resultGalleryLauncher =
+    private var resultGalleryLauncher =
     registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == Activity.RESULT_OK) {
             val intent: Intent? = result.data
@@ -74,35 +76,9 @@ class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterV
                         "Debes adjuntar sólo una imagen",
                         Toast.LENGTH_SHORT
                     ).show()
-
-                    /*
-                    var i = 0
-                    var concatUri = ""
-
-                    while (i < clipData.itemCount) {
-                        concatUri += "${
-                            Functional.displayName(
-                                requireActivity(),
-                                clipData.getItemAt(i).uri
-                            )
-                        }\t"
-                        i++
-                        binding.buttonPhoto.setText(concatUri)
-                        val bitmap = MediaStore.Images.Media.getBitmap(
-                            activity?.contentResolver,
-                            clipData.getItemAt(i).uri
-                        )
-                        val base64 = Functional.getBase64ScaledImageString(bitmap)
-                        val extension = Functional.getExtensionFromFile(requireActivity(), clipData.getItemAt(i).uri)
-
-                        this.image = base64
-                        this.extension = extension
-
-                        setPhoto()
-                    }*/
                 } else {
 
-                    var concatString = Functional.displayName(
+                    val concatString = Functional.displayName(
                         requireActivity(),
                         intent.data
                     )
@@ -208,9 +184,12 @@ class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterV
         binding.buttonSend.setOnClickListener {
             if (!update) createTask()
             else oldTask?.let { updateTask(oldTask) }
-            val bundle = Bundle()
-            bundle.putStringArrayList("clients", clients)
-            findNavController().navigate(R.id.action_newTaskFragment_to_worksDetailsFragment, bundle)
+
+            if (enabled){
+                val bundle = Bundle()
+                bundle.putStringArrayList("clients", clients)
+                findNavController().navigate(R.id.action_newTaskFragment_to_worksDetailsFragment, bundle)
+            }
         }
 
         initArray()
@@ -235,27 +214,47 @@ class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterV
         val nameTask = binding.inputName.text.toString()
         val descriptionTask = binding.inputDescription.text.toString()
         val priority = binding.cbPriority.isChecked
-        val price = binding.etPrice.text.toString().toFloat()
-        val cost = binding.etCost.text.toString().toFloat()
+
+        val price = if (binding.etPrice.text.toString().isNotEmpty()) binding.etPrice.text.toString().toFloat()
+                    else 0.0F
+
+        val cost =  if (binding.etCost.text.toString().isNotEmpty()) binding.etCost.text.toString().toFloat()
+                    else 0.0F
+
         val client = binding.etClient.text.toString()
         val dateBegin = binding.dbBegin.text.toString()
         val dateBeginParse = Functional.convertDatesToSQL(dateBegin)
 
-        val task = Task(
-            name = nameTask,
-            description = descriptionTask,
-            prioritize = priority,
-            price = price,
-            cost = cost,
-            date_begin = dateBeginParse,
-            id_status = idStatus,
-            status = stringStatus,
-            client = client,
-            thing_photo = image,
-            thing_extension = extension
-        )
+        if (nameTask.isEmpty()) setErrors(binding.lytName)
+        else binding.lytName.isErrorEnabled = false
 
-        tasksViewModel.addTask(task)
+        if (descriptionTask.isEmpty()) setErrors(binding.lytDescription)
+        else binding.lytDescription.isErrorEnabled = false
+
+        if (client.isEmpty()) setErrors(binding.ddClient)
+        else binding.ddClient.isErrorEnabled = false
+
+        if (nameTask.isNotEmpty() && descriptionTask.isNotEmpty() && client.isNotEmpty()) enabled = true
+
+        if (enabled) {
+            val task = Task(
+
+                name = nameTask,
+                description = descriptionTask,
+                prioritize = priority,
+                price = price,
+                cost = cost,
+                date_begin = dateBeginParse,
+                id_status = idStatus,
+                status = stringStatus,
+                client = client,
+                thing_photo = image,
+                thing_extension = extension
+            )
+
+            tasksViewModel.addTask(task)
+        }
+
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -411,5 +410,10 @@ class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterV
         }
     }
 
+    private fun setErrors(lyt:TextInputLayout){
+        lyt.error =getString(R.string.mandatory_fill)
+        lyt.isErrorEnabled=true
+        enabled = false
+    }
 
 }
