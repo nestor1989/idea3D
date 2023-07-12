@@ -25,11 +25,10 @@ class MainViewModel@Inject constructor(private val repo: Repo): ViewModel() {
         category.value = cat
     }
 
-    init{
+    /*init{
         setThings("Relevant")
         setPagination(1)
-        setCategory(0)
-    }
+    }*/
 
     val fetchThings = searchThing.distinctUntilChanged().switchMap {
         liveData(Dispatchers.IO) {
@@ -48,7 +47,7 @@ class MainViewModel@Inject constructor(private val repo: Repo): ViewModel() {
         liveData(Dispatchers.IO){
         emit(Resource.Loading())
         try {
-            if (searchThing.value=="relevant" || searchThing.value=="popular" || searchThing.value=="newest"){
+            if (searchThing.value=="Relevant" || searchThing.value=="popular" || searchThing.value=="newest"){
                 emit(repo.getThingsByNews(searchThing.value!!, page.value!!, category.value!!))
             }else emit(repo.getThingsByName(searchThing.value!!, page.value!!, category.value!!))
         } catch (e: Exception) {

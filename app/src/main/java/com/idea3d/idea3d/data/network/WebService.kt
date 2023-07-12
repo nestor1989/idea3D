@@ -13,7 +13,8 @@ interface WebService {
                                     @Query(value ="sort") searchBy:String,
                                     @Query(value="page") page:Int,
                                     @Query(value="per_page") per_page:Int,
-                                    @Query(value = "category_id") category_id:Int) : Things
+                                    @Query(value = "category_id") category_id:Int,
+                                    @Query(value="posted_after") posted_after:String) : Things
 
     @GET("search/{searchBy}/")
     suspend fun searchThingByName ( @Header("Authorization") value: String,
@@ -29,6 +30,7 @@ interface WebService {
     suspend fun searchThingsFromCat (   @Header("Authorization") value: String,
                                         @Query(value="page") page:Int,
                                         @Query(value = "category_id") category: Int,
-                                        @Query(value="per_page") per_page:Int) : Things
+                                        @Query(value="per_page") per_page:Int,
+                                        @Query(value="posted_after") posted_after:String) : Things
 }
 

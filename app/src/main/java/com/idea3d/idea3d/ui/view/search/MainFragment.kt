@@ -6,6 +6,7 @@ import android.net.ConnectivityManager
 import android.net.NetworkInfo
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -67,17 +68,23 @@ class MainFragment :
         (activity as MainActivity).setThemeMain()
         (activity as MainActivity).setCurrentNavController(0)
 
-        arguments?.let {
-            viewModel.setCategory(it.getInt("category"))
-            val stringCat = it.getString("category_string")
-            binding.search.queryHint = "STL - $stringCat"
-        }
-
         setUpRecyclerView()
         setUpFavs()
         setUpObservers()
         setUpSearchView()
         setUpButtons()
+
+        if( arguments != null) {
+            arguments?.getInt("category")?.let { viewModel.setCategory(it) }
+            val stringCat = arguments?.getString("category_string")
+            binding.search.queryHint = "STL - $stringCat"
+            viewModel.setThings("popular")
+        }else{
+            viewModel.setCategory(0)
+            viewModel.setThings("Relevant")
+        }
+
+
 
         return binding.root
     }

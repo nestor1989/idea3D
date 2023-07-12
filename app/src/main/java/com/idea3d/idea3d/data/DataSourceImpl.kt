@@ -16,7 +16,7 @@ class DataSourceImpl @Inject constructor(
 ): DataSource {
 
     override suspend fun getThings (searchBy:String, page:Int, category: Int): Resource<Things> {
-        return Resource.Success(webService.searchThingByNew(THING_KEY,searchBy, page, Constants.PER_PAGE, category))
+        return Resource.Success(webService.searchThingByNew(THING_KEY,searchBy, page, Constants.PER_PAGE, category, "now-3M"))
     }
 
     override suspend fun getNews (country:String): Resource<List<News>> {
@@ -47,7 +47,7 @@ class DataSourceImpl @Inject constructor(
         page: Int,
         category: Int
     ): Resource<Things> {
-        return Resource.Success(webService.searchThingsFromCat(THING_KEY, page, category, Constants.PER_PAGE))
+        return Resource.Success(webService.searchThingsFromCat(THING_KEY, page, category, Constants.PER_PAGE, "now-3M"))
     }
 
     override suspend fun insertTask(task: Task) {

@@ -25,7 +25,6 @@ class RepoImpl @Inject constructor(private val dataSource: DataSource):Repo {
     }
 
     override suspend fun getThingsFromCat( page:Int, category:Int): Resource<Things> {
-        Log.d("REPOOO_CATEGORIAA", dataSource.getThingsFromCat( page, category).toString() )
         return dataSource.getThingsFromCat( page, category)
 
     }
