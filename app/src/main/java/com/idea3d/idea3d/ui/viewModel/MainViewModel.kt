@@ -9,7 +9,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel@Inject constructor(private val repo: Repo): ViewModel() {
-    private val searchThing = MutableLiveData<String>()
+    val searchThing = MutableLiveData<String>()
     private val page = MutableLiveData<Int>()
     private val category = MutableLiveData<Int>()
 

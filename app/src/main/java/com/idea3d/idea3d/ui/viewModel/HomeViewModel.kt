@@ -13,7 +13,7 @@ import javax.inject.Inject
 @HiltViewModel
 class HomeViewModel @Inject constructor(private val repo: Repo): ViewModel(){
     private val searchThing = MutableLiveData<String>()
-    private val page = MutableLiveData<Int>()
+    val page = MutableLiveData<Int>()
     private val category = MutableLiveData<Int>()
 
     fun fetchCategories() = liveData(Dispatchers.IO) {
