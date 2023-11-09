@@ -54,7 +54,7 @@ class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterV
     private lateinit var scheduleDialogFragment: ScheduleDialogFragment
     private var enabled = true
 
-    private val REQUIRED_PERMISSION = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE)
+    private val REQUIRED_PERMISSION = arrayOf(Manifest.permission.READ_MEDIA_IMAGES)
     private lateinit var registerPermissionLauncher: ActivityResultLauncher<Array<String>>
 
     var image:String?=null
@@ -352,7 +352,7 @@ class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterV
     private fun createPermissionLauncher() {
         registerPermissionLauncher =
             registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { permission ->
-                if (permission[Manifest.permission.READ_EXTERNAL_STORAGE] == true) {
+                if (permission[Manifest.permission.READ_MEDIA_IMAGES] == true) {
                     launchGalery()
                 } else {
                     Toast.makeText(

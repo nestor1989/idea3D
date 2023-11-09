@@ -15,9 +15,9 @@ android {
     defaultConfig {
         applicationId "com.idea3d.idea3d"
         minSdkVersion 21
-        targetSdkVersion 31
-        versionCode 10
-        versionName "1.7.2"
+        targetSdkVersion 33
+        versionCode 11
+        versionName "1.7.3"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -83,6 +83,7 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
 
+    //retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     implementation "com.squareup.okhttp3:logging-interceptor:4.9.1"

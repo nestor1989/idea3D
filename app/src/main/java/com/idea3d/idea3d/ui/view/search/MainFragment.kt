@@ -214,8 +214,8 @@ class MainFragment :
             }
 
             override fun onQueryTextChange(p0: String?): Boolean {
-                var search = p0!!
-                viewModel.setThings(search)
+                //var search = p0!!
+                //viewModel.setThings(search)
                 return false
             }
         })

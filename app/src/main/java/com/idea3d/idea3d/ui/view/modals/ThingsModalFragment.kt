@@ -63,7 +63,7 @@ class ThingsModalFragment(
 
         binding.buttonFav.setOnClickListener {
             binding.buttonFav.isActivated = !binding.buttonFav.isActivated
-                onThingClickListener.onLikeClick(thing)
+            onThingClickListener.onLikeClick(thing)
         }
 
         binding.buttonSeemore.setOnClickListener {

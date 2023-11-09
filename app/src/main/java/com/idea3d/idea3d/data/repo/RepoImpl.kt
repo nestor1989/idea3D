@@ -1,10 +1,8 @@
 package com.idea3d.idea3d.data.repo
 
-import android.util.Log
 import com.idea3d.idea3d.core.Resource
 import com.idea3d.idea3d.data.model.*
 import com.idea3d.idea3d.data.network.DataSource
-import java.util.*
 import javax.inject.Inject
 
 class RepoImpl @Inject constructor(private val dataSource: DataSource):Repo {
