@@ -10,7 +10,6 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Base64
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,24 +20,20 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.textfield.TextInputLayout
 import com.idea3d.idea3d.R
 import com.idea3d.idea3d.data.model.Task
 import com.idea3d.idea3d.databinding.FragmentNewTaskBinding
-import com.idea3d.idea3d.databinding.FragmentWorksDetailsBinding
 import com.idea3d.idea3d.ui.view.MainActivity
 import com.idea3d.idea3d.ui.viewModel.TasksViewModel
 import com.idea3d.idea3d.utils.Functional
 import com.idea3d.idea3d.utils.Functional.Companion.ACCEPT_MIME_TYPES
 import dagger.hilt.android.AndroidEntryPoint
-import okhttp3.internal.notify
-import ru.cleverpumpkin.calendar.CalendarDate
 import ru.cleverpumpkin.calendar.CalendarDate.Companion.today
-import java.io.InputStream
 import java.util.*
-import kotlin.collections.ArrayList
 
 @AndroidEntryPoint
 class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterView.OnItemClickListener {
@@ -54,7 +49,7 @@ class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterV
     private lateinit var scheduleDialogFragment: ScheduleDialogFragment
     private var enabled = true
 
-    private val REQUIRED_PERMISSION = arrayOf(Manifest.permission.READ_MEDIA_IMAGES)
+    private lateinit var REQUIRED_PERMISSION : Array<String>
     private lateinit var registerPermissionLauncher: ActivityResultLauncher<Array<String>>
 
     var image:String?=null
@@ -126,6 +121,12 @@ class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterV
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        REQUIRED_PERMISSION = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            arrayOf<String>(Manifest.permission.READ_MEDIA_IMAGES)
+        } else {
+            arrayOf<String>(Manifest.permission.READ_EXTERNAL_STORAGE)
+        }
 
         setUp()
 
