@@ -282,5 +282,14 @@ Por otro lado, si disponemos de ventilador de capa, deshabilitarlo para la prime
     <string name="b3v22">Debes aumentar el ancho de linea de la primera capa, cómo máxima el doble del diametro de la boquilla.
 
 </string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
 
 </resources>
