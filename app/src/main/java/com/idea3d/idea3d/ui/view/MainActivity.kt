@@ -130,9 +130,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun setThemes(){
 
-        val darkMode = applicationContext.resources.configuration.uiMode
+        val darkMode = AppCompatDelegate.getDefaultNightMode()
         Log.d("DARK_MODE", darkMode.toString())
-        if (darkMode == 33) binding.switch1.isChecked = true
+        if (darkMode == AppCompatDelegate.MODE_NIGHT_YES) binding.switch1.isChecked = true
 
         binding.switch1.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
