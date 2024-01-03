@@ -1,11 +1,13 @@
 package com.idea3d.idea3d.ui.view
 
 import android.content.Context
-import android.os.Build
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
@@ -14,8 +16,17 @@ import com.idea3d.idea3d.databinding.ActivityMainBinding
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI.setupWithNavController
+import com.bumptech.glide.Glide
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.firebase.auth.FirebaseAuth
 import com.idea3d.idea3d.R
+import com.idea3d.idea3d.ui.view.login.LoginActivity
 import com.idea3d.idea3d.ui.view.modals.DonateModalFragment
+import com.idea3d.idea3d.ui.viewModel.HomeViewModel
+import com.idea3d.idea3d.ui.viewModel.MainViewModel
+import com.idea3d.idea3d.utils.Constants
 import dagger.hilt.android.AndroidEntryPoint
 
 val Context.dataStore by preferencesDataStore(name = "USER_PREFERENCES_NAME")
@@ -24,11 +35,10 @@ val Context.dataStore by preferencesDataStore(name = "USER_PREFERENCES_NAME")
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
-
     private lateinit var donateModalFragment: DonateModalFragment
+    private val mainViewModel by viewModels<MainViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
         val screenSplash = installSplashScreen()
 
         super.onCreate(savedInstanceState)
@@ -45,10 +55,30 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setButtons() {
+        mainViewModel.initializeGoogleSignIn()
         binding.donateButton.setOnClickListener{
             donateModalFragment = DonateModalFragment()
             val donateNewInst = donateModalFragment.newInstance()
             donateNewInst.show(supportFragmentManager, "donate")
+        }
+
+        binding.logoutButton.setOnClickListener {
+                mainViewModel.logout()
+                val intent= Intent(this, LoginActivity::class.java)
+                startActivity(intent)
+                finish()
+        }
+
+        if (mainViewModel.auth.currentUser?.photoUrl !=null) {
+            val image = mainViewModel.auth.currentUser?.photoUrl.toString()
+            Glide.with(applicationContext)
+                .load(image)
+                .centerCrop()
+                .placeholder(R.drawable.idea_3d_brand_2020_02)
+                .dontAnimate()
+                .into(binding.logoutButton)
+        }else {
+            binding.logoutButton.visibility = View.GONE
         }
     }
 

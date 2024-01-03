@@ -6,5 +6,7 @@ class Constants {
         const val THING_KEY = "Bearer 7a75d2e90e63619c17a9ddc68b06980b"
         const val PER_PAGE = 50
         const val DONATE_LINK = "https://paypal.me/nestordelrio?country.x=AR&locale.x=es_XC"
+        const val GOOGLE_AUTH_ID = "695033357087-iu0oq3kpi1bovkk0v7qi86pinposccvd.apps.googleusercontent.com"
+        const val RC_SIGN_IN = 9001
     }
 }

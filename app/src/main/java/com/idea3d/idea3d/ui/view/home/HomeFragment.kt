@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -42,7 +43,7 @@ class HomeFragment : Fragment(),
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
     private val homeViewModel by viewModels<HomeViewModel>()
-    private val mainViewModel by viewModels<MainViewModel>()
+    private val mainViewModel by activityViewModels<MainViewModel>()
 
     private var thingsWithCat = mutableListOf<ThingWithCat>()
 

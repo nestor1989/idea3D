@@ -13,6 +13,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.SearchView
 import android.widget.Toast
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -44,7 +45,7 @@ class MainFragment :
 
     private var _binding: FragmentMainBinding? = null
     private val binding get() = _binding!!
-    private val viewModel by viewModels<MainViewModel>()
+    private val viewModel by activityViewModels<MainViewModel>()
     private val homeViewModel by viewModels<HomeViewModel>()
 
     lateinit var listPages:MutableList<Int>
