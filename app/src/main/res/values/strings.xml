@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">idea3D</string>
     <string name="title_activity_calcu">calcuActivity</string>
-    <!-- Strings used  fragments for navigation -->
+    <!-- Strings use fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
