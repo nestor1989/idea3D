@@ -8,7 +8,7 @@ interface DataSource {
 
     suspend fun getThings (searchBy:String, page:Int, category: Int): Resource<Things>
 
-    suspend fun getNews (country:String): Resource<List<News>>
+    suspend fun getNews (country:String, key: String): Resource<List<News>>
 
     suspend fun getThingByName (searchBy: String, page:Int, category: Int): Resource<Things>
 

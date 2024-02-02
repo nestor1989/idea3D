@@ -7,6 +7,9 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
     <string name="see_more">Ver artículo</string>
+    <string name="country">es</string>
+    <string name="printer">impresora</string>
+    <string name="favs">Tus favoritos</string>
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
@@ -32,6 +35,9 @@
     <string name="download">Lo quiero</string>
 
     <string name="guide_title">Guía visual para la resolución de problemas FDM</string>
+    <string name="search_hint">Busca la solución a tu problema</string>
+
+    <string name="delete">Eliminar</string>
 
     <string name="no_resuts">No se encontraron resultados para tu búsqueda, intenta con otras palabras. Recuerda que el motor de búsqueda de Thingiverse sólo funciona en inglés.</string>
 
@@ -98,6 +104,180 @@ Quiero destacar que Idea 3D seguirá siendo una aplicación gratuita. No estamos
 Gracias por su apoyo y por ser parte de la comunidad de makers. Juntos podemos hacer realidad una plataforma mejor y más útil para todos.
     </string>
 
+    <string name="no_extrusion_start_title">No extruye en el inicio de la impresión</string>
+    <string name="no_extrusion_start_description">No sale nada de plástico durante el inicio de la impresión.</string>
+    <string name="no_extrusion_start_cause1">No sale plástico del nozzle</string>
+    <string name="no_extrusion_start_cause2">El extrusor está tapado</string>
+    <string name="no_extrusion_start_cause3">Nozzle "raya" la cama</string>
+
+    <string name="first_layer_not_adhering_title">La primer capa no se adhiere a la base</string>
+    <string name="first_layer_not_adhering_description">En el comienzo de la impresión, la primera capa no se pega a la cama caliente</string>
+    <string name="first_layer_not_adhering_cause1">Cama caliente y nozzle</string>
+    <string name="first_layer_not_adhering_cause2">Velocidad primera capa</string>
+    <string name="first_layer_not_adhering_cause3">Temperatura</string>
+
+    <string name="little_plastic_nozzle_title">Sale poco plástico del nozzle</string>
+    <string name="little_plastic_nozzle_description">Falta plástico para unir correctamente los perimetros y el relleno</string>
+    <string name="little_plastic_nozzle_cause1">Diámetro de filamento</string>
+    <string name="little_plastic_nozzle_cause2">Multiplicador</string>
+
+    <string name="lot_plastic_nozzle_title">Sale mucho plástico del nozzle</string>
+    <string name="lot_plastic_nozzle_description">Exceso de plástico en las capas superiores</string>
+    <string name="lot_plastic_nozzle_cause1">Parámetro Multiplicador</string>
+
+    <string name="holes_upper_layers_title">Agujeros en las capas superiores</string>
+    <string name="holes_upper_layers_description">Huecos en la cara superior de las piezas</string>
+    <string name="holes_upper_layers_cause1">Capas superiores</string>
+    <string name="holes_upper_layers_cause2">Relleno bajo</string>
+    <string name="holes_upper_layers_cause3">Poca extrusión</string>
+
+    <string name="threads_outside_piece_title">Hilos en el exterior de la pieza</string>
+    <string name="threads_outside_piece_description">Restos de hilos que desprende el cabezal y se pegan a la pieza</string>
+    <string name="threads_outside_piece_cause1">Retracción</string>
+    <string name="threads_outside_piece_cause2">Temperatura alta</string>
+    <string name="threads_outside_piece_cause3">Grandes desplazamientos</string>
+
+    <string name="deformation_excess_temperature_title">Deformación por exceso de temperatura</string>
+    <string name="deformation_excess_temperature_description">Imperfecciones en los detalles por sobrecalentamiento</string>
+    <string name="deformation_excess_temperature_cause1">Refrigeración de capa</string>
+    <string name="deformation_excess_temperature_cause2">Temperatura alta</string>
+    <string name="deformation_excess_temperature_cause3">Alta velocidad</string>
+
+    <string name="layer_displacement_title">Desplazamiento de capas</string>
+    <string name="layer_displacement_description">Se nota una mala calibración de los ejes desalineados</string>
+    <string name="layer_displacement_cause1">Hotend</string>
+    <string name="layer_displacement_cause2">Correas</string>
+    <string name="layer_displacement_cause3">Electrónica</string>
+
+    <string name="filament_jammed_title">Filamento Atascado</string>
+    <string name="filament_jammed_description">Durante la impresión el plástico no avanza y el filamento se nota mordido</string>
+    <string name="filament_jammed_cause1">Hotend</string>
+    <string name="filament_jammed_cause2">Velocidad</string>
+    <string name="filament_jammed_cause3">Temperatura</string>
+
+    <string name="extruder_jammed_title">Extrusor atascado</string>
+    <string name="extruder_jammed_description">No sale pláctico de la boquilla</string>
+    <string name="extruder_jammed_cause1">Temperatura incorrecta </string>
+    <string name="extruder_jammed_cause2">Filamento defectuoso </string>
+    <string name="extruder_jammed_cause3">Desarmar hotend</string>
+
+    <string name="stops_extruding_plastic_title">Deja de extruir plástico </string>
+    <string name="stops_extruding_plastic_description">Se interrumpe la extrusión en medio de la impresión</string>
+    <string name="stops_extruding_plastic_cause1">Tubo de teflón dañado</string>
+    <string name="stops_extruding_plastic_cause2">Filamento mordido</string>
+    <string name="stops_extruding_plastic_cause3">Motor sobrecalentado</string>
+
+    <string name="deficient_filling_title">Relleno deficiente</string>
+    <string name="deficient_filling_description">El relleno es muy fino y sus paredes no se unen correctamente</string>
+    <string name="deficient_filling_cause1">Velocidad de relleno</string>
+    <string name="deficient_filling_cause2">Cambiar de relleno</string>
+    <string name="deficient_filling_cause3">Flujo de material</string>
+
+    <string name="plastic_stuck_piece_title">Plástico pegado a la pieza</string>
+    <string name="plastic_stuck_piece_description">Se forman "grumos" de plástico y se pegan a la pieza</string>
+    <string name="plastic_stuck_piece_cause1">Retracción</string>
+    <string name="plastic_stuck_piece_cause2">Temperatura</string>
+
+    <string name="holes_outer_layers_title">Huecos en las capas exteriores</string>
+    <string name="holes_outer_layers_description">Se forman agujeros en las capas superiores y en los laterales</string>
+    <string name="holes_outer_layers_cause1">Relación perímetro/relleno</string>
+    <string name="holes_outer_layers_cause2">Velocidad de impresión</string>
+    <string name="holes_outer_layers_cause3">Capas "Top"</string>
+
+    <string name="warping_title">Warping</string>
+    <string name="warping_description">En medio de la impresión, la pieza empieza a despegarse de la cama caliente</string>
+    <string name="warping_cause1">Despegue primeras capas</string>
+    <string name="warping_cause2">Flujo de aire</string>
+    <string name="warping_cause3">Recomendaciones ABS</string>
+
+    <string name="upper_layer_scratched_title">Capa superior "rayada"</string>
+    <string name="upper_layer_scratched_description">El nozzle deja marcas en la superficie de la pieza</string>
+    <string name="upper_layer_scratched_cause1">Exceso de plástico</string>
+    <string name="upper_layer_scratched_cause2">Eje Z</string>
+
+    <string name="layer_desfazaje_title">Desfazaje de capas</string>
+    <string name="layer_desfazaje_description">Ondulaciones laterales en toda la pieza</string>
+    <string name="layer_desfazaje_cause1">Eje Z</string>
+
+    <string name="lines_piece_title">Lineas en la pieza</string>
+    <string name="lines_piece_description">Lineas y acabado irregular en toda la pieza</string>
+    <string name="lines_piece_cause1">Velocidad de impresión</string>
+    <string name="lines_piece_cause2">Aceleración</string>
+    <string name="lines_piece_cause3">Mecánica</string>
+
+    <string name="lack_filling_title">Falta de relleno</string>
+    <string name="lack_filling_description">Falta de material en paredes finas</string>
+    <string name="lack_filling_cause1">Relleno</string>
+    <string name="lack_filling_cause2">Perímetros</string>
+
+    <string name="low_resolution_title">Poca resolución</string>
+    <string name="low_resolution_description">Los pequeños detalles no se imprimen o no lo hacen correctamente</string>
+    <string name="low_resolution_cause1">Boquilla incorrecta</string>
+    <string name="low_resolution_cause2">Configuración de boquilla</string>
+    <string name="low_resolution_cause3">Rediseñar la pieza</string>
+
+    <string name="layers_far_apart_title">Capas muy separadas</string>
+    <string name="layers_far_apart_description">Las capas no se pegan entre sí</string>
+    <string name="layers_far_apart_cause1">Altura de capa</string>
+    <string name="layers_far_apart_cause2">Temperatura baja</string>
+
+    <string name="excess_plastic_title">Exceso de plástico</string>
+    <string name="excess_plastic_description">Se forman "gotas" de plástico durante la impresión</string>
+    <string name="excess_plastic_cause1">Desajuste de Hotend</string>
+
+    <string name="deficient_first_layer_title">Primer capa deficiente</string>
+    <string name="deficient_first_layer_description">Las lineas no se unen, se forman grietas y el material se despega de la base</string>
+    <string name="deficient_first_layer_cause1">Altura de capa</string>
+    <string name="deficient_first_layer_cause2">Temperatura baja</string>
+    <string name="deficient_first_layer_cause3">Lineas muy juntas</string>
+
+    <string name="menu_01">STL</string>
+    <string name="menu_02">Trabajos</string>
+    <string name="menu_03">Inicio</string>
+    <string name="menu_04">Calculadora</string>
+    <string name="menu_05">Guía</string>
+
+    <string name="calcu_01">Costo Total</string>
+    <string name="calcu_02">Precio del kWh (ver en factura de luz)</string>
+    <string name="calcu_03">Horas de impresión</string>
+    <string name="calcu_04">Costo del Filamento (Kg)</string>
+    <string name="calcu_05">Cuál es el peso de la pieza (Gr)</string>
+    <string name="calcu_06">Tipo de filamento</string>
+
+    <string name="task_01">Nombre</string>
+    <string name="task_02">Descripción</string>
+    <string name="task_03">Cliente</string>
+    <string name="task_04">Prioritario</string>
+    <string name="task_05">Precio</string>
+    <string name="task_06">Costo</string>
+    <string name="task_07">Comienza</string>
+    <string name="task_08">Estado</string>
+    <string name="task_09">Subir foto de STL</string>
+    <string name="task_10">Crear</string>
+    <string name="task_11">ganancias</string>
+    <string name="task_12">costos</string>
+    <string name="task_13">total</string>
+    <string name="task_14">ventas</string>
+    <string name="task_15">nuevos</string>
+    <string name="task_16">todos</string>
+    <string name="task_17">agenda</string>
+    <string name="task_18">urgentes</string>
+    <string name="task_19">Buscar por nombre o cliente</string>
+    <string name="task_20">Aún no tienes trabajos</string>
+    <string name="task_21">Crear nuevo trabajo</string>
+    <string name="task_22">Editar trabajo</string>
+    <string name="task_23">Listo</string>
+
+    <string name="home_01">Impresos en 3D</string>
+    <string name="home_02">Arte</string>
+    <string name="home_03">Moda</string>
+    <string name="home_04">Hacks life</string>
+    <string name="home_05">Hobbies</string>
+    <string name="home_06">Hogar</string>
+    <string name="home_07">Educación</string>
+    <string name="home_08">En progreso</string>
+    <string name="home_09">Modelos</string>
+    <string name="home_10">Herramientas</string>
 
     <string name="b1v0">Cuando hay una temperatura excesiva en el hotend puede darse que en los primeros segundos no salga plástico.
 
@@ -279,8 +459,6 @@ Por otro lado, si disponemos de ventilador de capa, deshabilitarlo para la prime
 
     <string name="b3v19">Cómo última opción, podemos modificar el diseño de la pieza para conseguir que las paredes que son más finas puedan imprimirse mejor.</string>
 
-    <string name="b3v22">Debes aumentar el ancho de linea de la primera capa, cómo máxima el doble del diametro de la boquilla.
-
-</string>
+    <string name="b3v22">Debes aumentar el ancho de linea de la primera capa, cómo máxima el doble del diametro de la boquilla.</string>
 
 </resources>

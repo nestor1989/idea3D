@@ -36,7 +36,7 @@
             android:background="@null"
             android:gravity="center"
             android:layout_marginHorizontal="12dp"
-            android:queryHint="Busca la solución a tu problema" />
+            android:queryHint="" />
 
 
     <androidx.recyclerview.widget.RecyclerView

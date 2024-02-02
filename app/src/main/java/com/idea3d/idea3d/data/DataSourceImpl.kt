@@ -19,8 +19,8 @@ class DataSourceImpl @Inject constructor(
         return Resource.Success(webService.searchThingByNew(THING_KEY,searchBy, page, Constants.PER_PAGE, category, "now-3M"))
     }
 
-    override suspend fun getNews (country:String): Resource<List<News>> {
-        return Resource.Success(newsProvider.topHeadLines(country).articles)
+    override suspend fun getNews (country:String, key: String): Resource<List<News>> {
+        return Resource.Success(newsProvider.topHeadLines(country, key).articles)
     }
 
     override suspend fun getThingByName (searchBy: String, page:Int, category: Int): Resource<Things>{

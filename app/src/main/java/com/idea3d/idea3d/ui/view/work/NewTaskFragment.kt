@@ -141,11 +141,11 @@ class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterV
         var update = false
 
         if (oldTask == null) {
-            title = "Crear nuevo trabajo"
+            title = getString(R.string.task_21)
             binding.dbBegin.setText(DISPLAY_DATE)
         }
         else {
-            title = "Editar trabajo"
+            title = getString(R.string.task_22)
             update = true
             binding.inputName.setText(oldTask.name)
             binding.inputDescription.setText(oldTask.description)
@@ -162,7 +162,7 @@ class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterV
             idStatus = oldTask.id_status!!
             stringStatus = oldTask.status!!
 
-            binding.buttonSend.setText("Listo")
+            binding.buttonSend.setText(getString(R.string.task_23))
         }
 
         (activity as MainActivity).setNoBanner(title)

@@ -5,32 +5,32 @@
         android:id="@+id/main"
         android:enabled="true"
         android:icon="@drawable/ic_baseline_search_24"
-        android:title="STL" />
+        android:title="@string/menu_01" />
 
     <item
         android:id="@+id/works"
         android:enabled="true"
         android:icon="@drawable/ic_guide"
-        android:title="Trabajos"/>
+        android:title="@string/menu_02"/>
 
     <item
         android:id="@+id/home"
         android:enabled="true"
         android:icon="@drawable/ic_home"
-        android:title="Inicio"
+        android:title="@string/menu_03"
         />
 
     <item
         android:id="@+id/calcu"
         android:enabled="true"
         android:icon="@drawable/ic_calcu"
-        android:title="Calculadora"/>
+        android:title="@string/menu_04"/>
 
     <item
         android:id="@+id/guide"
         android:enabled="true"
         android:icon="@drawable/ic_baseline_playlist_add_check_24"
-        android:title="Guía"/>
+        android:title="@string/menu_05"/>
 
 
 </menu>
