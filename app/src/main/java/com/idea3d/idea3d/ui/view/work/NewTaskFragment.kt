@@ -42,7 +42,7 @@ class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterV
     private val binding get() = _binding!!
 
     private var idStatus = 1
-    private var stringStatus = "Pendiente"
+    private lateinit var stringStatus: String
 
     private val tasksViewModel by viewModels<TasksViewModel>()
 
@@ -115,12 +115,15 @@ class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterV
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentNewTaskBinding.inflate(inflater, container, false)
+
         return binding.root
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        stringStatus = getString(R.string.maker_zone_status_1)
 
         REQUIRED_PERMISSION = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             arrayOf<String>(Manifest.permission.READ_MEDIA_IMAGES)

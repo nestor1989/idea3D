@@ -10,6 +10,7 @@
     <string name="country">en</string>
     <string name="printer">printer</string>
     <string name="favs">Your favorites</string>
+    <string name="works">Your jobs</string>
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
@@ -83,6 +84,19 @@
         <item>this month</item>
         <item>this year</item>
     </string-array>
+
+    <string name="month_01">January</string>
+    <string name="month_02">February</string>
+    <string name="month_03">March</string>
+    <string name="month_04">April</string>
+    <string name="month_05">May</string>
+    <string name="month_06">June</string>
+    <string name="month_07">July</string>
+    <string name="month_08">August</string>
+    <string name="month_09">September</string>
+    <string name="month_10">October</string>
+    <string name="month_11">November</string>
+    <string name="month_12">December</string>
 
     <string name="no_extrusion_start_title">No extrusion at the start of printing</string>.
     <string name="no_extrusion_start_description">No plastic comes out at the start of printing</string>.
@@ -213,6 +227,8 @@
 
     <string name="donate_button">Contribute</string>
 
+    <string name="donate_title">Support Idea 3D</string>
+
     <string name="donate_tv">Hello, I am Néstor, creator of the Idea 3D app. I want to thank all the makers who have used our platform and who have provided us with valuable feedback. As you know, Idea 3D is a free application that we have developed with the aim of helping the community of makers and users of 3D printers.\n
 
 However, the development and maintenance of this application requires continuous effort and resources. That\'s why today I ask for your financial support to help us continue improving Idea 3D and offer a better experience for all users. Any contribution you make will be invested directly in the development and maintenance of our platform.\n
@@ -245,7 +261,7 @@ Thank you for your support and for being part of the maker community. Together w
     <string name="task_08">Status</string>
     <string name="task_09">Upload STL photo</string>
     <string name="task_10">Create</string>
-    <string name="task_11">earnings</string>
+    <string name="task_11">profits</string>
     <string name="task_12">costs</string>
     <string name="task_13">total</string>
     <string name="task_14">sales</string>
@@ -435,21 +451,21 @@ On the other hand, if we have layer fan, disable it for the first one. </string>
     <string name="b3v8">Each material has a suitable temperature range and even depending on the color, by its dye, could vary, in case that, during printing, the temperature is not optimal, the plastic may not extrude properly and cause the filament to "bite". You will have to vary the hotend temperature until the ideal temperature is reached. </string>
     <string name="b3v9">If the above solutions have not solved the problem, you should disassemble the hotend and check what is happening inside.  </string>
 
-    <string name="b3v10">Durante una impresión larga, puede darse el caso que el motor del extrusor se sobrecaliente provocando que el driver de control del mismo, desactive el motor, dejando de extruir filamento. Esto es provocado porque no están bien ajustado los mA del driver.
-    La electrónica dispone de drivers de control para los motores paso a paso, si no están ajustados a los mA adecuados, el motor perderá pasos y las capas se desplazarán. Si disponemos de un polímetro, lo que haremos es ajustar la corriente de cada eje de motor acorde a la impresora que tengamos. Ante la duda, consultar al fabricante.
-    </string>
+    <string name="b3v10">During a long print, it may be the case that the extruder motor overheats, causing the extruder control driver to deactivate the motor, stopping extruding filament. This is caused because the mA of the driver is not properly adjusted.
+     The electronics have control drivers for the stepper motors, if they are not set to the appropriate mA, the motor will lose steps and the layers will move. If we have a multimeter, what we will do is adjust the current of each motor axis according to the printer we have. If in doubt, consult the manufacturer.
+     </string>
 
-    <string name="b3v11">Ajustar el valor del “extrusión multiplier”. Modificando este parámetro lo que logramos es variar cuanto plástico se extruye en cada impresión. Por ejemplo, por defecto está establecido el valor de 1, pero si lo aumentamos hasta 1.15, significa que se extruira un 15% más plástico que anteriormente. El valor típico para filamento PLA es de 0.9, mientras que para filamento ABS se tiende a un valor de cerca 1.0. Si realizas alguna modificación, es conveniente realizar una impresión de prueba de calibración para comprobar que se ha solucionado el problema.</string>
+    <string name="b3v11">Adjust the “extrusion multiplier” value. By modifying this parameter what we achieve is to vary how much plastic is extruded in each print. For example, by default the value is set to 1, but if we increase it to 1.15, it means that 15% more plastic will be extruded than previously. The typical value for PLA filament is 0.9, while for ABS filament it tends to be around 1.0. If you make any modifications, it is advisable to perform a calibration test print to verify that the problem has been solved.</string>
 
-    <string name="b3v13">Capas superiores insuficientes. Aumentar parámetro "Top layers" </string>
+    <string name="b3v13">Insufficient top layers. Increase "Top layers" parameter </string>
 
-    <string name="b3v14">Si estás imprimiendo con filamento ABS, deberás utilizar un fijador o adherente para que se pegue la primera capa correctamente.
-    Cuando se imprime con este tipo de plástico es conveniente crear  “brim” alrededor de la pieza. “Brim” crea una plataforma de plástico alrededor de la pieza, lo que mejora su adherencia. </string>
+    <string name="b3v14">If you are printing with ABS filament, you will need to use a fixative or adhesive so that the first layer sticks correctly.
+     When printing with this type of plastic it is convenient to create a “brim” around the piece. “Brim” creates a plastic platform around the part, which improves its adhesion. </string>
 
-    <string name="b3v17">Un exceso o una baja de tensión en las correas provoca irregularidades en la transmisión de movimiento. Ajustar las correas forma parte del mantenimiento periódico de una impresora, consulta el manual de la misma para realizarlo correctamente.</string>
+    <string name="b3v17">An excess or lack of tension in the belts causes irregularities in the transmission of motion. Adjusting the belts is part of the periodic maintenance of a printer, consult its manual to do it correctly.</string>
 
-    <string name="b3v19">Cómo última opción, podemos modificar el diseño de la pieza para conseguir que las paredes que son más finas puedan imprimirse mejor.</string>
+    <string name="b3v19">As a last option, we can modify the design of the piece to ensure that the walls that are thinner can be printed better.</string>
 
-    <string name="b3v22">Debes aumentar el ancho de linea de la primera capa, cómo máxima el doble del diametro de la boquilla.</string>
+    <string name="b3v22">You must increase the line width of the first layer, at most twice the diameter of the nozzle.</string>
 
 </resources>

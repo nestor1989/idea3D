@@ -10,6 +10,7 @@
     <string name="country">es</string>
     <string name="printer">impresora</string>
     <string name="favs">Tus favoritos</string>
+    <string name="works">Tus trabajos</string>
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
@@ -92,6 +93,22 @@
         <item>este mes</item>
         <item>este año</item>
     </string-array>
+
+    <string name="month_01">Enero</string>
+    <string name="month_02">Febrero</string>
+    <string name="month_03">Marzo</string>
+    <string name="month_04">Abril</string>
+    <string name="month_05">Mayo</string>
+    <string name="month_06">Junio</string>
+    <string name="month_07">Julio</string>
+    <string name="month_08">Agosto</string>
+    <string name="month_09">Septiembre</string>
+    <string name="month_10">Octubre</string>
+    <string name="month_11">Noviembre</string>
+    <string name="month_12">Diciembre</string>
+
+
+    <string name="donate_title">Apoya a Idea 3D</string>
 
     <string name="donate_button">Contribuir</string>
 
