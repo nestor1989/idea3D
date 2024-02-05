@@ -1,0 +1,471 @@
+<resources>
+    <string name="app_name">idea3D</string>
+    <string name="title_activity_calcu">calcuActivity</string>
+    <!-- Strings used  fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="see_more">See article</string>
+    <string name="country">en</string>
+    <string name="printer">printer</string>
+    <string name="favs">Your favorites</string>
+    <string name="works">Your jobs</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="title_activity_main2">MainActivity</string>
+
+    <string name="mandatory_fill">This field is mandatory</string>
+
+    <string name="Horas">Hours</string>
+    <string name="kWh">$ kWh</string>
+    <string name="kg">x 1Kg</string>
+    <string name="Peso">Weight</string>
+    <string name="Material">Material</string>
+    <string name="CE">Energy Cost</string>
+    <string name="CM">Materials Cost</string>
+    <string name="CT">Total Cost</string>
+    <string name="energy">Energy</string>
+    <string name="supplies">Supplies</string>
+
+    <string name="good_night">Good night</string>
+    <string name="good_evening">Good evening</string>
+    <string name="good_morning">Good day</string>
+
+    <string name="download">I want it</string>
+
+    <string name="guide_title">Visual guide for FDM problem resolution</string>
+    <string name="search_hint">Search for the solution to your problem</string>
+
+    <string name="no_resuts">No results were found for your search, try with other words. Remember that the Thingiverse search engine only works in English.</string>
+
+    <string name="delete">Delete</string>
+
+    <string name="abs_descripcion">Have you ever built something with Lego pieces? Then you had ABS (acrylonitrile butadiene styrene) in your hands. It is the most common plastic in 3D printing and that is because of its characteristic of being a flexible thermoplastic and highly resistant to shocks. Today it is used, for example, in the bodywork of cars, gears of appliances or the housings of mobile phones.</string>
+    <string name="pla_descripcion">PLA is really cool</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_info">InfoActivity</string>
+    <string name="title_activity_news">NewsActivity</string>
+    <string name="title_activity_list_screen">ListScreenActivity</string>
+
+    <string name="maker_zone_title">Maker \nZone</string>
+    <string name="maker_zone_finance">Finance</string>
+    <string name="maker_zone_quick_actions">Quick actions</string>
+    <string name="maker_zone_works">Jobs</string>
+
+    <string name="maker_zone_status_1">Pending</string>
+    <string name="maker_zone_status_2">Ready to start</string>
+    <string name="maker_zone_status_3">In progress</string>
+    <string name="maker_zone_status_4">Printing finished</string>
+    <string name="maker_zone_status_5">Post-processing</string>
+    <string name="maker_zone_status_6">Ready for delivery</string>
+    <string name="maker_zone_status_7">Delivered</string>
+    <string name="maker_zone_status_8">Charged</string>
+    <string name="maker_zone_status_9">Paused</string>
+
+    <string-array name="status">
+
+        <item>Pending</item>
+        <item>Ready to start</item>
+        <item>In progress</item>
+        <item>Imp. Finished</item>
+        <item>Post-processed</item>
+        <item>Ready to deliver</item>
+        <item>Delivered</item>
+        <item>Charged</item>
+        <item>Paused</item>
+
+    </string-array>
+
+    <string-array name="period">
+        <item>total</item>
+        <item>this month</item>
+        <item>this year</item>
+    </string-array>
+
+    <string name="month_01">January</string>
+    <string name="month_02">February</string>
+    <string name="month_03">March</string>
+    <string name="month_04">April</string>
+    <string name="month_05">May</string>
+    <string name="month_06">June</string>
+    <string name="month_07">July</string>
+    <string name="month_08">August</string>
+    <string name="month_09">September</string>
+    <string name="month_10">October</string>
+    <string name="month_11">November</string>
+    <string name="month_12">December</string>
+
+    <string name="no_extrusion_start_title">No extrusion at the start of printing</string>.
+    <string name="no_extrusion_start_description">No plastic comes out at the start of printing</string>.
+    <string name="no_extrusion_start_cause1">No plastic comes out of the nozzle</string>.
+    <string name="no_extrusion_start_cause2">The extruder is plugged</string>
+    <string name="no_extrusion_start_cause3">Nozzle "scratches" bed</string>
+
+    <string name="first_layer_not_adhering_title">First layer does not adhere to the base</string>
+    <string name="first_layer_not_adhering_description">At the start of printing, the first layer does not stick to the hot bed</string>.
+    <string name="first_layer_not_adhering_cause1">Hotbed and nozzle</string>
+    <string name="first_layer_not_adhering_cause2">First layer speed</string>
+    <string name="first_layer_not_adhering_cause3">Temperature</string>
+
+    <string name="little_plastic_nozzle_title">Little plastic coming out of the nozzle</string>
+    <string name="little_plastic_nozzle_description">Lack of plastic to properly attach perimeters and filler</string>
+    <string name="little_plastic_nozzle_cause1">Diameter of filament</string>
+    <string name="little_plastic_nozzle_cause2">Multiplier</string>
+
+    <string name="lot_plastic_nozzle_title">A lot of plastic comes out of the nozzle</string>
+    <string name="lot_plastic_nozzle_description">Excess plastic in top layers</string>
+    <string name="lot_plastic_nozzle_cause1">Multiplier parameter</string>
+
+    <string name="holes_upper_layers_title">Holes in upper layers</string>
+    <string name="holes_upper_layers_description">Holes in the upper face of the parts</string>
+    <string name="holes_upper_layers_cause1">Upper layers</string>
+    <string name="holes_upper_layers_cause2">Underfill</string>
+    <string name="holes_upper_layers_cause3">Low extrusion</string>
+
+    <string name="threads_outside_piece_title">Threads on outside of piece</string>
+    <string name="threads_outside_piece_description">Remaining threads coming off the die and sticking to the part</string>
+    <string name="threads_outside_piece_cause1">Retraction</string>
+    <string name="threads_outside_piece_cause2">High temperature</string>
+    <string name="threads_outside_piece_cause3">Heavy displacements</string>
+
+    <string name="deformation_excess_temperature_title">Excess temperature deformation</string>
+    <string name="deformation_excess_temperature_description">Detail imperfections due to overheating</string>
+    <string name="deformation_excess_temperature_cause1">Layer cooling</string>
+    <string name="deformation_excess_temperature_cause2">High temperature</string>
+    <string name="deformation_excess_temperature_cause3">High speed</string>
+
+    <string name="layer_displacement_title">Layer displacement</string>
+    <string name="layer_displacement_description">Miss calibration of misaligned axes is noted</string>
+    <string name="layer_displacement_cause1">Hotend</string>
+    <string name="layer_displacement_cause2">Belts</string>
+    <string name="layer_displacement_cause3">Electronics</string>
+
+    <string name="filament_jammed_title">Clogged Filament</string>
+    <string name="filament_jammed_description">During printing the plastic does not advance and the filament feels bitten</string>.
+    <string name="filament_jammed_cause1">Hotend</string>
+    <string name="filament_jammed_cause2">Speed</string>
+    <string name="filament_jammed_cause3">Temperature</string>
+
+    <string name="extruder_jammed_title">Extruder jammed</string>
+    <string name="extruder_jammed_description">No plastic coming out of nozzle</string>
+    <string name="extruder_jammed_cause1">Incorrect temperature </string>
+    <string name="extruder_jammed_cause2">Defective filament </string>
+    <string name="extruder_jammed_cause3">Disarm hotend</string>
+
+    <string name="stops_extruding_plastic_title">Stop extruding plastic</string>
+    <string name="stops_extruding_plastic_description">Extrusion is interrupted in the middle of printing</string>
+    <string name="stops_extruding_plastic_cause1">Teflon tube damaged</string>
+    <string name="stops_extruding_plastic_cause2">Bitten filament</string>
+    <string name="stops_extruding_plastic_cause3">Overheated engine</string>
+
+    <string name="deficient_filling_title">Deficient filling</string>
+    <string name="deficient_filling_description">The filling is too thin and its walls do not bind properly</string>
+    <string name="deficient_filling_cause1">Filling speed</string>
+    <string name="deficient_filling_cause2">Change filling rate</string>
+    <string name="deficient_filling_cause3">Material flow rate</string>
+
+    <string name="plastic_stuck_piece_title">Plastic stuck to piece</string>
+    <string name="plastic_stuck_piece_description">Plastic "clumps" form and stick to the piece</string>
+    <string name="plastic_stuck_piece_cause1">Shrinkage</string>
+    <string name="plastic_stuck_piece_cause2">Temperature</string>
+
+    <string name="holes_outer_layers_title">Holes in outer layers</string>
+    <string name="holes_outer_layers_description">Holes form in the top and side layers</string>
+    <string name="holes_outer_layers_cause1">Perimeter/fill ratio</string>
+    <string name="holes_outer_layers_cause2">Print speed</string>
+    <string name="holes_outer_layers_cause3">Top layers</string>
+
+    <string name="warping_title">Warping</string>
+    <string name="warping_description">In the middle of printing, the part begins to come off the hot bed</string>
+    <string name="warping_cause1">Take off first layers</string>
+    <string name="warping_cause2">Airflow</string>
+    <string name="warping_cause3">ABS recommendations</string>
+
+    <string name="upper_layer_scratched_title">"Scratched" top layer</string>
+    <string name="upper_layer_scratched_description">The nozzle leaves marks on the surface of the piece</string>
+    <string name="upper_layer_scratched_cause1">Excess plastic</string>
+    <string name="upper_layer_scratched_cause2">Z axis</string>
+
+    <string name="layer_desfazaje_title">Layer offset</string>
+    <string name="layer_desfazaje_description">Lateral waves throughout the piece</string>
+    <string name="layer_desfazaje_cause1">Z axis</string>
+
+    <string name="lines_piece_title">Lines in the piece</string>
+    <string name="lines_piece_description">Lines and irregular finish throughout the piece</string>
+    <string name="lines_piece_cause1">Print speed</string>
+    <string name="lines_piece_cause2">Acceleration</string>
+    <string name="lines_piece_cause3">Mechanical</string>
+
+    <string name="lack_filling_title">Lack of filling</string>
+    <string name="lack_filling_description">Lack of material in thin walls</string>
+    <string name="lack_filling_cause1">Filling</string>
+    <string name="lack_filling_cause2">Perimeters</string>
+
+    <string name="low_resolution_title">Low resolution</string>
+    <string name="low_resolution_description">Small details do not print or do not print correctly</string>
+    <string name="low_resolution_cause1">Incorrect nozzle</string>
+    <string name="low_resolution_cause2">Nozzle Settings</string>
+    <string name="low_resolution_cause3">Redesign the part</string>
+
+    <string name="layers_far_apart_title">Layers far apart</string>
+    <string name="layers_far_apart_description">Layers do not stick together</string>
+    <string name="layers_far_apart_cause1">Layer height</string>
+    <string name="layers_far_apart_cause2">Low temperature</string>
+
+    <string name="excess_plastic_title">Excess plastic</string>
+    <string name="excess_plastic_description">Plastic "blobs" form during printing</string>
+    <string name="excess_plastic_cause1">Hotend mismatch</string>
+
+    <string name="deficient_first_layer_title">Deficient first layer</string>
+    <string name="deficient_first_layer_description">The lines do not join, cracks form and the material detaches from the base</string>
+    <string name="deficient_first_layer_cause1">Layer height</string>
+    <string name="deficient_first_layer_cause2">Low temperature</string>
+    <string name="deficient_first_layer_cause3">Lines too close together</string>
+
+    <string name="donate_button">Contribute</string>
+
+    <string name="donate_title">Support Idea 3D</string>
+
+    <string name="donate_tv">Hello, I am Néstor, creator of the Idea 3D app. I want to thank all the makers who have used our platform and who have provided us with valuable feedback. As you know, Idea 3D is a free application that we have developed with the aim of helping the community of makers and users of 3D printers.\n
+
+However, the development and maintenance of this application requires continuous effort and resources. That\'s why today I ask for your financial support to help us continue improving Idea 3D and offer a better experience for all users. Any contribution you make will be invested directly in the development and maintenance of our platform.\n
+
+I want to highlight that Idea 3D will continue to be a free application. We are not looking for economic benefits with this financing campaign, but simply resources to improve our platform and make it even more useful for all users. We are committed to offering a tool that helps the community of makers and we are grateful for any contribution you can make to help us achieve this goal.\n
+
+Thank you for your support and for being part of the maker community. Together we can make a better and more useful platform for everyone.
+    </string>
+
+    <string name="menu_01">STL</string>
+    <string name="menu_02">Works</string>
+    <string name="menu_03">Home</string>
+    <string name="menu_04">Calculator</string>
+    <string name="menu_05">Guide</string>
+
+    <string name="calcu_01">Total Cost</string>
+    <string name="calcu_02">Price per kWh (see electricity bill)</string>
+    <string name="calcu_03">Printing hours</string>
+    <string name="calcu_04">Filament Cost (Kg)</string>
+    <string name="calcu_05">Weight of the piece (Gr)</string>
+    <string name="calcu_06">Filament type</string>
+
+    <string name="task_01">Name</string>
+    <string name="task_02">Description</string>
+    <string name="task_03">Customer</string>
+    <string name="task_04">Priority</string>
+    <string name="task_05">Price</string>
+    <string name="task_06">Cost</string>
+    <string name="task_07">Start</string>
+    <string name="task_08">Status</string>
+    <string name="task_09">Upload STL photo</string>
+    <string name="task_10">Create</string>
+    <string name="task_11">profits</string>
+    <string name="task_12">costs</string>
+    <string name="task_13">total</string>
+    <string name="task_14">sales</string>
+    <string name="task_15">new</string>
+    <string name="task_16">all</string>
+    <string name="task_17">schedule</string>
+    <string name="task_18">urgent</string>
+    <string name="task_19">Search by name or client</string>
+    <string name="task_20">You don\'t have jobs yet</string>
+    <string name="task_21">Create new job</string>
+    <string name="task_22">Edit job</string>
+    <string name="task_23">Done</string>
+
+    <string name="home_01">3D Printing</string>
+    <string name="home_02">Art</string>
+    <string name="home_03">Fashion</string>
+    <string name="home_04">Gadgets</string>
+    <string name="home_05">Hobby</string>
+    <string name="home_06">Household</string>
+    <string name="home_07">Learning</string>
+    <string name="home_08">Models</string>
+    <string name="home_09">Tools</string>
+    <string name="home_10">Toys and Games</string>
+
+    <string name="b1v0">When there is an excessive temperature in the hotend, plastic may not come out in the first seconds.
+
+Enable the "Skirt" option, so that the head purges.
+If material comes out of the nozzle for more than 20 seconds when the melter is stopped, the temperature should be reduced. IMPORTANT: the extruder must retract at least 10mm whenever it enters the idle position so that the cooling is done in the teflon area and the start-up is correct. Check that in the last lines of the gcodes this retraction occurs, otherwise add two lines: 1.- G92 E0 and 2.- G1 E-15 F6000</string>.
+    <string name="b1v1">If the bed is already correctly leveled, we have to determine the proper height of the Nozzle with respect to it, in one of the following ways:
+
+On some models, what we can do is lower the Z-axis limit switch, in this way, what we do is decrease the nozzle distance with respect to the bed.
+Hardware adjustment of the nozzle height. For this we must take into account the Z offset parameter. In this parameter, what we do is to tell the printer to bring "-x mm" the nozzle closer to the hot bed. </string>
+    <string name="b1v2">The first necessary check is to confirm that the proper diameter of the filament used for printing has been set. This can be verified by using a gauge to accurately measure the filament diameter. On the market, the following standard values are available: 1.75 mm or 3 mm.</string>
+    <string name="b1v3">When we do not have enough experience it can happen that more plastic is extruded than necessary, some printers do not have mechanisms to control the plastic flow.
+
+Adjust the filament parameters in your laminating program. You will need to increase the diameter to reduce the amount of plastic extruded by the machine or reduce the multiplier factor.
+
+Example: Diameter: 1.75mm (change to 1.80mm)</string>.
+    <string name="b1v4">Correct the number of solid top layers that have been set and what infill we have set during part printing.
+
+For example, if you have set a 10% infill and two solid top layers, you will most likely get gaps as in the image. You should increase the number of solid top layers in order to make sure it is 100% solid.
+</string>
+    <string name="b1v5">The Retract parameter determines how much plastic is retracted on head travel when not printing. The more filament that is retracted, the less it will overflow through the nozzle. If your extruder is direct-drive, the appropriate value is between 1 and 1.5mm.
+
+     If the retraction is too fast, the filament can create bubbles inside the nozzle or a fast movement of the pulley can bite the filament. Normal working values are between 30-60mm/sec. This parameter may vary a little depending on the type of filament we are printing, it will be the manufacturer itself to provide those values.
+    </string>
+
+    <string name="b1v6">If we do not have layer ventilation, this may be the main reason.
+
+In case of having ventilation, it may be that the airflow is not properly configured. To change that option, you have to access the filament configuration parameters and set the correct "Cooling" parameters.
+</string>
+    <string name="b1v7">Excessive speed can cause some motor to lose steps. If the displacements are too fast, reduce the displacement speed by 50% without extrusion.
+</string>
+
+    <string name="b1v8">The pressure exerted on the filament on the motor is not correct.
+
+    GREG\'S WADE EXTRUDER: the two screws that tighten the filament are too loose. It can also be that the bearing that pushes the filament against the hobbed bolt does not rotate smoothly.
+
+    EXTRUSOR DIRECT DRIVE: the pulley on the motor may not be in perfect condition. Clean the teeth and check that they are not worn. It may also be that the cam is not exerting enough pressure.</string>
+
+    <string name="b1v9">Check that the hotend thermistor is in place, this may cause the nozzle not to be at the set temperature.
+
+        Check that the melt temperature is correct, check the lamination parameters making sure that we have chosen the right material and color.</string>
+    <string name="b1v10">The tube inside the hotend rod may be damaged and should be replaced.</string>
+    <string name="b1v11">If the infill print speed is too high, the layers may not merge properly. The solution would be to slow down the infill print speed.
+
+</string>
+    <string name="b1v12">During head movements, the extruder should retract to avoid plastic dripping. If this is not the case, we can find remains of filament causing that the piece does not have a good finish.
+
+    If the retraction is too fast, the filament can create bubbles inside the nozzle or a fast movement of the pulley can bite the filament. Normal working values are between 30-60mm/sec. This parameter may vary a little depending on the type of filament we are printing.
+
+    If it occurs at the end of the layer we modify the parameter "Extra length on restart".</string>.
+
+    <string name="b1v13">We can try modifying the parameter that controls the percentage ratio between the perimeter and the infill, called "Infill/Perimeter Overlap". This parameter indicates what percentage of infill overlaps the perimeters. If we have the problem as in the figure we should increase the value of this parameter and test that it has been solved.
+
+    We can try increasing the "Infill/Perimeter Overlap" parameter by 30%. If it is not enough, increase this parameter further.
+</string>
+
+    <string name="b1v14">If you notice that from the beginning the first layers peel off, see section "The first layer does not adhere to the base".</string>
+    <string name="b1v15">This effect appears if the first layer is printed too close to the glass.</string>
+    The Z-axis is not correctly calibrated and the nozzle touches the glass preventing the plastic from coming out easily. This problem is observed during the printing of the first layer.
+
+    Lower the hot bed of the printer if your printer allows it.
+
+    Adjusting the nozzle height using software: To do this we must take into account the Z offset parameter. With this parameter what we do is to indicate to the printer that the Z axis zero point is at "x mm" from the homming point.
+
+    <string name="b1v16">This error occurs when the Z axis has backlash and the linear movement of this axis is not straight. This backlash can occur for several reasons:
+    *Smooth rods: one of the smooth rods moves or vibrates. Fix correctly.
+    *Threaded rods: check that they are straight and concentric with the motors.
+    *Z-axis nuts: make sure that the nuts that allow the Z-axis movement are fixed</string>.
+
+    <string name="b1v17">You should check and adjust the speed parameters of the printing movements of your machine. Gradually reduce the values until you get a good print of the part. </string>
+
+    <string name="b1v18">You can try modifying the parameter that controls the percentage ratio between perimeter and infill, called "Infill/Perimeter Overlap". This parameter indicates what percentage of infill overlaps the perimeters. If we have the problem as in the figure we should increase the value of this parameter and test that it has been solved.
+
+    We can try increasing the "Infill/Perimeter Overlap" parameter by 30%. If it is not enough, increase this parameter further.</string>.
+
+    <string name="b1v19">Change the nozzle for a smaller diameter nozzle.
+
+We must keep in mind that the highest layer resolution will be 80% of the nozzle diameter.
+
+For example, with a 0.3mm nozzle we can print layers with a maximum height of 0.24mm (0.3mm*80%=0.24mm).</string>.
+
+    <string name="b1v20">The layer height can never be more than 80% of the nozzle diameter.
+    For example, if we have a 0.3 mm nozzle, the maximum layer height will be 0.24 mm.</string>
+
+    <string name="b1v21"> The nozzle and threaded rod may not be tightened well together.
+    The threaded rod and nozzle must be tightened well. HOT (at 240º), this is very important because otherwise the hotend may break because of the hardened plastic, hold the square with a pliers and screw the nozzle until it stops. Another important thing is not to overtighten as the hotend materials are somewhat delicate.</string>
+
+    <string name="b1v22">Decrease the height of the first layer. Remember that the maximum height cannot exceed 80% of the nozzle diameter. </string>
+
+    <string name="b2v0">The extruder is probably clogged. This may be caused because some plastic has been left inside the Nozzle preventing the plastic from flowing. The extruder needs to be disassembled, see the printer manual or contact the manufacturer for the steps to follow. </string>
+
+    <string name="b2v1">As a general rule the first layer should be done at half the speed of the rest of the print. In this way what we do is to make sure that the filament adheres to the base. This is solved by modifying the parameter called "First Layer Speed". If we indicate 50%, we are telling the printer to print the first layer at half the speed of the rest of the layers. If you find that it is still too fast, decrease the value.</string>.
+
+    <string name="b2v2">Adjust the value of the "extrusion multiplier". By modifying this parameter what we achieve is to vary how much plastic is extruded on each print. For example, the default value is set to 1, but if we increase it to 1.15, it means that 15% more plastic will be extruded than before. The typical value for PLA filament is 0.9, while for ABS filament it tends to be about 1.0. If you make any modifications, it is advisable to perform a calibration test print to check that the problem has been fixed.</string>.
+
+    <string name="b2v4">If the fill percentage is below correct, voids will appear on the top faces, the support surface is too small and the filament may sag. To fix this, you will have to increase it from the infill parameter of your laminator. </string>
+
+    <string name="b2v5">An incorrect extrusion temperature is one of the most frequent problems. If the temperature is too high, the filament inside the nozzle becomes too viscous and comes out without the extruder running. Try lowering the extruder temperature by 5–10 degrees, if in idle position the plastic is still coming out continue lowering the temperature. </string>
+
+    <string name="b2v6">If even with fan, the problem persists, you should try lowering the extruder temperature. This way you will get the filament to solidify faster. </string>
+
+    <string name="b2v7"> Too much or too little tension in the belts causes irregularities in the motion transmission. Adjusting the belts is part of the periodic maintenance of a printer, refer to the printer manual to perform it correctly.
+ </string>
+
+    <string name="b2v8">Extruding too fast can cause more plastic to be extruded than the hotend is capable of pulling through the nozzle. We can adjust the flow of plastic that will be ejected during printing, we can slow down the speed and keep testing, until we manage to solve the problem. </string>
+
+    <string name="b2v9">Extract the filament and cut the worn segment to remove any impurities that may exist in that section. Reload the filament and with the hotend hot push manually to check that it comes out of the nozzle without exerting excessive pressure.</string>
+
+    <string name="b2v10">Remove the filament and cut the worn segment to remove any impurities that may exist in that section. Reload the filament and with the hotend hot push manually to check that it comes out of the nozzle without exerting excessive pressure. </string>
+
+    <string name="b2v11">It is possible that the fill pattern used is not the right one for the part you want to print.
+        Change the fill pattern parameter on your laminator and go testing.
+</string>
+
+    <string name="b2v12">Extruding too fast can cause more plastic to be extruded than the hotend is capable of pulling through the nozzle. We can adjust the flow of plastic to be extruded during printing, we can reduce the speed and try it out, until the problem is solved.</string>
+
+    <string name="b2v13">If you print at a very high speed, the layers may not merge properly.
+     A possible solution might be to slow down the print speed of the top layer fill. </string>
+
+    <string name="b2v14">If your printer does not have an enclosed structure, any draft can cause the material to retract too far and peel off the base. You should try to control the printing environment as much as possible.</string>
+
+    <string name="b2v15">If the bed is already properly leveled, you need to determine the proper height of the Nozzle relative to the bed in one of the following ways:
+
+On some models, what we can do is lower the Z-axis limit switch, in this way, what we do is decrease the nozzle distance with respect to the bed.
+Hardware adjustment of the nozzle height. For this we must take into account the Z offset parameter. In this parameter, what we do is to tell the printer to bring "-x mm" the nozzle closer to the hot bed. </string>
+
+    <string name="b2v17">If any of your printer\'s firmware acceleration settings have been modified, they may not be optimal for proper operation.</string>
+
+
+    You should contact technical support for guidance on how to proceed appropriately.
+
+    <string name="b2v18">Increase by parameter the perimeter width if it is too small. You can start by setting the parameter to the same size as the nozzle. This is a good size for most laminators. For example, if we have a 0.3mm nozzle we should set this parameter to a value of 0.3.</string>.
+
+    <string name="b2v19">You can tell the laminator that you have a lower resolution nozzle than the one you have, and thus get it to print with more detail.
+
+Although in a way we are "fooling" the printer, so part could have other problems associated with this solution.</string>.
+    <string name="b2v20">If the layer height is appropriate, it is possible that the extruded filament is at a lower temperature than necessary for the type of plastic it uses. You should check the extrusion temperature until you get the proper temperature for the filament being used.
+</string>
+    <string name="b2v22">Increase the first layer temperature setting on your laminator.
+
+</string>
+
+    <string name="b3v0"> If the bed is already properly leveled, we need to determine the proper height of the Nozzle relative to the bed in one of the following ways:
+
+On some models, what we can do is lower the Z-axis limit switch, in this way, what we do is decrease the nozzle distance with respect to the bed.
+Hardware adjustment of the nozzle height. For this we must take into account the Z offset parameter. In this parameter, what we do is to tell the printer to bring "-x mm" the nozzle closer to the hot bed.  </string>
+
+    <string name="b3v1">If you print filament on a cold bed, it is normal that the plastic cools faster causing it not to stick. To solve this, if the printer has a hot base, you should increase the temperature until you get better adhesion. The temperature of the hot base depends on the type of filament we are using, the manufacturer itself indicates the temperature that must be set to print. It is also important to use adhesive or fixative to improve adhesion.
+
+On the other hand, if we have layer fan, disable it for the first one. </string>
+
+    <string name="b3v4">The first thing to check is that you have set the correct diameter of the filament being printed. You can check with a caliper exactly what diameter the filament is. There are the following market values: 1.75mm or 3mm.
+
+    Adjust the value of the "extrusion multiplier". By modifying this parameter what we achieve is to vary how much plastic is extruded in each print. For example, the default value is set to 1, but if we increase it to 1.15, it means that 15% more plastic will be extruded than before. The typical value for PLA is 0.9 and for ABS is 1.0.
+
+     </string>
+    <string name="b3v5">If adjusting the above parameters the problems continue, we can try enabling the "Avoid crossing perimeters" option.
+
+</string>
+    <string name="b3v6">When printing at a very high speed, the layers do not cool down before depositing the next layer.
+ </string>
+
+    <string name="b3v7">The electronics have control drivers for the stepper motors, if they are not set to the proper mA, the motor will lose steps and the layers will shift. If we have a multimeter, what we will do is to adjust the current of each motor axis according to the printer we have (you can try with X=400 mA , Y=400 mA, Z=E=600 mA, when they are DRV8825, otherwise consult the optimal values for the type of driver you have). If in doubt, consult the manufacturer. </string>
+
+    <string name="b3v8">Each material has a suitable temperature range and even depending on the color, by its dye, could vary, in case that, during printing, the temperature is not optimal, the plastic may not extrude properly and cause the filament to "bite". You will have to vary the hotend temperature until the ideal temperature is reached. </string>
+    <string name="b3v9">If the above solutions have not solved the problem, you should disassemble the hotend and check what is happening inside.  </string>
+
+    <string name="b3v10">During a long print, it may be the case that the extruder motor overheats, causing the extruder control driver to deactivate the motor, stopping extruding filament. This is caused because the mA of the driver is not properly adjusted.
+     The electronics have control drivers for the stepper motors, if they are not set to the appropriate mA, the motor will lose steps and the layers will move. If we have a multimeter, what we will do is adjust the current of each motor axis according to the printer we have. If in doubt, consult the manufacturer.
+     </string>
+
+    <string name="b3v11">Adjust the “extrusion multiplier” value. By modifying this parameter what we achieve is to vary how much plastic is extruded in each print. For example, by default the value is set to 1, but if we increase it to 1.15, it means that 15% more plastic will be extruded than previously. The typical value for PLA filament is 0.9, while for ABS filament it tends to be around 1.0. If you make any modifications, it is advisable to perform a calibration test print to verify that the problem has been solved.</string>
+
+    <string name="b3v13">Insufficient top layers. Increase "Top layers" parameter </string>
+
+    <string name="b3v14">If you are printing with ABS filament, you will need to use a fixative or adhesive so that the first layer sticks correctly.
+     When printing with this type of plastic it is convenient to create a “brim” around the piece. “Brim” creates a plastic platform around the part, which improves its adhesion. </string>
+
+    <string name="b3v17">An excess or lack of tension in the belts causes irregularities in the transmission of motion. Adjusting the belts is part of the periodic maintenance of a printer, consult its manual to do it correctly.</string>
+
+    <string name="b3v19">As a last option, we can modify the design of the piece to ensure that the walls that are thinner can be printed better.</string>
+
+    <string name="b3v22">You must increase the line width of the first layer, at most twice the diameter of the nozzle.</string>
+
+</resources>

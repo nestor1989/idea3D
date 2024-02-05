@@ -55,7 +55,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     style="@style/ModalTitles"
-                    android:text="Apoya a Idea 3D" />
+                    android:text="@string/donate_title" />
 
                 <Space
                     android:layout_width="48dp"

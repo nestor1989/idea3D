@@ -252,18 +252,18 @@ class ScheduleDialogFragment(private val onClick:OnDateClick) :
     private fun setTextMonth(monthActual: Int) {
         var monthString = ""
         when (monthActual) {
-            0 -> monthString = "Enero"
-            1 -> monthString = "Febrero"
-            2 -> monthString = "Marzo"
-            3 -> monthString = "Abril"
-            4 -> monthString = "Mayo"
-            5 -> monthString = "Junio"
-            6 -> monthString = "Julio"
-            7 -> monthString = "Agosto"
-            8 -> monthString = "Septiembre"
-            9 -> monthString = "Octubre"
-            10 -> monthString = "Noviembre"
-            11 -> monthString = "Diciembre"
+            0 -> monthString = getString(R.string.month_01)
+            1 -> monthString = getString(R.string.month_02)
+            2 -> monthString = getString(R.string.month_03)
+            3 -> monthString = getString(R.string.month_04)
+            4 -> monthString = getString(R.string.month_05)
+            5 -> monthString = getString(R.string.month_06)
+            6 -> monthString = getString(R.string.month_07)
+            7 -> monthString = getString(R.string.month_08)
+            8 -> monthString = getString(R.string.month_09)
+            9 -> monthString = getString(R.string.month_10)
+            10 -> monthString =getString(R.string.month_11)
+            11 -> monthString = getString(R.string.month_12)
         }
         binding.tvMonth.text = monthString
 

@@ -10,8 +10,8 @@ class RepoImpl @Inject constructor(private val dataSource: DataSource):Repo {
         return dataSource.getThings(searchBy, page, category)
     }
 
-    override suspend fun getNews(country:String): Resource<List<News>> {
-        return dataSource.getNews(country)
+    override suspend fun getNews(country:String, key: String): Resource<List<News>> {
+        return dataSource.getNews(country, key)
     }
 
     override suspend fun getThingsByName(searchBy: String, page:Int, category: Int): Resource<Things> {
