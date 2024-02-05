@@ -23,7 +23,7 @@
         android:background="@null"
         android:gravity="center"
         android:layout_marginHorizontal="12dp"
-        android:queryHint="Buscar por nombre o cliente" />
+        android:queryHint="@string/task_19" />
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
@@ -88,7 +88,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text = "Aún no tienes trabajos"
+                android:text = "@string/task_20"
                 android:fontFamily="@font/at_surt_regular"
                 android:gravity="center"
                 android:textColor="@color/teal_idea"

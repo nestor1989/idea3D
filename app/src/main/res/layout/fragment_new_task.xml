@@ -22,7 +22,7 @@
             android:layout_height="60dp"
             android:textColorHint="@color/teal_idea"
             app:boxStrokeColor="@color/teal_idea"
-            android:hint="Nombre"
+            android:hint="@string/task_01"
             app:boxStrokeErrorColor="@color/red"
             app:errorTextColor="@color/red"
             android:layout_marginTop="16dp">
@@ -42,7 +42,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:textColorHint="@color/teal_idea"
-            android:hint="Descripción"
+            android:hint="@string/task_02"
             app:boxStrokeErrorColor="@color/red"
             app:errorTextColor="@color/red"
             app:boxStrokeColor="@color/teal_idea"
@@ -68,7 +68,7 @@
             android:layout_height="60dp"
             app:boxStrokeErrorColor="@color/red"
             app:errorTextColor="@color/red"
-            android:hint="Cliente"
+            android:hint="@string/task_03"
             android:textColorHint="@color/teal_idea"
             app:boxStrokeColor="@color/teal_idea">
 
@@ -85,7 +85,7 @@
             android:id="@+id/cbPriority"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Prioritario"
+            android:text="@string/task_04"
             android:fontFamily="@font/at_surt_light"
             android:textSize="16sp"
             android:layout_marginTop="16dp"
@@ -105,7 +105,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:hint="Precio"
+                android:hint="@string/task_05"
                 android:layout_marginEnd="12dp">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -126,7 +126,7 @@
                 android:layout_weight="1"
                 android:layout_marginStart="12dp"
                 android:layout_height="wrap_content"
-                android:hint="Costo">
+                android:hint="@string/task_06">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etCost"
@@ -156,7 +156,7 @@
                 android:layout_weight="1"
                 android:layout_marginEnd="12dp"
                 android:layout_height="wrap_content"
-                android:text="Comienza" />
+                android:text="@string/task_07" />
 
 
             <com.google.android.material.textfield.TextInputLayout
@@ -200,7 +200,7 @@
                 android:layout_weight="1"
                 android:layout_marginEnd="12dp"
                 android:layout_height="wrap_content"
-                android:text="Estado"/>
+                android:text="@string/task_08"/>
 
 
             <com.google.android.material.textfield.TextInputLayout
@@ -233,7 +233,7 @@
             android:textSize="16sp"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:text="Subir foto de STL"
+            android:text="@string/task_09"
             android:textColor="?attr/colorSecondary"
             app:boxStrokeColor="@color/teal_idea"/>
 
@@ -282,7 +282,7 @@
             android:layout_marginBottom="16sp"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:text="Crear"
+            android:text="@string/task_10"
             android:fontFamily="@font/at_surt_light"
             android:textSize="16sp"
             android:textColor="?attr/colorSecondary"

@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:fontFamily="@font/at_surt_semi_bold"
-        android:text="Costo Total"
+        android:text="@string/calcu_01"
         android:textColor="@color/white"
         android:textSize="35sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -133,7 +133,7 @@
                 app:boxCornerRadiusTopEnd="20dp"
                 app:boxCornerRadiusTopStart="20dp"
                 app:boxStrokeColor="@color/blue_idea"
-                app:helperText="Tipo de filamento"
+                app:helperText="@string/calcu_06"
                 app:helperTextTextColor="@color/blue_idea"
                 >
 
@@ -176,7 +176,7 @@
                     app:boxCornerRadiusTopEnd="20dp"
                     app:boxCornerRadiusTopStart="20dp"
                     app:boxStrokeColor="@color/blue_idea"
-                    app:helperText="Precio del kWh (ver en factura de luz)"
+                    app:helperText="@string/calcu_02"
                     app:helperTextTextColor="@color/blue_idea"
                     app:startIconDrawable="@drawable/ic_baseline_offline_bolt_24">
 
@@ -204,7 +204,7 @@
                 app:boxCornerRadiusTopEnd="20dp"
                 app:boxCornerRadiusTopStart="20dp"
                 app:boxStrokeColor="@color/blue_idea"
-                app:helperText="Horas de impresión"
+                app:helperText="@string/calcu_03"
                 app:helperTextTextColor="@color/blue_idea"
                 app:startIconDrawable="@drawable/ic_baseline_access_time_24">
 
@@ -247,7 +247,7 @@
                 app:boxCornerRadiusTopEnd="20dp"
                 app:boxCornerRadiusTopStart="20dp"
                 app:boxStrokeColor="@color/blue_idea"
-                app:helperText="Costo del Filamento (Kg)"
+                app:helperText="@string/calcu_04"
                 app:helperTextTextColor="@color/blue_idea"
                 app:startIconDrawable="@drawable/ic_baseline_attach_money_24">
 
@@ -276,7 +276,7 @@
                 app:boxCornerRadiusTopEnd="20dp"
                 app:boxCornerRadiusTopStart="20dp"
                 app:boxStrokeColor="@color/blue_idea"
-                app:helperText="Cuál es el peso de la pieza (Gr)"
+                app:helperText="@string/calcu_05"
                 app:helperTextTextColor="@color/blue_idea"
                 app:startIconDrawable="@drawable/peso">
 
