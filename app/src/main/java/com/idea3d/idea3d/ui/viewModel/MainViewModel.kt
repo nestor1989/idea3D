@@ -67,10 +67,10 @@ class MainViewModel@Inject constructor(
     }
 
 
-    val fetchNewsList= liveData(Dispatchers.IO) {
+    fun fetchNewsList(country: String, key: String) = liveData(Dispatchers.IO) {
         emit(Resource.Loading())
         try {
-            emit(repo.getNews("es"))
+            emit(repo.getNews(country, key))
         }catch (e:Exception){
             emit(Resource.Failure(e))
         }

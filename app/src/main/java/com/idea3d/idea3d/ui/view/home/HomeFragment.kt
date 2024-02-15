@@ -98,12 +98,12 @@ class HomeFragment : Fragment(),
     }
 
     private fun setUpNewsObservers(){
-
-        mainViewModel.fetchNewsList.observe(viewLifecycleOwner, Observer{ result->
+        mainViewModel.fetchNewsList(getString(R.string.country), "3D AND " + getString(R.string.printer)).observe(viewLifecycleOwner, Observer{ result->
             when(result){
                 is Resource.Loading->{}
                 is Resource.Success->{
                     binding.rvNews.adapter= NewsAdapter(requireContext(), result.data, this)
+                    Log.d("NEWS", result.data.toString())
                 }
                 is Resource.Failure->{
                     mainViewModel.setThings("newest")

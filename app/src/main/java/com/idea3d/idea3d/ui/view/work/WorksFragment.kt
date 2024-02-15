@@ -150,7 +150,7 @@ class WorksFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterVie
 
     private fun initArray(){
 
-        binding.listPeriod.setText("total")
+        binding.listPeriod.setText(getString(R.string.task_13))
 
         val period = resources.getStringArray(R.array.period)
 

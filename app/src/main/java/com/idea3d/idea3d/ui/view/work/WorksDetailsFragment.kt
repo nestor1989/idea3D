@@ -68,7 +68,7 @@ class WorksDetailsFragment : Fragment(), TaskAdapter.OnClickArrow, ModalWorksFra
 
         var title = arguments?.getString("title")
 
-        if (title.isNullOrEmpty()) title = "Tus trabajos"
+        if (title.isNullOrEmpty()) title = getString(R.string.works)
 
         (activity as MainActivity).setNoBanner(title)
 

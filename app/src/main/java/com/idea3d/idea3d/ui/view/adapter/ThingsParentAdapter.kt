@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.idea3d.idea3d.R
 import com.idea3d.idea3d.core.BaseViewHolder
 import com.idea3d.idea3d.data.model.Thing
 import com.idea3d.idea3d.data.model.ThingWithCat
@@ -63,25 +64,25 @@ class ThingsParentAdapter(
         var spanishCat = ""
 
         when(catName){
-            "3D Printing" -> spanishCat = "Impresos en 3D"
+            "3D Printing" -> spanishCat = context.getString(R.string.home_01)
 
-            "Art" -> spanishCat = "Arte"
+            "Art" -> spanishCat = context.getString(R.string.home_02)
 
-            "Fashion" -> spanishCat = "Moda"
+            "Fashion" -> spanishCat = context.getString(R.string.home_03)
 
-            "Gadgets" -> spanishCat = "Hacks life"
+            "Gadgets" -> spanishCat = context.getString(R.string.home_04)
 
-            "Hobby" -> spanishCat = "Hobbies"
+            "Hobby" -> spanishCat = context.getString(R.string.home_05)
 
-            "Household" -> spanishCat = "Hogar"
+            "Household" -> spanishCat = context.getString(R.string.home_06)
 
-            "Learning" -> spanishCat = "Educación"
+            "Learning" -> spanishCat = context.getString(R.string.home_07)
 
-            "Models" -> spanishCat = "Modelos"
+            "Models" -> spanishCat = context.getString(R.string.home_08)
 
-            "Tools" -> spanishCat = "Herramientas"
+            "Tools" -> spanishCat = context.getString(R.string.home_09)
 
-            "Toys & Games" -> spanishCat = "Juegos y Juguetes"
+            "Toys & Games" -> spanishCat = context.getString(R.string.home_10)
 
             else -> spanishCat = catName
         }

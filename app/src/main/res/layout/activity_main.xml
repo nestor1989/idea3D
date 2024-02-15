@@ -90,7 +90,7 @@
                 android:layout_height="match_parent"
                 android:fontFamily="@font/at_surt_regular"
                 android:gravity="center"
-                android:text="Tus trabajos"
+                android:text="@string/works"
                 android:textColor="@color/teal_idea"
                 android:textSize="28sp" />
 
