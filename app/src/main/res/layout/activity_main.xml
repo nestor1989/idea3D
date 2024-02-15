@@ -23,7 +23,6 @@
             android:id="@+id/banner_logo"
             android:layout_width="0dp"
             android:layout_weight="3"
-
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/logo_largo_dos"
             android:layout_gravity="start" />

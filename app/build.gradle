@@ -16,8 +16,8 @@ android {
         applicationId "com.idea3d.idea3d"
         minSdkVersion 21
         targetSdkVersion 33
-        versionCode 14
-        versionName "1.8.0"
+        versionCode 15
+        versionName "2.0.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
