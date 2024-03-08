@@ -1,11 +1,10 @@
-package com.idea3d.idea3d.data
+package com.idea3d.idea3d.data.datasource
 
 import com.idea3d.idea3d.utils.Constants
 import com.idea3d.idea3d.utils.Constants.Companion.THING_KEY
 import com.idea3d.idea3d.core.Resource
 import com.idea3d.idea3d.data.model.*
 import com.idea3d.idea3d.data.network.*
-import java.util.*
 import javax.inject.Inject
 
 class DataSourceImpl @Inject constructor(
@@ -19,8 +18,8 @@ class DataSourceImpl @Inject constructor(
         return Resource.Success(webService.searchThingByNew(THING_KEY,searchBy, page, Constants.PER_PAGE, category, "now-3M"))
     }
 
-    override suspend fun getNews (country:String, key: String): Resource<List<News>> {
-        return Resource.Success(newsProvider.topHeadLines(country, key).articles)
+    override suspend fun getNews (country:String, key: String): List<News> {
+        return newsProvider.topHeadLines(country, key).articles
     }
 
     override suspend fun getThingByName (searchBy: String, page:Int, category: Int): Resource<Things>{

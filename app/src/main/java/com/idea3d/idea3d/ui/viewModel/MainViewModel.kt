@@ -9,6 +9,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.idea3d.idea3d.core.Resource
 import com.idea3d.idea3d.data.repo.Repo
+import com.idea3d.idea3d.domain.news.GetNewsUseCase
 import com.idea3d.idea3d.ui.view.MainActivity
 import com.idea3d.idea3d.utils.Constants
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -20,6 +21,7 @@ import javax.inject.Inject
 @HiltViewModel
 class MainViewModel@Inject constructor(
     private val repo: Repo,
+    private val getNewsUseCase: GetNewsUseCase,
     @ApplicationContext private val context: Context): ViewModel() {
     val searchThing = MutableLiveData<String>()
     private val page = MutableLiveData<Int>()
@@ -70,7 +72,8 @@ class MainViewModel@Inject constructor(
     fun fetchNewsList(country: String, key: String) = liveData(Dispatchers.IO) {
         emit(Resource.Loading())
         try {
-            emit(repo.getNews(country, key))
+            val result = getNewsUseCase(country, key)
+            emit(Resource.Success(result))
         }catch (e:Exception){
             emit(Resource.Failure(e))
         }

@@ -1,7 +1,7 @@
-package com.idea3d.idea3d.core.di
+package com.idea3d.idea3d.di
 
-import com.idea3d.idea3d.data.DataSourceImpl
-import com.idea3d.idea3d.data.network.DataSource
+import com.idea3d.idea3d.data.datasource.DataSourceImpl
+import com.idea3d.idea3d.data.datasource.DataSource
 import com.idea3d.idea3d.data.repo.Repo
 import com.idea3d.idea3d.data.repo.RepoImpl
 import dagger.Binds

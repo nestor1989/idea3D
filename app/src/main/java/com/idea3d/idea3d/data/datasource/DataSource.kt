@@ -1,4 +1,4 @@
-package com.idea3d.idea3d.data.network
+package com.idea3d.idea3d.data.datasource
 
 import com.idea3d.idea3d.core.Resource
 import com.idea3d.idea3d.data.model.*
@@ -8,7 +8,7 @@ interface DataSource {
 
     suspend fun getThings (searchBy:String, page:Int, category: Int): Resource<Things>
 
-    suspend fun getNews (country:String, key: String): Resource<List<News>>
+    suspend fun getNews (country:String, key: String): List<News>
 
     suspend fun getThingByName (searchBy: String, page:Int, category: Int): Resource<Things>
 
