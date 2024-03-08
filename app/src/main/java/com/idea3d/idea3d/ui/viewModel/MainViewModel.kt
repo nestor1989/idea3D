@@ -12,8 +12,8 @@ import javax.inject.Inject
 @HiltViewModel
 class MainViewModel@Inject constructor(
     private val repo: Repo,
-    private val getNewsUseCase: GetNewsUseCase)
-    : ViewModel() {
+    private val getNewsUseCase: GetNewsUseCase
+) : ViewModel() {
     val searchThing = MutableLiveData<String>()
     private val page = MutableLiveData<Int>()
     private val category = MutableLiveData<Int>()

@@ -239,6 +239,7 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/btnQuick1"
+                android:clickable="true"
                 app:cardBackgroundColor="@color/transparent"
                 app:strokeColor="@color/teal_idea"
                 android:layout_width="0dp"
@@ -253,6 +254,7 @@
 
                     <ImageButton
                         android:id="@+id/button_add"
+                        android:clickable="false"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_margin="8sp"
@@ -279,6 +281,7 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/btnQuick2"
+                android:clickable="true"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -293,6 +296,7 @@
 
                     <ImageButton
                         android:id="@+id/button_all"
+                        android:clickable="false"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="1"
@@ -318,6 +322,7 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/btnQuick3"
+                android:clickable="true"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -332,6 +337,7 @@
 
                     <ImageButton
                         android:id="@+id/button_calendar"
+                        android:clickable="false"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="1"
@@ -357,6 +363,7 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/btnQuick4"
+                android:clickable="true"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -371,6 +378,7 @@
 
                 <ImageButton
                     android:id="@+id/button_urgent"
+                    android:clickable="false"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"

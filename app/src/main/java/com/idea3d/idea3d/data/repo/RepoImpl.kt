@@ -22,7 +22,7 @@ class RepoImpl @Inject constructor(private val dataSource: DataSource):Repo {
         return dataSource.getCategories()
     }
 
-    override suspend fun getThingsFromCat( page:Int, category:Int): Resource<Things> {
+    override suspend fun getThingsFromCat( page:Int, category:Int): Things {
         return dataSource.getThingsFromCat( page, category)
 
     }
@@ -31,7 +31,7 @@ class RepoImpl @Inject constructor(private val dataSource: DataSource):Repo {
         return dataSource.insertThing(thingEntity)
     }
 
-    override suspend fun getThingsFav(): Resource<List<ThingEntity>> {
+    override suspend fun getThingsFav(): List<ThingEntity> {
         return dataSource.getFavoriteThings()
     }
 

@@ -20,7 +20,7 @@ import com.idea3d.idea3d.data.model.Thing
 import com.idea3d.idea3d.data.model.ThingEntity
 import com.idea3d.idea3d.data.model.ThingWithCat
 import com.idea3d.idea3d.databinding.FragmentHomeBinding
-import com.idea3d.idea3d.ui.view.MainActivity
+import com.idea3d.idea3d.ui.view.main.MainActivity
 import com.idea3d.idea3d.ui.view.adapter.AlternativeNewsAdapter
 import com.idea3d.idea3d.ui.view.adapter.FavsAdapter
 import com.idea3d.idea3d.ui.view.adapter.NewsAdapter

@@ -30,8 +30,8 @@ class DataSourceImpl @Inject constructor(
         thingsDao.addFavoriteThings(thingEntity)
     }
 
-    override suspend fun getFavoriteThings(): Resource<List<ThingEntity>> {
-        return Resource.Success(thingsDao.getAllFavoriteThings())
+    override suspend fun getFavoriteThings(): List<ThingEntity> {
+        return thingsDao.getAllFavoriteThings()
     }
 
     override suspend fun deleteThing(thingEntity: ThingEntity) {
@@ -45,8 +45,8 @@ class DataSourceImpl @Inject constructor(
     override suspend fun getThingsFromCat(
         page: Int,
         category: Int
-    ): Resource<Things> {
-        return Resource.Success(webService.searchThingsFromCat(THING_KEY, page, category, Constants.PER_PAGE, "now-3M"))
+    ): Things {
+        return webService.searchThingsFromCat(THING_KEY, page, category, Constants.PER_PAGE, "now-3M")
     }
 
     override suspend fun insertTask(task: Task) {
