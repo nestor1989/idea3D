@@ -5,7 +5,6 @@ import com.idea3d.idea3d.core.Resource
 import com.idea3d.idea3d.data.repo.Repo
 import com.idea3d.idea3d.domain.news.GetNewsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.Dispatchers
 import javax.inject.Inject
 
