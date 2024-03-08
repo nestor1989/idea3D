@@ -1,4 +1,4 @@
-package com.idea3d.idea3d.core.di
+package com.idea3d.idea3d.di
 
 import android.content.Context
 import androidx.room.Room

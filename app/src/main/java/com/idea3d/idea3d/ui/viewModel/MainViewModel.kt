@@ -3,13 +3,17 @@ package com.idea3d.idea3d.ui.viewModel
 import androidx.lifecycle.*
 import com.idea3d.idea3d.core.Resource
 import com.idea3d.idea3d.data.repo.Repo
+import com.idea3d.idea3d.domain.news.GetNewsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.Dispatchers
 import javax.inject.Inject
 
 @HiltViewModel
-class MainViewModel@Inject constructor(private val repo: Repo): ViewModel() {
+class MainViewModel@Inject constructor(
+    private val repo: Repo,
+    private val getNewsUseCase: GetNewsUseCase)
+    : ViewModel() {
     val searchThing = MutableLiveData<String>()
     private val page = MutableLiveData<Int>()
     private val category = MutableLiveData<Int>()
@@ -26,11 +30,6 @@ class MainViewModel@Inject constructor(private val repo: Repo): ViewModel() {
     fun setCategory(cat:Int){
         category.value = cat
     }
-
-    /*init{
-        setThings("Relevant")
-        setPagination(1)
-    }*/
 
     val fetchThings = searchThing.distinctUntilChanged().switchMap {
         liveData(Dispatchers.IO) {
@@ -62,7 +61,8 @@ class MainViewModel@Inject constructor(private val repo: Repo): ViewModel() {
     fun fetchNewsList(country: String, key: String) = liveData(Dispatchers.IO) {
         emit(Resource.Loading())
         try {
-            emit(repo.getNews(country, key))
+            val result = getNewsUseCase(country, key)
+            emit(Resource.Success(result))
         }catch (e:Exception){
             emit(Resource.Failure(e))
         }

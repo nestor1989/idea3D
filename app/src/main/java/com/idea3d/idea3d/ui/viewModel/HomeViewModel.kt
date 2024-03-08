@@ -12,9 +12,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(private val repo: Repo): ViewModel(){
-    private val searchThing = MutableLiveData<String>()
     val page = MutableLiveData<Int>()
-    private val category = MutableLiveData<Int>()
 
     fun fetchCategories() = liveData(Dispatchers.IO) {
         emit(Resource.Loading())
@@ -35,7 +33,6 @@ class HomeViewModel @Inject constructor(private val repo: Repo): ViewModel(){
     }
 
     fun fetchThings(categoryId: Int) = liveData(Dispatchers.IO) {
-
             emit(Resource.Loading())
             try {
                 emit(repo.getThingsFromCat(page.value!!, categoryId))

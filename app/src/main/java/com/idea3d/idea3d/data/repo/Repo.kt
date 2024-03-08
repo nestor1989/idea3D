@@ -6,7 +6,7 @@ import java.util.*
 
 interface Repo {
     suspend fun getThingsByNews(searchBy:String, page:Int, category: Int): Resource<Things>
-    suspend fun getNews (country:String, key: String): Resource<List<News>>
+    suspend fun getNews (country:String, key: String): List<News>
     suspend fun getThingsByName(searchBy: String, page:Int, category: Int): Resource<Things>
     suspend fun getCategories(): Resource<List<Category>>
     suspend fun getThingsFromCat(page:Int, category:Int): Resource<Things>
