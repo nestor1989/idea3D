@@ -1,18 +1,13 @@
 package com.idea3d.idea3d.ui.viewmodel
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import androidx.lifecycle.Observer
 import com.idea3d.idea3d.TestCoroutineRule
-import com.idea3d.idea3d.core.Resource
-import com.idea3d.idea3d.data.model.Category
 import com.idea3d.idea3d.data.model.ThingEntity
-import com.idea3d.idea3d.data.model.Things
 import com.idea3d.idea3d.data.repo.Repo
 import com.idea3d.idea3d.domain.favorites.GetFavoritesUseCase
 import com.idea3d.idea3d.domain.things.GetAllThingsUseCase
 import com.idea3d.idea3d.ui.viewModel.HomeViewModel
 import io.mockk.MockKAnnotations
-import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
 import junit.framework.TestCase

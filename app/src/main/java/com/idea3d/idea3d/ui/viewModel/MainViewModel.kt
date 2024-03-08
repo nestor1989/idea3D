@@ -13,7 +13,6 @@ import com.idea3d.idea3d.domain.news.GetNewsUseCase
 import com.idea3d.idea3d.ui.view.MainActivity
 import com.idea3d.idea3d.utils.Constants
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.currentCoroutineContext
 import javax.inject.Inject
