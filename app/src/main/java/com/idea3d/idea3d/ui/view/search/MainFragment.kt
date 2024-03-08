@@ -6,7 +6,6 @@ import android.net.ConnectivityManager
 import android.net.NetworkInfo
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -25,7 +24,7 @@ import com.idea3d.idea3d.data.model.News
 import com.idea3d.idea3d.data.model.Thing
 import com.idea3d.idea3d.data.model.ThingEntity
 import com.idea3d.idea3d.databinding.FragmentMainBinding
-import com.idea3d.idea3d.ui.view.MainActivity
+import com.idea3d.idea3d.ui.view.main.MainActivity
 import com.idea3d.idea3d.ui.view.adapter.MainAdapter
 import com.idea3d.idea3d.ui.view.adapter.NewsAdapter
 import com.idea3d.idea3d.ui.view.adapter.PaginationAdapter
@@ -69,12 +68,6 @@ class MainFragment :
         (activity as MainActivity).setThemeMain()
         (activity as MainActivity).setCurrentNavController(0)
 
-        setUpRecyclerView()
-        setUpFavs()
-        setUpObservers()
-        setUpSearchView()
-        setUpButtons()
-
         if( arguments != null) {
             arguments?.getInt("category")?.let { viewModel.setCategory(it) }
             val stringCat = arguments?.getString("category_string")
@@ -85,7 +78,11 @@ class MainFragment :
             viewModel.setThings("Relevant")
         }
 
-
+        setUpRecyclerView()
+        setUpFavs()
+        setUpObservers()
+        setUpSearchView()
+        setUpButtons()
 
         return binding.root
     }

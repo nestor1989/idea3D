@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -32,7 +33,7 @@ class ScheduleDialogFragment(private val onClick:OnDateClick) :
     private var _binding: FragmentScheduleDialogBinding? = null
     private val binding get() = _binding!!
 
-    private val tasksViewModel by viewModels<TasksViewModel>()
+    private val tasksViewModel by activityViewModels<TasksViewModel>()
 
     private val calendar: Calendar = Calendar.getInstance()
     var preselectedDates: MutableList<CalendarDate> = mutableListOf<CalendarDate>()

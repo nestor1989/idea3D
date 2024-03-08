@@ -14,13 +14,13 @@ interface DataSource {
 
     suspend fun insertThing (thingEntity: ThingEntity)
 
-    suspend fun getFavoriteThings(): Resource<List<ThingEntity>>
+    suspend fun getFavoriteThings(): List<ThingEntity>
 
     suspend fun deleteThing (thingEntity: ThingEntity)
 
     suspend fun getCategories(): Resource<List<Category>>
 
-    suspend fun getThingsFromCat( page:Int, category:Int): Resource<Things>
+    suspend fun getThingsFromCat( page:Int, category:Int): Things
 
     suspend fun insertTask (task: Task)
 

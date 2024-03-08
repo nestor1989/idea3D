@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.SearchView
 import android.widget.Toast
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -17,7 +18,7 @@ import com.idea3d.idea3d.R
 import com.idea3d.idea3d.core.Resource
 import com.idea3d.idea3d.data.model.Task
 import com.idea3d.idea3d.databinding.FragmentWorksDetailsBinding
-import com.idea3d.idea3d.ui.view.MainActivity
+import com.idea3d.idea3d.ui.view.main.MainActivity
 import com.idea3d.idea3d.ui.view.adapter.TaskAdapter
 import com.idea3d.idea3d.ui.viewModel.TasksViewModel
 import com.idea3d.idea3d.utils.Functional
@@ -28,7 +29,7 @@ class WorksDetailsFragment : Fragment(), TaskAdapter.OnClickArrow, ModalWorksFra
     private var _binding: FragmentWorksDetailsBinding? = null
     private val binding get() = _binding!!
 
-    private val tasksViewModel by viewModels<TasksViewModel>()
+    private val tasksViewModel by activityViewModels<TasksViewModel>()
 
     private lateinit var modalWorksFragment: ModalWorksFragment
 
