@@ -3,8 +3,9 @@ package com.idea3d.idea3d.data.datasource.remote
 import com.idea3d.idea3d.utils.Constants
 import com.idea3d.idea3d.utils.Constants.Companion.THING_KEY
 import com.idea3d.idea3d.core.Resource
-import com.idea3d.idea3d.data.datasource.remote.RemoteDataSource
-import com.idea3d.idea3d.data.model.*
+import com.idea3d.idea3d.data.model.home.Category
+import com.idea3d.idea3d.data.model.home.news.News
+import com.idea3d.idea3d.data.model.home.Things
 import com.idea3d.idea3d.data.network.*
 import javax.inject.Inject
 

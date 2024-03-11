@@ -7,8 +7,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.idea3d.idea3d.R
 import com.idea3d.idea3d.core.BaseViewHolder
-import com.idea3d.idea3d.data.model.Thing
-import com.idea3d.idea3d.data.model.ThingWithCat
+import com.idea3d.idea3d.data.model.home.ThingEntity
+import com.idea3d.idea3d.data.model.home.ThingWithCat
 import com.idea3d.idea3d.databinding.RowHomeParentBinding
 
 
@@ -18,7 +18,7 @@ class ThingsParentAdapter(
     private val onClickChild : OnClickChild): RecyclerView.Adapter<BaseViewHolder<*>>() {
 
     interface OnClickChild{
-        fun onClickChild(thing: Thing)
+        fun onClickChild(thing: ThingEntity)
         fun onSearchByCat(category: Int, categoryString: String)
     }
 
@@ -55,7 +55,7 @@ class ThingsParentAdapter(
             }
         }
 
-        override fun onThingClick(thing: Thing) {
+        override fun onThingClick(thing: ThingEntity) {
             onClickChild.onClickChild(thing)
         }
     }

@@ -1,7 +1,7 @@
 package com.idea3d.idea3d.data.network
 
 import androidx.room.*
-import com.idea3d.idea3d.data.model.ThingEntity
+import com.idea3d.idea3d.data.model.home.ThingEntity
 
 @Dao
 interface ThingsDao {

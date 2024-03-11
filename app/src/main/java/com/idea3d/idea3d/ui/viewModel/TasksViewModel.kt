@@ -3,7 +3,7 @@ package com.idea3d.idea3d.ui.viewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 import com.idea3d.idea3d.core.Resource
-import com.idea3d.idea3d.data.model.Task
+import com.idea3d.idea3d.data.model.works.Task
 import com.idea3d.idea3d.data.repository.work.WorkRepository
 import com.idea3d.idea3d.domain.works.GetAllWoksUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel

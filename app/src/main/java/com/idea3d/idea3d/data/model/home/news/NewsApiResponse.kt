@@ -1,6 +1,7 @@
-package com.idea3d.idea3d.data.model
+package com.idea3d.idea3d.data.model.home.news
 
 import android.os.Parcelable
+import com.idea3d.idea3d.data.model.home.news.News
 import kotlinx.parcelize.Parcelize
 
 @Parcelize

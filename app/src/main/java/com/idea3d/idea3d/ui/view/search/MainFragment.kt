@@ -19,9 +19,8 @@ import com.bumptech.glide.Glide
 import com.idea3d.idea3d.R
 import com.idea3d.idea3d.utils.Constants
 import com.idea3d.idea3d.core.Resource
-import com.idea3d.idea3d.data.model.News
-import com.idea3d.idea3d.data.model.Thing
-import com.idea3d.idea3d.data.model.ThingEntity
+import com.idea3d.idea3d.data.model.home.news.News
+import com.idea3d.idea3d.data.model.home.ThingEntity
 import com.idea3d.idea3d.databinding.FragmentMainBinding
 import com.idea3d.idea3d.ui.view.main.MainActivity
 import com.idea3d.idea3d.ui.view.adapter.MainAdapter
@@ -178,7 +177,7 @@ class MainFragment :
         binding.rvPage.adapter = PaginationAdapter(requireContext(), listPages , this )
     }
 
-    override fun onThingClick(thing: Thing) {
+    override fun onThingClick(thing: ThingEntity) {
         var favorite = validateFav(thing)
         thing.favorite = favorite
         thingsModalFragment = ThingsModalFragment(thing, this)
@@ -233,14 +232,12 @@ class MainFragment :
         viewModel.setPagination(page)
     }
 
-    override fun onLikeClick(thing: Thing) {
-        val thingEntity = ThingEntity(thing.id, thing.name, thing.image, thing.url, thing.favorite)
-
-        if (!thingEntity.favorite){
-            homeViewModel.addedToFavorite(thingEntity)
+    override fun onLikeClick(thing: ThingEntity) {
+        if (!thing.favorite){
+            homeViewModel.addedToFavorite(thing)
         }
         else {
-            homeViewModel.deleteFavorite(thingEntity)
+            homeViewModel.deleteFavorite(thing)
         }
     }
 
@@ -251,7 +248,7 @@ class MainFragment :
 
     override fun onDismiss() {}
 
-    private fun validateFav(thingEntity : Thing): Boolean{
+    private fun validateFav(thingEntity : ThingEntity): Boolean{
         listFavs?.let {
             for(i in 0 until listFavs!!.size){
                 if (listFavs!![i].id == thingEntity.id){

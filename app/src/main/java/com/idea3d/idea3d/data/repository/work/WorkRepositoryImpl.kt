@@ -2,7 +2,7 @@ package com.idea3d.idea3d.data.repository.work
 
 import com.idea3d.idea3d.core.Resource
 import com.idea3d.idea3d.data.datasource.local.LocalDataSource
-import com.idea3d.idea3d.data.model.Task
+import com.idea3d.idea3d.data.model.works.Task
 import javax.inject.Inject
 
 class WorkRepositoryImpl @Inject constructor(

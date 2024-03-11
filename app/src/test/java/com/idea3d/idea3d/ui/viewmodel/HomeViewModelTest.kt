@@ -2,7 +2,7 @@ package com.idea3d.idea3d.ui.viewmodel
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.idea3d.idea3d.TestCoroutineRule
-import com.idea3d.idea3d.data.model.ThingEntity
+import com.idea3d.idea3d.data.model.home.ThingEntity
 import com.idea3d.idea3d.data.repository.home.HomeRepository
 import com.idea3d.idea3d.data.repository.work.WorkRepository
 import com.idea3d.idea3d.domain.favorites.GetFavoritesUseCase

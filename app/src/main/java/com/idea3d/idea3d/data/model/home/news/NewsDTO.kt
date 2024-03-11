@@ -1,10 +1,10 @@
-package com.idea3d.idea3d.data.model
+package com.idea3d.idea3d.data.model.home.news
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class News (
+data class NewsDTO (
     var title:String,
     var content: String?,
     var author:String?,

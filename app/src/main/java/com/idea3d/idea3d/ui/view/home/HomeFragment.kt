@@ -15,10 +15,9 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.idea3d.idea3d.R
 import com.idea3d.idea3d.core.Resource
-import com.idea3d.idea3d.data.model.News
-import com.idea3d.idea3d.data.model.Thing
-import com.idea3d.idea3d.data.model.ThingEntity
-import com.idea3d.idea3d.data.model.ThingWithCat
+import com.idea3d.idea3d.data.model.home.news.News
+import com.idea3d.idea3d.data.model.home.ThingEntity
+import com.idea3d.idea3d.data.model.home.ThingWithCat
 import com.idea3d.idea3d.databinding.FragmentHomeBinding
 import com.idea3d.idea3d.ui.view.main.MainActivity
 import com.idea3d.idea3d.ui.view.adapter.AlternativeNewsAdapter
@@ -90,7 +89,7 @@ class HomeFragment : Fragment(),
         recyclerView.adapter = FavsAdapter(appContext, things, this)
     }
 
-    private fun setUpRecyclerAlternative(things: List<Thing>) {
+    private fun setUpRecyclerAlternative(things: List<ThingEntity>) {
         val appContext = requireContext()
         val recyclerView = binding.rvNews
         recyclerView.adapter = AlternativeNewsAdapter(appContext, things, this)
@@ -178,14 +177,12 @@ class HomeFragment : Fragment(),
         newInst?.show(activity?.supportFragmentManager!!, "news")
     }
 
-    override fun onLikeClick(thing: Thing) {
-        val thingEntity = ThingEntity(thing.id, thing.name, thing.image, thing.url, thing.favorite)
-
-        if (!thingEntity.favorite){
-            homeViewModel.addedToFavorite(thingEntity)
+    override fun onLikeClick(thing: ThingEntity) {
+        if (!thing.favorite){
+            homeViewModel.addedToFavorite(thing)
         }
         else {
-            homeViewModel.deleteFavorite(thingEntity)
+            homeViewModel.deleteFavorite(thing)
         }
 
     }
@@ -200,7 +197,7 @@ class HomeFragment : Fragment(),
     }
 
     //NORMALES
-    override fun onClickChild(thing: Thing) {
+    override fun onClickChild(thing: ThingEntity) {
         modalInst(thing)
     }
 
@@ -212,11 +209,11 @@ class HomeFragment : Fragment(),
     }
 
     //FAVORITOS
-    override fun onThingClick(thing: Thing) {
+    override fun onThingClick(thing: ThingEntity) {
         modalInst(thing)
     }
 
-    private fun modalInst(thing: Thing){
+    private fun modalInst(thing: ThingEntity){
         val favorite = validateFav(thing)
         thing.favorite = favorite
         thingsModalFragment = ThingsModalFragment(thing, this)
@@ -246,7 +243,7 @@ class HomeFragment : Fragment(),
         })
     }
 
-    private fun validateFav(thingEntity : Thing): Boolean{
+    private fun validateFav(thingEntity : ThingEntity): Boolean{
         listFavs?.let {
             for(i in 0 until listFavs!!.size){
                 if (listFavs!![i].id == thingEntity.id){
@@ -257,7 +254,7 @@ class HomeFragment : Fragment(),
         return thingEntity.favorite
     }
 
-    override fun onNewThingClick(thing: Thing) {
+    override fun onNewThingClick(thing: ThingEntity) {
         modalInst(thing)
     }
 

@@ -1,4 +1,4 @@
-package com.idea3d.idea3d.data.model
+package com.idea3d.idea3d.data.model.works
 
 import android.os.Parcelable
 import androidx.room.ColumnInfo

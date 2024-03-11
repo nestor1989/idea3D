@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.idea3d.idea3d.R
 import com.idea3d.idea3d.core.BaseViewHolder
-import com.idea3d.idea3d.data.model.News
+import com.idea3d.idea3d.data.model.home.news.News
 import com.idea3d.idea3d.databinding.RowNewsBinding
 
 

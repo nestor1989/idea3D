@@ -1,7 +1,6 @@
 package com.idea3d.idea3d.ui.view.adapter
 
 import android.annotation.SuppressLint
-import android.app.Application
 import android.content.Context
 import android.graphics.BitmapFactory
 import android.os.Build
@@ -12,13 +11,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.Toast
 import androidx.annotation.RequiresApi
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.RecyclerView
 import com.idea3d.idea3d.R
 import com.idea3d.idea3d.core.BaseViewHolder
-import com.idea3d.idea3d.data.model.Task
+import com.idea3d.idea3d.data.model.works.Task
 import com.idea3d.idea3d.databinding.RowTasksBinding
 import com.idea3d.idea3d.ui.view.work.WorksDetailsFragment.Companion.STATUS
 import com.idea3d.idea3d.utils.OnSwipeTouchListener
@@ -31,7 +28,7 @@ class TaskAdapter (
 
     interface OnClickArrow{
         fun onClickArrow(task: Task)
-        fun onDelete(task:Task)
+        fun onDelete(task: Task)
         fun onUpdate(task: Task, idStatus:Int, stringStatus: String)
     }
 

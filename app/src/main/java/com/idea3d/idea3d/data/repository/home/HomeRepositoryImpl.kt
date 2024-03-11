@@ -1,9 +1,12 @@
 package com.idea3d.idea3d.data.repository.home
 
 import com.idea3d.idea3d.core.Resource
-import com.idea3d.idea3d.data.model.*
 import com.idea3d.idea3d.data.datasource.local.LocalDataSource
 import com.idea3d.idea3d.data.datasource.remote.RemoteDataSource
+import com.idea3d.idea3d.data.model.home.Category
+import com.idea3d.idea3d.data.model.home.news.News
+import com.idea3d.idea3d.data.model.home.ThingEntity
+import com.idea3d.idea3d.data.model.home.Things
 import javax.inject.Inject
 
 class HomeRepositoryImpl @Inject constructor(
