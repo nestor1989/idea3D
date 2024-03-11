@@ -8,7 +8,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.idea3d.idea3d.core.Resource
-import com.idea3d.idea3d.data.repo.Repo
+import com.idea3d.idea3d.data.repository.home.HomeRepository
 import com.idea3d.idea3d.domain.news.GetNewsUseCase
 import com.idea3d.idea3d.ui.view.MainActivity
 import com.idea3d.idea3d.utils.Constants
@@ -19,8 +19,9 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel@Inject constructor(
-    private val repo: Repo,
-    private val getNewsUseCase: GetNewsUseCase,
+    private val homeRepository: HomeRepository,
+    private val getNewsUseCase: GetNewsUseCase
+) : ViewModel() {
     @ApplicationContext private val context: Context): ViewModel() {
     val searchThing = MutableLiveData<String>()
     private val page = MutableLiveData<Int>()
@@ -46,8 +47,8 @@ class MainViewModel@Inject constructor(
             emit(Resource.Loading())
             try {
                 if (searchThing.value=="Relevant" || searchThing.value=="popular" || searchThing.value=="newest"){
-                emit(repo.getThingsByNews(it, 1, category.value!!))
-                }else emit(repo.getThingsByName(it, 1, category.value!!))
+                emit(homeRepository.getThingsByNews(it, 1, category.value!!))
+                }else emit(homeRepository.getThingsByName(it, 1, category.value!!))
             } catch (e: Exception) {
                 emit(Resource.Failure(e))
             }
@@ -59,8 +60,8 @@ class MainViewModel@Inject constructor(
         emit(Resource.Loading())
         try {
             if (searchThing.value=="Relevant" || searchThing.value=="popular" || searchThing.value=="newest"){
-                emit(repo.getThingsByNews(searchThing.value!!, page.value!!, category.value!!))
-            }else emit(repo.getThingsByName(searchThing.value!!, page.value!!, category.value!!))
+                emit(homeRepository.getThingsByNews(searchThing.value!!, page.value!!, category.value!!))
+            }else emit(homeRepository.getThingsByName(searchThing.value!!, page.value!!, category.value!!))
         } catch (e: Exception) {
             emit(Resource.Failure(e))
         }

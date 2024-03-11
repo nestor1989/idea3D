@@ -3,7 +3,7 @@ package com.idea3d.idea3d.ui.viewModel
 import androidx.lifecycle.*
 import com.idea3d.idea3d.core.Resource
 import com.idea3d.idea3d.data.model.ThingEntity
-import com.idea3d.idea3d.data.repo.Repo
+import com.idea3d.idea3d.data.repository.home.HomeRepository
 import com.idea3d.idea3d.domain.favorites.GetFavoritesUseCase
 import com.idea3d.idea3d.domain.things.GetAllThingsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -14,8 +14,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    private val repo: Repo,
-    private val getAllThinsUseCase: GetAllThingsUseCase,
+    private val homeRepository: HomeRepository,
+    private val getAllThingsUseCase: GetAllThingsUseCase,
     private val getFavoritesUseCase: GetFavoritesUseCase
     ): ViewModel(){
     val page = MutableLiveData<Int>()
@@ -23,7 +23,7 @@ class HomeViewModel @Inject constructor(
     fun fetchCategories() = liveData(Dispatchers.IO) {
         emit(Resource.Loading())
         try {
-            emit(repo.getCategories())
+            emit(homeRepository.getCategories())
         }catch (e:Exception){
             emit(Resource.Failure(e))
         }
@@ -41,7 +41,7 @@ class HomeViewModel @Inject constructor(
     fun fetchThings(categoryId: Int) = liveData(Dispatchers.IO) {
             emit(Resource.Loading())
             try {
-                val result = getAllThinsUseCase(page.value!!, categoryId)
+                val result = getAllThingsUseCase(page.value!!, categoryId)
                 emit(Resource.Success(result))
             } catch (e: Exception) {
                 emit(Resource.Failure(e))
@@ -50,13 +50,13 @@ class HomeViewModel @Inject constructor(
 
     fun addedToFavorite (thing: ThingEntity) {
         CoroutineScope(Dispatchers.IO).launch {
-            repo.addedThingToFav(thing)
+            homeRepository.addedThingToFav(thing)
         }
     }
 
     fun deleteFavorite (thing: ThingEntity) {
         CoroutineScope(Dispatchers.IO).launch {
-            repo.deleteFavorite(thing)
+            homeRepository.deleteFavorite(thing)
         }
     }
 

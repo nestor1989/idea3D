@@ -4,33 +4,36 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 import com.idea3d.idea3d.core.Resource
 import com.idea3d.idea3d.data.model.Task
-import com.idea3d.idea3d.data.repo.Repo
+import com.idea3d.idea3d.data.repository.work.WorkRepository
+import com.idea3d.idea3d.domain.works.GetAllWoksUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import java.util.*
 import javax.inject.Inject
 
 @HiltViewModel
-class TasksViewModel @Inject constructor(private val repo: Repo): ViewModel(){
+class TasksViewModel @Inject constructor(
+    private val workRepository: WorkRepository,
+    private val getAllWoksUseCase: GetAllWoksUseCase): ViewModel(){
 
     fun addTask (task: Task) {
         CoroutineScope(Dispatchers.Main).launch {
-            repo.addTask(task)
+            workRepository.addTask(task)
         }
     }
 
     fun deleteTask (task: Task) {
         CoroutineScope(Dispatchers.Main).launch {
-            repo.deleteTask(task)
+            workRepository.deleteTask(task)
         }
     }
 
     fun getAllTask() = liveData(Dispatchers.IO) {
         emit(Resource.Loading())
         try {
-            emit(repo.getAllTasks())
+            val result = getAllWoksUseCase()
+            emit(Resource.Success(result))
         } catch (e: Exception) {
             emit(Resource.Failure(e))
         }
@@ -39,7 +42,7 @@ class TasksViewModel @Inject constructor(private val repo: Repo): ViewModel(){
     fun getByDate(date:String) = liveData(Dispatchers.IO) {
         emit(Resource.Loading())
         try {
-            emit(repo.getByDate(date))
+            emit(workRepository.getByDate(date))
         } catch (e: Exception) {
             emit(Resource.Failure(e))
         }
@@ -48,7 +51,7 @@ class TasksViewModel @Inject constructor(private val repo: Repo): ViewModel(){
     fun getUrgent() = liveData(Dispatchers.IO) {
         emit(Resource.Loading())
         try {
-            emit(repo.getUrgent())
+            emit(workRepository.getUrgent())
         } catch (e: Exception) {
             emit(Resource.Failure(e))
         }
@@ -57,7 +60,7 @@ class TasksViewModel @Inject constructor(private val repo: Repo): ViewModel(){
     fun getByStatus(id_status: Int) = liveData(Dispatchers.IO) {
         emit(Resource.Loading())
         try {
-            emit(repo.getByStatus(id_status))
+            emit(workRepository.getByStatus(id_status))
         } catch (e: Exception) {
             emit(Resource.Failure(e))
         }
@@ -65,13 +68,13 @@ class TasksViewModel @Inject constructor(private val repo: Repo): ViewModel(){
 
     fun updateTask(task: Task) {
         CoroutineScope(Dispatchers.Main).launch {
-            repo.updateTask(task)
+            workRepository.updateTask(task)
         }
     }
 
     fun getDateRange(today: String, dateInit:String) = liveData(Dispatchers.IO){
         try {
-            emit(repo.getDateRange(today, dateInit))
+            emit(workRepository.getDateRange(today, dateInit))
         } catch (e: Exception) {
             emit(Resource.Failure(e))
         }

@@ -1,12 +1,15 @@
 package com.idea3d.idea3d.di
 
-import com.idea3d.idea3d.data.repo.Repo
+import com.idea3d.idea3d.data.repository.home.HomeRepository
+import com.idea3d.idea3d.data.repository.work.WorkRepository
 import com.idea3d.idea3d.domain.favorites.GetFavoritesUseCase
 import com.idea3d.idea3d.domain.favorites.GetFavoritesUseCaseImpl
 import com.idea3d.idea3d.domain.news.GetNewsUseCase
 import com.idea3d.idea3d.domain.news.GetNewsUseCaseImpl
 import com.idea3d.idea3d.domain.things.GetAllThingsUseCase
 import com.idea3d.idea3d.domain.things.GetAllThingsUseCaseImpl
+import com.idea3d.idea3d.domain.works.GetAllWoksUseCase
+import com.idea3d.idea3d.domain.works.GetAllWorksUseCaseImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,17 +20,22 @@ import dagger.hilt.android.components.ViewModelComponent
 object UseCaseModule {
 
     @Provides
-    fun provideGetNewsUseCase(repo: Repo): GetNewsUseCase {
-        return GetNewsUseCaseImpl(repo)
+    fun provideGetNewsUseCase(homeRepository: HomeRepository): GetNewsUseCase {
+        return GetNewsUseCaseImpl(homeRepository)
     }
 
     @Provides
-    fun provideGetAllThingsUseCase(repo: Repo): GetAllThingsUseCase {
-        return GetAllThingsUseCaseImpl(repo)
+    fun provideGetAllThingsUseCase(homeRepository: HomeRepository): GetAllThingsUseCase {
+        return GetAllThingsUseCaseImpl(homeRepository)
     }
 
     @Provides
-    fun provideGetFavoritesUseCase(repo: Repo): GetFavoritesUseCase {
-        return GetFavoritesUseCaseImpl(repo)
+    fun provideGetFavoritesUseCase(homeRepository: HomeRepository): GetFavoritesUseCase {
+        return GetFavoritesUseCaseImpl(homeRepository)
+    }
+
+    @Provides
+    fun provideGetAllWorksUseCase(workRepository: WorkRepository): GetAllWoksUseCase {
+        return GetAllWorksUseCaseImpl(workRepository)
     }
 }
