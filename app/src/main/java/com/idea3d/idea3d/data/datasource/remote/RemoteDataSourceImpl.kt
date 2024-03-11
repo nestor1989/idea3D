@@ -14,16 +14,16 @@ class RemoteDataSourceImpl @Inject constructor(
     private val newsProvider: NewsProvider
 ): RemoteDataSource {
 
-    override suspend fun getThings (searchBy:String, page:Int, category: Int): Resource<Things> {
-        return Resource.Success(webService.searchThingByNew(THING_KEY,searchBy, page, Constants.PER_PAGE, category, "now-3M"))
+    override suspend fun getThings (searchBy:String, page:Int, category: Int): Things {
+        return webService.searchThingByNew(THING_KEY,searchBy, page, Constants.PER_PAGE, category, "now-3M")
     }
 
     override suspend fun getNews (country:String, key: String): List<News> {
         return newsProvider.topHeadLines(country, key).articles
     }
 
-    override suspend fun getThingByName (searchBy: String, page:Int, category: Int): Resource<Things>{
-        return Resource.Success(webService.searchThingByName(THING_KEY,searchBy, page, Constants.PER_PAGE, category))
+    override suspend fun getThingByName (searchBy: String, page:Int, category: Int): Things{
+        return webService.searchThingByName(THING_KEY,searchBy, page, Constants.PER_PAGE, category)
     }
 
     override suspend fun getCategories(): Resource<List<Category>> {

@@ -8,10 +8,11 @@ import android.view.ViewGroup
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import com.idea3d.idea3d.data.model.home.news.News
+import com.idea3d.idea3d.data.model.home.news.NewsDTO
 import com.idea3d.idea3d.databinding.FragmentBottomSheetNewsListDialogBinding
 import com.idea3d.idea3d.ui.view.modals.ProgressDialogFragment
 
-class BottomSheetNewsFragment(private val news: News) : BottomSheetDialogFragment() {
+class BottomSheetNewsFragment(private val news: NewsDTO) : BottomSheetDialogFragment() {
 
     private var _binding: FragmentBottomSheetNewsListDialogBinding? = null
     private val binding get() = _binding!!
@@ -58,7 +59,7 @@ class BottomSheetNewsFragment(private val news: News) : BottomSheetDialogFragmen
         _binding = null
     }
 
-    fun newInstance(news: News): BottomSheetNewsFragment? {
+    fun newInstance(news: NewsDTO): BottomSheetNewsFragment? {
         val frag = BottomSheetNewsFragment(news)
         val args = Bundle()
         frag.arguments = args

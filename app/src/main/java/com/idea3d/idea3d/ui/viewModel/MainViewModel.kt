@@ -8,6 +8,10 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.idea3d.idea3d.core.Resource
+import com.idea3d.idea3d.data.model.mapper.GetThingMapper
+import com.idea3d.idea3d.data.model.mapper.GetThingsMapper
+import com.idea3d.idea3d.data.model.mapper.ThingWithCatMapper
+import com.idea3d.idea3d.data.model.mapper.ThingsMapper
 import com.idea3d.idea3d.data.repository.home.HomeRepository
 import com.idea3d.idea3d.domain.news.GetNewsUseCase
 import com.idea3d.idea3d.ui.view.MainActivity
@@ -20,7 +24,7 @@ import javax.inject.Inject
 @HiltViewModel
 class MainViewModel@Inject constructor(
     private val homeRepository: HomeRepository,
-    private val getNewsUseCase: GetNewsUseCase
+    private val thingsMapper: ThingsMapper
 ) : ViewModel() {
     @ApplicationContext private val context: Context): ViewModel() {
     val searchThing = MutableLiveData<String>()
@@ -47,8 +51,12 @@ class MainViewModel@Inject constructor(
             emit(Resource.Loading())
             try {
                 if (searchThing.value==Constants.RELEVANT || searchThing.value==Constants.POPULAR || searchThing.value==Constants.NEWEST){
-                emit(homeRepository.getThingsByNews(it, 1, category.value!!))
-                }else emit(homeRepository.getThingsByName(it, 1, category.value!!))
+                    val result = homeRepository.getThingsByNews(it, 1, category.value!!)
+                    emit(Resource.Success(thingsMapper.mapToUI(result)))
+                }else{
+                    val result = homeRepository.getThingsByName(it, 1, category.value!!)
+                    emit(Resource.Success(thingsMapper.mapToUI(result)))
+                }
             } catch (e: Exception) {
                 emit(Resource.Failure(e))
             }
@@ -60,21 +68,13 @@ class MainViewModel@Inject constructor(
         emit(Resource.Loading())
         try {
             if (searchThing.value==Constants.RELEVANT || searchThing.value==Constants.POPULAR || searchThing.value==Constants.NEWEST){
-                emit(homeRepository.getThingsByNews(searchThing.value!!, page.value!!, category.value!!))
-            }else emit(homeRepository.getThingsByName(searchThing.value!!, page.value!!, category.value!!))
+                val result = homeRepository.getThingsByNews(searchThing.value!!, page.value!!, category.value!!)
+                emit(Resource.Success(thingsMapper.mapToUI(result)))
+            }else{
+                val result = homeRepository.getThingsByName(searchThing.value!!, page.value!!, category.value!!)
+                emit(Resource.Success(thingsMapper.mapToUI(result)))
+            }
         } catch (e: Exception) {
-            emit(Resource.Failure(e))
-        }
-        }
-    }
-
-
-    fun fetchNewsList(country: String, key: String) = liveData(Dispatchers.IO) {
-        emit(Resource.Loading())
-        try {
-            val result = getNewsUseCase(country, key)
-            emit(Resource.Success(result))
-        }catch (e:Exception){
             emit(Resource.Failure(e))
         }
     }

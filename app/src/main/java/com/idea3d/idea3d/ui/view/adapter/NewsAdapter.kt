@@ -8,15 +8,16 @@ import com.bumptech.glide.Glide
 import com.idea3d.idea3d.R
 import com.idea3d.idea3d.core.BaseViewHolder
 import com.idea3d.idea3d.data.model.home.news.News
+import com.idea3d.idea3d.data.model.home.news.NewsDTO
 import com.idea3d.idea3d.databinding.RowNewsBinding
 
 
-class NewsAdapter(private val context: Context, private val newsList:List<News>,
+class NewsAdapter(private val context: Context, private val newsList:List<NewsDTO>,
                   private val itemClickListener:OnNewsClickListener):
     RecyclerView.Adapter<BaseViewHolder<*>>() {
 
     interface OnNewsClickListener{
-        fun onNewsClick(news: News)
+        fun onNewsClick(news: NewsDTO)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<*> {
@@ -37,8 +38,8 @@ class NewsAdapter(private val context: Context, private val newsList:List<News>,
     }
 
     inner class MainViewHolder(private val itemBinding: RowNewsBinding):
-        BaseViewHolder<News>(itemBinding.root) {
-        override fun bind(item: News) {
+        BaseViewHolder<NewsDTO>(itemBinding.root) {
+        override fun bind(item: NewsDTO) {
             val image = "${item.urlToImage}"
             Glide.with(context)
                 .load(image)

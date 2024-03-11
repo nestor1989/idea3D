@@ -7,23 +7,18 @@ import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
-/*@Parcelize
-data class Thing(
-    @SerializedName ("id")
-    var id: Int,
-    @SerializedName("name")
-    var name:String,
-    @SerializedName("thumbnail")
-    var image:String,
-    @SerializedName("public_url")
-    val url:String,
-    var favorite: Boolean = false
-    ):Parcelable*/
-
 @Parcelize
 data class Things(
     @SerializedName("hits")
     val thingsList: List<ThingEntity>,
+    @SerializedName("total")
+    val totalThings: Int
+): Parcelable
+
+@Parcelize
+data class ThingsDTO(
+    @SerializedName("hits")
+    val thingsList: List<ThingDTO>,
     @SerializedName("total")
     val totalThings: Int
 ): Parcelable
@@ -54,4 +49,19 @@ data class ThingWithCat(
     var catName: String
 ): Parcelable
 
+@Parcelize
+data class ThingDTO(
+    var id: Long,
+    var name:String,
+    var image:String,
+    val url:String,
+    var favorite: Boolean
+):Parcelable
+
+@Parcelize
+data class ThingWithCatDTO(
+    var things: List<ThingDTO>,
+    var catId: Int,
+    var catName: String
+): Parcelable
 
