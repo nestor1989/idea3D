@@ -1,8 +1,6 @@
 package com.idea3d.idea3d.domain.works
 
-import com.idea3d.idea3d.data.model.Task
-import com.idea3d.idea3d.data.model.Thing
-import com.idea3d.idea3d.data.model.Things
+import com.idea3d.idea3d.data.model.works.Task
 import com.idea3d.idea3d.data.repository.work.WorkRepository
 import javax.inject.Inject
 

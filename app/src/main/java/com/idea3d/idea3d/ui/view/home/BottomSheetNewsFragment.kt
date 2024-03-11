@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebView
 import android.webkit.WebViewClient
-import com.idea3d.idea3d.data.model.News
+import com.idea3d.idea3d.data.model.home.news.News
 import com.idea3d.idea3d.databinding.FragmentBottomSheetNewsListDialogBinding
 import com.idea3d.idea3d.ui.view.modals.ProgressDialogFragment
 

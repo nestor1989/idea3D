@@ -10,13 +10,12 @@ import android.view.ViewGroup
 import android.widget.SearchView
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.idea3d.idea3d.R
 import com.idea3d.idea3d.core.Resource
-import com.idea3d.idea3d.data.model.Task
+import com.idea3d.idea3d.data.model.works.Task
 import com.idea3d.idea3d.databinding.FragmentWorksDetailsBinding
 import com.idea3d.idea3d.ui.view.main.MainActivity
 import com.idea3d.idea3d.ui.view.adapter.TaskAdapter

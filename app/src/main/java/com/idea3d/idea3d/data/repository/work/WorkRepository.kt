@@ -1,7 +1,7 @@
 package com.idea3d.idea3d.data.repository.work
 
 import com.idea3d.idea3d.core.Resource
-import com.idea3d.idea3d.data.model.Task
+import com.idea3d.idea3d.data.model.works.Task
 
 interface WorkRepository {
     suspend fun addTask(task: Task)

@@ -1,4 +1,4 @@
-package com.idea3d.idea3d.data.model
+package com.idea3d.idea3d.data.model.home
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName

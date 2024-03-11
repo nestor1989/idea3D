@@ -2,7 +2,7 @@ package com.idea3d.idea3d.ui.viewModel
 
 import androidx.lifecycle.*
 import com.idea3d.idea3d.core.Resource
-import com.idea3d.idea3d.data.model.ThingEntity
+import com.idea3d.idea3d.data.model.home.ThingEntity
 import com.idea3d.idea3d.data.repository.home.HomeRepository
 import com.idea3d.idea3d.domain.favorites.GetFavoritesUseCase
 import com.idea3d.idea3d.domain.things.GetAllThingsUseCase

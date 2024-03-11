@@ -7,8 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.idea3d.idea3d.R
 import com.idea3d.idea3d.core.BaseViewHolder
-import com.idea3d.idea3d.data.model.Thing
-import com.idea3d.idea3d.data.model.ThingEntity
+import com.idea3d.idea3d.data.model.home.ThingEntity
 import com.idea3d.idea3d.databinding.RowFavThingsBinding
 
 class FavsAdapter (private val context: Context, private val thingList:List<ThingEntity>,
@@ -16,7 +15,7 @@ class FavsAdapter (private val context: Context, private val thingList:List<Thin
     RecyclerView.Adapter<BaseViewHolder<*>>() {
 
     interface OnThingClickListener {
-        fun onThingClick(thing: Thing)
+        fun onThingClick(thing: ThingEntity)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<*> {
@@ -47,8 +46,7 @@ class FavsAdapter (private val context: Context, private val thingList:List<Thin
                 .dontAnimate()
                 .into(itemBinding.ivPortada)
             itemBinding.cardThing.setOnClickListener {
-                val thing = Thing(item.id, item.name, item.image, item.url)
-                itemClickListener.onThingClick(thing)
+                itemClickListener.onThingClick(item)
             }
         }
     }

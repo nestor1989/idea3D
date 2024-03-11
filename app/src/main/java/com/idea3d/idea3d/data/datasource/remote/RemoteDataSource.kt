@@ -1,7 +1,9 @@
 package com.idea3d.idea3d.data.datasource.remote
 
 import com.idea3d.idea3d.core.Resource
-import com.idea3d.idea3d.data.model.*
+import com.idea3d.idea3d.data.model.home.Category
+import com.idea3d.idea3d.data.model.home.news.News
+import com.idea3d.idea3d.data.model.home.Things
 
 interface RemoteDataSource {
 
