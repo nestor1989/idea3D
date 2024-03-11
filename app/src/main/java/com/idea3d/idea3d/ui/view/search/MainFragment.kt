@@ -19,8 +19,9 @@ import com.bumptech.glide.Glide
 import com.idea3d.idea3d.R
 import com.idea3d.idea3d.utils.Constants
 import com.idea3d.idea3d.core.Resource
-import com.idea3d.idea3d.data.model.home.news.News
+import com.idea3d.idea3d.data.model.home.ThingDTO
 import com.idea3d.idea3d.data.model.home.ThingEntity
+import com.idea3d.idea3d.data.model.home.news.NewsDTO
 import com.idea3d.idea3d.databinding.FragmentMainBinding
 import com.idea3d.idea3d.ui.view.main.MainActivity
 import com.idea3d.idea3d.ui.view.adapter.MainAdapter
@@ -46,7 +47,7 @@ class MainFragment :
     private val homeViewModel by viewModels<HomeViewModel>()
 
     lateinit var listPages:MutableList<Int>
-    var listFavs: List<ThingEntity>?=null
+    var listFavs: List<ThingDTO>?=null
 
     private lateinit var progressDialogFragment: ProgressDialogFragment
 
@@ -70,10 +71,10 @@ class MainFragment :
             arguments?.getInt("category")?.let { viewModel.setCategory(it) }
             val stringCat = arguments?.getString("category_string")
             binding.search.queryHint = "STL - $stringCat"
-            viewModel.setThings("popular")
+            viewModel.setThings(Constants.POPULAR)
         }else{
             viewModel.setCategory(0)
-            viewModel.setThings("Relevant")
+            viewModel.setThings(Constants.RELEVANT)
         }
 
         setUpRecyclerView()
@@ -177,7 +178,7 @@ class MainFragment :
         binding.rvPage.adapter = PaginationAdapter(requireContext(), listPages , this )
     }
 
-    override fun onThingClick(thing: ThingEntity) {
+    override fun onThingClick(thing: ThingDTO) {
         var favorite = validateFav(thing)
         thing.favorite = favorite
         thingsModalFragment = ThingsModalFragment(thing, this)
@@ -185,7 +186,7 @@ class MainFragment :
         newInst.show(activity?.supportFragmentManager!!, "thingmodal")
     }
 
-    override fun onNewsClick(news: News) {
+    override fun onNewsClick(news: NewsDTO) {
         binding.dialogNews.visibility = View.VISIBLE
         val image = "${news.urlToImage}"
         Glide.with(this)
@@ -232,7 +233,7 @@ class MainFragment :
         viewModel.setPagination(page)
     }
 
-    override fun onLikeClick(thing: ThingEntity) {
+    override fun onLikeClick(thing: ThingDTO) {
         if (!thing.favorite){
             homeViewModel.addedToFavorite(thing)
         }
@@ -248,7 +249,7 @@ class MainFragment :
 
     override fun onDismiss() {}
 
-    private fun validateFav(thingEntity : ThingEntity): Boolean{
+    private fun validateFav(thingEntity : ThingDTO): Boolean{
         listFavs?.let {
             for(i in 0 until listFavs!!.size){
                 if (listFavs!![i].id == thingEntity.id){

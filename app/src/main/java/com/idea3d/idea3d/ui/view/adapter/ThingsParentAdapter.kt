@@ -7,18 +7,20 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.idea3d.idea3d.R
 import com.idea3d.idea3d.core.BaseViewHolder
+import com.idea3d.idea3d.data.model.home.ThingDTO
 import com.idea3d.idea3d.data.model.home.ThingEntity
 import com.idea3d.idea3d.data.model.home.ThingWithCat
+import com.idea3d.idea3d.data.model.home.ThingWithCatDTO
 import com.idea3d.idea3d.databinding.RowHomeParentBinding
 
 
 class ThingsParentAdapter(
     private val context: Context,
-    private val thingsWithCat: List<ThingWithCat>,
+    private val thingsWithCat: List<ThingWithCatDTO>,
     private val onClickChild : OnClickChild): RecyclerView.Adapter<BaseViewHolder<*>>() {
 
     interface OnClickChild{
-        fun onClickChild(thing: ThingEntity)
+        fun onClickChild(thing: ThingDTO)
         fun onSearchByCat(category: Int, categoryString: String)
     }
 
@@ -40,8 +42,8 @@ class ThingsParentAdapter(
     }
 
     inner class MainViewHolder(private val itemBinding: RowHomeParentBinding) :
-        BaseViewHolder<ThingWithCat>(itemBinding.root), ThingsChildAdapter.OnThingClickListener {
-        override fun bind(item: ThingWithCat) {
+        BaseViewHolder<ThingWithCatDTO>(itemBinding.root), ThingsChildAdapter.OnThingClickListener {
+        override fun bind(item: ThingWithCatDTO) {
 
             val title = translate(item.catName)
             itemBinding.contentTitle.setText(title)
@@ -55,7 +57,7 @@ class ThingsParentAdapter(
             }
         }
 
-        override fun onThingClick(thing: ThingEntity) {
+        override fun onThingClick(thing: ThingDTO) {
             onClickChild.onClickChild(thing)
         }
     }

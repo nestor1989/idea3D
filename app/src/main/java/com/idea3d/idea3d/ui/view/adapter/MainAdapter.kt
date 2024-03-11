@@ -7,15 +7,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.idea3d.idea3d.R
 import com.idea3d.idea3d.core.BaseViewHolder
-import com.idea3d.idea3d.data.model.home.ThingEntity
+import com.idea3d.idea3d.data.model.home.ThingDTO
 import com.idea3d.idea3d.databinding.RowThingsBinding
 
-class MainAdapter(private val context: Context, private val thingList:List<ThingEntity>,
+class MainAdapter(private val context: Context, private val thingList:List<ThingDTO>,
                   private val itemClickListener:OnThingClickListener):
     RecyclerView.Adapter<BaseViewHolder<*>>() {
 
     interface OnThingClickListener{
-        fun onThingClick(thing: ThingEntity)
+        fun onThingClick(thing: ThingDTO)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<*> {
@@ -36,8 +36,8 @@ class MainAdapter(private val context: Context, private val thingList:List<Thing
     }
 
     inner class MainViewHolder(private val itemBinding:RowThingsBinding):
-        BaseViewHolder<ThingEntity>(itemBinding.root) {
-        override fun bind(item: ThingEntity) {
+        BaseViewHolder<ThingDTO>(itemBinding.root) {
+        override fun bind(item: ThingDTO) {
             val image = "${item.image}"
             Glide.with(context)
                 .load(image)
