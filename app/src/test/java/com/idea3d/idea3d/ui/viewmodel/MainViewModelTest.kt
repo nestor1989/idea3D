@@ -2,7 +2,7 @@ package com.idea3d.idea3d.ui.viewmodel
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.idea3d.idea3d.TestCoroutineRule
-import com.idea3d.idea3d.data.repo.Repo
+import com.idea3d.idea3d.data.repository.home.HomeRepository
 import com.idea3d.idea3d.domain.news.GetNewsUseCase
 import com.idea3d.idea3d.ui.viewModel.MainViewModel
 import io.mockk.MockKAnnotations
@@ -26,7 +26,7 @@ import org.junit.rules.TestRule
 @ExperimentalCoroutinesApi
 class MainViewModelTest {
     @RelaxedMockK
-    private lateinit var repo: Repo
+    private lateinit var repo: HomeRepository
     private lateinit var mainViewModel: MainViewModel
     private lateinit var getNewsUseCase: GetNewsUseCase
 

@@ -3,7 +3,8 @@ package com.idea3d.idea3d.ui.viewmodel
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.idea3d.idea3d.TestCoroutineRule
 import com.idea3d.idea3d.data.model.ThingEntity
-import com.idea3d.idea3d.data.repo.Repo
+import com.idea3d.idea3d.data.repository.home.HomeRepository
+import com.idea3d.idea3d.data.repository.work.WorkRepository
 import com.idea3d.idea3d.domain.favorites.GetFavoritesUseCase
 import com.idea3d.idea3d.domain.things.GetAllThingsUseCase
 import com.idea3d.idea3d.ui.viewModel.HomeViewModel
@@ -38,7 +39,8 @@ class HomeViewModelTest {
     private val testDispatcher = TestCoroutineDispatcher()
 
     private lateinit var viewModel: HomeViewModel
-    private lateinit var repo: Repo
+    private lateinit var homeRepository: HomeRepository
+    private lateinit var workRepository: WorkRepository
 
     private val thing1 = ThingEntity(1, "thing1", "jsjsjs", "kijsjis", true)
     private val thing2 = ThingEntity(2, "thing2", "jsjsjs", "kijsjis", false)
@@ -51,10 +53,10 @@ class HomeViewModelTest {
         MockKAnnotations.init(this)
         Dispatchers.setMain(testDispatcher)
 
-        repo = mockk()
+        homeRepository = mockk()
         getAllThingsUseCase = mockk()
         getFavoritesUseCase = mockk()
-        viewModel = HomeViewModel(repo, getAllThingsUseCase, getFavoritesUseCase)
+        viewModel = HomeViewModel(homeRepository, getAllThingsUseCase, getFavoritesUseCase)
     }
 
     @After
@@ -69,7 +71,7 @@ class HomeViewModelTest {
 
         viewModel.addedToFavorite(thing)
 
-        coVerify { repo.addedThingToFav(thing) }
+        coVerify { homeRepository.addedThingToFav(thing) }
     }
 
     @Test
@@ -78,7 +80,7 @@ class HomeViewModelTest {
 
         viewModel.deleteFavorite(thing)
 
-        coVerify { repo.deleteFavorite(thing) }
+        coVerify { homeRepository.deleteFavorite(thing) }
     }
 
     @Test
