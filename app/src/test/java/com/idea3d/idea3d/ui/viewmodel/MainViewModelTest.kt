@@ -29,6 +29,7 @@ class MainViewModelTest {
     private lateinit var repo: HomeRepository
     private lateinit var mainViewModel: MainViewModel
     private lateinit var getNewsUseCase: GetNewsUseCase
+    private lateinit var
 
     @get:Rule
     var rule: InstantTaskExecutorRule = InstantTaskExecutorRule()

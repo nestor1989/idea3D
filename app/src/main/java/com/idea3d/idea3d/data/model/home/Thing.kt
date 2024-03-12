@@ -51,6 +51,7 @@ data class ThingWithCat(
 
 @Parcelize
 data class ThingDTO(
+    var entityKey: Long? = null,
     var id: Long,
     var name:String,
     var image:String,

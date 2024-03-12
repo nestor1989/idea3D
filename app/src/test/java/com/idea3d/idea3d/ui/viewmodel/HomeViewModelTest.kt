@@ -48,6 +48,7 @@ class HomeViewModelTest {
     private lateinit var getAllThingsUseCase: GetAllThingsUseCase
     private lateinit var getFavoritesUseCase: GetFavoritesUseCase
 
+
     @Before
     fun setup() {
         MockKAnnotations.init(this)
@@ -56,6 +57,7 @@ class HomeViewModelTest {
         homeRepository = mockk()
         getAllThingsUseCase = mockk()
         getFavoritesUseCase = mockk()
+
         viewModel = HomeViewModel(homeRepository, getAllThingsUseCase, getFavoritesUseCase)
     }
 

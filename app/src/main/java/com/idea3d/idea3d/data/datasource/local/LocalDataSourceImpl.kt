@@ -20,7 +20,7 @@ class LocalDataSourceImpl @Inject constructor(
     }
 
     override suspend fun deleteThing(thingEntity: ThingEntity) {
-        thingsDao.deleteFavoriteThing(thingEntity)
+        thingsDao.deleteFavoriteThing(thingEntity.id)
     }
 
     override suspend fun insertTask(task: Task) {

@@ -17,8 +17,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.idea3d.idea3d.R
 import com.idea3d.idea3d.core.Resource
 import com.idea3d.idea3d.data.model.home.ThingDTO
-import com.idea3d.idea3d.data.model.home.ThingEntity
-import com.idea3d.idea3d.data.model.home.ThingWithCat
 import com.idea3d.idea3d.data.model.home.ThingWithCatDTO
 import com.idea3d.idea3d.data.model.home.news.NewsDTO
 import com.idea3d.idea3d.databinding.FragmentHomeBinding
@@ -141,18 +139,9 @@ class HomeFragment : Fragment(),
 
                         homeViewModel.fetchThings(catId).observe(viewLifecycleOwner, Observer { things ->
                             when(things){
-                                is Resource.Loading->{
-
-                                }
+                                is Resource.Loading->{}
                                 is Resource.Success->{
-                                    val thingWithCat = ThingWithCatDTO(things.data.thingsList.map { thing ->
-                                        ThingDTO(
-                                            id = thing.id,
-                                            name = thing.name,
-                                            image = thing.image,
-                                            url = thing.url,
-                                            favorite = thing.favorite)
-                                    }, catId, nameCat)
+                                    val thingWithCat = ThingWithCatDTO(things.data.thingsList, catId, nameCat)
 
                                     thingsWithCat.add(thingWithCat)
                                     setUpRecyclerView(thingsWithCat)
@@ -197,7 +186,6 @@ class HomeFragment : Fragment(),
         else {
             homeViewModel.deleteFavorite(thing)
         }
-
     }
 
     override fun onDownLoadClick(url: String) {
@@ -256,15 +244,15 @@ class HomeFragment : Fragment(),
         })
     }
 
-    private fun validateFav(ThingDTOy : ThingDTO): Boolean{
+    private fun validateFav(thing : ThingDTO): Boolean{
         listFavs?.let {
             for(i in 0 until listFavs!!.size){
-                if (listFavs!![i].id == ThingDTOy.id){
-                    ThingDTOy.favorite = true
+                if (listFavs!![i].id == thing.id){
+                    thing.favorite = true
                 }
             }
         }
-        return ThingDTOy.favorite
+        return thing.favorite
     }
 
     override fun onNewThingClick(thing: ThingDTO) {

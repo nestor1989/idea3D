@@ -8,6 +8,7 @@ import com.idea3d.idea3d.data.model.mapper.GetNewsMapper
 import com.idea3d.idea3d.data.model.mapper.GetThingMapper
 import com.idea3d.idea3d.data.model.mapper.GetThingsMapper
 import com.idea3d.idea3d.data.model.mapper.ThingWithCatMapper
+import com.idea3d.idea3d.data.model.mapper.ThingsMapper
 import com.idea3d.idea3d.data.repository.home.HomeRepository
 import com.idea3d.idea3d.domain.favorites.GetFavoritesUseCase
 import com.idea3d.idea3d.domain.news.GetNewsUseCase
@@ -26,7 +27,8 @@ class HomeViewModel @Inject constructor(
     private val getNewsUseCase: GetNewsUseCase,
     private val getNewsMapper: GetNewsMapper,
     private val getThingMapper: GetThingMapper,
-    private val getThingsMapper: GetThingsMapper
+    private val getThingsMapper: GetThingsMapper,
+    private val thingsMapper: ThingsMapper
     ): ViewModel(){
     val page = MutableLiveData<Int>()
 
@@ -52,7 +54,7 @@ class HomeViewModel @Inject constructor(
             emit(Resource.Loading())
             try {
                 val result = getAllThingsUseCase(page.value!!, categoryId)
-                emit(Resource.Success(result))
+                emit(Resource.Success(thingsMapper.mapToUI(result)))
             } catch (e: Exception) {
                 emit(Resource.Failure(e))
             }
