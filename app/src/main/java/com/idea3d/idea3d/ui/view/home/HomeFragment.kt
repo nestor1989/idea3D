@@ -15,10 +15,9 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.idea3d.idea3d.R
 import com.idea3d.idea3d.core.Resource
-import com.idea3d.idea3d.data.model.News
-import com.idea3d.idea3d.data.model.Thing
-import com.idea3d.idea3d.data.model.ThingEntity
-import com.idea3d.idea3d.data.model.ThingWithCat
+import com.idea3d.idea3d.data.model.home.ThingDTO
+import com.idea3d.idea3d.data.model.home.ThingWithCatDTO
+import com.idea3d.idea3d.data.model.home.news.NewsDTO
 import com.idea3d.idea3d.databinding.FragmentHomeBinding
 import com.idea3d.idea3d.ui.view.main.MainActivity
 import com.idea3d.idea3d.ui.view.adapter.AlternativeNewsAdapter
@@ -29,6 +28,7 @@ import com.idea3d.idea3d.ui.view.modals.ProgressDialogFragment
 import com.idea3d.idea3d.ui.view.modals.ThingsModalFragment
 import com.idea3d.idea3d.ui.viewModel.HomeViewModel
 import com.idea3d.idea3d.ui.viewModel.MainViewModel
+import com.idea3d.idea3d.utils.Constants
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -44,13 +44,13 @@ class HomeFragment : Fragment(),
     private val homeViewModel by viewModels<HomeViewModel>()
     private val mainViewModel by viewModels<MainViewModel>()
 
-    private var thingsWithCat = mutableListOf<ThingWithCat>()
+    private var thingsWithCat = mutableListOf<ThingWithCatDTO>()
 
     private lateinit var bottomSheetNewsFragment: BottomSheetNewsFragment
     private lateinit var thingsModalFragment: ThingsModalFragment
     private lateinit var progressDialogFragment: ProgressDialogFragment
 
-    var listFavs: List<ThingEntity>?=null
+    var listFavs: List<ThingDTO>?=null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -77,27 +77,27 @@ class HomeFragment : Fragment(),
         setUpNewsObservers()
     }
 
-    private fun setUpRecyclerView(thingsWithCat: List<ThingWithCat>) {
+    private fun setUpRecyclerView(thingsWithCat: List<ThingWithCatDTO>) {
         val appContext = requireContext()
         val recyclerView = binding.parentRecyclerView
         recyclerView.layoutManager= LinearLayoutManager(appContext)
         recyclerView.adapter = ThingsParentAdapter(appContext, thingsWithCat, this)
     }
 
-    private fun setUpRecyclerViewFavs(things: List<ThingEntity>) {
+    private fun setUpRecyclerViewFavs(things: List<ThingDTO>) {
         val appContext = requireContext()
         val recyclerView = binding.favsRecycler
         recyclerView.adapter = FavsAdapter(appContext, things, this)
     }
 
-    private fun setUpRecyclerAlternative(things: List<Thing>) {
+    private fun setUpRecyclerAlternative(things: List<ThingDTO>) {
         val appContext = requireContext()
         val recyclerView = binding.rvNews
         recyclerView.adapter = AlternativeNewsAdapter(appContext, things, this)
     }
 
     private fun setUpNewsObservers(){
-        mainViewModel.fetchNewsList(getString(R.string.country), "3D AND " + getString(R.string.printer)).observe(viewLifecycleOwner, Observer{ result->
+        homeViewModel.fetchNewsList(getString(R.string.country), "3D AND " + getString(R.string.printer)).observe(viewLifecycleOwner, Observer{ result->
             when(result){
                 is Resource.Loading->{}
                 is Resource.Success->{
@@ -105,7 +105,8 @@ class HomeFragment : Fragment(),
                     Log.d("NEWS", result.data.toString())
                 }
                 is Resource.Failure->{
-                    mainViewModel.setThings("newest")
+                    Log.d("HomeFragment_NEWS", "Error: ${result.exception}")
+                    mainViewModel.setThings(Constants.NEWEST)
                     mainViewModel.fetchPage.observe(viewLifecycleOwner, Observer { result ->
                     if (result is Resource.Success){
                         setUpRecyclerAlternative(result.data.thingsList)
@@ -137,11 +138,10 @@ class HomeFragment : Fragment(),
 
                         homeViewModel.fetchThings(catId).observe(viewLifecycleOwner, Observer { things ->
                             when(things){
-                                is Resource.Loading->{
-
-                                }
+                                is Resource.Loading->{}
                                 is Resource.Success->{
-                                    val thingWithCat = ThingWithCat(things.data.thingsList, catId, nameCat)
+                                    val thingWithCat = ThingWithCatDTO(things.data.thingsList, catId, nameCat)
+
                                     thingsWithCat.add(thingWithCat)
                                     setUpRecyclerView(thingsWithCat)
                                     binding.rvNews.visibility = View.VISIBLE
@@ -172,22 +172,19 @@ class HomeFragment : Fragment(),
         })
     }
 
-    override fun onNewsClick(news: News) {
+    override fun onNewsClick(news: NewsDTO) {
         bottomSheetNewsFragment = BottomSheetNewsFragment(news)
         val newInst = bottomSheetNewsFragment.newInstance(news)
         newInst?.show(activity?.supportFragmentManager!!, "news")
     }
 
-    override fun onLikeClick(thing: Thing) {
-        val thingEntity = ThingEntity(thing.id, thing.name, thing.image, thing.url, thing.favorite)
-
-        if (!thingEntity.favorite){
-            homeViewModel.addedToFavorite(thingEntity)
+    override fun onLikeClick(thing: ThingDTO) {
+        if (!thing.favorite){
+            homeViewModel.addedToFavorite(thing)
         }
         else {
-            homeViewModel.deleteFavorite(thingEntity)
+            homeViewModel.deleteFavorite(thing)
         }
-
     }
 
     override fun onDownLoadClick(url: String) {
@@ -200,7 +197,7 @@ class HomeFragment : Fragment(),
     }
 
     //NORMALES
-    override fun onClickChild(thing: Thing) {
+    override fun onClickChild(thing: ThingDTO) {
         modalInst(thing)
     }
 
@@ -212,11 +209,11 @@ class HomeFragment : Fragment(),
     }
 
     //FAVORITOS
-    override fun onThingClick(thing: Thing) {
+    override fun onThingClick(thing: ThingDTO) {
         modalInst(thing)
     }
 
-    private fun modalInst(thing: Thing){
+    private fun modalInst(thing: ThingDTO){
         val favorite = validateFav(thing)
         thing.favorite = favorite
         thingsModalFragment = ThingsModalFragment(thing, this)
@@ -246,18 +243,18 @@ class HomeFragment : Fragment(),
         })
     }
 
-    private fun validateFav(thingEntity : Thing): Boolean{
+    private fun validateFav(thing : ThingDTO): Boolean{
         listFavs?.let {
             for(i in 0 until listFavs!!.size){
-                if (listFavs!![i].id == thingEntity.id){
-                    thingEntity.favorite = true
+                if (listFavs!![i].id == thing.id){
+                    thing.favorite = true
                 }
             }
         }
-        return thingEntity.favorite
+        return thing.favorite
     }
 
-    override fun onNewThingClick(thing: Thing) {
+    override fun onNewThingClick(thing: ThingDTO) {
         modalInst(thing)
     }
 

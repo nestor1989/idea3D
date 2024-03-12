@@ -13,12 +13,12 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.idea3d.idea3d.R
 import com.idea3d.idea3d.core.Resource
-import com.idea3d.idea3d.data.model.Task
+import com.idea3d.idea3d.data.model.works.Task
+import com.idea3d.idea3d.data.model.works.TaskDTO
 import com.idea3d.idea3d.databinding.FragmentWorksBinding
 import com.idea3d.idea3d.ui.view.main.MainActivity
 import com.idea3d.idea3d.ui.viewModel.TasksViewModel
@@ -36,7 +36,7 @@ class WorksFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterVie
 
     private val tasksViewModel by activityViewModels<TasksViewModel>()
 
-    private lateinit var fav: List<Task>
+    private lateinit var fav: List<TaskDTO>
     private lateinit var scheduleDialogFragment: ScheduleDialogFragment
 
     private var clientsList = ArrayList<String>()
@@ -172,7 +172,7 @@ class WorksFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterVie
         })
     }
 
-    private fun setProfits(result: Resource<List<Task>>){
+    private fun setProfits(result: Resource<List<TaskDTO>>){
         when(result){
             is Resource.Loading->{}
             is Resource.Success->{

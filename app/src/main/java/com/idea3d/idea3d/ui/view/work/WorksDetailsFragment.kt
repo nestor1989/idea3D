@@ -10,13 +10,13 @@ import android.view.ViewGroup
 import android.widget.SearchView
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.idea3d.idea3d.R
 import com.idea3d.idea3d.core.Resource
-import com.idea3d.idea3d.data.model.Task
+import com.idea3d.idea3d.data.model.works.Task
+import com.idea3d.idea3d.data.model.works.TaskDTO
 import com.idea3d.idea3d.databinding.FragmentWorksDetailsBinding
 import com.idea3d.idea3d.ui.view.main.MainActivity
 import com.idea3d.idea3d.ui.view.adapter.TaskAdapter
@@ -35,7 +35,7 @@ class WorksDetailsFragment : Fragment(), TaskAdapter.OnClickArrow, ModalWorksFra
 
     private lateinit var adapter: TaskAdapter
 
-    private lateinit var tasks: MutableList<Task>
+    private lateinit var tasks: MutableList<TaskDTO>
 
     var clients: ArrayList<String>? = arrayListOf()
 
@@ -109,31 +109,31 @@ class WorksDetailsFragment : Fragment(), TaskAdapter.OnClickArrow, ModalWorksFra
         binding.rvTasks.layoutManager= LinearLayoutManager(appContext)
     }
 
-    private fun setAdapter(tasks: List<Task>){
+    private fun setAdapter(tasks: List<TaskDTO>){
         adapter = TaskAdapter(tasks, this, requireContext().applicationContext)
         binding.rvTasks.adapter = adapter
     }
 
-    override fun onClickArrow(task: Task) {
+    override fun onClickArrow(task: TaskDTO) {
         modalWorksFragment = ModalWorksFragment(task, this)
         val modalInst = modalWorksFragment.newInstance(task)
         modalInst.show(activity?.supportFragmentManager!!, "taskmodal")
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    override fun onDelete(task: Task) {
+    override fun onDelete(task: TaskDTO) {
         tasksViewModel.deleteTask(task)
         tasks.remove(task)
         adapter.notifyDataSetChanged()
     }
 
-    override fun onUpdate(task: Task, idStatus: Int, stringStatus: String) {
+    override fun onUpdate(task: TaskDTO, idStatus: Int, stringStatus: String) {
         task.id_status = idStatus
         task.status = stringStatus
         tasksViewModel.updateTask(task)
     }
 
-    private fun callToRepo(result: Resource<List<Task>>){
+    private fun callToRepo(result: Resource<List<TaskDTO>>){
         when (result) {
             is Resource.Loading -> {}
             is Resource.Success -> {
@@ -176,7 +176,7 @@ class WorksDetailsFragment : Fragment(), TaskAdapter.OnClickArrow, ModalWorksFra
     }
 
     private fun showFilterTask(search:String){
-        var tasksFilter: ArrayList<Task> = arrayListOf()
+        var tasksFilter: ArrayList<TaskDTO> = arrayListOf()
         for (i in tasks.indices){
             if (tasks[i].name.contains(search, ignoreCase = true) || tasks[i].client!!.contains(search, ignoreCase = true)){
                 tasksFilter.add(tasks[i])
@@ -189,14 +189,14 @@ class WorksDetailsFragment : Fragment(), TaskAdapter.OnClickArrow, ModalWorksFra
         var STATUS: Array<String> = arrayOf<String>()
     }
 
-    override fun onEdit(task: Task) {
+    override fun onEdit(task: TaskDTO) {
         val bundle = Bundle()
         bundle.putStringArrayList("clients", clients)
         bundle.putParcelable("task", task)
         findNavController().navigate(R.id.action_worksDetailsFragment_to_newTaskFragment, bundle)
     }
 
-    override fun onDeleteModal(task: Task) {
+    override fun onDeleteModal(task: TaskDTO) {
         onDelete(task)
     }
 }

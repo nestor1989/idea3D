@@ -7,7 +7,7 @@ import android.view.ViewGroup
 
 import androidx.recyclerview.widget.RecyclerView
 import com.idea3d.idea3d.databinding.RowProblemsBinding
-import com.idea3d.idea3d.data.model.Problems
+import com.idea3d.idea3d.data.model.guide.Problems
 import com.idea3d.idea3d.ui.view.guide.OnFragmentActionsListener
 
 class ProblemsAdapter (

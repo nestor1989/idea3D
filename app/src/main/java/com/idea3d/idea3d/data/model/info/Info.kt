@@ -1,4 +1,4 @@
-package com.idea3d.idea3d.data.model
+package com.idea3d.idea3d.data.model.info
 
 import androidx.annotation.DrawableRes
 

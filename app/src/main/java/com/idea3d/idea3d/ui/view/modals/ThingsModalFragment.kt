@@ -1,20 +1,18 @@
 package com.idea3d.idea3d.ui.view.modals
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.idea3d.idea3d.R
-import com.idea3d.idea3d.data.model.News
-import com.idea3d.idea3d.data.model.Thing
-import com.idea3d.idea3d.databinding.FragmentBottomSheetNewsListDialogBinding
+import com.idea3d.idea3d.data.model.home.ThingDTO
+import com.idea3d.idea3d.data.model.home.ThingEntity
 import com.idea3d.idea3d.databinding.FragmentThingsModalBinding
 
 class ThingsModalFragment(
-    private val thing: Thing,
+    private val thing: ThingDTO,
     private val onThingClickListener: OnThingClickListener
     ) : BottomSheetDialogFragment() {
 
@@ -22,7 +20,7 @@ class ThingsModalFragment(
     private val binding get() = _binding!!
 
     interface OnThingClickListener  {
-        fun onLikeClick(thing: Thing)
+        fun onLikeClick(thing: ThingDTO)
         fun onDownLoadClick(url: String)
         fun onDismiss()
     }
@@ -77,7 +75,7 @@ class ThingsModalFragment(
         onThingClickListener.onDismiss()
     }
 
-    fun newInstance(thing: Thing): ThingsModalFragment {
+    fun newInstance(thing: ThingDTO): ThingsModalFragment {
         val frag = ThingsModalFragment(thing, onThingClickListener)
         val args = Bundle()
         frag.arguments = args

@@ -1,7 +1,6 @@
 package com.idea3d.idea3d.ui.view.work
 
 import android.annotation.SuppressLint
-import android.os.Build
 import android.os.Build.VERSION_CODES
 import android.os.Bundle
 import android.util.Log
@@ -10,14 +9,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.annotation.RequiresApi
-import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
-import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.idea3d.idea3d.R
 import com.idea3d.idea3d.core.Resource
-import com.idea3d.idea3d.data.model.Task
+import com.idea3d.idea3d.data.model.works.TaskDTO
 import com.idea3d.idea3d.databinding.FragmentScheduleDialogBinding
 import com.idea3d.idea3d.ui.viewModel.TasksViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -44,7 +40,7 @@ class ScheduleDialogFragment(private val onClick:OnDateClick) :
     private lateinit var c: Calendar
     private lateinit var df: SimpleDateFormat
     private lateinit var formattedDate: String
-    private var list: MutableList<Task> = mutableListOf()
+    private var list: MutableList<TaskDTO> = mutableListOf()
     private var entireMonth = true
     private var isToday = true
     var search = ""

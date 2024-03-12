@@ -1,7 +1,7 @@
 package com.idea3d.idea3d.data.network
 
-import com.idea3d.idea3d.data.model.Category
-import com.idea3d.idea3d.data.model.Things
+import com.idea3d.idea3d.data.model.home.Category
+import com.idea3d.idea3d.data.model.home.Things
 import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.Path

@@ -1,7 +1,7 @@
 package com.idea3d.idea3d.domain
 
 import com.idea3d.idea3d.MainCoroutineRule
-import com.idea3d.idea3d.data.model.Things
+import com.idea3d.idea3d.data.model.home.Things
 import com.idea3d.idea3d.data.repository.home.HomeRepository
 import com.idea3d.idea3d.data.repository.home.HomeRepositoryImpl
 import com.idea3d.idea3d.domain.things.GetAllThingsUseCase
@@ -18,7 +18,6 @@ class GetAllThingsUseCaseTest {
 
     private lateinit var useCase: GetAllThingsUseCase
     private lateinit var repo: HomeRepository
-    private val things: Things? = null
 
     @get:Rule
     val mainCoroutineRule = MainCoroutineRule()

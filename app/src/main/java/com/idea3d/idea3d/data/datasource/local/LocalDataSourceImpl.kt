@@ -1,9 +1,8 @@
 package com.idea3d.idea3d.data.datasource.local
 
 import com.idea3d.idea3d.core.Resource
-import com.idea3d.idea3d.data.datasource.local.LocalDataSource
-import com.idea3d.idea3d.data.model.Task
-import com.idea3d.idea3d.data.model.ThingEntity
+import com.idea3d.idea3d.data.model.works.Task
+import com.idea3d.idea3d.data.model.home.ThingEntity
 import com.idea3d.idea3d.data.network.TasksDao
 import com.idea3d.idea3d.data.network.ThingsDao
 import javax.inject.Inject
@@ -21,7 +20,7 @@ class LocalDataSourceImpl @Inject constructor(
     }
 
     override suspend fun deleteThing(thingEntity: ThingEntity) {
-        thingsDao.deleteFavoriteThing(thingEntity)
+        thingsDao.deleteFavoriteThing(thingEntity.id)
     }
 
     override suspend fun insertTask(task: Task) {
@@ -36,24 +35,24 @@ class LocalDataSourceImpl @Inject constructor(
         tasksDao.deleteTask(task)
     }
 
-    override suspend fun getByDate(date: String): Resource<List<Task>> {
-        return Resource.Success(tasksDao.getByDate(date))
+    override suspend fun getByDate(date: String): List<Task> {
+        return tasksDao.getByDate(date)
     }
 
-    override suspend fun getUrgent(): Resource<List<Task>> {
-        return Resource.Success(tasksDao.getUrgent())
+    override suspend fun getUrgent(): List<Task> {
+        return tasksDao.getUrgent()
     }
 
-    override suspend fun getByStatus(id_status: Int): Resource<List<Task>> {
-        return Resource.Success(tasksDao.getByStatus(id_status))
+    override suspend fun getByStatus(id_status: Int): List<Task> {
+        return tasksDao.getByStatus(id_status)
     }
 
     override suspend fun updateTask(task: Task) {
         tasksDao.updateTask(task)
     }
 
-    override suspend fun getDateRange(today: String, dateInit: String): Resource<List<Task>> {
-        return Resource.Success(tasksDao.getInRange(today, dateInit))
+    override suspend fun getDateRange(today: String, dateInit: String): List<Task> {
+        return tasksDao.getInRange(today, dateInit)
     }
 
 }

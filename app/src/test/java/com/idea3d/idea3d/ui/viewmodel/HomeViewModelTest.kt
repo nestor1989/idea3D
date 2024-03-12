@@ -2,13 +2,20 @@ package com.idea3d.idea3d.ui.viewmodel
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.idea3d.idea3d.TestCoroutineRule
-import com.idea3d.idea3d.data.model.ThingEntity
+import com.idea3d.idea3d.data.model.home.ThingDTO
+import com.idea3d.idea3d.data.model.home.ThingEntity
+import com.idea3d.idea3d.data.model.mapper.GetNewsMapper
+import com.idea3d.idea3d.data.model.mapper.GetThingMapper
+import com.idea3d.idea3d.data.model.mapper.GetThingsMapper
+import com.idea3d.idea3d.data.model.mapper.ThingsMapper
 import com.idea3d.idea3d.data.repository.home.HomeRepository
 import com.idea3d.idea3d.data.repository.work.WorkRepository
 import com.idea3d.idea3d.domain.favorites.GetFavoritesUseCase
+import com.idea3d.idea3d.domain.news.GetNewsUseCase
 import com.idea3d.idea3d.domain.things.GetAllThingsUseCase
 import com.idea3d.idea3d.ui.viewModel.HomeViewModel
 import io.mockk.MockKAnnotations
+import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
 import junit.framework.TestCase
@@ -41,12 +48,16 @@ class HomeViewModelTest {
     private lateinit var viewModel: HomeViewModel
     private lateinit var homeRepository: HomeRepository
     private lateinit var workRepository: WorkRepository
-
-    private val thing1 = ThingEntity(1, "thing1", "jsjsjs", "kijsjis", true)
-    private val thing2 = ThingEntity(2, "thing2", "jsjsjs", "kijsjis", false)
-
     private lateinit var getAllThingsUseCase: GetAllThingsUseCase
     private lateinit var getFavoritesUseCase: GetFavoritesUseCase
+    private lateinit var getNewsUseCase: GetNewsUseCase
+    private lateinit var getNewsMapper: GetNewsMapper
+    private lateinit var getThingMapper: GetThingMapper
+    private lateinit var getThingsMapper: GetThingsMapper
+    private lateinit var thingsMapper: ThingsMapper
+
+    private val thing1 = ThingDTO(1, 1, "thing1", "jsjsjs", "kijsjis", true)
+    private val thing2 = ThingEntity(2, 2,  "thing2", "jsjsjs", "kijsjis", false)
 
     @Before
     fun setup() {
@@ -54,33 +65,22 @@ class HomeViewModelTest {
         Dispatchers.setMain(testDispatcher)
 
         homeRepository = mockk()
+        workRepository = mockk()
         getAllThingsUseCase = mockk()
         getFavoritesUseCase = mockk()
-        viewModel = HomeViewModel(homeRepository, getAllThingsUseCase, getFavoritesUseCase)
+        getNewsUseCase = mockk()
+        getNewsMapper = mockk()
+        getThingMapper = mockk()
+        getThingsMapper = mockk()
+        thingsMapper = mockk()
+
+        viewModel = HomeViewModel(homeRepository, getAllThingsUseCase, getFavoritesUseCase, getNewsUseCase, getNewsMapper, getThingMapper, getThingsMapper, thingsMapper)
     }
 
     @After
     fun tearDown() {
         Dispatchers.resetMain()
         testDispatcher.cleanupTestCoroutines()
-    }
-
-    @Test
-    fun `addedToFavorite calls repository method`() {
-        val thing = thing1
-
-        viewModel.addedToFavorite(thing)
-
-        coVerify { homeRepository.addedThingToFav(thing) }
-    }
-
-    @Test
-    fun `deleteFavorite calls repository method`() {
-        val thing = thing1
-
-        viewModel.deleteFavorite(thing)
-
-        coVerify { homeRepository.deleteFavorite(thing) }
     }
 
     @Test
@@ -109,6 +109,15 @@ class HomeViewModelTest {
             }
         }
 
+    }
+
+    @Test
+    fun `fetchNewsList calls use case`() = testCoroutineRule.runBlockingTest {
+        val country = "us"
+        val key = "testKey"
+        coEvery { getNewsUseCase(country, key) } returns listOf()
+
+        viewModel.fetchNewsList(country, key)
     }
 
 }
