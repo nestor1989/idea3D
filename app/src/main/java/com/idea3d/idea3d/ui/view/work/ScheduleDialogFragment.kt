@@ -13,7 +13,7 @@ import androidx.fragment.app.activityViewModels
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.idea3d.idea3d.R
 import com.idea3d.idea3d.core.Resource
-import com.idea3d.idea3d.data.model.works.Task
+import com.idea3d.idea3d.data.model.works.TaskDTO
 import com.idea3d.idea3d.databinding.FragmentScheduleDialogBinding
 import com.idea3d.idea3d.ui.viewModel.TasksViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -40,7 +40,7 @@ class ScheduleDialogFragment(private val onClick:OnDateClick) :
     private lateinit var c: Calendar
     private lateinit var df: SimpleDateFormat
     private lateinit var formattedDate: String
-    private var list: MutableList<Task> = mutableListOf()
+    private var list: MutableList<TaskDTO> = mutableListOf()
     private var entireMonth = true
     private var isToday = true
     var search = ""

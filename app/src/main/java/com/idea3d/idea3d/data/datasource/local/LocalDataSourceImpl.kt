@@ -35,24 +35,24 @@ class LocalDataSourceImpl @Inject constructor(
         tasksDao.deleteTask(task)
     }
 
-    override suspend fun getByDate(date: String): Resource<List<Task>> {
-        return Resource.Success(tasksDao.getByDate(date))
+    override suspend fun getByDate(date: String): List<Task> {
+        return tasksDao.getByDate(date)
     }
 
-    override suspend fun getUrgent(): Resource<List<Task>> {
-        return Resource.Success(tasksDao.getUrgent())
+    override suspend fun getUrgent(): List<Task> {
+        return tasksDao.getUrgent()
     }
 
-    override suspend fun getByStatus(id_status: Int): Resource<List<Task>> {
-        return Resource.Success(tasksDao.getByStatus(id_status))
+    override suspend fun getByStatus(id_status: Int): List<Task> {
+        return tasksDao.getByStatus(id_status)
     }
 
     override suspend fun updateTask(task: Task) {
         tasksDao.updateTask(task)
     }
 
-    override suspend fun getDateRange(today: String, dateInit: String): Resource<List<Task>> {
-        return Resource.Success(tasksDao.getInRange(today, dateInit))
+    override suspend fun getDateRange(today: String, dateInit: String): List<Task> {
+        return tasksDao.getInRange(today, dateInit)
     }
 
 }
