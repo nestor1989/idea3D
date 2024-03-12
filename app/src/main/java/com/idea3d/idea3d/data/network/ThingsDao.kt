@@ -11,6 +11,6 @@ interface ThingsDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addFavoriteThings(thing: ThingEntity)
 
-    @Delete
-    suspend fun deleteFavoriteThing(thing: ThingEntity)
+    @Query ("DELETE FROM ThingEntity WHERE id = :id")
+    suspend fun deleteFavoriteThing(id: Long)
 }
