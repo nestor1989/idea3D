@@ -3,8 +3,10 @@ package com.idea3d.idea3d.di
 import com.idea3d.idea3d.data.model.mapper.GetNewsMapper
 import com.idea3d.idea3d.data.model.mapper.GetThingMapper
 import com.idea3d.idea3d.data.model.mapper.GetThingsMapper
+import com.idea3d.idea3d.data.model.mapper.TaskMapper
 import com.idea3d.idea3d.data.model.mapper.ThingWithCatMapper
 import com.idea3d.idea3d.data.model.mapper.ThingsMapper
+import com.idea3d.idea3d.data.model.works.GetAllTaskMapper
 import com.idea3d.idea3d.data.repository.home.HomeRepository
 import com.idea3d.idea3d.data.repository.work.WorkRepository
 import com.idea3d.idea3d.domain.favorites.GetFavoritesUseCase
@@ -67,6 +69,16 @@ object UseCaseModule {
     @Provides
     fun provideThingMapper(getThingMapper: GetThingMapper):ThingsMapper {
         return ThingsMapper(getThingMapper)
+    }
+
+    @Provides
+    fun provideTaskMapper(): TaskMapper {
+        return TaskMapper()
+    }
+
+    @Provides
+    fun provideListTaskMapper(taskMapper: TaskMapper): GetAllTaskMapper {
+        return GetAllTaskMapper(taskMapper)
     }
 
 }

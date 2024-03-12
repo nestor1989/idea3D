@@ -9,12 +9,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import com.idea3d.idea3d.data.model.works.Task
+import com.idea3d.idea3d.data.model.works.TaskDTO
 import com.idea3d.idea3d.databinding.FragmentModalWorksBinding
 import com.idea3d.idea3d.utils.Functional
 
 class ModalWorksFragment(
-    private val task: Task,
+    private val task: TaskDTO,
     private val onModalWorksClick: OnModalWorksClick
     ): BottomSheetDialogFragment() {
 
@@ -22,8 +22,8 @@ class ModalWorksFragment(
     private val binding get() = _binding!!
 
     interface OnModalWorksClick{
-        fun onEdit(task: Task)
-        fun onDeleteModal(task: Task)
+        fun onEdit(task: TaskDTO)
+        fun onDeleteModal(task: TaskDTO)
     }
 
     override fun onCreateView(
@@ -44,7 +44,7 @@ class ModalWorksFragment(
         _binding = null
     }
 
-    fun newInstance(task: Task): ModalWorksFragment{
+    fun newInstance(task: TaskDTO): ModalWorksFragment{
         val frag = ModalWorksFragment(task, onModalWorksClick)
         val args = Bundle()
         frag.arguments = args

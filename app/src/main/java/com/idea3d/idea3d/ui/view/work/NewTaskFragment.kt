@@ -25,7 +25,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.textfield.TextInputLayout
 import com.idea3d.idea3d.R
-import com.idea3d.idea3d.data.model.works.Task
+import com.idea3d.idea3d.data.model.works.TaskDTO
 import com.idea3d.idea3d.databinding.FragmentNewTaskBinding
 import com.idea3d.idea3d.ui.view.main.MainActivity
 import com.idea3d.idea3d.ui.viewModel.TasksViewModel
@@ -138,7 +138,7 @@ class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterV
     @RequiresApi(Build.VERSION_CODES.O)
     private fun setUp(){
 
-        val oldTask = arguments?.getParcelable<Task>("task")
+        val oldTask = arguments?.getParcelable<TaskDTO>("task")
 
         var title = ""
         var update = false
@@ -241,7 +241,7 @@ class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterV
         if (nameTask.isNotEmpty() && descriptionTask.isNotEmpty() && client.isNotEmpty()) enabled = true
 
         if (enabled) {
-            val task = Task(
+            val task = TaskDTO(
 
                 name = nameTask,
                 description = descriptionTask,
@@ -262,7 +262,7 @@ class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterV
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
-    private fun updateTask(task: Task){
+    private fun updateTask(task: TaskDTO){
         task.name = binding.inputName.text.toString()
         task.description = binding.inputDescription.text.toString()
         task.prioritize = binding.cbPriority.isChecked
