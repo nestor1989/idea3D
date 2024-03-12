@@ -18,7 +18,6 @@ class GetAllThingsUseCaseTest {
 
     private lateinit var useCase: GetAllThingsUseCase
     private lateinit var repo: HomeRepository
-    private val things: Things? = null
 
     @get:Rule
     val mainCoroutineRule = MainCoroutineRule()
