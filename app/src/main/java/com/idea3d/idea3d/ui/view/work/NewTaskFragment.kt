@@ -63,6 +63,7 @@ class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterV
             val clipData = intent!!.clipData
             var concatUri = ""
 
+
             if (intent!=null){
                 if (clipData != null) {
 
