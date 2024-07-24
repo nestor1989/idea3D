@@ -12,18 +12,17 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.annotation.RequiresApi
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.idea3d.idea3d.R
 import com.idea3d.idea3d.core.Resource
-import com.idea3d.idea3d.data.model.Task
+import com.idea3d.idea3d.data.model.works.Task
+import com.idea3d.idea3d.data.model.works.TaskDTO
 import com.idea3d.idea3d.databinding.FragmentWorksBinding
-import com.idea3d.idea3d.ui.view.MainActivity
+import com.idea3d.idea3d.ui.view.main.MainActivity
 import com.idea3d.idea3d.ui.viewModel.TasksViewModel
-import com.idea3d.idea3d.utils.Functional
 import dagger.hilt.android.AndroidEntryPoint
-import ru.cleverpumpkin.calendar.CalendarDate
 import java.time.LocalDate
 import java.time.temporal.TemporalAdjusters.firstDayOfMonth
 import java.time.temporal.TemporalAdjusters.firstDayOfYear
@@ -35,9 +34,9 @@ class WorksFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterVie
     private var _binding: FragmentWorksBinding? = null
     private val binding get() = _binding!!
 
-    private val tasksViewModel by viewModels<TasksViewModel>()
+    private val tasksViewModel by activityViewModels<TasksViewModel>()
 
-    private lateinit var fav: List<Task>
+    private lateinit var fav: List<TaskDTO>
     private lateinit var scheduleDialogFragment: ScheduleDialogFragment
 
     private var clientsList = ArrayList<String>()
@@ -78,26 +77,26 @@ class WorksFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterVie
     private fun setUp(){
         (activity as MainActivity).setThemeHome()
 
-        binding.buttonAdd.setOnClickListener {
+        binding.btnQuick1.setOnClickListener {
             val bundle = Bundle()
             bundle.putStringArrayList("clients", clientsList)
             findNavController().navigate(R.id.action_worksFragment_to_newTaskFragment, bundle)
         }
 
-        binding.buttonCalendar.setOnClickListener {
+        binding.btnQuick3.setOnClickListener {
             scheduleDialogFragment = ScheduleDialogFragment(this)
             val dateInst = scheduleDialogFragment.newInstance(0)
             dateInst.show(activity?.supportFragmentManager!!,"Dialog Bottom")
         }
 
-        binding.buttonAll.setOnClickListener {
+        binding.btnQuick2.setOnClickListener {
             val bundle = Bundle()
             bundle.putStringArrayList("clients", clientsList)
             Log.d("BUNDLE_ALLLL", bundle.toString())
             findNavController().navigate(R.id.action_worksFragment_to_worksDetailsFragment, bundle)
         }
 
-        binding.buttonUrgent.setOnClickListener {
+        binding.btnQuick4.setOnClickListener {
             val bundle = Bundle()
             bundle.putBoolean("urgent", true)
             bundle.putStringArrayList("clients", clientsList)
@@ -173,7 +172,7 @@ class WorksFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterVie
         })
     }
 
-    private fun setProfits(result: Resource<List<Task>>){
+    private fun setProfits(result: Resource<List<TaskDTO>>){
         when(result){
             is Resource.Loading->{}
             is Resource.Success->{

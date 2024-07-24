@@ -3,16 +3,11 @@ package com.idea3d.idea3d.ui.view.modals
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import com.idea3d.idea3d.R
-import com.idea3d.idea3d.data.model.News
-import com.idea3d.idea3d.databinding.FragmentBottomSheetNewsListDialogBinding
 import com.idea3d.idea3d.databinding.FragmentDonateModalBinding
-import com.idea3d.idea3d.ui.view.home.BottomSheetNewsFragment
 import com.idea3d.idea3d.utils.Constants
 
 class DonateModalFragment : BottomSheetDialogFragment() {

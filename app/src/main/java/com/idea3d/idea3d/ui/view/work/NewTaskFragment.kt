@@ -21,13 +21,13 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.textfield.TextInputLayout
 import com.idea3d.idea3d.R
-import com.idea3d.idea3d.data.model.Task
+import com.idea3d.idea3d.data.model.works.TaskDTO
 import com.idea3d.idea3d.databinding.FragmentNewTaskBinding
-import com.idea3d.idea3d.ui.view.MainActivity
+import com.idea3d.idea3d.ui.view.main.MainActivity
 import com.idea3d.idea3d.ui.viewModel.TasksViewModel
 import com.idea3d.idea3d.utils.Functional
 import com.idea3d.idea3d.utils.Functional.Companion.ACCEPT_MIME_TYPES
@@ -44,7 +44,7 @@ class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterV
     private var idStatus = 1
     private lateinit var stringStatus: String
 
-    private val tasksViewModel by viewModels<TasksViewModel>()
+    private val tasksViewModel by activityViewModels<TasksViewModel>()
 
     private lateinit var scheduleDialogFragment: ScheduleDialogFragment
     private var enabled = true
@@ -62,6 +62,7 @@ class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterV
             val intent: Intent? = result.data
             val clipData = intent!!.clipData
             var concatUri = ""
+
 
             if (intent!=null){
                 if (clipData != null) {
@@ -138,7 +139,7 @@ class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterV
     @RequiresApi(Build.VERSION_CODES.O)
     private fun setUp(){
 
-        val oldTask = arguments?.getParcelable<Task>("task")
+        val oldTask = arguments?.getParcelable<TaskDTO>("task")
 
         var title = ""
         var update = false
@@ -241,7 +242,7 @@ class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterV
         if (nameTask.isNotEmpty() && descriptionTask.isNotEmpty() && client.isNotEmpty()) enabled = true
 
         if (enabled) {
-            val task = Task(
+            val task = TaskDTO(
 
                 name = nameTask,
                 description = descriptionTask,
@@ -262,7 +263,7 @@ class NewTaskFragment : Fragment(), ScheduleDialogFragment.OnDateClick, AdapterV
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
-    private fun updateTask(task: Task){
+    private fun updateTask(task: TaskDTO){
         task.name = binding.inputName.text.toString()
         task.description = binding.inputDescription.text.toString()
         task.prioritize = binding.cbPriority.isChecked

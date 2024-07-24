@@ -2,10 +2,13 @@ package com.idea3d.idea3d.ui.viewmodel
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.idea3d.idea3d.TestCoroutineRule
-import com.idea3d.idea3d.data.repo.Repo
+import com.idea3d.idea3d.data.model.mapper.ThingsMapper
+import com.idea3d.idea3d.data.repository.home.HomeRepository
 import com.idea3d.idea3d.ui.viewModel.MainViewModel
 import io.mockk.MockKAnnotations
+import io.mockk.coEvery
 import io.mockk.impl.annotations.RelaxedMockK
+import io.mockk.mockk
 import junit.framework.TestCase.assertEquals
 import junit.framework.TestCase.assertNotNull
 import kotlinx.coroutines.Dispatchers
@@ -24,8 +27,9 @@ import org.junit.rules.TestRule
 @ExperimentalCoroutinesApi
 class MainViewModelTest {
     @RelaxedMockK
-    private lateinit var repo: Repo
+    private lateinit var repo: HomeRepository
     private lateinit var mainViewModel: MainViewModel
+    private lateinit var thingsMapper: ThingsMapper
 
     @get:Rule
     var rule: InstantTaskExecutorRule = InstantTaskExecutorRule()
@@ -38,7 +42,9 @@ class MainViewModelTest {
     @Before
     fun onBefore() {
         MockKAnnotations.init(this)
-        mainViewModel = MainViewModel(repo)
+        repo = mockk()
+        thingsMapper = mockk()
+        mainViewModel = MainViewModel(repo, thingsMapper)
         Dispatchers.setMain(Dispatchers.Unconfined)
     }
     @After
@@ -78,4 +84,6 @@ class MainViewModelTest {
         }
 
     }
+
+
 }

@@ -1,7 +1,6 @@
 package com.idea3d.idea3d.ui.view.adapter
 
 import android.annotation.SuppressLint
-import android.app.Application
 import android.content.Context
 import android.graphics.BitmapFactory
 import android.os.Build
@@ -12,27 +11,25 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.Toast
 import androidx.annotation.RequiresApi
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.RecyclerView
 import com.idea3d.idea3d.R
 import com.idea3d.idea3d.core.BaseViewHolder
-import com.idea3d.idea3d.data.model.Task
+import com.idea3d.idea3d.data.model.works.TaskDTO
 import com.idea3d.idea3d.databinding.RowTasksBinding
 import com.idea3d.idea3d.ui.view.work.WorksDetailsFragment.Companion.STATUS
 import com.idea3d.idea3d.utils.OnSwipeTouchListener
 
 class TaskAdapter (
-    private val taskList:List<Task>,
+    private val taskList:List<TaskDTO>,
     private val onClickArrow:OnClickArrow,
     private val context: Context):
     RecyclerView.Adapter<BaseViewHolder<*>>(){
 
     interface OnClickArrow{
-        fun onClickArrow(task: Task)
-        fun onDelete(task:Task)
-        fun onUpdate(task: Task, idStatus:Int, stringStatus: String)
+        fun onClickArrow(task: TaskDTO)
+        fun onDelete(task: TaskDTO)
+        fun onUpdate(task: TaskDTO, idStatus:Int, stringStatus: String)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<*> {
@@ -53,11 +50,11 @@ class TaskAdapter (
     }
 
     inner class MainViewHolder(private val itemBinding: RowTasksBinding):
-        BaseViewHolder<Task>(itemBinding.root), AdapterView.OnItemClickListener {
+        BaseViewHolder<TaskDTO>(itemBinding.root), AdapterView.OnItemClickListener {
 
         @SuppressLint("ClickableViewAccessibility")
         @RequiresApi(Build.VERSION_CODES.O)
-        override fun bind(item: Task) {
+        override fun bind(item: TaskDTO) {
             itemBinding.tvTitle.text = item.name
             itemBinding.tvClient.text=item.client
             itemBinding.listStatus.setText(item.status)

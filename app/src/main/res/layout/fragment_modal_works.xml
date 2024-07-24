@@ -171,7 +171,7 @@
                 android:layout_marginTop ="25dp"
                 android:fontFamily="@font/at_surt_light"
                 android:textSize="20sp"
-                android:text="" />
+                android:text="@string/delete" />
         </LinearLayout>
 
     </FrameLayout>

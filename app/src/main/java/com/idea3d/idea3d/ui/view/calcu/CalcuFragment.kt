@@ -18,10 +18,10 @@ import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.idea3d.idea3d.R
-import com.idea3d.idea3d.data.model.PredefinedCost
+import com.idea3d.idea3d.data.model.calcu.PredefinedCost
 import com.idea3d.idea3d.databinding.FragmentCalcuBinding
-import com.idea3d.idea3d.ui.view.MainActivity
-import com.idea3d.idea3d.ui.view.dataStore
+import com.idea3d.idea3d.ui.view.main.MainActivity
+import com.idea3d.idea3d.ui.view.main.dataStore
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.map

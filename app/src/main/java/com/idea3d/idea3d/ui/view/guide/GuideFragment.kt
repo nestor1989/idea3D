@@ -8,9 +8,9 @@ import android.view.ViewGroup
 import android.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.idea3d.idea3d.R
-import com.idea3d.idea3d.data.model.Problems
+import com.idea3d.idea3d.data.model.guide.Problems
 import com.idea3d.idea3d.databinding.FragmentGuideBinding
-import com.idea3d.idea3d.ui.view.MainActivity
+import com.idea3d.idea3d.ui.view.main.MainActivity
 import com.idea3d.idea3d.ui.view.adapter.ProblemsAdapter
 import dagger.hilt.android.AndroidEntryPoint
 

@@ -3,34 +3,43 @@ package com.idea3d.idea3d.ui.viewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 import com.idea3d.idea3d.core.Resource
-import com.idea3d.idea3d.data.model.Task
-import com.idea3d.idea3d.data.repo.Repo
+import com.idea3d.idea3d.data.model.mapper.TaskMapper
+import com.idea3d.idea3d.data.model.works.GetAllTaskMapper
+import com.idea3d.idea3d.data.model.works.Task
+import com.idea3d.idea3d.data.model.works.TaskDTO
+import com.idea3d.idea3d.data.repository.work.WorkRepository
+import com.idea3d.idea3d.domain.works.GetAllWoksUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import java.util.*
 import javax.inject.Inject
 
 @HiltViewModel
-class TasksViewModel @Inject constructor(private val repo: Repo): ViewModel(){
+class TasksViewModel @Inject constructor(
+    private val workRepository: WorkRepository,
+    private val getAllWoksUseCase: GetAllWoksUseCase,
+    private val taskMapper: TaskMapper,
+    private val getAllTaskMapper: GetAllTaskMapper
+    ): ViewModel(){
 
-    fun addTask (task: Task) {
+    fun addTask (task: TaskDTO) {
         CoroutineScope(Dispatchers.Main).launch {
-            repo.addTask(task)
+            workRepository.addTask(taskMapper.mapToDomain(task))
         }
     }
 
-    fun deleteTask (task: Task) {
+    fun deleteTask (task: TaskDTO) {
         CoroutineScope(Dispatchers.Main).launch {
-            repo.deleteTask(task)
+            workRepository.deleteTask(taskMapper.mapToDomain(task))
         }
     }
 
     fun getAllTask() = liveData(Dispatchers.IO) {
         emit(Resource.Loading())
         try {
-            emit(repo.getAllTasks())
+            val result = getAllWoksUseCase()
+            emit(Resource.Success(getAllTaskMapper.mapToUI(result)))
         } catch (e: Exception) {
             emit(Resource.Failure(e))
         }
@@ -39,7 +48,8 @@ class TasksViewModel @Inject constructor(private val repo: Repo): ViewModel(){
     fun getByDate(date:String) = liveData(Dispatchers.IO) {
         emit(Resource.Loading())
         try {
-            emit(repo.getByDate(date))
+            val result = getAllTaskMapper.mapToUI(workRepository.getByDate(date))
+            emit(Resource.Success(result))
         } catch (e: Exception) {
             emit(Resource.Failure(e))
         }
@@ -48,7 +58,8 @@ class TasksViewModel @Inject constructor(private val repo: Repo): ViewModel(){
     fun getUrgent() = liveData(Dispatchers.IO) {
         emit(Resource.Loading())
         try {
-            emit(repo.getUrgent())
+            val result = getAllTaskMapper.mapToUI(workRepository.getUrgent())
+            emit(Resource.Success(result))
         } catch (e: Exception) {
             emit(Resource.Failure(e))
         }
@@ -57,21 +68,23 @@ class TasksViewModel @Inject constructor(private val repo: Repo): ViewModel(){
     fun getByStatus(id_status: Int) = liveData(Dispatchers.IO) {
         emit(Resource.Loading())
         try {
-            emit(repo.getByStatus(id_status))
+            val result = getAllTaskMapper.mapToUI(workRepository.getByStatus(id_status))
+            emit(Resource.Success(result))
         } catch (e: Exception) {
             emit(Resource.Failure(e))
         }
     }
 
-    fun updateTask(task: Task) {
+    fun updateTask(task: TaskDTO) {
         CoroutineScope(Dispatchers.Main).launch {
-            repo.updateTask(task)
+            workRepository.updateTask(taskMapper.mapToDomain(task))
         }
     }
 
     fun getDateRange(today: String, dateInit:String) = liveData(Dispatchers.IO){
         try {
-            emit(repo.getDateRange(today, dateInit))
+            val result = workRepository.getDateRange(today, dateInit)
+            emit(Resource.Success(getAllTaskMapper.mapToUI(result)))
         } catch (e: Exception) {
             emit(Resource.Failure(e))
         }
