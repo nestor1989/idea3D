@@ -11,8 +11,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
-import com.idea3d.idea3d.core.Resource
-import com.idea3d.idea3d.data.repo.Repo
+import com.idea3d.idea3d.data.repository.home.HomeRepository
 import com.idea3d.idea3d.ui.view.login.LoginActivity
 import com.idea3d.idea3d.utils.Constants
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -21,7 +20,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class LoginViewModel@Inject constructor(
-    private val repo: Repo,
+    private val homeRepository: HomeRepository,
     @ApplicationContext private val context: Context
 ): ViewModel() {
 
